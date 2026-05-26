@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-27 AI 日报</title>
+  <style>
+    :root { --fg: #1a1a1a; --muted: #555; --border: #ddd; --bg: #fafafa; --accent: #0b57d0; }
+    body { font-family: system-ui, "PingFang TC", "Noto Sans TC", sans-serif; line-height: 1.6; color: var(--fg); max-width: 920px; margin: 0 auto; padding: 1.5rem; }
+    h1 { font-size: 1.75rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; color: var(--accent); }
+    h3 { font-size: 1.05rem; }
+    section { margin-bottom: 2rem; }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    th { background: var(--bg); }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    a { color: var(--accent); }
+    .tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: #eee; margin-right: 0.25rem; }
+    .warn { background: #fff8e6; border-left: 4px solid #f0ad4e; padding: 0.75rem 1rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <h1>2026-05-27 AI 日报</h1>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-05-27 07:30（澳门时间 UTC+8）｜采集窗口：2026-05-25 22:00 ~ 2026-05-27 22:00</p>
+    <p>报告日期由 <code>scripts/report_date.py</code>（Asia/Macau）确定。Cron 在 UTC 5/26 23:00 触发时，澳门已是 <strong>5/27 07:00</strong>，故本报告为 27 号而非 UTC 日历 26 号。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5–10 条</h2>
+    <ol>
+      <li><strong>Andrej Karpathy 加入 Anthropic pre-training 团队</strong>（2026-05-19）— OpenAI 联创回归前沿 LLM 研发，将用 Claude 加速 pre-training 研究。<a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TechCrunch</a></li>
+      <li><strong>Anthropic 约 300 亿美元融资、估值约 9000 亿美元</strong>（媒体 5/22 起）— 报道称 5 月底前交割；<span class="tag">待官方确认</span>。<a href="https://businesstech.news/anthropic-30-billion-funding-round-900-billion-valuation-openai-ipo/">来源</a></li>
+      <li><strong>OpenAI 保密递交 S-1</strong>（报道称 2026-05-22）— 目标 Q4 上市；<span class="tag">SEC 公开文件待出现</span>。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">来源</a></li>
+      <li><strong>OpenAI 模型自主推翻 Erdős 平面单位距离猜想</strong>（2026-05-20 官方）。<a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">OpenAI</a></li>
+      <li><strong>Anthropic Project Glasswing 首月更新</strong>（2026-05-22）— 逾 1 万例高/严重漏洞；Mythos 未公开发布。<a href="https://www.anthropic.com/research/glasswing-initial-update">官方</a></li>
+      <li><strong>Google I/O 2026：Gemini Spark 与 Gemini for Science</strong>（2026-05-20）。<a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">Google</a></li>
+      <li><strong>教宗 Leo XIV AI 通谕 Magnifica Humanitas</strong>（2026-05-25）。<a href="https://fortune.com/2026/05/25/pope-leo-xiv-ai-domination-death-anthropic-olah-encyclical/">Fortune</a></li>
+      <li><strong>美股 5/26 AI 板块：纳指创新高，NVDA 微跌</strong>— NVDA 收 $214.86（-0.2%）；Micron +19.3%。<a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>人才与组织</h3>
+    <ul>
+      <li><strong>Karpathy → Anthropic</strong>：5/19 在 X 宣布入职；Anthropic 确认其在 Nick Joseph 领导下负责 pre-training，并组建 Claude 加速 pre-training 研究的新团队。<a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TechCrunch</a></li>
+    </ul>
+    <h3>融资与 IPO</h3>
+    <ul>
+      <li><strong>Anthropic</strong>：媒体称 Series H 约 $30B、投前 ~$900B，年化收入 run-rate 报道约 $43–45B；与 OpenAI $852B mark 形成「谁先万亿 IPO」竞赛。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">FinanceFeeds</a></li>
+      <li><strong>OpenAI</strong>：保密 S-1  reportedly 5/22；CFO 曾称「尚未准备好上市」与递交时间线并存，需跟踪 SEC。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">同上</a></li>
+      <li><strong>SpaceX</strong>：5/20 公开 S-1（含 xAI），见股市日报。</li>
+    </ul>
+    <h3>模型、安全与研究</h3>
+    <ul>
+      <li>OpenAI 5/20 数学突破；Anthropic 5/22 Glasswing + <a href="https://red.anthropic.com/2026/exploit-evals/">Exploit Evals</a>。</li>
+      <li>Google I/O Agent 与 Science 套件进入测试/逐步开放。</li>
+    </ul>
+    <h3>监管与资本情绪</h3>
+    <ul>
+      <li>梵蒂冈 5/25 AI 通谕；5/26 美股 AI 链仍强但 NVDA 跑输（见 TS2）。</li>
+    </ul>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <table>
+      <thead><tr><th>公司</th><th>动态</th><th>状态</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr><td>Anthropic</td><td>Karpathy 入职；$900B 融资报道；Glasswing</td><td>活跃</td><td><a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TC</a></td></tr>
+        <tr><td>OpenAI</td><td>数学突破；保密 S-1 报道</td><td>IPO 待 SEC 公开</td><td><a href="https://openai.com/news/">news</a></td></tr>
+        <tr><td>Google</td><td>I/O Agent / Science</td><td>活跃</td><td><a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">I/O</a></td></tr>
+        <tr><td>NVIDIA</td><td>5/26 收 $214.86；中国 Q1 收入约 $45.5 亿（同比降）</td><td>财报余波</td><td><a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a></td></tr>
+        <tr><td>Micron</td><td>5/26 +19.3%，市值 &gt;$1T</td><td>存储/HBM 主线</td><td>Trading Economics</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>Anthropic $900B 融资与 OpenAI S-1 细节均依赖媒体报道，官方文件未公开。</li>
+      <li>Karpathy 入职对模型时间表的影响尚不可量化。</li>
+      <li>Glasswing / Mythos 双用途安全风险持续。</li>
+      <li>NVDA 中国收入与 H200 审批仍为地缘变量。</li>
+    </ul>
+    <div class="warn">本报告不构成投资建议。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>SEC EDGAR：OpenAI 是否出现公开注册或 SpaceX S-1 修订。</li>
+      <li>Anthropic Series H 是否宣布交割。</li>
+      <li>5/27 港股半导体与 AI 概念股走势（华为 τ 定律余温）。</li>
+      <li>Gemini Spark 美国 Beta 反馈。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：TechCrunch、OpenAI/Anthropic/Google 官方、FinanceFeeds、Fortune、TS2。</p>
+    <p><strong>缺口</strong>：SEC OpenAI 公开件；Anthropic 官方融资稿；Bloomberg 付费全文。</p>
+    <p>工作文件：<code>tmp/AI/20260527/</code></p>
+  </section>
+</body>
+</html>
