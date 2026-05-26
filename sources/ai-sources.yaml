@@ -1,0 +1,82 @@
+official_ai_companies:
+  us:
+    - OpenAI:
+        site: "https://openai.com/news/"
+        x: "@OpenAI"
+        facebook: "@OpenAI"
+        verification: "https://help.openai.com/en/articles/11725090-verifying-communications-from-openai"
+    - Anthropic:
+        site: "https://www.anthropic.com/news"
+        x: "@AnthropicAI"
+    - Google DeepMind:
+        site: "https://deepmind.google/discover/blog/"
+    - Meta AI:
+        site: "https://ai.meta.com/blog/"
+    - Microsoft AI:
+        site: "https://blogs.microsoft.com/ai/"
+    - NVIDIA AI:
+        site: "https://www.nvidia.com/en-us/about-nvidia/rss/"
+        rss: "https://nvidianews.nvidia.com/rss"
+    - Amazon AI/AWS:
+        site: "https://aws.amazon.com/blogs/machine-learning/"
+    - xAI:
+        site: "https://x.ai/news"
+    - Perplexity:
+        site: "https://www.perplexity.ai/hub"
+    - Cohere:
+        site: "https://cohere.com/blog"
+  china:
+    - DeepSeek:
+        site: "https://www.deepseek.com/"
+        x: "@deepseek_ai"
+        note: "存在假账号风险，每次引用社媒内容前必须验证官方账号。"
+    - 智谱AI:
+        site: "https://www.zhipuai.cn/"
+    - 月之暗面/Kimi:
+        site: "https://www.moonshot.cn/"
+    - MiniMax:
+        site: "https://www.minimaxi.com/"
+    - 百度文心:
+        site: "https://cloud.baidu.com/wenxin.html"
+    - 阿里通义:
+        site: "https://tongyi.aliyun.com/"
+    - 腾讯混元:
+        site: "https://hunyuan.tencent.com/"
+    - 字节豆包/火山引擎:
+        site: "https://www.volcengine.com/"
+
+media_ai:
+  global:
+    - Reuters AI
+    - Bloomberg Technology AI
+    - Financial Times AI
+    - The Information AI
+    - The Verge AI
+    - TechCrunch AI
+    - MIT Technology Review AI
+    - VentureBeat AI
+    - Ars Technica AI
+  china:
+    - 机器之心
+    - 量子位
+    - 36氪 AI
+    - 晚点 LatePost
+    - 财新 科技/AI
+
+forums_and_research:
+  - Hacker News
+  - Reddit r/MachineLearning
+  - Reddit r/LocalLLaMA
+  - Hugging Face papers/blog
+  - arXiv cs.AI/cs.CL/cs.LG
+
+priority_topics:
+  - model_release
+  - product_release
+  - funding
+  - merger_acquisition
+  - regulation
+  - safety_security
+  - compute_infrastructure
+  - open_source
+  - major_hiring_or_departure
