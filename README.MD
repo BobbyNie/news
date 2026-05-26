@@ -42,6 +42,27 @@ archive/
 - AI 日报：每天 `08:00 Asia/Macau`，使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
 - 股市日报：每天 `08:30 Asia/Macau`，使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
 
+## GitHub Pages 发布
+
+每次提交到 `main` 后，[.github/workflows/pages.yml](.github/workflows/pages.yml) 会自动：
+
+1. 运行 `python -m unittest tests/test_build_pages_index.py`。
+2. 扫描 `YYYY-MM/AI/*.html` 和 `YYYY-MM/STOCK/*.html`。
+3. 生成最新报告在最上面的 `index.html`。
+4. 将 `index.html` 和所有日报 HTML 发布到 GitHub Pages。
+
+本地预览索引可运行：
+
+```bash
+python3 scripts/build_pages_index.py
+```
+
+生成 Pages 发布目录可运行：
+
+```bash
+python3 scripts/build_pages_index.py --site-dir public
+```
+
 ## 来源策略
 
 采用“公开优先”策略：
