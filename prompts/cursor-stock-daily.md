@@ -4,6 +4,7 @@
 
 严格按以下步骤执行：
 
+0. **必须先运行** `eval "$(python3 scripts/report_date.py)"`，用输出的 `REPORT_DATE` / `REPORT_ISO` / `REPORT_MONTH` / `REPORT_WINDOW` 作为唯一日期依据。**禁止使用 UTC 或系统默认时区日期**（UTC 23:00 时澳门已是次日）。
 1. 读取 `sources/stock-sources.yaml` 和 `sources/source-review-rules.md`。
 2. 先重检清单：搜索过去 24-48 小时是否有新的美股/港股重点公司、AI 独角兽、IPO、SEC/HKEX 披露、官方 IR 来源或主流市场媒体需要加入跟踪。把结果写入 `tmp/STOCK/YYYYMMDD/00-source-review.md`。
 3. 按清单检索 SEC EDGAR、HKEXnews、公司 IR、新闻稿、主流财经媒体和可信市场新闻。把原始发现写入 `tmp/STOCK/YYYYMMDD/01-raw-findings.md`。
@@ -11,7 +12,9 @@
 5. 生成中文草稿到 `tmp/STOCK/YYYYMMDD/03-draft-cn.md`。
 6. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、AI 独角兽/IPO、财报与指引、监管与风险、明日继续跟踪、来源覆盖与缺口。
 7. 每条重要判断必须附来源链接，价格、涨跌、市值等实时数据必须注明时间和来源。不要给买卖建议。
-8. 完成后检查 `git diff` 和 `git status`，提交当日变更。commit message: `daily stock news report YYYY-MM-DD`。
+8. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
+9. **必须** `git add`、`git commit`、`git push origin main`。commit message: `daily stock news report ${REPORT_ISO}`。
+10. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
 
 ## 输出要求
 

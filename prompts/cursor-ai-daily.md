@@ -4,6 +4,7 @@
 
 严格按以下步骤执行：
 
+0. **必须先运行** `eval "$(python3 scripts/report_date.py)"`，用输出的 `REPORT_DATE` / `REPORT_ISO` / `REPORT_MONTH` / `REPORT_WINDOW` 作为唯一日期依据。**禁止使用 UTC 或系统默认时区日期**（UTC 23:00 时澳门已是次日）。
 1. 读取 `sources/ai-sources.yaml` 和 `sources/source-review-rules.md`。
 2. 先重检清单：搜索过去 24-48 小时是否有新的重点 AI 公司、官方来源、X/Facebook 官方账号、主流媒体专题或论坛来源需要加入跟踪。把结果写入 `tmp/AI/YYYYMMDD/00-source-review.md`。
 3. 按清单检索官方博客、RSS、新闻稿、主流媒体、X/Facebook、论坛、研究社区。公开官方来源优先，X/Facebook 仅作为补充，必须验证官方账号。把原始发现写入 `tmp/AI/YYYYMMDD/01-raw-findings.md`。
@@ -11,7 +12,9 @@
 5. 生成中文草稿到 `tmp/AI/YYYYMMDD/03-draft-cn.md`。
 6. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、公司跟踪表、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
 7. 每条重要判断必须附来源链接。不要编造无法验证的信息。
-8. 完成后检查 `git diff` 和 `git status`，提交当日变更。commit message: `daily AI news report YYYY-MM-DD`。
+8. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
+9. **必须** `git add`、`git commit`、`git push origin main`（分别提交 AI/股市时可分两次 commit）。commit message: `daily AI news report ${REPORT_ISO}`。
+10. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
 
 ## 输出要求
 

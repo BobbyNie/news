@@ -1,5 +1,7 @@
 # AI 和股市 News
 
+**在线阅读（GitHub Pages）：** https://bobbynie.github.io/news/
+
 这是一个由 Cursor Automation 驱动的每日新闻汇报仓库。项目不依赖采集脚本，核心流程由两条自动化任务完成：
 
 - AI 日报：跟踪全球 AI 公司、官方发布、主流媒体、论坛和研究社区。
@@ -33,14 +35,30 @@ archive/
 4. 将原始发现写入 `tmp/<AI|STOCK>/YYYYMMDD/01-raw-findings.md`。
 5. 去重、排序并生成中文 HTML 日报。
 6. 输出到 `YYYY-MM/AI/YYYYMMDD.html` 或 `YYYY-MM/STOCK/YYYYMMDD.html`。
-7. 检查变更并提交 git。
+7. 运行 `python3 scripts/build_pages_index.py` 更新索引。
+8. `git commit` 并 **`git push origin main`**（Pages 仅在有 push 时发布）。
+
+## 报告日期（澳门时区）
+
+生成前先运行：
+
+```bash
+eval "$(python3 scripts/report_date.py)"
+echo "$REPORT_DATE $REPORT_ISO"
+```
+
+所有 `tmp/`、`YYYY-MM/` 路径与 HTML 标题必须使用上述变量。**Cron 若在 UTC 23:00 触发，澳门已是次日 07:00，仍应写次日日期。**
+
+推荐 Cron：`0 8 * * *`，时区 `Asia/Macau`（或 UTC `0 0 * * *` = 澳门 08:00）。
 
 ## 自动化任务
 
 建议在 Cursor Automation 中创建两条任务：
 
-- AI 日报：每天 `08:00 Asia/Macau`，使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
+- AI 日报：每天 `08:00 Asia/Macau`（**不要**用 UTC 23:00 除非已按上面规则取澳门日期），使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
 - 股市日报：每天 `08:30 Asia/Macau`，使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+
+两条任务完成后都必须 **push 到 `main`**，否则 GitHub 上看不到新提交，Pages 也不会更新。
 
 ## GitHub Pages 发布
 
