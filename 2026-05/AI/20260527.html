@@ -27,57 +27,79 @@
 
   <section id="window">
     <h2>更新时间与数据窗口</h2>
-    <p class="meta">生成时间：2026-05-27 07:30（澳门时间 UTC+8）｜采集窗口：2026-05-25 22:00 ~ 2026-05-27 22:00</p>
-    <p>报告日期由 <code>scripts/report_date.py</code>（Asia/Macau）确定。Cron 在 UTC 5/26 23:00 触发时，澳门已是 <strong>5/27 07:00</strong>，故本报告为 27 号而非 UTC 日历 26 号。</p>
+    <p class="meta">生成时间：2026-05-27 23:05（澳门时间 UTC+8）｜采集窗口：2026-05-25 22:00 ~ 2026-05-27 22:00</p>
+    <p>本报告基于 <code>sources/ai-sources.yaml</code> 与公开可验证来源；X/Facebook 仅作补充且需交叉验证。</p>
   </section>
 
   <section id="top">
     <h2>今日最重要的 5–10 条</h2>
     <ol>
-      <li><strong>Andrej Karpathy 加入 Anthropic pre-training 团队</strong>（2026-05-19）— OpenAI 联创回归前沿 LLM 研发，将用 Claude 加速 pre-training 研究。<a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TechCrunch</a></li>
-      <li><strong>Anthropic 约 300 亿美元融资、估值约 9000 亿美元</strong>（媒体 5/22 起）— 报道称 5 月底前交割；<span class="tag">待官方确认</span>。<a href="https://businesstech.news/anthropic-30-billion-funding-round-900-billion-valuation-openai-ipo/">来源</a></li>
-      <li><strong>OpenAI 保密递交 S-1</strong>（报道称 2026-05-22）— 目标 Q4 上市；<span class="tag">SEC 公开文件待出现</span>。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">来源</a></li>
-      <li><strong>OpenAI 模型自主推翻 Erdős 平面单位距离猜想</strong>（2026-05-20 官方）。<a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">OpenAI</a></li>
-      <li><strong>Anthropic Project Glasswing 首月更新</strong>（2026-05-22）— 逾 1 万例高/严重漏洞；Mythos 未公开发布。<a href="https://www.anthropic.com/research/glasswing-initial-update">官方</a></li>
-      <li><strong>Google I/O 2026：Gemini Spark 与 Gemini for Science</strong>（2026-05-20）。<a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">Google</a></li>
-      <li><strong>教宗 Leo XIV AI 通谕 Magnifica Humanitas</strong>（2026-05-25）。<a href="https://fortune.com/2026/05/25/pope-leo-xiv-ai-domination-death-anthropic-olah-encyclical/">Fortune</a></li>
-      <li><strong>美股 5/26 AI 板块：纳指创新高，NVDA 微跌</strong>— NVDA 收 $214.86（-0.2%）；Micron +19.3%。<a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a></li>
+      <li><strong>OpenAI 官方：Codex 驱动的自改进税务 Agent（Tax AI）</strong>（2026-05-27）— 与 Thrive/Crete 试点约 7,000 份报税单；生产 trace + eval 闭环。<a href="https://openai.com/index/building-self-improving-tax-agents-with-codex/">来源</a></li>
+      <li><strong>AI 独角兽 IPO 竞赛白热化</strong>— OpenAI 筹备保密招股书（CNBC 5/20）；媒体 5/27 称 Anthropic ARR 已超 OpenAI。<span class="tag">收入数据待官方确认</span> <a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html">CNBC</a> · <a href="https://www.tipranks.com/news/anthropics-revenue-surpasses-openai-as-companies-race-towards-ipos">TipRanks</a></li>
+      <li><strong>内存/HBM 万亿市值潮</strong>— Micron（5/26）、SK Hynix（5/27）市值破 1 万亿美元，AI capex 叙事向存储器扩散。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>Andrej Karpathy 加入 Anthropic 预训练团队</strong>（2026-05-19 官宣，本周持续发酵）— 将用 Claude 加速预训练研究。<a href="https://www.cnbc.com/2026/05/19/anthropic-hires-openai-cofounder-andrej-karpathy-former-tesla-ai-lead.html">CNBC</a></li>
+      <li><strong>华为发布 Tau (τ) Scaling Law 与 LogicFolding</strong>（2026-05-25 官方）— 2026 秋 Kirin 首发；2031 目标等价 1.4nm 密度。<a href="https://www.huawei.com/en/news/2026/5/ieee-iscas-tau-scaling">华为</a></li>
+      <li><strong>OpenAI 数学突破余波</strong>（5/20）— 内部模型推翻 Erdős 单位距离猜想，外部数学家 companion paper 验证。<a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">OpenAI</a></li>
+      <li><strong>Anthropic Project Glasswing 更新</strong>（5/22）— Mythos Preview 漏洞发现规模扩大；模型未公开。<a href="https://www.anthropic.com/research/glasswing-initial-update">官方</a></li>
+      <li><strong>Warp × GPT-5.5</strong>（5/27 客户故事）— 官方称 agentic 编码 token 效率提升约 30%。<a href="https://openai.com/index/warp/">OpenAI</a></li>
+      <li><strong>教宗 AI 通谕 Magnifica Humanitas</strong>（5/25）— Anthropic 联合创始人 Chris Olah 相关表态见官方新闻室。<a href="https://www.anthropic.com/news">Anthropic</a></li>
+      <li><strong>Qualcomm–ByteDance 数据中心 ASIC 协议</strong>（Bloomberg 5/26 报道）— <span class="tag">待双方官方确认</span>。<a href="https://www.channelnewsasia.com/business/qualcomm-strikes-ai-chip-deal-tiktok-owner-bytedance-bloomberg-news-reports-6142866">CNA</a></li>
     </ol>
   </section>
 
   <section id="details">
     <h2>分主题详情</h2>
-    <h3>人才与组织</h3>
+
+    <h3>Agent 与企业落地</h3>
     <ul>
-      <li><strong>Karpathy → Anthropic</strong>：5/19 在 X 宣布入职；Anthropic 确认其在 Nick Joseph 领导下负责 pre-training，并组建 Claude 加速 pre-training 研究的新团队。<a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TechCrunch</a></li>
+      <li><strong>Tax AI</strong>：OpenAI 5/27 长文描述与 Crete 会计网络合作；称 75% 字段完成度比例六周内从约 25% 升至 86%，并处理更复杂 K-1/Schedule E 等场景。<a href="https://openai.com/index/building-self-improving-tax-agents-with-codex/">官方</a></li>
+      <li><strong>Deployment Company</strong>（5/11 延续）：收购 Tomoro、40 亿美元初始投入，与 Tax AI 的 Forward Deployed 模式一致。</li>
+      <li><strong>Warp</strong>：GPT-5.5 用于开源贡献与 Oz 平台 agent 编排；属客户案例，非独立基准测试。</li>
     </ul>
-    <h3>融资与 IPO</h3>
+
+    <h3>IPO、融资与竞争格局</h3>
     <ul>
-      <li><strong>Anthropic</strong>：媒体称 Series H 约 $30B、投前 ~$900B，年化收入 run-rate 报道约 $43–45B；与 OpenAI $852B mark 形成「谁先万亿 IPO」竞赛。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">FinanceFeeds</a></li>
-      <li><strong>OpenAI</strong>：保密 S-1  reportedly 5/22；CFO 曾称「尚未准备好上市」与递交时间线并存，需跟踪 SEC。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">同上</a></li>
-      <li><strong>SpaceX</strong>：5/20 公开 S-1（含 xAI），见股市日报。</li>
+      <li><strong>OpenAI</strong>：CNBC 5/20 确认正筹备 confidential draft prospectus，估值超 8500 亿美元；公开 SEC EDGAR <strong>未见</strong> OpenAI 主体 Form S-1。二手媒体称 5/22 已保密递交 → 标注「待验证」。</li>
+      <li><strong>Anthropic</strong>：TipRanks 5/27 引述媒体称 ARR 约 450 亿 vs OpenAI 约 330 亿、目标 10 月 IPO；<strong>非两家公司官方同期财报</strong>，且 cloud credit  gross/net 口径可能影响 SEC 披露。</li>
+      <li><strong>SpaceX S-1</strong>（5/20，SEC）：含 xAI 与巨额算力 capex，塑造「轨道 AI 算力」叙事。<a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/0001628280-26-036936-index.htm">SEC</a></li>
     </ul>
-    <h3>模型、安全与研究</h3>
+
+    <h3>模型、研究与安全</h3>
     <ul>
-      <li>OpenAI 5/20 数学突破；Anthropic 5/22 Glasswing + <a href="https://red.anthropic.com/2026/exploit-evals/">Exploit Evals</a>。</li>
-      <li>Google I/O Agent 与 Science 套件进入测试/逐步开放。</li>
+      <li><strong>数学</strong>：OpenAI 5/20 离散几何突破仍在舆论场；与 DeepMind AlphaProof 报道形成「AI 数学竞赛」叙事（媒体综述，非本日新稿）。</li>
+      <li><strong>安全</strong>：Glasswing 5/22 更新；Mythos 级能力若扩散，漏洞发现与滥用风险同步上升。</li>
+      <li><strong>人才</strong>：Karpathy 加入 Anthropic 预训练；韩国代表理事任命（5/26 新闻室列表）。</li>
     </ul>
-    <h3>监管与资本情绪</h3>
+
+    <h3>算力、芯片与地缘</h3>
     <ul>
-      <li>梵蒂冈 5/25 AI 通谕；5/26 美股 AI 链仍强但 NVDA 跑输（见 TS2）。</li>
+      <li><strong>存储器超级周期</strong>：Micron、SK Hynix 万亿市值反映 HBM/DRAM 订满至 2026 年底的行业共识（CNBC）。</li>
+      <li><strong>华为 τ 定律</strong>：以信号传播延迟 τ 替代单纯几何微缩；LogicFolding 3D 堆叠。性能数据多为公司陈述，<span class="tag">待第三方 benchmark</span>。</li>
+      <li><strong>字节算力</strong>：Qualcomm 据称将供应数百万 ASIC 并协助流片；与出口管制阈值相关（Bloomberg/CNA）。</li>
+    </ul>
+
+    <h3>监管与伦理</h3>
+    <ul>
+      <li>梵蒂冈 5/25 AI 通谕；中国跨境券商整顿（5/22 起）影响资金通道，间接波及港股 AI 标的情绪（见股市日报）。</li>
     </ul>
   </section>
 
   <section id="companies">
     <h2>公司跟踪表</h2>
     <table>
-      <thead><tr><th>公司</th><th>动态</th><th>状态</th><th>来源</th></tr></thead>
+      <thead>
+        <tr><th>公司</th><th>24–48h 动态</th><th>状态</th><th>来源</th></tr>
+      </thead>
       <tbody>
-        <tr><td>Anthropic</td><td>Karpathy 入职；$900B 融资报道；Glasswing</td><td>活跃</td><td><a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TC</a></td></tr>
-        <tr><td>OpenAI</td><td>数学突破；保密 S-1 报道</td><td>IPO 待 SEC 公开</td><td><a href="https://openai.com/news/">news</a></td></tr>
-        <tr><td>Google</td><td>I/O Agent / Science</td><td>活跃</td><td><a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">I/O</a></td></tr>
-        <tr><td>NVIDIA</td><td>5/26 收 $214.86；中国 Q1 收入约 $45.5 亿（同比降）</td><td>财报余波</td><td><a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a></td></tr>
-        <tr><td>Micron</td><td>5/26 +19.3%，市值 &gt;$1T</td><td>存储/HBM 主线</td><td>Trading Economics</td></tr>
+        <tr><td>OpenAI</td><td>Tax AI 自改进 Agent；Warp 案例；IPO 筹备</td><td>IPO 待 SEC 公开件</td><td><a href="https://openai.com/news/">news</a></td></tr>
+        <tr><td>Anthropic</td><td>收入超 OpenAI（媒体）；Karpathy；Glasswing；韩国人事</td><td>活跃 / ARR 待确认</td><td><a href="https://www.anthropic.com/news">news</a></td></tr>
+        <tr><td>Google / DeepMind</td><td>无本窗口重大官方稿</td><td>—</td><td>—</td></tr>
+        <tr><td>Meta</td><td>无本窗口重大官方 AI 稿</td><td>—</td><td>—</td></tr>
+        <tr><td>华为</td><td>τ Scaling Law；Kirin 2026 秋 LogicFolding</td><td>官方发布</td><td><a href="https://www.huawei.com/en/news/2026/5/ieee-iscas-tau-scaling">官方</a></td></tr>
+        <tr><td>NVIDIA</td><td>财报余波；生态受益 HBM 需求</td><td>活跃</td><td><a href="https://investor.nvidia.com/">IR</a></td></tr>
+        <tr><td>DeepSeek</td><td>融资谈判（Bloomberg 5/22 延续）</td><td>私募</td><td><a href="https://www.bloomberg.com/news/articles/2026-05-22/deepseek-founder-declares-agi-goal-as-10-billion-round-advances">Bloomberg</a></td></tr>
+        <tr><td>字节/火山</td><td>Qualcomm ASIC 报道</td><td>待官方</td><td>CNA</td></tr>
+        <tr><td>xAI</td><td>经 SpaceX S-1 披露</td><td>IPO 进程</td><td>SEC</td></tr>
       </tbody>
     </table>
   </section>
@@ -85,29 +107,34 @@
   <section id="risks">
     <h2>风险与不确定性</h2>
     <ul>
-      <li>Anthropic $900B 融资与 OpenAI S-1 细节均依赖媒体报道，官方文件未公开。</li>
-      <li>Karpathy 入职对模型时间表的影响尚不可量化。</li>
-      <li>Glasswing / Mythos 双用途安全风险持续。</li>
-      <li>NVDA 中国收入与 H200 审批仍为地缘变量。</li>
+      <li><strong>IPO 与收入口径</strong>：OpenAI 保密递交状态无法在公开 EDGAR 验证；Anthropic/OpenAI ARR 对比多为媒体估算。</li>
+      <li><strong>存储器估值</strong>：Micron/SK Hynix 万亿市值后，分析师已警告半导体估值过热（CNBC 引述 Parnell）。</li>
+      <li><strong>华为技术主张</strong>：τ 定律与 LogicFolding 效益尚未见独立 benchmark。</li>
+      <li><strong>网络安全</strong>：Glasswing/Mythos 双用途能力扩散风险。</li>
+      <li><strong>地缘与出口</strong>：ByteDance–Qualcomm 协议若属实，仍受美国性能阈值约束；NVDA 指引未计入中国数据中心收入。</li>
+      <li><strong>资金通道</strong>：跨境券商整顿或压制港股 AI 板块风险偏好。</li>
     </ul>
-    <div class="warn">本报告不构成投资建议。</div>
+    <div class="warn">本报告不构成投资建议；不编造无法验证的事实。</div>
   </section>
 
   <section id="next">
     <h2>明日继续跟踪</h2>
     <ul>
-      <li>SEC EDGAR：OpenAI 是否出现公开注册或 SpaceX S-1 修订。</li>
-      <li>Anthropic Series H 是否宣布交割。</li>
-      <li>5/27 港股半导体与 AI 概念股走势（华为 τ 定律余温）。</li>
-      <li>Gemini Spark 美国 Beta 反馈。</li>
+      <li>SEC 是否出现 OpenAI 公开 S-1 修订稿或 SpaceX S-1 更新。</li>
+      <li>美股盘后 CRM、MRVL、SNOW 财报对 AI 软件/定制芯片叙事的影响。</li>
+      <li>MU、SK Hynix 在获利了结后的成交量与分析师目标价修订。</li>
+      <li>Anthropic 是否就 ARR/IPO 发布官方博客或监管文件。</li>
+      <li>Qualcomm、ByteDance 是否就 ASIC 协议发布官方新闻稿。</li>
+      <li>华为 Kirin/LogicFolding 后续技术白皮书与供应链伙伴表态。</li>
+      <li>港股 AI 标的在跨境券商整顿下的资金面（南向资金、成交额）。</li>
     </ul>
   </section>
 
   <section id="coverage">
     <h2>来源覆盖与缺口</h2>
-    <p><strong>已覆盖</strong>：TechCrunch、OpenAI/Anthropic/Google 官方、FinanceFeeds、Fortune、TS2。</p>
-    <p><strong>缺口</strong>：SEC OpenAI 公开件；Anthropic 官方融资稿；Bloomberg 付费全文。</p>
-    <p>工作文件：<code>tmp/AI/20260527/</code></p>
+    <p><strong>已覆盖</strong>：OpenAI、Anthropic、华为官方；CNBC、TipRanks、TechCrunch、CNA/Bloomberg 转述；SEC（SpaceX）。</p>
+    <p><strong>缺口</strong>：X 原帖未系统抓取；Bloomberg 全文付费；OpenAI S-1 无公开件；Google $40B Anthropic 投资无官方稿；中国 AI 公司官网无重大发布；Anthropic 5/26 韩国任命详情页未抓取。</p>
+    <p>工作文件：<code>tmp/AI/20260527/</code>（00 来源重检 · 01 原始发现 · 02 排序）</p>
   </section>
 </body>
 </html>

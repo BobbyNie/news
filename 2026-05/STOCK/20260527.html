@@ -19,6 +19,7 @@
     li { margin: 0.4rem 0; }
     a { color: #0b57d0; }
     .price { font-variant-numeric: tabular-nums; }
+    .tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: #eee; }
     .warn { background: #fff8e6; border-left: 4px solid #f0ad4e; padding: 0.75rem 1rem; margin: 1rem 0; }
   </style>
 </head>
@@ -27,100 +28,110 @@
 
   <section id="window">
     <h2>更新时间与数据窗口</h2>
-    <p class="meta">生成时间：2026-05-27 07:30（澳门时间）｜采集窗口：2026-05-25 22:00 ~ 2026-05-27 22:00</p>
-    <p><strong>市场日历</strong>：美股 <strong>2026-05-26（美东周二）</strong> 已收盘（Memorial Day 后首个交易日）；港股 <strong>2026-05-26</strong> 已收盘；<strong>2026-05-27 港股尚未开盘</strong>（撰写时）。</p>
-    <p class="warn">价格均标注时间与来源；<strong>不构成买卖建议</strong>。</p>
+    <p class="meta">生成时间：2026-05-27 23:05（澳门时间）｜采集窗口：2026-05-25 22:00 ~ 2026-05-27 22:00</p>
+    <p><strong>市场日历</strong>：美股 2026-05-27（周三）全日交易；港股 2026-05-27 已收盘。</p>
+    <p class="warn">下文价格均标注时间与来源；<strong>不构成买卖建议</strong>，仅描述可能影响与观察点。</p>
   </section>
 
   <section id="top">
     <h2>今日最重要的 5–10 条</h2>
     <ol>
-      <li><strong>美股 5/26：标普 +0.6%、纳指 +1.2% 收创新高</strong>；道指约 -118 点。<a href="https://tradingeconomics.com/united-states/stock-market">Trading Economics</a></li>
-      <li><strong>Micron (MU) +19.3%</strong>，市值首次超过 <strong>1 万亿美元</strong>（UBS 上调目标价）。<a href="https://tradingeconomics.com/united-states/stock-market">来源</a> · 时间：2026-05-26 美东收盘</li>
-      <li><strong>NVDA 收 $214.86（-0.2%）</strong>，市值约 $5.24T；AI 板块创新高但龙头跑输。<a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a> · 2026-05-26 16:00 美东</li>
-      <li><strong>港股 5/26：恒生科技 +1.59%</strong>，半导体领涨；恒指 -0.03% 收 25599。<a href="https://meyka.com/blog/hang-seng-index-may-26-chip-stocks-surge-on-huaweis-new-design-law-2605/">Meyka</a> · 2026-05-26 港股收盘</li>
-      <li><strong>联想 0992.HK +15.5%</strong> 收 <span class="price">18.19 港元</span>（业绩超预期）。同上 · 2026-05-26 收盘</li>
-      <li><strong>SpaceX 5/20 公开 S-1</strong>，拟 <strong>SPCX</strong>。<a href="https://www.sec.gov/cgi-bin/browse-edgar?company=spacex&CIK=0001181412">SEC</a></li>
-      <li><strong>OpenAI 保密 S-1 / Anthropic ~$900B 私募</strong>— IPO 竞赛持续；OpenAI SEC 公开件待出现。<a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">FinanceFeeds</a></li>
-      <li><strong>华为 τ Scaling Law</strong>（5/25 ISCAS）继续驱动港股半导体情绪。<a href="https://meyka.com/blog/hang-seng-index-may-26-chip-stocks-surge-on-huaweis-new-design-law-2605/">Meyka</a></li>
-      <li><strong>能源股走弱</strong>（Exxon -3.3%），市场观望中东局势与油价。<a href="https://tradingeconomics.com/united-states/stock-market">Trading Economics</a></li>
+      <li><strong>道指创历史新高</strong>：收 <span class="price">50,644.28</span>（+0.36%）；标普 <span class="price">7,520.36</span>（+0.02%）；纳指 <span class="price">26,674.73</span>（+0.07%）。<strong>时间：2026-05-27 美东收盘</strong>。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>WTI 原油大跌约 5.5%</strong> 至 <span class="price">$88.68/桶</span>；伊朗称恢复霍尔木兹通行，<strong>白宫称报道「完全捏造」</strong>。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>SK Hynix 市值破 1 万亿美元</strong>（2026-05-27 韩股）；股价一度涨约 11%。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>Micron 延续强势</strong>：5/26 首超万亿市值后，5/27 收涨 <strong>+3.6%</strong>（CNBC）；盘初曾涨超 8% 后回落。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>半导体获利了结</strong>：Intel -1%、Qualcomm -6%（5/27 收盘，CNBC）；分析师警告芯片估值过热。</li>
+      <li><strong>港股恒指约 -1.03%</strong>（5/27 收盘时段）；沪深300约 -0.79%。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>中国整治跨境券商</strong>（5/22 起延续）：富途、老虎、长桥被罚并两年整顿。<a href="http://english.scio.gov.cn/pressroom/2026-05/25/content_118512172.html">SCIO</a></li>
+      <li><strong>Qualcomm–ByteDance ASIC 协议</strong>（Bloomberg 5/26）— <span class="tag">待官方确认</span>；5/27 QCOM 收跌约 6%。<a href="https://www.channelnewsasia.com/business/qualcomm-strikes-ai-chip-deal-tiktok-owner-bytedance-bloomberg-news-reports-6142866">CNA</a></li>
+      <li><strong>Zscaler 指引不及预期</strong>，股价跌超 30%，网络安全板块承压。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
+      <li><strong>Jamie Dimon 暗示 JPM 或进行 100–200 亿美元收购</strong>，JPM 股价约 -2%~-3%。<a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></li>
     </ol>
   </section>
 
   <section id="us">
     <h2>美股重点</h2>
+    <h3>大盘（2026-05-27 美东收盘，CNBC）</h3>
     <table>
-      <thead><tr><th>标的/指数</th><th>涨跌</th><th>备注</th><th>时间</th><th>来源</th></tr></thead>
+      <thead><tr><th>指数</th><th>收盘</th><th>涨跌</th><th>来源</th></tr></thead>
       <tbody>
-        <tr><td>S&amp;P 500</td><td>约 +0.6%</td><td>收创新高</td><td>2026-05-26 收盘</td><td><a href="https://tradingeconomics.com/united-states/stock-market">TE</a></td></tr>
-        <tr><td>Nasdaq</td><td>约 +1.2%</td><td>收创新高</td><td>2026-05-26 收盘</td><td>同上</td></tr>
-        <tr><td>NVDA</td><td class="price">$214.86</td><td>-0.2%；Q1 中国收入约 $45.5 亿（去年同期约 $96.6 亿）</td><td>2026-05-26 16:00 ET</td><td><a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a></td></tr>
-        <tr><td>Micron (MU)</td><td>+19.3%</td><td>市值首超 $1T</td><td>2026-05-26 收盘</td><td>TE</td></tr>
-        <tr><td>Alphabet</td><td>+1.4%</td><td>—</td><td>2026-05-26</td><td>TE</td></tr>
-        <tr><td>Microsoft</td><td>-0.6%</td><td>—</td><td>2026-05-26</td><td>TE</td></tr>
+        <tr><td>道琼斯</td><td class="price">50,644.28</td><td>+0.36%</td><td><a href="https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html">CNBC</a></td></tr>
+        <tr><td>标普 500</td><td class="price">7,520.36</td><td>+0.02%</td><td>同上</td></tr>
+        <tr><td>纳斯达克</td><td class="price">26,674.73</td><td>+0.07%</td><td>同上</td></tr>
       </tbody>
     </table>
+    <h3>AI 算力链</h3>
+    <ul>
+      <li><strong>MU</strong>：5/26 涨超 19% 推动市值首超 1 万亿美元（CNBC）；5/27 收盘 +3.6%。UBS 将目标价上调至 1625 美元为催化剂之一（媒体转述）。</li>
+      <li><strong>000660.KS（SK Hynix）</strong>：5/27 涨约 11%，市值破万亿；为 Nvidia HBM 关键供应商（CNBC）。</li>
+      <li><strong>NVDA</strong>：5/20 财报后仍在「高增长 vs 估值」辩论中；指引未假设中国数据中心计算收入。<a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx">IR</a></li>
+      <li><strong>QCOM</strong>：5/26 报道称与 ByteDance 签 ASIC 供应；5/27 收跌约 6%（CNBC）。</li>
+    </ul>
+    <h3>其他个股</h3>
+    <ul>
+      <li><strong>AAPL</strong>：盘中触及纪录高位约 $312.77，市值约 4.5 万亿美元（CNBC，FactSet）。</li>
+      <li><strong>ZS</strong>：季度收入指引低于预期，跌超 30%。</li>
+      <li><strong>JPM</strong>：Dimon 并购言论拖累股价。</li>
+    </ul>
   </section>
 
   <section id="hk">
     <h2>港股重点</h2>
-    <table>
-      <thead><tr><th>指数/标的</th><th>收盘/涨跌</th><th>时间</th><th>来源</th></tr></thead>
-      <tbody>
-        <tr><td>恒生指数</td><td>25599（-0.03%）</td><td>2026-05-26 收盘</td><td><a href="https://meyka.com/blog/hang-seng-index-may-26-chip-stocks-surge-on-huaweis-new-design-law-2605/">Meyka</a></td></tr>
-        <tr><td>恒生科技</td><td>4947（+1.59%）</td><td>2026-05-26 收盘</td><td>同上</td></tr>
-        <tr><td>联想 0992.HK</td><td class="price">18.19 港元（+15.5%）</td><td>2026-05-26 收盘</td><td>同上</td></tr>
-        <tr><td>华虹 1347.HK</td><td>+10.5%</td><td>2026-05-26 收盘</td><td>同上</td></tr>
-        <tr><td>中芯 0981.HK</td><td>+5.7%</td><td>2026-05-26 收盘</td><td>同上</td></tr>
-      </tbody>
-    </table>
-    <p><strong>5/27 观察</strong>：撰写时港股未开盘；关注 τ 定律主题是否延续、腾讯回购 HKEX 公告。</p>
+    <ul>
+      <li><strong>恒指</strong>：CNBC 引述收盘时段约 <strong>-1.03%</strong>（2026-05-27）；能源、科技服务、地产偏弱；联想等个别科技股上涨。</li>
+      <li><strong>沪深300</strong>：约 <span class="price">4,908.53</span>（-0.79%，CNBC 收盘引述）。</li>
+      <li><strong>半导体</strong>：华为 5/25 τ 定律余波下，部分芯片股仍强势，但大盘受资金流出压制。</li>
+      <li><strong>监管</strong>：跨境券商整顿冲击富途、老虎等美股中概及港股情绪；南向资金 5/26 净流出约 9.7 亿港元（Meyka 引述，<span class="tag">待港交所数据核对</span>）。</li>
+    </ul>
+    <p class="meta">港股个股精确收盘价建议以港交所/行情终端为准；本报告大盘方向以 CNBC 为准。</p>
   </section>
 
   <section id="unicorns">
     <h2>AI 独角兽 / IPO</h2>
-    <table>
-      <thead><tr><th>主体</th><th>事件</th><th>来源</th></tr></thead>
-      <tbody>
-        <tr><td>SpaceX (+xAI)</td><td>5/20 公开 S-1；SPCX</td><td><a href="https://www.sec.gov/cgi-bin/browse-edgar?company=spacex&CIK=0001181412">SEC</a></td></tr>
-        <tr><td>OpenAI</td><td>报道称 5/22 保密 S-1；SEC 公开件缺失</td><td><a href="https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/">FinanceFeeds</a></td></tr>
-        <tr><td>Anthropic</td><td>~$30B 融资、~$900B 估值（媒体报道）</td><td><a href="https://businesstech.news/anthropic-30-billion-funding-round-900-billion-valuation-openai-ipo/">BTN</a></td></tr>
-      </tbody>
-    </table>
+    <ul>
+      <li><strong>OpenAI</strong>：筹备 confidential IPO（CNBC 5/20）；公开 SEC 未见 S-1。<a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html">CNBC</a></li>
+      <li><strong>Anthropic</strong>：媒体 5/27 称 ARR 领先 OpenAI、估值约 9000 亿美元级 — <span class="tag">待官方确认</span>。<a href="https://www.tipranks.com/news/anthropics-revenue-surpasses-openai-as-companies-race-towards-ipos">TipRanks</a></li>
+      <li><strong>SpaceX / xAI</strong>：5/20 公开 S-1（SEC CIK 1181412）。<a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/0001628280-26-036936-index.htm">SEC</a></li>
+      <li><strong>DeepSeek</strong>：约 100 亿美元融资谈判（Bloomberg 5/22 延续）。</li>
+      <li><strong>港股 AI 新股</strong>：智谱、MiniMax 等随板块与资金面波动；本窗口无重大官方 IR 稿。</li>
+    </ul>
   </section>
 
   <section id="earnings">
     <h2>财报与指引</h2>
     <ul>
-      <li><strong>NVDA</strong>（5/20 财报）：Q1 收入约 $816 亿、Q2 指引约 $910 亿、$800 亿回购；5/26 股价仍低于财报前高点。<a href="https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/">TS2</a></li>
-      <li><strong>联想</strong>：FY25/26 业绩超预期，5/26 大涨 15.5%。<a href="https://meyka.com/blog/hang-seng-index-may-26-chip-stocks-surge-on-huaweis-new-design-law-2605/">Meyka</a></li>
+      <li><strong>NVDA FQ1 FY2027</strong>（5/20）：收入 816 亿美元（+85% YoY）；数据中心 752 亿；Q2 指引收入约 910 亿（±2%）。<a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx">IR</a></li>
+      <li><strong>Zscaler</strong>（5/27）：下季收入指引 8.75–8.78 亿美元，低于市场预期（CNBC）。</li>
+      <li><strong>盘后待公布</strong>（5/27）：Salesforce (CRM)、Marvell (MRVL)、Snowflake (SNOW) 等 — 撰写时未纳入收盘后确切数字。</li>
+      <li><strong>周四</strong>：美国 PCE 通胀、Dell 财报等（媒体日程）。</li>
     </ul>
   </section>
 
-  <section id="risks">
+  <section id="regulatory">
     <h2>监管与风险</h2>
     <ul>
-      <li>NVDA 对华出口与中国 Q1 收入下滑；H200 审批不确定。</li>
-      <li>IPO 时间表与估值或大幅波动；OpenAI SEC 文件未公开。</li>
-      <li>中东局势影响油价与能源板块（5/26 XOM -3.3%）。</li>
-      <li>华为路线图 ≠ 即时产能，半导体情绪或过度反应。</li>
+      <li><strong>CSRC 跨境证券整治</strong>：两年整顿；富途拟罚约 18.5 亿元等；存量客户原则上仅可卖出提现。<a href="http://english.scio.gov.cn/pressroom/2026-05/25/content_118512172.html">SCIO</a> · <a href="https://www.channelnewsasia.com/east-asia/china-regulator-probes-illegal-security-brokers-tiger-futu-longbridge-trade-crackdown-6136436">CNA</a></li>
+      <li><strong>中东与原油</strong>：油价大跌与白宫辟谣并存，能源股波动（XOM 等下跌，CNBC）。</li>
+      <li><strong>估值风险</strong>：BofA 警告夏季回调；芯片股「boom/bust」历史被分析师提及（CNBC）。</li>
     </ul>
   </section>
 
   <section id="next">
     <h2>明日继续跟踪</h2>
     <ul>
-      <li>5/27 港股全日：981/1347/0700 等。</li>
-      <li>5/27 美股：NVDA、MU 能否延续分化。</li>
-      <li>SEC：OpenAI / SpaceX 文件更新。</li>
-      <li>Anthropic 融资交割官方消息。</li>
+      <li>CRM、MRVL、SNOW、DELL 等财报与指引全文。</li>
+      <li>美国 PCE 与初请失业金数据对市场的影响。</li>
+      <li>MU、SK Hynix、三星 MEMORY 合约价与分析师目标价修订。</li>
+      <li>港股南向资金与跨境券商整顿后续细则。</li>
+      <li>Qualcomm、ByteDance 是否官方确认 ASIC 协议。</li>
+      <li>中东局势与原油价格是否反转（关注白宫/伊朗表态）。</li>
     </ul>
   </section>
 
   <section id="coverage">
     <h2>来源覆盖与缺口</h2>
-    <p><strong>已覆盖</strong>：Trading Economics、TS2、Meyka、SEC、FinanceFeeds。</p>
-    <p><strong>缺口</strong>：5/27 港股收盘（撰写前）；OpenAI EDGAR；Bloomberg 付费。</p>
+    <p><strong>已覆盖</strong>：CNBC、SCIO、CNA、NVIDIA IR、SEC（SpaceX/NVDA）、华为官方。</p>
+    <p><strong>缺口</strong>：Bloomberg 全文付费；HKEXnews 未逐条扫描；Qualcomm/ByteDance 无官方稿；部分港股收盘价仅二级来源；盘后财报在截稿后公布。</p>
     <p>工作文件：<code>tmp/STOCK/20260527/</code></p>
   </section>
 </body>

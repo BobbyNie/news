@@ -1,73 +1,149 @@
 # AI 原始发现 — 20260527
 
-## F01 — Andrej Karpathy 加入 Anthropic pre-training
+采集窗口：2026-05-25 22:00 ~ 2026-05-27 22:00（澳门时间）
 
-- **标题**：OpenAI co-founder Andrej Karpathy joins Anthropic's pre-training team
-- **发布时间**：2026-05-19
-- **来源名称**：TechCrunch
-- **原文链接**：https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/
-- **可信度**：major_media（Karpathy X 帖文 social_verified）
-- **中文摘要**：Karpathy 5/19 宣布加入 Anthropic，在 Nick Joseph 领导下负责 pre-training；将组建用 Claude 加速 pre-training 研究的团队。Anthropic 向 TechCrunch 确认其本周入职。
+---
 
-## F02 — Anthropic 约 $300 亿融资、估值约 $9000 亿
+## F-001
 
-- **标题**：Anthropic $30 Billion Funding Round At $900 Billion Valuation
-- **发布时间**：2026-05-22 起（媒体持续至 5/26）
-- **来源名称**：Business Tech News / FinanceFeeds（转述 Bloomberg、FT）
-- **原文链接**：https://businesstech.news/anthropic-30-billion-funding-round-900-billion-valuation-openai-ipo/
-- **可信度**：major_media
-- **中文摘要**：报道称 Sequoia、Dragoneer、Greenoaks、Altimeter 等拟参与约 300 亿美元 Series H，投前估值约 9000 亿美元，预计 5 月底前交割；年化收入 run-rate 媒体称约 430–450 亿美元。**待官方确认。**
-
-## F03 — OpenAI 保密递交 S-1
-
-- **标题**：OpenAI confidentially filed S-1（May 22）
-- **发布时间**：2026-05-22
-- **来源名称**：FinanceFeeds / CNBC 转述
-- **原文链接**：https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/
-- **可信度**：major_media
-- **中文摘要**：报道称 OpenAI 5/22 向 SEC 保密递交 S-1，高盛、摩根士丹利牵头，目标 2026 年 Q4 上市，估值 8520 亿–1 万亿美元。**截至 5/27 早间 SEC EDGAR 无 OpenAI 公开注册文件。**
-
-## F04 — OpenAI 数学猜想突破（延续）
-
-- **标题**：An OpenAI model has disproved a central conjecture in discrete geometry
-- **发布时间**：2026-05-20
-- **来源名称**：OpenAI 官方
-- **原文链接**：https://openai.com/index/model-disproves-discrete-geometry-conjecture/
+- **标题**：OpenAI 与 Thrive/Crete 发布 Codex 驱动的自改进税务 Agent（Tax AI）
+- **发布时间**：2026-05-27
+- **来源名称**：OpenAI 官方博客
+- **原文链接**：https://openai.com/index/building-self-improving-tax-agents-with-codex/
 - **可信度**：official
-- **中文摘要**：内部推理模型推翻 Erdős 1946 平面单位距离猜想；外部数学家 companion paper 验证。
+- **中文摘要**：官方称 Tax AI 在试点季处理约 7,000 份报税单，字段完成度 75% 比例六周内从约 25% 升至 86%；通过生产 trace + eval + Codex 闭环实现「自改进」，非投资建议。
 
-## F05 — Anthropic Glasswing 首月更新
+## F-002
 
-- **标题**：Project Glasswing: An initial update
+- **标题**：Warp 采用 GPT-5.5 编排开源与云端 Agent 工作流
+- **发布时间**：2026-05-27
+- **来源名称**：OpenAI 官方博客（客户故事）
+- **原文链接**：https://openai.com/index/warp/
+- **可信度**：official
+- **中文摘要**：Warp 称 GPT-5.5 在内部 agentic 编码任务上较 GPT-5.4 少用约 30% token；属产品/客户案例，非独立评测。
+
+## F-003
+
+- **标题**：OpenAI 筹备保密递交 IPO（CNBC 源）
+- **发布时间**：2026-05-20（发现/延续至本窗口）
+- **来源名称**：CNBC
+- **原文链接**：https://www.cnbc.com/2026/05/20/openai-ipo-filing.html
+- **可信度**：major_media
+- **中文摘要**：报道称 OpenAI 正与高盛、摩根士丹利等准备 **confidential draft** prospectus，估值超 8500 亿美元；公司表态「focus remains on execution」。**未**在公开 SEC EDGAR 检索到 OpenAI 主体 S-1。
+
+## F-004
+
+- **标题**：媒体称 OpenAI 5/22 已向 SEC 保密递交 S-1（待验证）
+- **发布时间**：2026-05-22 起（二手）
+- **来源名称**：FinanceFeeds / EnterpriseDNA（转述 CNBC/Axios）
+- **原文链接**：https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/
+- **可信度**：unverified
+- **中文摘要**：称保密递交、目标 Q4 2026 上市；与 CNBC 5/20「筹备」措辞不完全一致，**待 SEC 公开修订稿或公司确认**。
+
+## F-005
+
+- **标题**：Anthropic 收入据称超越 OpenAI（IPO 竞赛语境）
+- **发布时间**：2026-05-27
+- **来源名称**：TipRanks（转述媒体）
+- **原文链接**：https://www.tipranks.com/news/anthropics-revenue-surpasses-openai-as-companies-race-towards-ipos
+- **可信度**：major_media
+- **中文摘要**：称 Anthropic ARR 约 450 亿美元、OpenAI 约 330 亿美元，Anthropic 目标 10 月 IPO、OpenAI 9 月；**非双方官方同期财报**，口径或未审计。
+
+## F-006
+
+- **标题**：Andrej Karpathy 加入 Anthropic 预训练团队
+- **发布时间**：2026-05-19
+- **来源名称**：CNBC / TechCrunch
+- **原文链接**：https://www.cnbc.com/2026/05/19/anthropic-hires-openai-cofounder-andrej-karpathy-former-tesla-ai-lead.html
+- **可信度**：major_media（Anthropic 发言人确认）
+- **中文摘要**：Karpathy 将组建用 Claude 加速预训练研究的团队；同日 Musk v. Altman 审判裁决新闻仍在窗口讨论范围内。
+
+## F-007
+
+- **标题**：Anthropic 任命 KiYoung Choi 为韩国代表理事
+- **发布时间**：2026-05-26
+- **来源名称**：Anthropic Newsroom
+- **原文链接**：https://www.anthropic.com/news
+- **可信度**：official（列表页；详情 URL 未稳定抓取）
+- **中文摘要**：首尔办公室开幕前人事任命。
+
+## F-008
+
+- **标题**：Project Glasswing 首月更新（Mythos Preview）
 - **发布时间**：2026-05-22
-- **来源名称**：Anthropic 官方
+- **来源名称**：Anthropic
 - **原文链接**：https://www.anthropic.com/research/glasswing-initial-update
 - **可信度**：official
-- **中文摘要**：Mythos Preview 扫描开源项目发现逾 1 万例高/严重漏洞；Mythos 级模型仍未公开发布。
+- **中文摘要**：称 Mythos Preview 发现逾 1 万例高/严重漏洞；模型未公开发布。
 
-## F06 — Google I/O 2026 Agent 与 Science 套件
+## F-009
 
-- **标题**：Google I/O 2026 announcements（Gemini Spark / Gemini for Science）
-- **发布时间**：2026-05-20
-- **来源名称**：Google 官方博客
-- **原文链接**：https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/
-- **可信度**：official
-- **中文摘要**：Gemini Spark 24/7 云端 Agent；Gemini for Science 科研工具套件逐步开放。
-
-## F07 — 教宗 AI 通谕 Magnifica Humanitas
-
-- **标题**：Pope Leo XIV encyclical on AI regulation
+- **标题**：华为发布 Tau (τ) Scaling Law 与 LogicFolding
 - **发布时间**：2026-05-25
-- **来源名称**：Fortune
-- **原文链接**：https://fortune.com/2026/05/25/pope-leo-xiv-ai-domination-death-anthropic-olah-encyclical/
-- **可信度**：major_media
-- **中文摘要**：教宗首部通谕呼吁强监管 AI；Anthropic 联合创始人 Christopher Olah 出席发布。
+- **来源名称**：华为官方新闻稿
+- **原文链接**：https://www.huawei.com/en/news/2026/5/ieee-iscas-tau-scaling
+- **可信度**：official
+- **中文摘要**：何庭波在 IEEE ISCAS 2026 主题演讲；2026 年秋季 Kirin 将首用 LogicFolding；2031 年目标密度等价 1.4nm。**第三方 benchmark 尚未独立验证**。
 
-## F08 — 美股 AI 板块 5/26 创新高（交叉）
+## F-010
 
-- **标题**：AI stocks hit fresh records; Nvidia slips slightly
-- **发布时间**：2026-05-26 18:01 EDT
-- **来源名称**：TS2（引 Reuters）
-- **原文链接**：https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/
+- **标题**：教宗 Leo XIV 发布 AI 通谕 Magnifica Humanitas；Anthropic 联合创始人 Olah 出席
+- **发布时间**：2026-05-25
+- **来源名称**：Anthropic Newsroom / Fortune 等
+- **原文链接**：https://www.anthropic.com/news
+- **可信度**：official + major_media
+- **中文摘要**：伦理与监管叙事；非产品发布。
+
+## F-011
+
+- **标题**：OpenAI 模型推翻 Erdős 单位距离猜想
+- **发布时间**：2026-05-20
+- **来源名称**：OpenAI
+- **原文链接**：https://openai.com/index/model-disproves-discrete-geometry-conjecture/
+- **可信度**：official
+- **中文摘要**：数学突破仍在窗口内被持续讨论；外部数学家 companion paper 验证。
+
+## F-012
+
+- **标题**：OpenAI 获评 Gartner 企业编码 Agent 领导者
+- **发布时间**：2026-05-22
+- **来源名称**：OpenAI News
+- **原文链接**：https://openai.com/index/openai-named-a-leader-in-enterprise-coding-agents-by-gartner/
+- **可信度**：official
+- **中文摘要**：企业采用与 Codex 叙事相关。
+
+## F-013
+
+- **标题**：内存芯片万亿市值潮（Micron、SK Hynix）与 AI 算力需求
+- **发布时间**：2026-05-26 ~ 2026-05-27
+- **来源名称**：CNBC
+- **原文链接**：https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html
 - **可信度**：major_media
-- **中文摘要**：5/26 美股复盘：标普、纳指收创新高；NVDA 收 $214.86（-0.2%）；Micron +19.3% 市值首超 1 万亿美元。**时间：2026-05-26 美东收盘。**
+- **中文摘要**：AI 基础设施情绪指标；详见股市日报价格与时间。
+
+## F-014
+
+- **标题**：Qualcomm 与 ByteDance 数据中心 ASIC 供应协议（报道）
+- **发布时间**：2026-05-26
+- **来源名称**：Bloomberg（CNA 转述）
+- **原文链接**：https://www.channelnewsasia.com/business/qualcomm-strikes-ai-chip-deal-tiktok-owner-bytedance-bloomberg-news-reports-6142866
+- **可信度**：major_media
+- **中文摘要**：报道称字节将采购数百万颗 Qualcomm ASIC 用于 AI Agent 软件；**双方未官方确认**。
+
+## F-015
+
+- **标题**：DeepSeek 约 100 亿美元融资与 AGI 表述（延续）
+- **发布时间**：2026-05-22
+- **来源名称**：Bloomberg
+- **原文链接**：https://www.bloomberg.com/news/articles/2026-05-22/deepseek-founder-declares-agi-goal-as-10-billion-round-advances
+- **可信度**：major_media
+- **中文摘要**：私募谈判；无官网确认稿。
+
+## F-016
+
+- **标题**：SpaceX 公开 Form S-1（含 xAI 分部披露）
+- **发布时间**：2026-05-20
+- **来源名称**：SEC EDGAR
+- **原文链接**：https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/0001628280-26-036936-index.htm
+- **可信度**：market_disclosure
+- **中文摘要**：影响 AI 独角兽估值与算力 capex 叙事；与 OpenAI/Anthropic IPO 竞赛交叉。

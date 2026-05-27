@@ -1,64 +1,19 @@
 # AI 候选新闻排序 — 20260527
 
-## P0
+| 等级 | 事件 | 为什么重要 | 可能影响 | 证据链接 |
+|------|------|------------|----------|----------|
+| P0 | OpenAI 发布 Codex 自改进税务 Agent（Tax AI） | 官方首次系统阐述「生产 trace → eval → Codex」闭环 | Agent 企业落地、Forward Deployed 模式复制 | https://openai.com/index/building-self-improving-tax-agents-with-codex/ |
+| P0 | OpenAI / Anthropic IPO 竞赛升温 | 私营巨头估值与收入叙事主导资本流向 | 一级市场定价、二级 AI 主题波动 | https://www.cnbc.com/2026/05/20/openai-ipo-filing.html · https://www.tipranks.com/news/anthropics-revenue-surpasses-openai-as-companies-race-towards-ipos |
+| P1 | 媒体称 Anthropic ARR 超 OpenAI | 若属实将改写「ChatGPT 领先」叙事 | IPO 估值、企业客户争夺 | https://www.tipranks.com/news/anthropics-revenue-surpasses-openai-as-companies-race-towards-ipos |
+| P1 | Karpathy 加入 Anthropic 预训练 | 顶级人才流向直接竞争对手 | 预训练效率、OpenAI 人才护城河 | https://www.cnbc.com/2026/05/19/anthropic-hires-openai-cofounder-andrej-karpathy-former-tesla-ai-lead.html |
+| P1 | 华为 τ Scaling Law / LogicFolding | 国产算力路线与地缘供应链 | 半导体板块、大模型训练成本预期 | https://www.huawei.com/en/news/2026/5/ieee-iscas-tau-scaling |
+| P1 | HBM/内存万亿市值（Micron、SK Hynix） | AI capex 向存储器扩散 | 算力产业链利润分配 | https://www.cnbc.com/2026/05/26/stock-market-today-live-updates.html |
+| P2 | OpenAI 数学猜想突破（5/20） | 研究信誉与「推理模型」品牌 | 学术合作、监管对能力的关注 | https://openai.com/index/model-disproves-discrete-geometry-conjecture/ |
+| P2 | Glasswing / Mythos 安全计划更新 | 网络安全双用途风险 | 企业安全预算、监管 | https://www.anthropic.com/research/glasswing-initial-update |
+| P2 | Warp × GPT-5.5 客户案例 | 产品营销与 token 效率叙事 | 开发者选型 | https://openai.com/index/warp/ |
+| P2 | 教宗 AI 通谕 + Olah 出席 | 全球伦理与监管舆论 | 政策对话，非短期产品 | https://www.anthropic.com/news |
+| P3 | Anthropic 韩国代表理事 | 亚太扩张信号 | 区域合规与政企市场 | https://www.anthropic.com/news |
+| P3 | Qualcomm–ByteDance ASIC（报道） | 字节算力供应链 | 待官方确认 | https://www.channelnewsasia.com/business/qualcomm-strikes-ai-chip-deal-tiktok-owner-bytedance-bloomberg-news-reports-6142866 |
+| P3 | DeepSeek 融资谈判（延续） | 中国实验室资本化 | 私募估值 | https://www.bloomberg.com/news/articles/2026-05-22/deepseek-founder-declares-agi-goal-as-10-billion-round-advances |
 
-### R01 — Andrej Karpathy 加入 Anthropic pre-training
-- **重要性**：P0
-- **事件**：OpenAI 联创 5/19 入职 Anthropic，负责用 Claude 加速 pre-training 研究
-- **为什么重要**：顶级 LLM 工程人才从 OpenAI 生态流向 Anthropic；强化 pre-training 竞争叙事
-- **可能影响**：Anthropic 模型迭代速度、OpenAI 人才留存舆论、IPO 估值对比
-- **证据链接**：https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/
-
-### R02 — Anthropic 约 $9000 亿估值融资接近交割
-- **重要性**：P0
-- **事件**：媒体称 $30B Series H，投前约 $900B，5 月底前关闭
-- **为什么重要**：或超越 OpenAI 最近 $852B 私募 mark；重塑「最大 AI 独角兽」座次
-- **可能影响**：OpenAI IPO 定价锚、二级市场预期、监管对 Google 持股审查
-- **证据链接**：https://businesstech.news/anthropic-30-billion-funding-round-900-billion-valuation-openai-ipo/
-- **备注**：**待官方新闻稿/Form D**
-
-## P1
-
-### R03 — OpenAI 保密 S-1（5/22，待 SEC 公开）
-- **重要性**：P1
-- **事件**：报道称已保密递交，目标 Q4 2026 上市
-- **为什么重要**：与 SpaceX S-1 同期争夺最大 IPO 叙事
-- **可能影响**：私募流动性、同业融资节奏
-- **证据链接**：https://financefeeds.com/anthropic-900b-vs-openai-852b-who-lists-trillion-first/
-
-### R04 — OpenAI 数学猜想自主突破
-- **重要性**：P1
-- **事件**：5/20 官方公布 Erdős 猜想推翻
-- **为什么重要**：frontier reasoning 能力里程碑
-- **可能影响**：研究品牌、监管对「自主发现」关注
-- **证据链接**：https://openai.com/index/model-disproves-discrete-geometry-conjecture/
-
-### R05 — Anthropic Glasswing 安全计划首月成果
-- **重要性**：P1
-- **事件**：5/22 逾万漏洞发现；Mythos withheld
-- **为什么重要**：AI 安全可量化；offensive 能力扩散风险并存
-- **可能影响**：企业安全采购、政府合作
-- **证据链接**：https://www.anthropic.com/research/glasswing-initial-update
-
-## P2
-
-### R06 — Google I/O：Gemini Spark + Gemini for Science
-- **重要性**：P2
-- **事件**：5/20 消费 Agent 与科研套件
-- **为什么重要**：Google agentic 战略落地
-- **可能影响**：Workspace / Ultra 订阅
-- **证据链接**：https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/
-
-### R07 — 教宗 AI 通谕（5/25）
-- **重要性**：P2
-- **事件**：Magnifica Humanitas 呼吁强监管
-- **为什么重要**：全球伦理舆论事件
-- **可能影响**：欧美监管辩论
-- **证据链接**：https://fortune.com/2026/05/25/pope-leo-xiv-ai-domination-death-anthropic-olah-encyclical/
-
-### R08 — 美股 AI 板块 5/26 创新高、NVDA 微跌
-- **重要性**：P2
-- **事件**：纳指创新高；NVDA $214.86；Micron +19%
-- **为什么重要**：AI 资本情绪与个股分化
-- **可能影响**：算力/存储链估值
-- **证据链接**：https://ts2.tech/en/nvidia-missed-out-as-ai-stocks-hit-fresh-records-whats-next-for-traders/
+**去重说明**：OpenAI S-1「5/22 已递交」与 CNBC「5/20 筹备」合并为 P0 IPO 议题；Google $40B 投资传闻因无官方稿剔除。
