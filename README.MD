@@ -40,23 +40,27 @@ archive/
 
 ## 报告日期（澳门时区）
 
-生成前先运行：
+Automation Cron 若为 `0 23 * * *`（UTC），触发时刻 = **澳门次日 07:00**。报告日期必须以 **`automation_trigger_info.triggeredAt`** 换算 Asia/Macau，**禁止**使用系统注入的 UTC「今天」。
+
+生成前可核对：
 
 ```bash
+python3 scripts/report_date.py 2026-05-27T23:02:33.581Z
+# 或本地当前澳门时刻（publish 脚本用）：
 eval "$(python3 scripts/report_date.py)"
-echo "$REPORT_DATE $REPORT_ISO"
+echo "$REPORT_DATE $REPORT_ISO $REPORT_GENERATED_AT"
 ```
 
-所有 `tmp/`、`YYYY-MM/` 路径与 HTML 标题必须使用上述变量。**Cron 若在 UTC 23:00 触发，澳门已是次日 07:00，仍应写次日日期。**
-
-推荐 Cron：`0 8 * * *`，时区 `Asia/Macau`（或 UTC `0 0 * * *` = 澳门 08:00）。
+所有 `tmp/`、`YYYY-MM/` 路径与 HTML 标题必须使用上述日期。HTML「生成时间」= `$REPORT_GENERATED_AT` 或 `triggeredAt` 换算结果，**禁止手工编造**。
 
 ## 自动化任务
 
-建议在 Cursor Automation 中创建两条任务：
+建议在 Cursor Automation 中创建两条任务（Cron 示例 `0 23 * * *` = **UTC 23:00 = 澳门次日 07:00**）：
 
-- AI 日报：每天 `08:00 Asia/Macau`（**不要**用 UTC 23:00 除非已按上面规则取澳门日期），使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
-- 股市日报：每天 `08:30 Asia/Macau`，使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+- AI 日报：使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
+- 股市日报：使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+
+也可改用 Cron `0 8 * * *` + 时区 `Asia/Macau`，则 `triggeredAt` 与澳门日历日一致，逻辑相同。
 
 两条任务完成后都必须 **push 到 `main`**，否则 GitHub 上看不到新提交，Pages 也不会更新。
 

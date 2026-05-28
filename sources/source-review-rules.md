@@ -4,6 +4,7 @@
 
 ## 公共原则
 
+- **报告日期**：一律使用 **Asia/Macau (UTC+8)** 日历日；Automation 以 `triggeredAt`（UTC）换算，**不得**使用系统注入的 UTC「今天」。Cron `0 23 * * *`（UTC）= 澳门次日 07:00 出报。
 - 公开官方来源优先：公司官网、官方博客、RSS、投资者关系页面、SEC EDGAR、HKEXnews、交易所披露。
 - 主流媒体次之：Reuters、Bloomberg、Financial Times、Wall Street Journal、The Information、TechCrunch、The Verge、MIT Technology Review 等。
 - X/Facebook 只作为补充信号；除非能验证官方账号，否则不得作为唯一事实来源。
