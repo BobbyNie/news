@@ -2,6 +2,24 @@
 
 你在 `/Users/bobbynie/gitStore/news` 工作。请生成今日 AI 新闻中文 HTML 日报。
 
+## 日期与时间（必须先执行）
+
+Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直接使用系统注入的 `Today's date`（常为 UTC，会比澳门早一天）。
+
+1. 读取 `automation_trigger_info.triggeredAt`（ISO-8601 UTC）。
+2. 换算为 **Asia/Macau (UTC+8)**，得到报告日期 `YYYYMMDD` 与 `YYYY-MM-DD`。
+3. 所有路径中的 `YYYYMMDD`、`YYYY-MM`、HTML 标题、commit message 日期，一律用**澳门日历日**。
+4. HTML「生成时间」= 上述澳门本地时刻（取自 `triggeredAt`，**禁止**手工编造如 23:05）。
+5. 「采集窗口」= 生成时刻往前 **48 小时** 至生成时刻（澳门时间，格式 `YYYY-MM-DD HH:MM ~ YYYY-MM-DD HH:MM`）。
+
+可运行辅助脚本核对（将 `<TRIGGERED_AT>` 替换为实际值）：
+
+```bash
+python scripts/report_date.py <TRIGGERED_AT>
+```
+
+示例：`2026-05-27T23:02:33.581Z` → 报告日 `20260528`，生成时间 `2026-05-28 07:02（澳门时间）`，窗口 `2026-05-26 07:02 ~ 2026-05-28 07:02`。
+
 严格按以下步骤执行：
 
 1. 读取 `sources/ai-sources.yaml` 和 `sources/source-review-rules.md`。
@@ -15,7 +33,7 @@
 
 ## 输出要求
 
-- 使用澳门时区日期。
+- **报告日期与文件名必须使用澳门时区**，且以 `automation_trigger_info.triggeredAt` 换算结果为准（见上文「日期与时间」）。
 - 英文来源需翻译成中文并保留原文链接。
 - 重要判断必须有可点击来源链接。
 - X/Facebook 内容只作为补充信号，除非能确认官方账号。

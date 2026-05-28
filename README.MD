@@ -37,10 +37,12 @@ archive/
 
 ## 自动化任务
 
-建议在 Cursor Automation 中创建两条任务：
+建议在 Cursor Automation 中创建两条任务（Cron 示例 `0 23 * * *` = **UTC 23:00 = 澳门次日 07:00**）：
 
-- AI 日报：每天 `08:00 Asia/Macau`，使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
-- 股市日报：每天 `08:30 Asia/Macau`，使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+- AI 日报：使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
+- 股市日报：使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+
+报告日期以 `automation_trigger_info.triggeredAt` 换算 **Asia/Macau** 为准；可运行 `python3 scripts/report_date.py <TRIGGERED_AT>` 核对。
 
 ## 来源策略
 
