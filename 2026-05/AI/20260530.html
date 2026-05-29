@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-30 AI 日报</title>
+  <style>
+    :root { --fg: #1a1a1a; --muted: #555; --border: #ddd; --bg: #fafafa; --accent: #0b57d0; }
+    body { font-family: system-ui, "PingFang TC", "Noto Sans TC", sans-serif; line-height: 1.6; color: var(--fg); max-width: 920px; margin: 0 auto; padding: 1.5rem; }
+    h1 { font-size: 1.75rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; color: var(--accent); }
+    h3 { font-size: 1.05rem; }
+    section { margin-bottom: 2rem; }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    th { background: var(--bg); }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    a { color: var(--accent); }
+    .tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: #eee; margin-right: 0.25rem; }
+    .warn { background: #fff8e6; border-left: 4px solid #f0ad4e; padding: 0.75rem 1rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <h1>2026-05-30 AI 日报</h1>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-05-30 07:00（澳门时间）｜采集窗口：2026-05-28 07:00 ~ 2026-05-30 07:00（澳门时间 UTC+8）</p>
+    <p>本报告基于 <code>sources/ai-sources.yaml</code> 与公开可验证来源；X/Facebook 仅作补充且需交叉验证。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5–10 条</h2>
+    <ol>
+      <li><strong>Anthropic 完成 Series H 融资 650 亿美元，投后估值 9650 亿美元</strong>（2026-05-28 官方）— 超越 OpenAI 3 月 8520 亿私募估值；年化收入 run-rate 本月突破 470 亿美元。<a href="https://www.anthropic.com/news/series-h">来源</a></li>
+      <li><strong>Claude Opus 4.8 发布</strong>（2026-05-28）— 强化编码、Agent 与长程任务。<a href="https://www.anthropic.com/news/claude-opus-4-8">来源</a></li>
+      <li><strong>Mythos 级网络安全能力拟「数周内」面向全部客户</strong>（官方表态 5/28）— 此前仅限 Glasswing；<span class="tag">具体上线日期待官方</span>。<a href="https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-mythos-class-models-will-roll-out-to-the-public/">来源</a></li>
+      <li><strong>CNBC：Anthropic 成为硅谷估值最高 AI 实验室</strong>（2026-05-28）— 与 OpenAI、SpaceX 的 IPO 赛跑并列本周主线。<a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">来源</a></li>
+      <li><strong>OpenAI 发布 Frontier Governance Framework</strong>（2026-05-28）— 前沿模型治理框架。<a href="https://openai.com/news/">来源</a></li>
+      <li><strong>OpenAI：可信第三方评估共同框架</strong>（2026-05-29）— 推动标准化第三方评测。<a href="https://openai.com/news/">来源</a></li>
+      <li><strong>OpenAI × Rosalind 生物防御合作</strong>（2026-05-29）— 社会韧性/生物安全向。<a href="https://openai.com/news/">来源</a></li>
+      <li><strong>Infineon 加入 NVIDIA MGX AI Factory（800 VDC）</strong>（2026-05-29）— AI 数据中心供电架构升级。<a href="https://www.infineon.com/press-release/2026/infxx202605-092">来源</a></li>
+      <li><strong>黄仁勋 GTC Taipei：台湾年度投资目标升至约 1500 亿美元/年</strong>（媒体报道 2026-05-29）— Computex 周硬件与 Rubin 预期升温。<a href="https://cryptobriefing.com/nvidia-huang-new-hardware-taipei/">来源</a></li>
+      <li><strong>OpenAI 保密 IPO 筹备延续</strong>（CNBC）— 目标最早 2026 年 9 月；<span class="tag">SEC EDGAR 未见公开注册</span>。<a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+
+    <h3>融资、估值与 IPO</h3>
+    <ul>
+      <li><strong>Anthropic</strong>：Series H 650 亿美元，投后 9650 亿美元；含亚马逊等 150 亿美元先前承诺出资；战略股东包括 Micron、Samsung、SK hynix（<a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/">TechCrunch</a>）。公司称资金用于安全/可解释性研究、算力与产品规模化。</li>
+      <li><strong>OpenAI</strong>：私募仍处 8520 亿美元量级（3 月轮）；CNBC 称保密招股书「未来数日或数周」可能递交，上市窗口或至 9 月，与 CFO 曾示意的节奏存在媒体报道分歧。</li>
+      <li><strong>SpaceX / xAI</strong>：5/20 公开 S-1（股市日报详述）— AI 独角兽估值可比与上市节奏交叉影响 Anthropic/OpenAI 定价。</li>
+    </ul>
+
+    <h3>模型、产品与 Agent</h3>
+    <ul>
+      <li><strong>Opus 4.8</strong>：面向企业编码与 Agent 工作流，与 Claude Code 需求增长一致（<a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">CNBC</a>）。</li>
+      <li><strong>Mythos</strong>：Anthropic 称安全护栏进展迅速，计划数周内向全部客户开放 Mythos 级能力；此前 Project Glasswing 限定伙伴（<a href="https://red.anthropic.com/2026/mythos-preview/">Mythos Preview 技术说明</a>）。</li>
+      <li><strong>OpenAI 治理三连发</strong>：5/28–29 连续发布治理、第三方评估与 Rosalind 合作，对冲「唯估值论」舆论。</li>
+    </ul>
+
+    <h3>算力、基础设施与地缘</h3>
+    <ul>
+      <li><strong>电力与机架</strong>：Infineon 与 NVIDIA 推动 800 VDC MGX 机架供电，减少转换级数、提高 AI Factory 功率密度（<a href="https://www.infineon.com/press-release/2026/infxx202605-092">官方</a>）。</li>
+      <li><strong>台湾供应链</strong>：黄仁勋宣布加大在台投资与「Taiwan HQ」建设，市场关注 Rubin 与 CPU 路线图（媒体 5/29）。</li>
+      <li><strong>Dell 财报</strong>（股市交叉）：AI 优化服务器订单同比 +757%，印证下游需求仍强（<a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-05292026-11986232">Investopedia</a>）。</li>
+    </ul>
+
+    <h3>区域扩张</h3>
+    <ul>
+      <li>Anthropic 5/27 开设米兰办公室；5/26 任命韩国代表理事（<a href="https://www.anthropic.com/news">官方新闻列表</a>）。</li>
+    </ul>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <table>
+      <thead>
+        <tr><th>公司</th><th>48h 动态</th><th>状态</th><th>来源</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Anthropic</td><td>Series H；Opus 4.8；Mythos 更广发布计划</td><td>私募/IPO 筹备</td><td><a href="https://www.anthropic.com/news/series-h">官方</a></td></tr>
+        <tr><td>OpenAI</td><td>治理与安全发布；IPO 传闻</td><td>IPO 待 SEC 公开件</td><td><a href="https://openai.com/news/">news</a></td></tr>
+        <tr><td>NVIDIA</td><td>MGX 生态；台北投资承诺</td><td>活跃</td><td><a href="https://www.infineon.com/press-release/2026/infxx202605-092">合作稿</a></td></tr>
+        <tr><td>Google</td><td>经 Anthropic 融资参与（数十亿美元级，媒体报道）</td><td>战略投资</td><td><a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">CNBC</a></td></tr>
+        <tr><td>Amazon</td><td>本轮确认 50 亿美元先前承诺出资</td><td>战略投资</td><td><a href="https://www.anthropic.com/news/series-h">官方</a></td></tr>
+        <tr><td>Micron / Samsung / SK hynix</td><td>首次共同出现在头部 AI cap table</td><td>供应链绑定</td><td><a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/">TechCrunch</a></td></tr>
+        <tr><td>DeepSeek / 中国大模型</td><td>窗口内无重大官方稿</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li><strong>估值泡沫与可比失真</strong>：9650 亿私募估值依赖 run-rate 与私募折价/溢价假设，公开市场定价可能显著偏离。</li>
+      <li><strong>Mythos 双用途风险</strong>：更广发布或加速防御方能力，也提高漏洞利用扩散速度；具体护栏未全文公开。</li>
+      <li><strong>IPO 信息风险</strong>：OpenAI 保密递交尚未在 EDGAR 显示；Anthropic IPO 时间「仍不确定」（CNBC）。</li>
+      <li><strong>算力承诺 vs 产能</strong>：Anthropic 与云厂商签署的数十 GW 级算力协议落地节奏待观察。</li>
+      <li><strong>地缘</strong>：台湾投资与出口管制叙事仍可能扰动 NVIDIA 与中国市场预期。</li>
+    </ul>
+    <div class="warn">本报告不构成投资建议；不编造无法验证的事实。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Computex / GTC Taipei 黄仁勋主题演讲是否公布 Rubin、CPU 与网络新品时间表。</li>
+      <li>SEC EDGAR 是否出现 OpenAI 公开修正案或 Anthropic 保密注册线索。</li>
+      <li>Anthropic Mythos 全面上线的具体产品名、定价与使用政策。</li>
+      <li>美股 6 月首个交易日 AI 板块对 Dell 业绩的二次反应（5/30 周六无交易）。</li>
+      <li>港股半导体回调是否延续，联想等高贝塔 AI 硬件股波动。</li>
+      <li>SpaceX S-1 修订稿是否填入价格区间（见股市日报）。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Anthropic、OpenAI 官方；CNBC、TechCrunch、Investopedia；Infineon 新闻稿；BleepingComputer（Mythos）。</p>
+    <p><strong>缺口</strong>：Bloomberg 全文付费；X 官方帖未系统抓取；中国公司官网无重大发布；OpenAI IPO 无 SEC 公开文件；Mythos 上线具体日期待官方。</p>
+    <p>工作文件：<code>tmp/AI/20260530/</code>（00 来源重检 · 01 原始发现 · 02 排序）</p>
+  </section>
+</body>
+</html>
