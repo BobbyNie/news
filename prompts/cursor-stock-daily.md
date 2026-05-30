@@ -38,6 +38,115 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 - 对未上市独角兽只描述融资、估值、IPO、监管和重大商业事件，不做估值建议。
 - 不提供买卖建议，只写“可能影响”和“需要继续跟踪”。
 
+## 移动端 UI 设计要求
+
+报告必须是 mobile-first 的单文件 HTML/CSS，适合手机阅读，并呈现真实金融简报感。禁止生成只有默认 `h1/table/ul` 的裸 HTML，也不要做成科技营销页。
+
+- 视觉方向：真实、克制、金融终端/市场简报感；浅色纸面背景，深墨色正文，绿色/红色只用于涨跌与市场状态。
+- 页面宽度：`body` 最大宽度约 `780px`，手机左右 padding 约 `18px`，正文 `font-size: 16px` 起、`line-height: 1.65` 左右。
+- 首屏：使用 `<header class="hero hero-stock">`，包含英文眉标 `MARKET DAILY BRIEF`、`h1`、一句报告说明、生成时间、采集窗口、市场日历。
+- 今日重点：`#top` 内使用 `<ol class="top-list">`，每条为 `<li class="market-card">`，固定写清“事实 -> 可能影响 -> 继续跟踪”，不能给买卖建议。
+- 行情数据：价格、涨跌、市值、成交额、盘前盘后必须标注市场、时间和来源；数字使用 `.price` 或 `.quote-line`，CSS 使用 `font-variant-numeric: tabular-nums;`。
+- 涨跌表达：上涨用 `.change-up`，下跌用 `.change-down`；颜色只作辅助，文本必须保留 `+` / `-` 与百分比或金额。
+- 表格与宽内容：行情表必须包在 `<div class="table-wrap">` 中，允许内部横向滚动，但页面本身不能横向滚动。
+- 专题框：如马斯克、IPO、财报专题可用 `.focus-box`，但不要嵌套多层卡片。
+- 浏览器自检：生成后用 390px 手机宽度检查 `document.documentElement.scrollWidth <= window.innerWidth`；只有 `.table-wrap` 内部允许横向滚动。
+- 所有 CSS 必须内联在 `<style>`，不依赖外部字体、JS 或远程资源。
+
+建议使用以下视觉基底，可按内容轻微调整但必须保留类名：
+
+```css
+:root {
+  --paper: #f7f6f0;
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #d8d2c3;
+  --surface: #fffefa;
+  --market: #14532d;
+  --up: #087443;
+  --down: #b42318;
+  --blue: #1d4ed8;
+  --warning-bg: #fff7ed;
+  --warning-line: #ea580c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0 auto;
+  max-width: 780px;
+  min-height: 100vh;
+  padding: 0 18px 46px;
+  background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+  color: var(--ink);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  line-height: 1.66;
+  letter-spacing: 0;
+}
+.hero-stock {
+  margin: 0 -18px;
+  padding: 28px 18px 18px;
+  color: #101828;
+  background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--market);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+.lead { margin: 12px 0 0; color: #374151; }
+.market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+.top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+.market-card {
+  counter-increment: marketitem;
+  position: relative;
+  padding: 14px 14px 14px 54px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+}
+.market-card::before {
+  content: counter(marketitem);
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: #dcfce7;
+  color: var(--market);
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+.quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+.change-up { color: var(--up); font-weight: 850; }
+.change-down { color: var(--down); font-weight: 850; }
+a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+.table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; }
+th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+th { background: #eee7d7; color: #374151; font-weight: 850; }
+.focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+.warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+@media (min-width: 760px) {
+  body { padding: 0 28px 58px; }
+  .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+}
+```
+
 ## HTML 结构
 
 ```html
@@ -47,11 +156,17 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>YYYY-MM-DD 股市日报</title>
+  <style>/* 使用上方 mobile-first UI CSS */</style>
 </head>
-<body>
-  <h1>YYYY-MM-DD 股市日报</h1>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>YYYY-MM-DD 股市日报</h1>
+    <p class="lead">美股、港股、AI IPO、财报与监管风险。</p>
+    <div class="market-strip">生成时间、采集窗口与市场日历</div>
+  </header>
   <section id="window">更新时间与数据窗口</section>
-  <section id="top">今日最重要的 5-10 条</section>
+  <section id="top"><h2>今日最重要的 5-10 条</h2><ol class="top-list">...</ol></section>
   <section id="us">美股重点</section>
   <section id="hk">港股重点</section>
   <section id="unicorns">AI 独角兽 / IPO</section>
