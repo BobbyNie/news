@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-02 股市日报</title>
+  <style>
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+    }
+    .hero-stock {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      color: #101828;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card {
+      counter-increment: marketitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+    }
+    .market-card::before {
+      content: counter(marketitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #dcfce7;
+      color: var(--market);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-02 股市日报</h1>
+    <p class="lead">美股 AI 主线继续强化，港股 / 中国科技更偏结构分化。</p>
+    <div class="market-strip"><span>生成时间：2026-06-02 07:27（澳门时间）｜采集窗口：2026-05-31 07:27 ~ 2026-06-02 07:27（澳门时间 UTC+8）｜市场日历：美股最新完整交易日为 2026-06-01，港股为 2026-06-01</span></div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-02 07:27（澳门时间）｜采集窗口：2026-05-31 07:27 ~ 2026-06-02 07:27（澳门时间 UTC+8）</p>
+    <p><strong>市场日历</strong>：本次终于覆盖到 6 月 1 日美股与港股交易时段，因此美股部分可以写当日最新价格；港股则以能验证到的个股与事件为主，不强装完整行情面板。</p>
+    <p class="warn">以下只写事实、可能影响与继续跟踪，不构成买卖建议。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>NVDA 收于 <span class="price">$224.36</span>，单日涨 <span class="change-up">+6.27%</span></strong>（2026-06-01 23:14:16 UTC）。事实是市场继续追逐 AI 算力核心资产；可能影响是 AI 基建链溢价继续扩张；继续跟踪是否出现过热。<a href="https://finance.yahoo.com/quote/NVDA/">来源</a></li>
+      <li class="market-card"><strong>MSFT 收于 <span class="price">$460.52</span>，涨 <span class="change-up">+2.29%</span></strong>。事实是企业 AI 与终端 AI 叙事同时得到支持；可能影响是软件平台型大盘股继续承接资金；继续跟踪与 NVIDIA 联动是否持续。<a href="https://finance.yahoo.com/quote/MSFT/">来源</a></li>
+      <li class="market-card"><strong>DELL 收于 <span class="price">$465.96</span>，再涨 <span class="change-up">+10.71%</span></strong>。事实是上周财报后，AI 服务器收入与订单预期仍在被继续上修定价；可能影响是 OEM / 网络 / 存储链条受益；继续跟踪高预期能否兑现。<a href="https://finance.yahoo.com/quote/DELL/">来源</a></li>
+      <li class="market-card"><strong>Reuters：NVIDIA 与 Microsoft 的最新 AI 动作支撑了美股期货与盘中风险偏好</strong>。事实是 AI 仍然压过地缘冲突担忧；可能影响是大盘风格继续向 AI 龙头集中；继续跟踪宏观数据是否打断这一主线。<a href="https://au.investing.com/news/stock-market-news/wall-street-futures-gain-as-ai-advances-overshadow-usiran-tensions-4464459">来源</a></li>
+      <li class="market-card"><strong>QCOM 跌 <span class="change-down">-8.74%</span>，AMD 跌 <span class="change-down">-1.18%</span></strong>。事实说明资金并非买入全部 AI 相关股；可能影响是 AI 主题内部分化加剧；继续跟踪芯片链赢家与输家重新划分。<a href="https://finance.yahoo.com/quote/QCOM/">QCOM</a> · <a href="https://finance.yahoo.com/quote/AMD/">AMD</a></li>
+      <li class="market-card"><strong>Anthropic 递交秘密 S-1 草案</strong>。事实是 AI 独角兽开始逼近公开市场；可能影响是科技成长股风险偏好获得新锚；继续跟踪其是否带动更多 AI IPO。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">来源</a></li>
+      <li class="market-card"><strong>Reuters：亚洲市场继续交易 AI 热潮，但中国股市跌至六周低位</strong>。事实是 AI 交易扩散不均匀；可能影响是港股 / 中概科技更依赖个股而非板块共振；继续跟踪中国科技股是否出现政策或盈利催化。<a href="https://www.marketscreener.com/news/asia-stocks-extend-ai-boom-oil-up-on-gulf-risk-ce7f5dd8df88f020">Reuters</a> · <a href="https://thedailyguardian.com/world/china-stocks-dip-to-six-week-low-as-tech-firms-drag-factory-activity-stalls-703094/">补充</a></li>
+      <li class="market-card"><strong>腾讯回购 110 万股、金额约 5.007 亿港元</strong>，同时企业 AI 工具仍在向全球市场扩张。事实是港股平台龙头在资本回报与 AI 商业化上双线推进；可能影响是腾讯继续成为港股 AI 代理叙事的稳健承接者；继续跟踪客户落地。<a href="https://uk.marketscreener.com/quote/stock/TENCENT-HOLDINGS-LIMITED-3045861/">来源</a> · <a href="https://www.tencent.com/en-us/articles/2202341.html">官方</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>价格</th><th>涨跌</th><th>时间</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>NVDA</td><td class="price">$224.36</td><td class="change-up">+6.27%</td><td>2026-06-01 23:14:16 UTC</td><td><a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a></td></tr>
+          <tr><td>MSFT</td><td class="price">$460.52</td><td class="change-up">+2.29%</td><td>2026-06-01 23:13:37 UTC</td><td><a href="https://finance.yahoo.com/quote/MSFT/">Yahoo Finance</a></td></tr>
+          <tr><td>DELL</td><td class="price">$465.96</td><td class="change-up">+10.71%</td><td>2026-06-01 23:13:43 UTC</td><td><a href="https://finance.yahoo.com/quote/DELL/">Yahoo Finance</a></td></tr>
+          <tr><td>QCOM</td><td class="price">$228.99</td><td class="change-down">-8.74%</td><td>2026-06-01 23:13:44 UTC</td><td><a href="https://finance.yahoo.com/quote/QCOM/">Yahoo Finance</a></td></tr>
+          <tr><td>AMD</td><td class="price">$510.13</td><td class="change-down">-1.18%</td><td>2026-06-01 23:14:13 UTC</td><td><a href="https://finance.yahoo.com/quote/AMD/">Yahoo Finance</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>今天美股最关键的结论不是“AI 又涨了”，而是 <strong>资金继续集中流向最能代表 AI 主线的少数标的</strong>。NVDA、MSFT、DELL 明显跑赢，而 QCOM、AMD 没有同步受益。</p>
+
+    <h3>为什么这轮分化值得重视</h3>
+    <ul>
+      <li>Reuters 明确写到，NVIDIA 与 Microsoft 的最新 AI 推进，是周一美股维持强势的主要原因之一。<a href="https://au.investing.com/news/stock-market-news/wall-street-futures-gain-as-ai-advances-overshadow-usiran-tensions-4464459">Reuters</a></li>
+      <li>这意味着市场不是在买“科技 beta”，而是在买“最确定的 AI 现金流与产业控制力”。</li>
+      <li>DELL 的继续上冲，则说明财报验证后的 AI 服务器逻辑仍在被消化，而不是一日行情。</li>
+    </ul>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 事件</th><th>数据</th><th>时间</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>中芯国际 0981.HK</td><td class="price">79.15 港元，<span class="change-down">-3.0%</span></td><td>2026-06-01 HKT</td><td><a href="https://www.etnet.hk/www/eng/warrants/realtime/quote_news_detail.php?code=64110&newsid=ETE360601486&page=1">ETNet</a></td></tr>
+          <tr><td>腾讯 0700.HK</td><td>回购 110 万股，金额约 5.007 亿港元</td><td>2026-06-01</td><td><a href="https://uk.marketscreener.com/quote/stock/TENCENT-HOLDINGS-LIMITED-3045861/">HKEX / Reuters 摘要</a></td></tr>
+          <tr><td>中国股市 / 港股科技</td><td>Reuters 指中国股市跌至六周低位，科技股拖累</td><td>2026-06-01</td><td><a href="https://thedailyguardian.com/world/china-stocks-dip-to-six-week-low-as-tech-firms-drag-factory-activity-stalls-703094/">Reuters syndication</a></td></tr>
+          <tr><td>腾讯云香港</td><td>发布 WorkBuddy / Miora / TokenHub 等企业 AI 工具</td><td>2026-05-28</td><td><a href="https://www.tencent.com/en-us/articles/2202341.html">官方</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>港股部分最值得注意的是：<strong>香港与中国科技资产没有完全复刻美股 AI 狂热</strong>。即便腾讯在推企业 AI 工具、并继续回购，中芯这样的半导体权重股仍然走弱，说明区域资金更谨慎。</p>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>Anthropic</strong>：6 月 1 日正式确认已秘密递交 S-1 草案。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a></li>
+      <li><strong>OpenAI / xAI / Perplexity</strong>：本窗口未见同等级官方上市文件，但 Anthropic 已把竞赛推进到“谁先接受公开市场定价”的阶段。</li>
+      <li><strong>市场含义</strong>：AI 独角兽不再只是私募估值游戏，而会开始影响美股科技板块整体风险偏好。</li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <ul>
+      <li><strong>Dell</strong>：6 月 1 日继续大涨，说明市场仍在消化其 AI 服务器订单与收入指引。<a href="https://finance.yahoo.com/quote/DELL/">Yahoo Finance</a></li>
+      <li><strong>NVIDIA / Microsoft</strong>：今天不是财报日，但它们通过产品与平台叙事继续主导市场方向。</li>
+      <li><strong>亚洲链条</strong>：Reuters 提到韩国 5 月出口创纪录 877.5 亿美元，半导体与 AI 相关需求仍是核心支撑。<a href="https://www.marketscreener.com/news/asia-stocks-extend-ai-boom-oil-up-on-gulf-risk-ce7f5dd8df88f020">Reuters</a></li>
+    </ul>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <div class="focus-box">
+      <p><strong>1. 主题过度集中</strong>：Reuters 已提示 AI 龙头对指数贡献度过高，风格拥挤交易风险上升。</p>
+      <p><strong>2. 区域分化</strong>：美国 AI 龙头继续走强，不代表港股 / 中国科技会同步受益。</p>
+      <p><strong>3. 估值外溢</strong>：Anthropic 的 IPO 路径会放大 AI 资产估值讨论，一旦公开市场承接不及预期，回撤也会更剧烈。</p>
+    </div>
+    <div class="warn">本报告不提供买卖建议；对港股部分拿不到统一终端数据的地方，明确标注缺口而不是伪造完整行情。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Broadcom 等后续财报是否接力验证 AI 基建链。</li>
+      <li>NVDA / MSFT / DELL 领涨是否继续扩散到更广的 AI 软件与硬件资产。</li>
+      <li>Anthropic 的 IPO 进程是否引发更多 AI 公司融资或上市节奏变化。</li>
+      <li>港股科技平台与半导体权重股能否出现更明确的盈利或政策催化。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Reuters、Finance snapshot、Anthropic 官方、Tencent 官方、ETNet。</p>
+    <p><strong>缺口</strong>：港股没有拿到一份同时包含恒指、腾讯、联想、中芯完整收盘数据的统一权威页面，因此本页以个股和事件型信息为主。</p>
+    <p>工作文件：<code>tmp/STOCK/20260602/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+</body>
+</html>

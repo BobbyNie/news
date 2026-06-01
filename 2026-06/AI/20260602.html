@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-02 AI 日报</title>
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+    }
+    .hero-ai {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card {
+      counter-increment: topitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid #d7e3f8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .news-card::before {
+      content: counter(topitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-02 AI 日报</h1>
+    <p class="lead">聚焦 IPO、资本市场定价、企业 Agent 工具落地与市场情绪。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-02 07:27（澳门时间）｜采集窗口：2026-05-31 07:27 ~ 2026-06-02 07:27（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-02 07:27（澳门时间）｜采集窗口：2026-05-31 07:27 ~ 2026-06-02 07:27（澳门时间 UTC+8）</p>
+    <p>本窗口官方新增并不密集，真正的头部增量主要集中在 <strong>Anthropic 的 IPO 动作</strong>。其余高价值信号更多来自资本市场如何重新给 AI 资产定价，而不是新的模型发布潮。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>Anthropic 官方确认已秘密递交 S-1 草案</strong>（2026-06-01）— 这不是传闻，而是正式进入潜在 IPO 轨道。对 AI 行业而言，重点已从“能否继续高估值融资”切换到“能否被公开市场真实承接”。<span class="tag">IPO / 融资</span> <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">来源</a></li>
+      <li class="news-card"><strong>AP 将 Anthropic 上市路径定义为 AI 估值试金石</strong> — 若这类接近万亿美元私募估值的公司能被公开市场接受，AI 行业融资与上市节奏会继续前推；若不能，二级市场会开始压缩同类故事。<span class="tag">估值</span> <a href="https://apnews.com/article/572bb6cc12053c7aa95f775285cf4b73">来源</a></li>
+      <li class="news-card"><strong>Reuters：NVIDIA 与 Microsoft 的最新 AI 动作继续支撑美股风险偏好</strong> — AI 仍在直接推动指数和大盘风格，而非只停留在行业新闻层面。<span class="tag">市场情绪</span> <a href="https://au.investing.com/news/stock-market-news/wall-street-futures-gain-as-ai-advances-overshadow-usiran-tensions-4464459">来源</a></li>
+      <li class="news-card"><strong>Reuters：亚洲市场继续交易 AI 热潮，但集中度风险在上升</strong> — AI 龙头的权重和表现继续压倒其他板块，说明资金正在更激进地押注少数确定性资产。<span class="tag">区域扩散</span> <a href="https://www.marketscreener.com/news/asia-stocks-extend-ai-boom-oil-up-on-gulf-risk-ce7f5dd8df88f020">来源</a></li>
+      <li class="news-card"><strong>腾讯云香港发布面向全球企业的 Agent 工具栈仍值得继续跟踪</strong>（2026-05-28，非本窗口新增）— WorkBuddy、Miora、TokenHub 与 agent-ready 基础设施说明亚洲平台也在把 Agent 商业化做成产品矩阵。<span class="tag">企业落地</span> <a href="https://www.tencent.com/en-us/articles/2202341.html">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+
+    <h3>Anthropic 把 AI 资本叙事推进到公开市场前夜</h3>
+    <ul>
+      <li>Anthropic 官方在 6 月 1 日确认已向 SEC 秘密递交 S-1 草案，明确表示这只是为未来 IPO 保留选项，发行规模与价格尚未设定。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic</a></li>
+      <li>这意味着头部 AI 公司的竞争，不再只是模型、客户与算力，也包括谁先把私募时代的高估值平稳带进公开市场。</li>
+      <li>AP 的跟进报道把这件事明确定位为“华尔街是否愿意承接 AI 超高估值”的现实测试。<a href="https://apnews.com/article/572bb6cc12053c7aa95f775285cf4b73">AP</a></li>
+    </ul>
+
+    <h3>市场把 AI 当成主线，而不是单一科技子板块</h3>
+    <ul>
+      <li>Reuters 报道显示，6 月 1 日美股期货的主要支撑来自 NVIDIA 与 Microsoft 的最新 AI 动作。<a href="https://au.investing.com/news/stock-market-news/wall-street-futures-gain-as-ai-advances-overshadow-usiran-tensions-4464459">Reuters</a></li>
+      <li>同一条 Reuters 线索也强调，AI 相关资产已经深度影响指数领导权与资金轮动，说明 AI 已是宏观风险偏好的一部分。</li>
+    </ul>
+
+    <h3>亚洲的 AI 扩散更像“少数龙头集中交易”</h3>
+    <ul>
+      <li>Reuters 在亚洲市场综述中指出，AI 热潮仍在支撑半导体和算力链，但市场高度集中，很多区域资产并没有同步受益。<a href="https://www.marketscreener.com/news/asia-stocks-extend-ai-boom-oil-up-on-gulf-risk-ce7f5dd8df88f020">Reuters</a></li>
+      <li>腾讯云香港活动虽不是今天新发，但它说明亚洲互联网平台正在把 Agent、创意工具、模型网关与基础设施组合成可销售产品，而不是停留在概念层。<a href="https://www.tencent.com/en-us/articles/2202341.html">Tencent</a></li>
+    </ul>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>24-72h 关键动态</th><th>状态</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Anthropic</td><td>2026-06-01 正式确认秘密递交 S-1 草案</td><td>从私募估值走向公开市场测试</td><td><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a> · <a href="https://apnews.com/article/572bb6cc12053c7aa95f775285cf4b73">AP</a></td></tr>
+          <tr><td>NVIDIA</td><td>继续作为 AI 风险偏好核心锚点，带动美股期货</td><td>算力主线未变</td><td><a href="https://au.investing.com/news/stock-market-news/wall-street-futures-gain-as-ai-advances-overshadow-usiran-tensions-4464459">Reuters</a></td></tr>
+          <tr><td>Microsoft</td><td>与 NVIDIA 的最新 AI PC 叙事共同支撑市场情绪</td><td>企业 AI / 终端 AI 双受益</td><td><a href="https://au.investing.com/news/stock-market-news/wall-street-futures-gain-as-ai-advances-overshadow-usiran-tensions-4464459">Reuters</a></td></tr>
+          <tr><td>Tencent Cloud</td><td>香港发布 WorkBuddy、Miora、TokenHub 与 agent-ready infra</td><td>亚洲企业 Agent 商业化继续推进</td><td><a href="https://www.tencent.com/en-us/articles/2202341.html">官方</a></td></tr>
+          <tr><td>OpenAI / DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新增</td><td><span class="tag">需续追</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li><strong>窗口密度风险</strong>：本窗口真正可验证的头部官方增量较少，不能为了凑条数回填旧消息并假装是 6 月 2 日新增。</li>
+      <li><strong>IPO 时点风险</strong>：Anthropic 只是递交草案，发行时点、估值、规模都未定，市场条件变化仍可能推迟。</li>
+      <li><strong>集中度风险</strong>：Reuters 已提示 AI 龙头对指数的影响度过高，一旦预期略有松动，波动会被放大。</li>
+    </ul>
+    <div class="warn">本报告不构成投资建议；没有官方新增的公司，就明确写“未见同等级新稿”，而不是强行续写故事。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Anthropic 是否释放更多 IPO 路径、监管节奏或业务数据。</li>
+      <li>OpenAI、xAI、Perplexity 是否对 AI 公开市场竞赛给出新的融资或上市动作。</li>
+      <li>NVIDIA / Microsoft 主导的 AI 风险偏好是否继续扩散到更广泛的软件与基础设施资产。</li>
+      <li>腾讯云香港这套 Agent 产品矩阵是否出现更多客户或区域落地案例。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Anthropic 官方、AP、Reuters、腾讯官方。</p>
+    <p><strong>缺口</strong>：OpenAI 近 48 小时无同等级可稳定抓取的新稿；DeepMind、Meta AI、xAI、Perplexity 本窗口缺少可验证的头部新增。</p>
+    <p>工作文件：<code>tmp/AI/20260602/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+</body>
+</html>
