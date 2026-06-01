@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-01 AI 日报</title>
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+    .hero-ai {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: var(--ink); font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; letter-spacing: 0; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card {
+      counter-increment: topitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid #d7e3f8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .news-card::before {
+      content: counter(topitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; vertical-align: baseline; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-01 AI 日报</h1>
+    <p class="lead">聚焦模型、Agent、算力、治理与企业部署信号。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-01 07:06（澳门时间）｜采集窗口：2026-05-30 07:06 ~ 2026-06-01 07:06（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-01 07:06（澳门时间）｜采集窗口：2026-05-30 07:06 ~ 2026-06-01 07:06（澳门时间 UTC+8）</p>
+    <p>本报告优先使用官方博客、IR 与公开新闻稿；OpenAI 原页受 Cloudflare 影响时，采用公开 URL 与搜索缓存摘要交叉确认。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 发布第三方评估 playbook</strong>（2026-05-29）— 把 frontier 模型安全评估的重点从“单项分数”转向 harness、污染、捷径与可复核证据，直接影响监管和第三方审计框架。<span class="tag">治理 / 评估</span> <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 扩展 Rosalind Biodefense</strong>（2026-05-29）— 面向可信开发者和政府伙伴推进生物防御应用，强调先把高能力模型交到“防御方”手里。<span class="tag">生物安全</span> <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 与亚美尼亚推进国家级 AI 教育合作</strong>（2026-05-29）— 约 5 万名学生、教师和研究人员将获得 ChatGPT Edu 与 Codex 等工具。<span class="tag">教育部署</span> <a href="https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native">来源</a></li>
+      <li class="news-card"><strong>Anthropic 发布 Claude Opus 4.8</strong>（2026-05-28）— 强化编码与 agentic work 能力，并加入动态工作流、努力程度控制和 Fast Mode。<span class="tag">模型升级</span> <a href="https://www.anthropic.com/news/claude-opus-4-8">来源</a></li>
+      <li class="news-card"><strong>Anthropic 完成 650 亿美元 Series H</strong>（2026-05-28）— 投后估值 9650 亿美元，并称年化 run-rate revenue 已越过 470 亿美元。<span class="tag">融资</span> <a href="https://www.anthropic.com/news/series-h">来源</a></li>
+      <li class="news-card"><strong>Dell 财报验证企业 AI 基建需求</strong>（2026-05-28）— Q1 AI 订单 244 亿美元、AI 服务器收入 161 亿美元，FY27 AI 服务器收入预期上调至 600 亿美元。<span class="tag">企业支出</span> <a href="https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~05~dell-technologies-delivers-first-quarter-fiscal-2027-financial-results.htm">来源</a></li>
+      <li class="news-card"><strong>NVIDIA 继续抬高 AI 基建基线</strong>（2026-05-20，周末仍为主线）— Q1 营收 816 亿美元、数据中心营收 752 亿美元，Q2 指引 910 亿美元。<span class="tag">算力</span> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx">来源</a></li>
+      <li class="news-card"><strong>联想 AI 收入与服务器 pipeline 延续强势</strong>（2026-05-22，周末市场继续交易其影响）— FY25/26 Q4 AI 相关收入同比增 84%，AI server pipeline 达 210 亿美元。<span class="tag">AI 终端 / 服务器</span> <a href="https://news.lenovo.com/pressroom/press-releases/fy-2025-26/">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+
+    <h3>治理、受限部署与国家级落地</h3>
+    <ul>
+      <li><strong>OpenAI 第三方评估 playbook</strong> 把重点放在 harness 设计、评分规则、污染风险、任务捷径与样本审查，明显是在为更严格的前沿模型外部评估建立行业语言。<a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">OpenAI</a></li>
+      <li><strong>Rosalind Biodefense</strong> 则说明 OpenAI 正把更强能力优先导向可信的防御性生命科学场景，而不是开放给泛用消费端。<a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">OpenAI</a></li>
+      <li><strong>亚美尼亚合作</strong> 展示了另一条路线：把教育、研究、创业与国家 AI 战略放在同一部署框架里。<a href="https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native">Education for Countries</a></li>
+    </ul>
+
+    <h3>模型、Agent 与企业软件竞争</h3>
+    <ul>
+      <li><strong>Claude Opus 4.8</strong> 不是纯 benchmark 更新，而是更直接面向实际工作流：Anthropic 同时强调动态工作流、努力程度控制和更低成本的 Fast Mode，目标就是长任务与团队协作。<a href="https://www.anthropic.com/news/claude-opus-4-8">Anthropic</a></li>
+      <li><strong>Anthropic 融资</strong> 与模型升级放在同一周出现，使其“企业 AI + 编码代理 + 重资产算力扩张”的叙事更完整。<a href="https://www.anthropic.com/news/series-h">Series H</a></li>
+    </ul>
+
+    <h3>算力、服务器与真实订单</h3>
+    <ul>
+      <li><strong>Dell</strong> 给出最硬的企业支出证据：Q1 收入 438 亿美元，同比增长 88%；AI 订单 244 亿美元；AI 服务器收入 161 亿美元；全年收入中值上修到 1670 亿美元。<a href="https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~05~dell-technologies-delivers-first-quarter-fiscal-2027-financial-results.htm">Dell</a></li>
+      <li><strong>NVIDIA</strong> 继续给出上游锚点：Q1 营收 816 亿美元、数据中心营收 752 亿美元，并给出 Q2 910 亿美元营收指引，但明确不假设来自中国的数据中心计算收入。<a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx">NVIDIA</a></li>
+      <li><strong>联想</strong> 则提供另一种落地侧证：Q4 AI 相关收入占集团收入 38%，AI 服务器 pipeline 达 210 亿美元，显示推理与企业部署扩散到更广的硬件生态。<a href="https://news.lenovo.com/pressroom/press-releases/fy-2025-26/">Lenovo</a></li>
+    </ul>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>24-72h 关键动态</th><th>状态</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>第三方评估 playbook、Rosalind 生物防御、亚美尼亚教育合作</td><td>治理与部署并进</td><td><a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">评估</a> · <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">生物防御</a> · <a href="https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native">教育</a></td></tr>
+          <tr><td>Anthropic</td><td>Series H 融资、Opus 4.8 发布</td><td>资本与产品双强化</td><td><a href="https://www.anthropic.com/news/series-h">融资</a> · <a href="https://www.anthropic.com/news/claude-opus-4-8">模型</a></td></tr>
+          <tr><td>NVIDIA</td><td>Q1/FY27 财报继续定义上游景气基线</td><td>算力龙头</td><td><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx">IR</a></td></tr>
+          <tr><td>Dell</td><td>AI 订单与服务器收入大增，全年指引上修</td><td>企业部署验证</td><td><a href="https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~05~dell-technologies-delivers-first-quarter-fiscal-2027-financial-results.htm">财报</a></td></tr>
+          <tr><td>Lenovo</td><td>AI 收入和服务器 pipeline 延续强势</td><td>端侧与服务器受益</td><td><a href="https://news.lenovo.com/pressroom/press-releases/fy-2025-26/">年报</a></td></tr>
+          <tr><td>DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新稿</td><td><span class="tag">需续追</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li><strong>时间窗口风险</strong>：本窗口处于周末，官方新稿密度明显下降；Anthropic 与部分财报事件发布于 5 月 28 日，属于“周末晨报延续影响”而非 6 月 1 日当日新增。</li>
+      <li><strong>估值风险</strong>：Anthropic 9650 亿美元是私募投后估值，不应与上市公司市值直接类比。</li>
+      <li><strong>政策与双用途风险</strong>：Rosalind 这类生物防御项目虽强调防御应用，但监管与访问控制仍会被放大审查。</li>
+      <li><strong>供给约束风险</strong>：Dell 与 NVIDIA 都证明需求强，但供应、能耗、液冷、网络互连和地缘出口仍是瓶颈。</li>
+    </ul>
+    <div class="warn">本报告不构成投资建议，也不把无法验证的转载内容写成既成事实。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否继续发布模型、合作或监管执行细则，而不只停留在治理框架层。</li>
+      <li>Anthropic Opus 4.8 在企业编码、Agent 工作流中的首批真实反馈。</li>
+      <li>NVIDIA 与 Dell 财报之后，云厂商、OEM、存储链是否出现新的订单或资本开支佐证。</li>
+      <li>DeepMind、Meta AI、xAI、Perplexity 是否补发可验证的新产品或研究公告。</li>
+      <li>中国 AI 公司是否通过官网或监管披露给出新的融资、产品或出口链信号。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI、Anthropic、NVIDIA、Dell、Lenovo 官方来源；周末相关市场与分发侧信号。</p>
+    <p><strong>缺口</strong>：OpenAI 原页直抓不稳定；DeepMind、Meta AI、xAI、Perplexity 本窗口未见同等级官方新稿；中国 AI 公司缺少同步公开材料。</p>
+    <p>工作文件：<code>tmp/AI/20260601/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+</body>
+</html>
