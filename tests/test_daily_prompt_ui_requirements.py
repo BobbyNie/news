@@ -16,6 +16,7 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "top-list",
             "公司卡片",
             "scrollWidth",
+            "validate_report_ui.py",
         ]
 
         for text in required:
@@ -32,6 +33,23 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "market-card",
             "change-up",
             "tabular-nums",
+            "validate_report_ui.py",
+        ]
+
+        for text in required:
+            with self.subTest(text=text):
+                self.assertIn(text, prompt)
+
+    def test_combined_automation_prompt_requires_ui_gate(self) -> None:
+        prompt = (ROOT / "prompts" / "cursor-automation-combined.md").read_text(encoding="utf-8")
+
+        required = [
+            "cursor-ai-daily.md",
+            "cursor-stock-daily.md",
+            "validate_report_ui.py",
+            "max-width: 920px",
+            "hero-ai",
+            "hero-stock",
         ]
 
         for text in required:

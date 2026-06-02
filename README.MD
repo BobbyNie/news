@@ -55,10 +55,20 @@ echo "$REPORT_DATE $REPORT_ISO $REPORT_GENERATED_AT"
 
 ## 自动化任务
 
-建议在 Cursor Automation 中创建两条任务（Cron 示例 `0 23 * * *` = **UTC 23:00 = 澳门次日 07:00**）：
+建议在 Cursor Automation 中创建任务（Cron 示例 `0 23 * * *` = **UTC 23:00 = 澳门次日 07:00**）：
 
+- **合并双日报（推荐）**：使用 [prompts/cursor-automation-combined.md](prompts/cursor-automation-combined.md) — 一条 Cron 同时生成 AI + 股市，并强制 mobile-first UI 校验。
 - AI 日报：使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
 - 股市日报：使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+
+生成 HTML 后 **必须**通过 UI 校验（否则 CI 会失败、不得 push）：
+
+```bash
+python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
+python3 scripts/validate_report_ui.py --kind STOCK --date "$REPORT_DATE"
+# 或批量校验 2026-06-01 起的全部报告：
+python3 scripts/validate_report_ui.py --all-since 20260601
+```
 
 也可改用 Cron `0 8 * * *` + 时区 `Asia/Macau`，则 `triggeredAt` 与澳门日历日一致，逻辑相同。
 
@@ -66,12 +76,11 @@ echo "$REPORT_DATE $REPORT_ISO $REPORT_GENERATED_AT"
 
 ## GitHub Pages 发布
 
-每次提交到 `main` 后，[.github/workflows/pages.yml](.github/workflows/pages.yml) 会自动：
+每次提交到 `main` 后，GitHub Actions 会自动：
 
-1. 运行 `python -m unittest tests/test_build_pages_index.py`。
-2. 扫描 `YYYY-MM/AI/*.html` 和 `YYYY-MM/STOCK/*.html`。
-3. 生成最新报告在最上面的 `index.html`。
-4. 将 `index.html` 和所有日报 HTML 发布到 GitHub Pages。
+1. [validate-reports.yml](.github/workflows/validate-reports.yml)：运行全部单元测试 + `validate_report_ui.py --all-since 20260601`。
+2. [pages.yml](.github/workflows/pages.yml)：同上校验通过后构建并部署 Pages。
+3. 扫描 `YYYY-MM/AI/*.html` 和 `YYYY-MM/STOCK/*.html`，生成最新报告在最上面的 `index.html`。
 
 本地预览索引可运行：
 

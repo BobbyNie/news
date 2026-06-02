@@ -28,11 +28,13 @@ python scripts/report_date.py <TRIGGERED_AT>
 3. 按清单检索官方博客、RSS、新闻稿、主流媒体、X/Facebook、论坛、研究社区。公开官方来源优先，X/Facebook 仅作为补充，必须验证官方账号。把原始发现写入 `tmp/AI/YYYYMMDD/01-raw-findings.md`。
 4. 去重、按重要性排序，把候选新闻写入 `tmp/AI/YYYYMMDD/02-ranked-items.md`。
 5. 生成中文草稿到 `tmp/AI/YYYYMMDD/03-draft-cn.md`。
-6. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、公司跟踪表、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
-7. 每条重要判断必须附来源链接。不要编造无法验证的信息。
-8. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
-9. **必须** `git add`、`git commit`、`git push origin main`（分别提交 AI/股市时可分两次 commit）。commit message: `daily AI news report ${REPORT_ISO}`。
-10. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
+6. **生成 HTML 前**必须完整阅读本文件 **「移动端 UI 设计要求」** 与 **HTML 结构** 章节；以 `2026-06/AI/20260602.html` 为结构参考，**禁止**复用 `max-width: 920px` 旧模板。
+7. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、公司跟踪表、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
+8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind AI --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
+9. 每条重要判断必须附来源链接。不要编造无法验证的信息。
+10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
+11. **必须** `git add`、`git commit`、`git push origin main`。commit message: `daily AI news report ${REPORT_ISO}`。
+12. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
 
 ## 输出要求
 

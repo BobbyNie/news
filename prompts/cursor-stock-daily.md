@@ -24,11 +24,13 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 3. 按清单检索 SEC EDGAR、HKEXnews、公司 IR、新闻稿、主流财经媒体和可信市场新闻。把原始发现写入 `tmp/STOCK/YYYYMMDD/01-raw-findings.md`。
 4. 去重、按市场影响排序，把候选新闻写入 `tmp/STOCK/YYYYMMDD/02-ranked-items.md`。
 5. 生成中文草稿到 `tmp/STOCK/YYYYMMDD/03-draft-cn.md`。
-6. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、AI 独角兽/IPO、财报与指引、监管与风险、明日继续跟踪、来源覆盖与缺口。
-7. 每条重要判断必须附来源链接，价格、涨跌、市值等实时数据必须注明时间和来源。不要给买卖建议。
-8. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
-9. **必须** `git add`、`git commit`、`git push origin main`。commit message: `daily stock news report ${REPORT_ISO}`。
-10. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
+6. **生成 HTML 前**必须完整阅读本文件 **「移动端 UI 设计要求」** 与 **HTML 结构** 章节；以 `2026-06/STOCK/20260602.html` 为结构参考，**禁止**复用 `max-width: 920px` 旧模板。
+7. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、AI 独角兽/IPO、财报与指引、监管与风险、**与伊隆·马斯克相关的股票专题**、明日继续跟踪、来源覆盖与缺口。
+8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind STOCK --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
+9. 每条重要判断必须附来源链接，价格、涨跌、市值等实时数据必须注明时间和来源。不要给买卖建议。
+10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
+11. **必须** `git add`、`git commit`、`git push origin main`。commit message: `daily stock news report ${REPORT_ISO}`。
+12. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
 
 ## 输出要求
 

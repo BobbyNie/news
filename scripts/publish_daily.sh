@@ -8,6 +8,8 @@ cd "$ROOT"
 eval "$(python3 scripts/report_date.py)"
 
 python3 -m unittest discover -s tests -p 'test_*.py' -q
+python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
+python3 scripts/validate_report_ui.py --kind STOCK --date "$REPORT_DATE"
 python3 scripts/build_pages_index.py
 
 git add \
@@ -17,7 +19,9 @@ git add \
   "${REPORT_MONTH}/STOCK/${REPORT_DATE}.html" \
   index.html \
   scripts/report_date.py \
+  scripts/validate_report_ui.py \
   tests/test_report_date.py \
+  tests/test_validate_report_ui.py \
   prompts/ \
   README.MD 2>/dev/null || true
 
