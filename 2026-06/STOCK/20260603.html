@@ -5,26 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2026-06-03 股市日报</title>
   <style>
-    :root { --fg: #1a1a1a; --muted: #555; --border: #ddd; --bg: #fafafa; --accent: #0d6b4a; }
-    body { font-family: system-ui, "PingFang TC", "Noto Sans TC", sans-serif; line-height: 1.6; color: var(--fg); max-width: 920px; margin: 0 auto; padding: 1.5rem; }
-    h1 { font-size: 1.75rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; color: var(--accent); }
-    h3 { font-size: 1.05rem; }
-    section { margin-bottom: 2rem; }
-    .meta { color: var(--muted); font-size: 0.9rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
-    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
-    th { background: var(--bg); }
-    ul { padding-left: 1.25rem; }
-    li { margin: 0.4rem 0; }
-    a { color: #0b57d0; }
-    .price { font-variant-numeric: tabular-nums; }
-    .warn { background: #fff8e6; border-left: 4px solid #f0ad4e; padding: 0.75rem 1rem; margin: 1rem 0; }
-    .musk { background: #f0f7ff; border: 1px solid #c5d9f0; border-radius: 6px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+    }
+    .hero-stock {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      color: #101828;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card {
+      counter-increment: marketitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+    }
+    .market-card::before {
+      content: counter(marketitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #dcfce7;
+      color: var(--market);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
   </style>
 </head>
-<body>
-  <h1>2026-06-03 股市日报</h1>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-03 股市日报</h1>
+    <p class="lead">mega-IPO 定价、AI 算力链分化、港股科网强势反弹。</p>
+    <div class="market-strip"><span>生成时间：2026-06-03 07:01（澳门时间）｜采集窗口：2026-06-01 07:01 ~ 2026-06-03 07:01（澳门时间 UTC+8）｜市场日历：美股 6/1–6/2 已收盘，港股 6/2 已收盘</span></div>
+  </header>
 
   <section id="window">
     <h2>更新时间与数据窗口</h2>
@@ -35,40 +114,44 @@
 
   <section id="top">
     <h2>今日最重要的 5–10 条</h2>
-    <ol>
-      <li><strong>SpaceX 据报瞄准约 1.75 万亿美元 IPO 估值（含 greenshoe）</strong>，拟募资约 750 亿美元（Reuters 2026-06-02）。<a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">来源</a></li>
-      <li><strong>Anthropic 6/1 向 SEC 保密递交 S-1</strong>，与 SpaceX、OpenAI 形成 mega-IPO 窗口。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a></li>
-      <li><strong>Alphabet 宣布拟融资约 800 亿美元</strong>扩建 AI 算力；<strong>GOOGL 2026-06-02 收 <span class="price">$361.85</span>（-3.86%）</strong>。<a href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx">IR</a> · <a href="https://stockanalysis.com/stocks/googl/history/">收盘价</a></li>
-      <li><strong>NVDA 6/1 大涨后 6/2 小幅回吐</strong>：6/1 收 <span class="price">$224.36</span>（+6.26%），6/2 收 <span class="price">$222.82</span>（-0.69%）。Computex 发布 RTX Spark。<a href="https://finance.yahoo.com/quote/NVDA/history/">Yahoo</a> · <a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark">NVIDIA</a></li>
-      <li><strong>Marvell (MRVL) 2026-06-02 暴涨约 32.5%</strong>，收 <span class="price">$290.79</span>（Huang 称或成「下一个万亿美元公司」）。<a href="https://www.investors.com/news/technology/marvell-stock-mrvl-nvidia-endorsement-computex-2026/">IBD</a></li>
-      <li><strong>HPE 财报超预期</strong>（2026-06-01）：收入 <span class="price">$10.68B</span>（+40% YoY），adj EPS <span class="price">$0.79</span> vs 预期 $0.53；股价盘中/盘后大涨。<a href="https://www.sec.gov/Archives/edgar/data/1645590/000164559026000052/ex-991x612026x8k.htm">SEC</a></li>
-      <li><strong>港股 6/2 科指 +4.72%</strong>，腾讯 <span class="price">481.6 港元</span>（+10.46%，五年最大单日涨幅之一）。<a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-02/doc-inhzzcps4880629.shtml">新浪</a></li>
-      <li><strong>美股 6/1 三大指数创新高</strong>；6/2 道指续创新高，纳指约 -0.5%（AI 与地缘交织）。<a href="https://finance.yahoo.com/economy/live/stock-market-today-tuesday-june-2-ai-231755175.html">Yahoo</a></li>
-      <li><strong>白宫 6/2 签署 AI 行政令</strong>— 自愿前沿模型预审框架，影响大型科技公司合规预期。<a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/">白宫</a></li>
-      <li><strong>智谱、MiniMax 港股 6/2 跌超 3~5%</strong>，与科网龙头走势分化。<a href="https://stock.jrj.com.cn/2026/06/02161457306178.shtml">金融界</a></li>
+    <ol class="top-list">
+      <li class="market-card"><strong>SpaceX 据报瞄准约 1.75 万亿美元 IPO 估值（含 greenshoe）</strong>，拟募资约 750 亿美元（Reuters 2026-06-02）。<a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">来源</a></li>
+      <li class="market-card"><strong>Anthropic 6/1 向 SEC 保密递交 S-1</strong>，与 SpaceX、OpenAI 形成 mega-IPO 窗口。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a></li>
+      <li class="market-card"><strong>Alphabet 宣布拟融资约 800 亿美元</strong>扩建 AI 算力；<strong>GOOGL 2026-06-02 收 <span class="price">$361.85</span>（<span class="change-down">-3.86%</span>）</strong>。<a href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx">IR</a> · <a href="https://stockanalysis.com/stocks/googl/history/">收盘价</a></li>
+      <li class="market-card"><strong>NVDA 6/1 大涨后 6/2 小幅回吐</strong>：6/1 收 <span class="price">$224.36</span>（<span class="change-up">+6.26%</span>），6/2 收 <span class="price">$222.82</span>（<span class="change-down">-0.69%</span>）。Computex 发布 RTX Spark。<a href="https://finance.yahoo.com/quote/NVDA/history/">Yahoo</a> · <a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark">NVIDIA</a></li>
+      <li class="market-card"><strong>Marvell (MRVL) 2026-06-02 暴涨约 32.5%</strong>，收 <span class="price">$290.79</span>（Huang 称或成「下一个万亿美元公司」）。<a href="https://www.investors.com/news/technology/marvell-stock-mrvl-nvidia-endorsement-computex-2026/">IBD</a></li>
+      <li class="market-card"><strong>HPE 财报超预期</strong>（2026-06-01）：收入 <span class="price">$10.68B</span>（+40% YoY），adj EPS <span class="price">$0.79</span> vs 预期 $0.53；股价盘中/盘后大涨。<a href="https://www.sec.gov/Archives/edgar/data/1645590/000164559026000052/ex-991x612026x8k.htm">SEC</a></li>
+      <li class="market-card"><strong>港股 6/2 科指 <span class="change-up">+4.72%</span></strong>，腾讯 <span class="price">481.6 港元</span>（<span class="change-up">+10.46%</span>，五年最大单日涨幅之一）。<a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-02/doc-inhzzcps4880629.shtml">新浪</a></li>
+      <li class="market-card"><strong>美股 6/1 三大指数创新高</strong>；6/2 道指续创新高，纳指约 <span class="change-down">-0.5%</span>（AI 与地缘交织）。<a href="https://finance.yahoo.com/economy/live/stock-market-today-tuesday-june-2-ai-231755175.html">Yahoo</a></li>
+      <li class="market-card"><strong>白宫 6/2 签署 AI 行政令</strong>— 自愿前沿模型预审框架，影响大型科技公司合规预期。<a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/">白宫</a></li>
+      <li class="market-card"><strong>智谱、MiniMax 港股 6/2 跌超 3~5%</strong>，与科网龙头走势分化。<a href="https://stock.jrj.com.cn/2026/06/02161457306178.shtml">金融界</a></li>
     </ol>
   </section>
 
-  <section id="musk" class="musk">
+  <section id="musk">
     <h2>专题：与伊隆·马斯克相关的股票</h2>
-    <p>马斯克个人财富与上市公司敞口高度集中于 <strong>Tesla (TSLA)</strong>、即将上市的 <strong>SpaceX（含 xAI、X）</strong>，并通过 S-1 披露与 Tesla、xAI 的关联交易。以下仅为事实梳理与风险点，<strong>不构成买卖建议</strong>。</p>
+    <div class="focus-box">
+      <p>马斯克个人财富与上市公司敞口高度集中于 <strong>Tesla (TSLA)</strong>、即将上市的 <strong>SpaceX（含 xAI、X）</strong>，并通过 S-1 披露与 Tesla、xAI 的关联交易。以下仅为事实梳理与风险点，<strong>不构成买卖建议</strong>。</p>
+    </div>
 
     <h3>资产地图（据公开披露与媒体）</h3>
-    <table>
-      <thead>
-        <tr><th>载体</th><th>关系</th><th>窗口内要点</th><th>来源</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>TSLA</td><td>马斯克持股约 12%（Forbes 引述）</td><td>6/2 收 $423.74；6/1 收 $415.88（-4.57%）</td><td><a href="https://stockanalysis.com/stocks/tsla/history/">收盘价</a> · <a href="https://www.tennessean.com/story/money/business/2026/06/02/spacex-ipo-launch-date-valuation-elon-musk/90368607007/">Tennessean</a></td></tr>
-        <tr><td>SpaceX (+xAI + X)</td><td>马斯克约 85.1% 投票权；拟 Nasdaq 代码 SPCX</td><td>媒体称目标估值 ~$1.75T、募资 ~$75B；路演或 6/5 起、挂牌或 6/12</td><td><a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">Reuters 转述</a> · <a href="https://thestartupproject.io/blog/spacex-s1-breakdown">S-1 解读</a></td></tr>
-        <tr><td>xAI → SpaceX</td><td>2026-02 全股票并入 SpaceX</td><td>S-1 指 AI 分部 2025 收入约 $32 亿、运营亏损约 $64 亿；2025 AI capex 约 $127 亿</td><td><a href="https://www.mostlymetrics.com/p/spacex-ipo-s1-breakdown">Mostly Metrics（引 S-1）</a></td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>载体</th><th>关系</th><th>窗口内要点</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TSLA</td><td>马斯克持股约 12%（Forbes 引述）</td><td>6/2 收 $423.74；6/1 收 $415.88（-4.57%）</td><td><a href="https://stockanalysis.com/stocks/tsla/history/">收盘价</a> · <a href="https://www.tennessean.com/story/money/business/2026/06/02/spacex-ipo-launch-date-valuation-elon-musk/90368607007/">Tennessean</a></td></tr>
+          <tr><td>SpaceX (+xAI + X)</td><td>马斯克约 85.1% 投票权；拟 Nasdaq 代码 SPCX</td><td>媒体称目标估值 ~$1.75T、募资 ~$75B；路演或 6/5 起、挂牌或 6/12</td><td><a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">Reuters 转述</a> · <a href="https://thestartupproject.io/blog/spacex-s1-breakdown">S-1 解读</a></td></tr>
+          <tr><td>xAI → SpaceX</td><td>2026-02 全股票并入 SpaceX</td><td>S-1 指 AI 分部 2025 收入约 $32 亿、运营亏损约 $64 亿；2025 AI capex 约 $127 亿</td><td><a href="https://www.mostlymetrics.com/p/spacex-ipo-s1-breakdown">Mostly Metrics（引 S-1）</a></td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>Tesla (TSLA) 价格与驱动</h3>
     <ul>
-      <li><strong>2026-06-02 收盘</strong>：<span class="price">$423.74</span>（+1.89%），成交量约 3596 万股（美东 16:00）。<a href="https://stockanalysis.com/stocks/tsla/history/">来源</a></li>
-      <li><strong>2026-06-01 收盘</strong>：<span class="price">$415.88</span>（-4.57%）— 前一日下挫后次日反弹，与大盘 AI 强势并非完全同步。</li>
+      <li><strong>2026-06-02 收盘</strong>：<span class="price">$423.74</span>（<span class="change-up">+1.89%</span>），成交量约 3596 万股（美东 16:00）。<a href="https://stockanalysis.com/stocks/tsla/history/">来源</a></li>
+      <li><strong>2026-06-01 收盘</strong>：<span class="price">$415.88</span>（<span class="change-down">-4.57%</span>）— 前一日下挫后次日反弹，与大盘 AI 强势并非完全同步。</li>
       <li><strong>间接关联</strong>：SpaceX S-1 披露 xAI 2025 年向 Tesla 采购约 5.06 亿美元商品与服务，2026 年另有约 1.5 亿美元；Tesla 2026-01 投资 xAI，SpaceX 收购 xAI 后转为持有约 1% SpaceX Class A（S-1 解读）。<a href="https://www.mostlymetrics.com/p/spacex-ipo-s1-breakdown">来源</a></li>
     </ul>
 
@@ -85,27 +168,29 @@
       <li><strong>关联交易</strong>：Tesla ↔ xAI/SpaceX 采购与投资转换，小股东需关注定价与治理。</li>
       <li><strong>AI 烧钱</strong>：合并报表下 AI 分部 capex 极高，上市募资主要用于基础设施，Starlink 为当前主要盈利引擎（S-1 解读）。</li>
       <li><strong>锁价与稀释</strong>：史上最大 IPO 之一或改变指数权重与同业估值；投行费谈判（Bloomberg 称「极薄费率」）反映承销竞争激烈。<a href="https://www.youtube.com/watch?v=wkISIxb4v18">Bloomberg Tech 6/2</a></li>
-      <li><strong>TSLA 独立性</strong>：市场仍主要按电动车/机器人/ FSD 叙事交易 TSLA；SpaceX 上市可能带来「马斯克溢价」重估，也可能引发监管对利益冲突的关注。</li>
+      <li><strong>TSLA 独立性</strong>：市场仍主要按电动车/机器人/FSD 叙事交易 TSLA；SpaceX 上市可能带来「马斯克溢价」重估，也可能引发监管对利益冲突的关注。</li>
     </ul>
   </section>
 
   <section id="us">
     <h2>美股重点</h2>
     <h3>AI 算力链</h3>
-    <table>
-      <thead>
-        <tr><th>标的</th><th>收盘价</th><th>涨跌</th><th>时间（美东）</th><th>来源</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>NVDA</td><td class="price">$222.82</td><td>-0.69%</td><td>2026-06-02</td><td><a href="https://finance.yahoo.com/quote/NVDA/history/">Yahoo</a></td></tr>
-        <tr><td>NVDA（前日）</td><td class="price">$224.36</td><td>+6.26%</td><td>2026-06-01</td><td>同上</td></tr>
-        <tr><td>MRVL</td><td class="price">$290.79</td><td>+32.52%</td><td>2026-06-02</td><td><a href="https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html">CNBC</a></td></tr>
-        <tr><td>HPE</td><td>财报后大涨（CNBC 称约 +30% 6/1）</td><td>—</td><td>2026-06-01</td><td><a href="https://www.cnbc.com/2026/06/01/hpe-stock-earnings-q2.html">CNBC</a></td></tr>
-        <tr><td>GOOGL</td><td class="price">$361.85</td><td>-3.86%</td><td>2026-06-02</td><td><a href="https://stockanalysis.com/stocks/googl/history/">stockanalysis</a></td></tr>
-        <tr><td>DELL / HPQ</td><td>6/1 涨约 11% / 8.5%（NVDA 合作伙伴）</td><td>—</td><td>2026-06-01</td><td><a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-06012026-11987627">Investopedia</a></td></tr>
-        <tr><td>AMD / INTC / QCOM</td><td>6/1 PC 芯片 rival 承压（约 -4% / -5% / -8%）</td><td>—</td><td>2026-06-01</td><td>同上</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>标的</th><th>收盘价</th><th>涨跌</th><th>时间（美东）</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>NVDA</td><td class="price">$222.82</td><td class="change-down">-0.69%</td><td>2026-06-02</td><td><a href="https://finance.yahoo.com/quote/NVDA/history/">Yahoo</a></td></tr>
+          <tr><td>NVDA（前日）</td><td class="price">$224.36</td><td class="change-up">+6.26%</td><td>2026-06-01</td><td>同上</td></tr>
+          <tr><td>MRVL</td><td class="price">$290.79</td><td class="change-up">+32.52%</td><td>2026-06-02</td><td><a href="https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html">CNBC</a></td></tr>
+          <tr><td>HPE</td><td>财报后大涨（CNBC 称约 +30% 6/1）</td><td>—</td><td>2026-06-01</td><td><a href="https://www.cnbc.com/2026/06/01/hpe-stock-earnings-q2.html">CNBC</a></td></tr>
+          <tr><td>GOOGL</td><td class="price">$361.85</td><td class="change-down">-3.86%</td><td>2026-06-02</td><td><a href="https://stockanalysis.com/stocks/googl/history/">stockanalysis</a></td></tr>
+          <tr><td>DELL / HPQ</td><td>6/1 涨约 11% / 8.5%（NVDA 合作伙伴）</td><td>—</td><td>2026-06-01</td><td><a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-06012026-11987627">Investopedia</a></td></tr>
+          <tr><td>AMD / INTC / QCOM</td><td>6/1 PC 芯片 rival 承压（约 -4% / -5% / -8%）</td><td>—</td><td>2026-06-01</td><td>同上</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>大盘</h3>
     <ul>
@@ -116,36 +201,40 @@
 
   <section id="hk">
     <h2>港股重点</h2>
-    <table>
-      <thead>
-        <tr><th>指数/标的</th><th>收盘</th><th>涨跌</th><th>时间</th><th>来源</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>恒生指数</td><td class="price">26038.32</td><td>+2.52%</td><td>2026-06-02 16:00 HKT</td><td><a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-02/doc-inhzzcps4880629.shtml">新浪</a></td></tr>
-        <tr><td>恒生科技指数</td><td class="price">5199.28</td><td>+4.72%</td><td>同上</td><td>同上</td></tr>
-        <tr><td>腾讯 00700</td><td class="price">481.6 港元</td><td>+10.46%</td><td>同上</td><td><a href="https://finance.sina.com.cn/jjxw/2026-06-02/doc-inhzzcpu1670516.shtml">新浪</a></td></tr>
-        <tr><td>美团 03690</td><td>—</td><td>+9.27%</td><td>同上</td><td>新浪</td></tr>
-        <tr><td>阿里巴巴 9988</td><td>—</td><td>+6.60%</td><td>同上</td><td><a href="https://stock.jrj.com.cn/2026/06/02161457306178.shtml">金融界</a></td></tr>
-        <tr><td>蔚来 9866</td><td>—</td><td>+8.34%</td><td>同上</td><td>金融界</td></tr>
-        <tr><td>华虹 1347</td><td>—</td><td>-2.89%</td><td>同上</td><td>金融界</td></tr>
-        <tr><td>智谱 / MiniMax</td><td>—</td><td>约 -3% / -5%</td><td>同上</td><td>金融界</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指数/标的</th><th>收盘</th><th>涨跌</th><th>时间</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>恒生指数</td><td class="price">26038.32</td><td class="change-up">+2.52%</td><td>2026-06-02 16:00 HKT</td><td><a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-02/doc-inhzzcps4880629.shtml">新浪</a></td></tr>
+          <tr><td>恒生科技指数</td><td class="price">5199.28</td><td class="change-up">+4.72%</td><td>同上</td><td>同上</td></tr>
+          <tr><td>腾讯 00700</td><td class="price">481.6 港元</td><td class="change-up">+10.46%</td><td>同上</td><td><a href="https://finance.sina.com.cn/jjxw/2026-06-02/doc-inhzzcpu1670516.shtml">新浪</a></td></tr>
+          <tr><td>美团 03690</td><td>—</td><td class="change-up">+9.27%</td><td>同上</td><td>新浪</td></tr>
+          <tr><td>阿里巴巴 9988</td><td>—</td><td class="change-up">+6.60%</td><td>同上</td><td><a href="https://stock.jrj.com.cn/2026/06/02161457306178.shtml">金融界</a></td></tr>
+          <tr><td>蔚来 9866</td><td>—</td><td class="change-up">+8.34%</td><td>同上</td><td>金融界</td></tr>
+          <tr><td>华虹 1347</td><td>—</td><td class="change-down">-2.89%</td><td>同上</td><td>金融界</td></tr>
+          <tr><td>智谱 / MiniMax</td><td>—</td><td class="change-down">约 -3% / -5%</td><td>同上</td><td>金融界</td></tr>
+        </tbody>
+      </table>
+    </div>
     <p><strong>催化剂</strong>：美股 AI 硬件强势后，资金轮动至港股应用型科网；媒体称微信 AI Agent、阿里 Qwen3.7-Plus 等——部分待官方确认。全日成交额约 3737.8 亿港元（新浪引述）。</p>
   </section>
 
   <section id="unicorns">
     <h2>AI 独角兽 / IPO</h2>
-    <table>
-      <thead>
-        <tr><th>主体</th><th>事件</th><th>估值/规模（报道或官方）</th><th>来源</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>SpaceX (+xAI)</td><td>S-1 已公开；媒体称 6/12 挂牌 SPCX</td><td>目标估值约 $1.75T；募资约 $75B</td><td><a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">Reuters 转述</a></td></tr>
-        <tr><td>Anthropic</td><td>6/1 保密 S-1</td><td>Series H 投后 $965B（官方新闻稿表述）</td><td><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a></td></tr>
-        <tr><td>OpenAI</td><td>保密进程</td><td>私募约 $852B+（媒体）</td><td><span class="tag">待 SEC 公开文件</span></td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>主体</th><th>事件</th><th>估值/规模（报道或官方）</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SpaceX (+xAI)</td><td>S-1 已公开；媒体称 6/12 挂牌 SPCX</td><td>目标估值约 $1.75T；募资约 $75B</td><td><a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">Reuters 转述</a></td></tr>
+          <tr><td>Anthropic</td><td>6/1 保密 S-1</td><td>Series H 投后 $965B（官方新闻稿表述）</td><td><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a></td></tr>
+          <tr><td>OpenAI</td><td>保密进程</td><td>私募约 $852B+（媒体）</td><td><span class="tag">待 SEC 公开文件</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section id="earnings">
@@ -159,13 +248,13 @@
 
   <section id="risks">
     <h2>监管与风险</h2>
-    <ul>
-      <li><strong>IPO 执行与流动性</strong>：SpaceX + Anthropic + OpenAI 或挤占 2026 年下半年一级/二级市场注意力。</li>
-      <li><strong>稀释与集中度</strong>：GOOGL $800B 融资、Mag 7 AI capex 竞赛；标普涨幅对少数权重股依赖（Yahoo 引述）。</li>
-      <li><strong>地缘</strong>：6/2 盘中纳指承压与中东局势相关（Yahoo）。</li>
-      <li><strong>监管</strong>：白宫 AI EO 自愿预审框架；参与边界待细则。</li>
-      <li><strong>港股传闻风险</strong>：腾讯 Agent 等若未落地，估值波动或加大。</li>
-    </ul>
+    <div class="focus-box">
+      <p><strong>IPO 执行与流动性</strong>：SpaceX + Anthropic + OpenAI 或挤占 2026 年下半年一级/二级市场注意力。</p>
+      <p><strong>稀释与集中度</strong>：GOOGL $800B 融资、Mag 7 AI capex 竞赛；标普涨幅对少数权重股依赖（Yahoo 引述）。</p>
+      <p><strong>地缘与监管</strong>：6/2 盘中纳指承压与中东局势相关；白宫 AI EO 自愿预审框架参与边界待细则。</p>
+      <p><strong>港股传闻风险</strong>：腾讯 Agent 等若未落地，估值波动或加大。</p>
+    </div>
+    <div class="warn">本报告不提供买卖建议；价格均标注时间与来源。</div>
   </section>
 
   <section id="next">

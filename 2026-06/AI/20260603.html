@@ -5,25 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2026-06-03 AI 日报</title>
   <style>
-    :root { --fg: #1a1a1a; --muted: #555; --border: #ddd; --bg: #fafafa; --accent: #0b57d0; }
-    body { font-family: system-ui, "PingFang TC", "Noto Sans TC", sans-serif; line-height: 1.6; color: var(--fg); max-width: 920px; margin: 0 auto; padding: 1.5rem; }
-    h1 { font-size: 1.75rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
-    h2 { font-size: 1.25rem; margin-top: 2rem; color: var(--accent); }
-    h3 { font-size: 1.05rem; }
-    section { margin-bottom: 2rem; }
-    .meta { color: var(--muted); font-size: 0.9rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
-    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
-    th { background: var(--bg); }
-    ul { padding-left: 1.25rem; }
-    li { margin: 0.4rem 0; }
-    a { color: var(--accent); }
-    .tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: #eee; margin-right: 0.25rem; }
-    .warn { background: #fff8e6; border-left: 4px solid #f0ad4e; padding: 0.75rem 1rem; margin: 1rem 0; }
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+    }
+    .hero-ai {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card {
+      counter-increment: topitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid #d7e3f8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .news-card::before {
+      content: counter(topitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
   </style>
 </head>
-<body>
-  <h1>2026-06-03 AI 日报</h1>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-03 AI 日报</h1>
+    <p class="lead">聚焦 mega-IPO、算力融资、PC Agent 与联邦 AI 监管框架。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-03 07:01（澳门时间）｜采集窗口：2026-06-01 07:01 ~ 2026-06-03 07:01（澳门时间 UTC+8）</span></div>
+  </header>
 
   <section id="window">
     <h2>更新时间与数据窗口</h2>
@@ -33,17 +108,17 @@
 
   <section id="top">
     <h2>今日最重要的 5–10 条</h2>
-    <ol>
-      <li><strong>Anthropic 向 SEC 保密递交 S-1</strong>（2026-06-01 官方）— 股数与发行价未定，上市取决于 SEC 审阅与市场条件；舆论称在 IPO 竞赛中领先 OpenAI。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">来源</a> · <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/">TechCrunch</a></li>
-      <li><strong>Alphabet 宣布拟通过股权融资约 800 亿美元</strong>（2026-06-01）— 含 Berkshire 100 亿美元私募、300 亿承销、400 亿 ATM（预计 Q3 启动），用于 AI 算力基础设施。<a href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx">IR</a> · <a href="https://www.sec.gov/Archives/edgar/data/1652044/000119312526251733/d160205dfwp.htm">SEC FWP</a></li>
-      <li><strong>特朗普签署《促进先进人工智能创新与安全》行政令</strong>（2026-06-02 白宫）— 自愿框架下前沿模型可提前最多 30 日供联邦网络安全评估；禁止强制许可。<a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/">来源</a></li>
-      <li><strong>NVIDIA 发布 RTX Spark 超级芯片，与 Microsoft 重塑 Windows PC Agent</strong>（Computex / GTC Taipei，2026-05-31~06-01）— 约 1 PFLOP、128GB 统一内存，秋季由多家 OEM 出货。<a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark">NVIDIA</a></li>
-      <li><strong>Anthropic 扩大 Project Glasswing</strong>（2026-06-02）— 新增约 150 家机构、15+ 国关键基础设施伙伴；强调 6–12 个月内 Mythos 级能力或广泛扩散。<a href="https://www.anthropic.com/news/expanding-project-glasswing">来源</a></li>
-      <li><strong>SpaceX 据报瞄准约 1.75 万亿美元 IPO 估值</strong>（Reuters 2026-06-02 引述）— 含 greenshoe；与 xAI 合并后一体上市叙事持续。<a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">Reuters 转述</a></li>
-      <li><strong>OpenAI IPO 仍处保密进程</strong>— 媒体称 5 月前后已交保密 S-1，<span class="tag">截至本窗口 SEC 未公开 OpenAI 注册全文</span>；Altman 称不聚焦短期上市时点。<a href="https://www.theverge.com/ai-artificial-intelligence/941016/anthropic-has-officially-filed-to-go-public">The Verge</a></li>
-      <li><strong>HPE 创纪录季度印证企业 AI 服务器需求</strong>（2026-06-01 SEC）— 收入约 106.8 亿美元（+40% YoY），AI backlog 超 63 亿美元。<a href="https://www.sec.gov/Archives/edgar/data/1645590/000164559026000052/ex-991x612026x8k.htm">SEC</a></li>
-      <li><strong>港股科网 AI 应用叙事升温</strong>（2026-06-02 收盘）— 腾讯单日涨超 10%，媒体称微信 AI Agent 等预期，<span class="tag">待腾讯官方确认</span>。<a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-02/doc-inhzzcps4880629.shtml">新浪</a></li>
-      <li><strong>NVIDIA Vera 数据中心 CPU 进入量产</strong>（Huang Computex，CNBC 2026-06-01）— 称 OpenAI、Anthropic、SpaceX xAI 等为早期客户。<a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html">CNBC</a></li>
+    <ol class="top-list">
+      <li class="news-card"><strong>Anthropic 向 SEC 保密递交 S-1</strong>（2026-06-01 官方）— 股数与发行价未定，上市取决于 SEC 审阅与市场条件；舆论称在 IPO 竞赛中领先 OpenAI。<span class="tag">IPO</span> <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">来源</a> · <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/">TechCrunch</a></li>
+      <li class="news-card"><strong>Alphabet 宣布拟通过股权融资约 800 亿美元</strong>（2026-06-01）— 含 Berkshire 100 亿美元私募、300 亿承销、400 亿 ATM（预计 Q3 启动），用于 AI 算力基础设施。<span class="tag">算力 / 融资</span> <a href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx">IR</a> · <a href="https://www.sec.gov/Archives/edgar/data/1652044/000119312526251733/d160205dfwp.htm">SEC FWP</a></li>
+      <li class="news-card"><strong>特朗普签署《促进先进人工智能创新与安全》行政令</strong>（2026-06-02 白宫）— 自愿框架下前沿模型可提前最多 30 日供联邦网络安全评估；禁止强制许可。<span class="tag">监管</span> <a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA 发布 RTX Spark 超级芯片，与 Microsoft 重塑 Windows PC Agent</strong>（Computex / GTC Taipei，2026-05-31~06-01）— 约 1 PFLOP、128GB 统一内存，秋季由多家 OEM 出货。<span class="tag">产品</span> <a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark">NVIDIA</a></li>
+      <li class="news-card"><strong>Anthropic 扩大 Project Glasswing</strong>（2026-06-02）— 新增约 150 家机构、15+ 国关键基础设施伙伴；强调 6–12 个月内 Mythos 级能力或广泛扩散。<span class="tag">安全</span> <a href="https://www.anthropic.com/news/expanding-project-glasswing">来源</a></li>
+      <li class="news-card"><strong>SpaceX 据报瞄准约 1.75 万亿美元 IPO 估值</strong>（Reuters 2026-06-02 引述）— 含 greenshoe；与 xAI 合并后一体上市叙事持续。<span class="tag">IPO</span> <a href="https://ca.marketscreener.com/news/spacex-targets-1-75-trillion-valuation-including-greenshoe-option-in-record-ipo-sources-say-ce7f5ddedc8cf623">Reuters 转述</a></li>
+      <li class="news-card"><strong>OpenAI IPO 仍处保密进程</strong>— 媒体称 5 月前后已交保密 S-1，<span class="tag">待 SEC 公开文件</span>；Altman 称不聚焦短期上市时点。<a href="https://www.theverge.com/ai-artificial-intelligence/941016/anthropic-has-officially-filed-to-go-public">The Verge</a></li>
+      <li class="news-card"><strong>HPE 创纪录季度印证企业 AI 服务器需求</strong>（2026-06-01 SEC）— 收入约 106.8 亿美元（+40% YoY），AI backlog 超 63 亿美元。<span class="tag">企业需求</span> <a href="https://www.sec.gov/Archives/edgar/data/1645590/000164559026000052/ex-991x612026x8k.htm">SEC</a></li>
+      <li class="news-card"><strong>港股科网 AI 应用叙事升温</strong>（2026-06-02 收盘）— 腾讯单日涨超 10%，媒体称微信 AI Agent 等预期，<span class="tag">待腾讯官方确认</span> <a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-06-02/doc-inhzzcps4880629.shtml">新浪</a></li>
+      <li class="news-card"><strong>NVIDIA Vera 数据中心 CPU 进入量产</strong>（Huang Computex，CNBC 2026-06-01）— 称 OpenAI、Anthropic、SpaceX xAI 等为早期客户。<a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html">CNBC</a></li>
     </ol>
   </section>
 
@@ -77,21 +152,23 @@
 
   <section id="companies">
     <h2>公司跟踪表</h2>
-    <table>
-      <thead>
-        <tr><th>公司</th><th>48h 动态</th><th>状态</th><th>来源</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Anthropic</td><td>保密 S-1；Glasswing 扩至 ~150 机构</td><td>IPO 审阅中</td><td><a href="https://www.anthropic.com/news">news</a></td></tr>
-        <tr><td>OpenAI</td><td>无新官方稿；IPO 传闻持续</td><td>待 SEC 公开 S-1</td><td>媒体</td></tr>
-        <tr><td>Google / Alphabet</td><td>$800B 股权融资；算力供不应求表述</td><td>活跃</td><td><a href="https://abc.xyz/investor/">IR</a></td></tr>
-        <tr><td>NVIDIA</td><td>RTX Spark、Vera 量产；Computex  keynote</td><td>活跃</td><td><a href="https://nvidianews.nvidia.com/">Newsroom</a></td></tr>
-        <tr><td>Microsoft</td><td>与 NVDA 共推 Agent PC</td><td>活跃</td><td><a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark">联合稿</a></td></tr>
-        <tr><td>SpaceX / xAI</td><td>IPO 估值沟通；与 TSLA/xAI 关联交易在 S-1 已披露</td><td>路演前夕</td><td>S-1 / Reuters</td></tr>
-        <tr><td>腾讯</td><td>股价大涨；微信 Agent 传闻</td><td>待官方</td><td>媒体报道</td></tr>
-        <tr><td>智谱 / MiniMax</td><td>港股走弱</td><td>观察</td><td><a href="https://stock.jrj.com.cn/2026/06/02161457306178.shtml">金融界</a></td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>48h 动态</th><th>状态</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Anthropic</td><td>保密 S-1；Glasswing 扩至 ~150 机构</td><td>IPO 审阅中</td><td><a href="https://www.anthropic.com/news">news</a></td></tr>
+          <tr><td>OpenAI</td><td>无新官方稿；IPO 传闻持续</td><td>待 SEC 公开 S-1</td><td>媒体</td></tr>
+          <tr><td>Google / Alphabet</td><td>$800B 股权融资；算力供不应求表述</td><td>活跃</td><td><a href="https://abc.xyz/investor/">IR</a></td></tr>
+          <tr><td>NVIDIA</td><td>RTX Spark、Vera 量产；Computex keynote</td><td>活跃</td><td><a href="https://nvidianews.nvidia.com/">Newsroom</a></td></tr>
+          <tr><td>Microsoft</td><td>与 NVDA 共推 Agent PC</td><td>活跃</td><td><a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark">联合稿</a></td></tr>
+          <tr><td>SpaceX / xAI</td><td>IPO 估值沟通；与 TSLA/xAI 关联交易在 S-1 已披露</td><td>路演前夕</td><td>S-1 / Reuters</td></tr>
+          <tr><td>腾讯</td><td>股价大涨；微信 Agent 传闻</td><td>待官方</td><td>媒体报道</td></tr>
+          <tr><td>智谱 / MiniMax</td><td>港股走弱</td><td>观察</td><td><a href="https://stock.jrj.com.cn/2026/06/02161457306178.shtml">金融界</a></td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section id="risks">
