@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-04 AI 日报</title>
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+    }
+    .hero-ai {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card {
+      counter-increment: topitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid #d7e3f8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .news-card::before {
+      content: counter(topitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-04 AI 日报</h1>
+    <p class="lead">Microsoft 自研 frontier 模型、SpaceX IPO 定价与港股 AI 应用预期回调。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-04 07:00（澳门时间）｜采集窗口：2026-06-02 07:00 ~ 2026-06-04 07:00（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-04 07:00（澳门时间）｜采集窗口：2026-06-02 07:00 ~ 2026-06-04 07:00（澳门时间 UTC+8）</p>
+    <p>本窗口核心增量来自 <strong>Microsoft Build 2026（6/2）</strong> 与 <strong>SpaceX IPO 进入固定定价与路演阶段（6/2–3）</strong>；Anthropic S-1、Alphabet 融资、NVIDIA Computex 等仍为背景主线，但无重大新官方稿。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5–10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>Microsoft Build 发布七款自研模型</strong>（2026-06-02）— 含推理模型 MAI-Thinking-1、编码模型 MAI-Code-1-Flash（已向付费 Copilot 推出）；公司称 McKinsey 场景下成本效率约为 GPT-5.5 的 10 倍，并强调未使用 OpenAI 蒸馏数据。<span class="tag">模型 / 竞合</span> <a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html">CNBC</a> · <a href="https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition">The Verge</a></li>
+      <li class="news-card"><strong>SpaceX 拟固定 IPO 价 $135/股、募资约 $750 亿</strong>（Reuters 2026-06-02 经 CNA）— 目标估值约 $1.75 万亿；全 primary 发行；马斯克同意 IPO 后 366 日不售股；<strong>路演拟 6 月 4 日启动</strong>，挂牌或 6/12（SPCX）。<span class="tag">IPO / xAI</span> <a href="https://www.channelnewsasia.com/business/exclusive-spacex-plans-set-ipo-price-135-share-targeting-75-billion-raise-source-says-6157916">CNA/Reuters</a></li>
+      <li class="news-card"><strong>Morningstar 称 SpaceX 公允价值约 $7800 亿</strong>（2026-06-03 引述）— 较 $1.75T 目标低约 $9700 亿；认为 Starlink 为当前盈利核心，轨道数据中心等仍偏叙事。<span class="tag">估值争议</span> <a href="https://invezz.com/news/2026/06/03/spacexs-mega-ipo-plan-hits-a-wall-morningstar-sees-a-970-billion-gap/">Invezz</a></li>
+      <li class="news-card"><strong>港股科网获利回吐</strong>（2026-06-03）— 恒指跌 1.56% 至 25633；腾讯收 466.4 港元（<span class="tag">-3.16%</span>）；媒体引述公司人员称微信 AI 助手上线仍待监管，<span class="tag">待官方确认</span>。<a href="https://www.etnet.com.hk/www/tc/news/topic_news_detail.php?category=financenews&newsid=396899">etnet</a></li>
+      <li class="news-card"><strong>NVDA 6/3 收 $214.75（-3.62%）</strong>— 在 6/1 大涨后连续两日走弱，反映 AI 算力交易过热后的获利了结。<span class="tag">市场情绪</span> <a href="https://stockanalysis.com/stocks/nvda/history/">收盘价</a></li>
+      <li class="news-card"><strong>Mustafa Suleyman 称目标进入「全球前四实验室」</strong>（Build 2026）— 与 OpenAI、Anthropic、Google DeepMind 并列；同步发布 MDASH 网络安全多 Agent 工具，与 Anthropic Mythos 叙事竞合。<a href="https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition">The Verge</a></li>
+      <li class="news-card"><strong>白宫 AI 创新与安全行政令</strong>（2026-06-02）— 自愿框架：前沿模型公开发布前最多 30 日供联邦网络安全评估；禁止强制许可；NSA 负责分类 benchmark。<span class="tag">监管</span> <a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/">白宫</a></li>
+      <li class="news-card"><strong>Anthropic / OpenAI IPO 无新官方稿</strong>— Anthropic 6/1 保密 S-1 仍在审阅；OpenAI 保密进程持续，SpaceX 路演或分流投资者注意力。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+
+    <h3>Microsoft：从云房东到 frontier 竞争者</h3>
+    <ul>
+      <li>Build 2026（6/2）发布 MAI-Thinking-1、MAI-Code-1-Flash、MAI-Image-2.5、语音/转录模型及 PC 端 Aion 小模型；CEO Nadella 称企业应从「消费 frontier」转向「参与 frontier 生态」。<a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html">CNBC</a></li>
+      <li>The Decoder 引述：MAI-Thinking-1 约 1T 总参数、35B 激活、128k 上下文；公开 benchmark 大致与 DeepSeek V3.2 同级——<strong>与 Anthropic Opus 级表述存在差距，需持续验证</strong>。<a href="https://the-decoder.com/build-2026-microsoft-tops-google-in-image-generation-while-playing-catch-up-on-reasoning/">The Decoder</a></li>
+      <li>经济含义：在仍持有 OpenAI（约 $130 亿）与 Anthropic（约 $50 亿）股权的同时自研模型，Azure 定价权与竞合边界将更复杂。</li>
+    </ul>
+
+    <h3>资本：SpaceX IPO 与 mega-IPO 集群</h3>
+    <ul>
+      <li>CNA/Reuters：SpaceX 拟以 <strong>$135 固定价</strong>发行约 5.556 亿股，募资约 $750 亿；约 30% 配额或给零售；募资用于 AI 算力与 Starlink 扩张。<a href="https://www.channelnewsasia.com/business/exclusive-spacex-plans-set-ipo-price-135-share-targeting-75-billion-raise-source-says-6157916">来源</a></li>
+      <li>与 Anthropic（6/1 保密 S-1）、OpenAI（保密进程）形成 2026 年下半年「近 $4 万亿市值」潜在供应（媒体估算），或改变私募与二级 AI 估值锚。</li>
+    </ul>
+
+    <h3>区域：港股从「AI 狂欢」到「落地质疑」</h3>
+    <ul>
+      <li>6/2 腾讯涨超 10% 后，6/3 跌 3.16%；etnet 称微信 AI 功能「泼冷水」，科网、生科同步回吐，恒指失守 20/50/250 日线。<a href="https://www.etnet.com.hk/www/tc/news/topic_news_detail.php?category=financenews&newsid=396899">etnet</a></li>
+      <li>资金仍关注 AI 硬件：中芯（00981）+1.22%，与科网应用分化——算力链与应用链节奏不一致。</li>
+    </ul>
+
+    <h3>监管（延续）</h3>
+    <ul>
+      <li>6/2 行政令：30 日内 CISA 发布绑定指令、60 日内建立「covered frontier model」分类；业界关注是否实质影响模型发布节奏。<a href="https://www.nextgov.com/artificial-intelligence/2026/06/trump-signs-ai-executive-order-after-postponement-last-month/413912/">Nextgov</a></li>
+    </ul>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>48h 动态</th><th>状态</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Microsoft</td><td>Build：MAI 系列、MDASH、Agent PC 叙事</td><td>活跃</td><td><a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html">CNBC</a></td></tr>
+          <tr><td>OpenAI</td><td>无新官方稿；与 MSFT 竞合升温</td><td>IPO 保密进程</td><td>媒体</td></tr>
+          <tr><td>Anthropic</td><td>无新官方稿（S-1 6/1）</td><td>IPO 审阅中</td><td><a href="https://www.anthropic.com/news">news</a></td></tr>
+          <tr><td>SpaceX / xAI</td><td>IPO $135 定价、6/4 路演</td><td>路演前夕</td><td><a href="https://www.channelnewsasia.com/business/exclusive-spacex-plans-set-ipo-price-135-share-targeting-75-billion-raise-source-says-6157916">CNA</a></td></tr>
+          <tr><td>NVIDIA</td><td>股价 6/3 -3.6%；无新官方产品稿</td><td>情绪回调</td><td><a href="https://stockanalysis.com/stocks/nvda/history/">行情</a></td></tr>
+          <tr><td>Google / Alphabet</td><td>无新 IR；GOOGL 6/3 微跌</td><td>融资计划执行中</td><td><a href="https://abc.xyz/investor/">IR</a></td></tr>
+          <tr><td>腾讯</td><td>6/3 跌 3.16%；微信 AI 时间表不确定</td><td>待官方</td><td><a href="https://www.etnet.com.hk/www/tc/news/topic_news_detail.php?category=financenews&newsid=396899">etnet</a></td></tr>
+          <tr><td>中芯国际</td><td>港股 +1.22%（6/3）</td><td>硬件相对强</td><td>etnet</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li><strong>Microsoft 自研 vs 投资悖论</strong>：同时投资 OpenAI/Anthropic 并推 MAI，客户与合作伙伴可能重新谈判 Azure 条款。</li>
+      <li><strong>SpaceX 固定定价</strong>：路演前锁价非常规，认购不足或过热均可能引发波动；Morningstar 与投行目标差巨大。</li>
+      <li><strong>港股传闻</strong>：微信 AI 若迟迟无官方稿，科网估值波动或大于基本面。</li>
+      <li><strong>算力交易过热</strong>：NVDA 两日回调或只是开始，需观察财报与 capex 指引。</li>
+      <li><strong>保密 S-1</strong>：Anthropic/OpenAI 财务细节仍不可公开验证。</li>
+    </ul>
+    <div class="warn">本报告不构成投资建议；不编造无法验证的事实。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>SpaceX 路演首日反馈、$135 固定价是否调整。</li>
+      <li>Microsoft Build 后续场次：Windows Agent 安全、Foundry 公测节奏。</li>
+      <li>腾讯是否发布微信 AI 官方新闻稿或 HKEX 公告。</li>
+      <li>美股 6/4 全日：NVDA、MSFT、GOOGL 是否延续回调。</li>
+      <li>SEC：Anthropic/OpenAI 公开 S-1 是否出现。</li>
+      <li>白宫 EO 后 CISA/NSA 30 日细则草案。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：CNBC、The Verge、The Decoder、CNA/Reuters、etnet、White House、stockanalysis 收盘价、Anthropic 官方（背景）。</p>
+    <p><strong>缺口</strong>：Bloomberg 付费；Reuters 部分 403；Microsoft 部分模型仅 private preview；OpenAI 无新官方稿；X/Facebook 未系统抓取；中国 AI 公司官网本窗口无重大发布。</p>
+    <p>工作文件：<code>tmp/AI/20260604/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+</body>
+</html>
