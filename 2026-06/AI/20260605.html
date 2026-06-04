@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-05 AI 日报</title>
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+    }
+    .hero-ai {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card {
+      counter-increment: topitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid #d7e3f8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .news-card::before {
+      content: counter(topitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-05 AI 日报</h1>
+    <p class="lead">SpaceX 定价锁定 mega-IPO 窗口；Alphabet 与 OpenAI 双线推进模型、算力与记忆。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-05 07:01（澳门时间）｜采集窗口：2026-06-03 07:01 ~ 2026-06-05 07:01（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-05 07:01（澳门时间）｜采集窗口：2026-06-03 07:01 ~ 2026-06-05 07:01（澳门时间 UTC+8）</p>
+    <p>本窗口主线从「传闻估值」进入 <strong>SpaceX SEC 修订稿固定发行价</strong>；同时 Google 在投资者日上确认 <strong>Gemini 3.5 Pro 六月落地</strong>，OpenAI 强化 <strong>AWS 企业分发</strong> 与 <strong>Dreaming V3 记忆</strong>。美股 AI 交易在 6/3 出现获利回吐，但底层 capex 与 IPO 供给故事未改。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5–10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>SpaceX 修订招股书：$135/股、募资约 $750 亿、估值约 $1.77 万亿</strong>（SEC 修订稿，2026-06-03/04 媒体报道）— 打破「先路演再定价」惯例的信号极强；合并 xAI 后仍亏损，考验市场对「轨道 AI 算力」叙事的承受力。<span class="tag">IPO</span> <a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a> · <a href="https://www.aljazeera.com/economy/2026/6/4/elon-musks-spacex-eyes-1-77tn-valuation-ahead-of-historic-ipo">Al Jazeera</a></li>
+      <li class="news-card"><strong>Alphabet 投资者演示（6/3）</strong>：确认 Gemini 3.5 Flash 已上线、<strong>3.5 Pro 将于六月推出</strong>；2026 capex 指引 <strong>$1800–1900 亿</strong>，称 AI 需求「显著超过供给」。<span class="tag">模型 / 算力</span> <a href="https://blog.google/alphabet/investor-presentation-june-2026/">Google</a></li>
+      <li class="news-card"><strong>OpenAI 前沿模型与 Codex 在 AWS 全面可用</strong>（2026-06-01 官方）— 每周 500 万+ Codex 用户；企业可通过 Bedrock 采购、治理与计费一体化。<span class="tag">企业 Agent</span> <a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">OpenAI</a></li>
+      <li class="news-card"><strong>OpenAI 发布 Dreaming V3 记忆架构</strong>（2026-06-04）— 后台合成记忆、memory summary 可审阅；服务 Free 层所需算力约降 5 倍。<span class="tag">产品</span> <a href="https://openai.com/index/chatgpt-memory-dreaming/">OpenAI</a></li>
+      <li class="news-card"><strong>NVIDIA Vera Rubin 进入全面量产</strong>（2026-05-31 官方，窗口内）— 五机架 Agentic AI 工厂平台，秋季起出货；Huang 称面向「千步推理」工作负载。<span class="tag">算力</span> <a href="https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory">NVIDIA</a></li>
+      <li class="news-card"><strong>Anthropic 保密 S-1 仍在审阅轨道</strong>（6/1 官方）— 媒体称 Morgan Stanley、Goldman 牵头，或考虑 10 月上市；与 SpaceX、OpenAI 形成 2026 mega-IPO 三连击。<span class="tag">IPO</span> <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic</a></li>
+      <li class="news-card"><strong>美股 6/3：标普结束九连涨</strong>— 地缘与油价推升收益率，NVDA 收 <code>$214.75</code>（-3.62%）；半导体情绪亦受 Broadcom 指引影响（媒体报道）。<span class="tag">市场情绪</span> <a href="https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html">CNBC</a></li>
+      <li class="news-card"><strong>港股 6/3 科网回吐</strong>— 恒生收 25633（-1.56%），腾讯 -3.16%、美团近 -6%；前日 AI Agent 大涨后的获利了结。<span class="tag">区域</span> <a href="https://www.gurufocus.com/news/8898258/hong-kong-stocks-decline-tencent-0700-and-meituan-3690-lead-losses">GuruFocus</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+
+    <h3>资本市场：从私募估值到固定发行价</h3>
+    <ul>
+      <li>SpaceX 拟售约 5.556 亿股 Class A，<strong>$135</strong> 定价，净募资约 <strong>$744 亿</strong>（公司估算，SpaceNews）。上市后 Musk 仍控制约 <strong>82.4%</strong> 投票权（双重股权）。</li>
+      <li>2025 年收入约 <strong>$187 亿</strong>、净亏 <strong>$49 亿</strong>；Q1 2026 再亏 <strong>$43 亿</strong>（Al Jazeera 引述招股书）— 上市逻辑是「潜在」而非已盈利。</li>
+      <li>Anthropic 6/1 保密 S-1 与 SpaceX 定价形成对照：前者仍未公布股数/价格；后者已把「万亿叙事」钉在公开市场锚上。</li>
+    </ul>
+
+    <h3>模型、Agent 与分发</h3>
+    <ul>
+      <li><strong>Google</strong>：Gemini 月活约 <strong>9 亿</strong>；Cloud backlog 超 <strong>$4600 亿</strong>；强调 Antigravity、Gemini Spark 等 Agent 路线。3.5 Pro 具体日期仍待官方日历。</li>
+      <li><strong>OpenAI</strong>：AWS GA 把竞争从「API 能力」推向「云账户里的采购与合规」；Dreaming V3 则巩固消费者侧长期记忆与个性化。</li>
+      <li><strong>NVIDIA</strong>：Vera Rubin 将 Agentic 工作负载定义为多机架、多组件系统问题，而非单卡迭代；与 OpenAI/Anthropic/SpaceX 等披露的早期客户叙事一致（Data Center Knowledge 引 keynote）。</li>
+    </ul>
+
+    <h3>区域与市场情绪</h3>
+    <ul>
+      <li>6/3 美股：道指 -1.21%、标普 -0.74%、纳指 -0.89%（CNBC）；6/4 道指创新高但纳指微跌，显示<strong>板块轮动</strong>而非全面 risk-off。</li>
+      <li>港股：6/2 AI Agent 预期推动腾讯等暴涨后，6/3 快速回吐—说明<strong>应用叙事仍缺官方锚定</strong>。</li>
+    </ul>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>48h 关键动态</th><th>状态</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SpaceX / xAI</td><td>IPO 定价 $135；拟 6/12 挂牌 SPCX（媒体报道）</td><td>路演/挂牌前夕</td><td><a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a></td></tr>
+          <tr><td>Alphabet</td><td>投资者日；Gemini 3.5 Pro 六月；capex $180–190B</td><td>活跃</td><td><a href="https://blog.google/alphabet/investor-presentation-june-2026/">Google</a></td></tr>
+          <tr><td>OpenAI</td><td>AWS GA；Dreaming V3；IPO 保密进程</td><td>活跃</td><td><a href="https://openai.com/">OpenAI</a></td></tr>
+          <tr><td>Anthropic</td><td>保密 S-1；媒体称投行与 10 月窗口</td><td>IPO 审阅</td><td><a href="https://www.anthropic.com/news">news</a></td></tr>
+          <tr><td>NVIDIA</td><td>Vera Rubin 量产；GTC Taipei / Computex 叙事延续</td><td>活跃</td><td><a href="https://nvidianews.nvidia.com/">Newsroom</a></td></tr>
+          <tr><td>Amazon / AWS</td><td>OpenAI 模型 + Codex + Managed Agents 上架</td><td>活跃</td><td><a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">联合发布</a></td></tr>
+          <tr><td>腾讯</td><td>6/3 股价回落；微信 Agent 仍待官方</td><td>观察</td><td>媒体</td></tr>
+          <tr><td>DeepSeek 等</td><td>官网无重大稿</td><td>静默</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li><strong>IPO 供给与定价风险</strong>：SpaceX、Anthropic、OpenAI 若集中在 2026 年下半年，可能分流资金；亏损型 mega-cap 对利率更敏感。</li>
+      <li><strong>capex 与融资循环</strong>：Alphabet、 hyperscaler 巨额支出若回报滞后，或引发「AI 资本过剩」争论。</li>
+      <li><strong>产品节奏</strong>：Gemini 3.5 Pro 仅有「六月」窗口；港股 Agent 传闻未证实。</li>
+      <li><strong>地缘与大宗</strong>：油价与美债收益率波动仍可能压制高 Beta AI 资产（6/3 已体现）。</li>
+    </ul>
+    <div class="warn">本报告不构成投资建议；不编造无法验证的事实。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>SpaceX 6/12 挂牌 SPCX、首日超额配售与锁定期条款（424B、交易所公告）。</li>
+      <li>Gemini 3.5 Pro 具体上线日与 API/Vertex 定价。</li>
+      <li>SEC EDGAR：Anthropic / OpenAI 是否出现公开注册文件。</li>
+      <li>Dreaming V3 向 Free 用户与非美市场 rollout 节奏。</li>
+      <li>腾讯/阿里是否就 Agent 产品发布官方新闻稿或 HKEX 披露。</li>
+      <li>美股 NVDA、GOOGL 在 6/4 反弹后的延续性（见股市日报行情表）。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：SpaceNews、Al Jazeera、Google/Alphabet、OpenAI、Anthropic、NVIDIA、CNBC、港股二手行情源。</p>
+    <p><strong>缺口</strong>：Bloomberg/WSJ 全文付费；SEC 保密 S-1 未公开；Reuters 部分链接受限；中国 AI 官网无重大稿；X 未系统抓取；港股 6/4 全日收盘待 HKEX 交叉。</p>
+    <p>工作文件：<code>tmp/AI/20260605/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+</body>
+</html>
