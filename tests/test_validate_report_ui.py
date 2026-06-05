@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class ValidateReportUITest(unittest.TestCase):
     def test_ai_report_passes_mobile_requirements(self) -> None:
-        html = (ROOT / "2026-06/AI/20260603.html").read_text(encoding="utf-8")
+        html = (ROOT / "2026-06/AI/20260605.html").read_text(encoding="utf-8")
         errors = validate_report_html(html, "AI")
         self.assertEqual(errors, [])
 
