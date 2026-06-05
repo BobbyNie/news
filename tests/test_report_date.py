@@ -45,6 +45,20 @@ class ReportDateTests(unittest.TestCase):
         start, end = module.collection_window_from_trigger(dt)
         self.assertEqual(end, "2026-05-28 07:00")
 
+    def test_emit_env_with_triggered_at_uses_macau_calendar(self):
+        import io
+        import contextlib
+
+        module = load_module()
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            module.emit_env(triggered_at="2026-06-05T11:16:27.102Z")
+        out = buf.getvalue()
+        self.assertIn("REPORT_DATE=20260605", out)
+        self.assertIn("REPORT_ISO=2026-06-05", out)
+        self.assertIn("REPORT_GENERATED_AT=2026-06-05 19:16（澳门时间）", out)
+        self.assertIn("REPORT_WINDOW=2026-06-03 19:16 ~ 2026-06-05 19:16（澳门时间 UTC+8）", out)
+
 
 if __name__ == "__main__":
     unittest.main()

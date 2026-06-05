@@ -97,7 +97,7 @@ def main() -> None:
     report_day = date.fromisoformat(args.date) if args.date else None
 
     if args.triggered_at:
-        print_details(args.triggered_at)
+        emit_env(triggered_at=args.triggered_at)
     else:
         emit_env(report_day=report_day)
 
