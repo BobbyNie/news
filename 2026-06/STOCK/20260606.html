@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-06 股市日报</title>
+  <style>
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+    }
+    .hero-stock {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      color: #101828;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card {
+      counter-increment: marketitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+    }
+    .market-card::before {
+      content: counter(marketitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #dcfce7;
+      color: var(--market);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .price, .quote-line, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-06 股市日报</h1>
+    <p class="lead">非农超预期引发科技股抛售；SpaceX 距 6/12 挂牌一周。</p>
+    <div class="market-strip"><span>生成时间：2026-06-06 07:01（澳门时间）｜采集窗口：2026-06-04 07:01 ~ 2026-06-06 07:01（澳门时间 UTC+8）｜市场日历：美股 6/4–6/5 已收盘；港股 6/4–6/5 已收盘</span></div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-06 07:01（澳门时间）｜采集窗口：2026-06-04 07:01 ~ 2026-06-06 07:01（澳门时间 UTC+8）</p>
+    <p><strong>市场日历</strong>：美股 2026-06-04、06-05 均已收盘（美东 16:00）；港股 2026-06-04、06-05 均已收盘。下文价格均为对应交易日收盘价，并标注来源。</p>
+    <p class="warn">下文只写事实、可能影响与继续跟踪，<strong>不构成买卖建议</strong>。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5–10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>5 月非农 +172,000 远超预期</strong>（2026-06-05，BLS）— 标普收 <span class="price">7,383.74</span>（<span class="change-down">-2.64%</span>），为逾一年来最差单日；纳指跌约 3%，科技板块跌约 4.3%。<a href="https://www.bls.gov/news.release/empsit.nr0.htm">BLS</a> · <a href="https://www.fool.com/investing/2026/06/05/market-indexes-tumble-at-midday-as-treasury-yields/">Motley Fool</a></li>
+      <li class="market-card"><strong>NVDA 6/5 收 <span class="price">$205.10</span></strong>（<span class="change-down">-6.20%</span>）；6/4 收 <span class="price">$218.66</span>（<span class="change-up">+1.82%</span>）。宏观冲击压倒算力叙事。<a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a></li>
+      <li class="market-card"><strong>AVGO 指引失望余波</strong>— 6/4 收 <span class="price">$419.03</span>（<span class="change-down">-12.55%</span>），6/5 收 <span class="price">$385.73</span>（<span class="change-down">-7.92%</span>）；Q3 AI 芯片指引 $16.0B 低于预期。<a href="https://www.cnbc.com/quotes/AVGO">CNBC</a> · <a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial">Broadcom IR</a></li>
+      <li class="market-card"><strong>美股 6/4：道指创历史新高</strong>— 收 <span class="price">51,561.93</span>（<span class="change-up">+1.73%</span>）；标普 <span class="change-up">+0.41%</span> 至 7584.31；纳指 <span class="change-down">-0.09%</span>。板块轮动已现端倪。<a href="https://www.fool.com/investing/2026/06/05/market-indexes-tumble-at-midday-as-treasury-yields/">Motley Fool</a></li>
+      <li class="market-card"><strong>SpaceX 固定 IPO 价 <span class="price">$135</span>/股</strong>，拟 6/12 挂牌 <strong>SPCX</strong>（SEC 6/3–6/4）— 募资约 $750 亿、估值约 $1.77 万亿；6/4 启动路演网站。<a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a> · <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026040610/spacexfwp.htm">SEC</a></li>
+      <li class="market-card"><strong>S&P 拒绝 SpaceX 快速纳入 S&P 500</strong>（2026-06-04）— 维持 GAAP 盈利与 seasoning 规则；被动 S&P 500 基金至少一年内无法配置。<a href="https://fortune.com/2026/06/05/sp-500-spacex-elon-musk-retirement-savings-401k/">Fortune</a> · <a href="https://investinglive.com/stock-market-update/spacex-faces-full-sp-500-wait-as-index-giant-rejects-fast-track-entry-rules-20260604/">investingLive</a></li>
+      <li class="market-card"><strong>TSLA 6/5 收 <span class="price">$391.00</span></strong>（<span class="change-down">-6.56%</span>）；6/4 收 <span class="price">$418.45</span>（<span class="change-down">-1.24%</span>）。比特币持仓减值报道叠加科技抛售。<a href="https://www.cnbc.com/quotes/TSLA">CNBC</a></li>
+      <li class="market-card"><strong>港股 6/5：恒指三连阴</strong>— 跌 <span class="change-down">-1.15%</span> 失守 25000；恒生科技指数 <span class="change-down">-1.75%</span>。6/5 收盘后指数检讨生效。<a href="https://www.163.com/dy/article/KUMJ03OI05198CJN.html">财联社</a></li>
+    </ol>
+  </section>
+
+  <section id="musk">
+    <h2>专题：与伊隆·马斯克相关的股票</h2>
+    <div class="focus-box">
+      <p>马斯克财富与投票权高度集中于 <strong>Tesla (TSLA)</strong> 与即将上市的 <strong>SpaceX（含 xAI、X）</strong>。本窗口最大反差是：SpaceX 路演冲刺、固定 $135 定价，而 <strong>TSLA 6/5 大跌 6.56%</strong>，未同步 IPO 热度。以下仅为事实与风险点，<strong>不构成买卖建议</strong>。</p>
+    </div>
+
+    <h3>资产地图</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>载体</th><th>关系</th><th>窗口内要点</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TSLA</td><td>马斯克持股约 12%（媒体引述）</td><td>6/4 收 $418.45；6/5 收 $391.00</td><td><a href="https://www.cnbc.com/quotes/TSLA">CNBC</a></td></tr>
+          <tr><td>SpaceX (+xAI)</td><td>Musk ~82.4% 投票权；拟 SPCX</td><td>5.556 亿股 @ $135；估值 ~$1.77T</td><td><a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a></td></tr>
+          <tr><td>xAI → SpaceX</td><td>2026-02 并入 SpaceX</td><td>2025 净亏约 $49 亿（招股书引述）</td><td><a href="https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html">CNBC</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Tesla (TSLA)</h3>
+    <ul>
+      <li><strong>2026-06-04 收盘</strong>：<span class="price">$418.45</span>（<span class="change-down">-1.24%</span>），美东 16:00。</li>
+      <li><strong>2026-06-05 收盘</strong>：<span class="price">$391.00</span>（<span class="change-down">-6.56%</span>）；日内低 $388.59。</li>
+      <li><strong>可能影响</strong>：6/5 科技板块普跌 + 比特币下跌致持仓减值报道（Seeking Alpha 引述超 $2.2 亿）叠加；媒体报道 JPMorgan 同日由 underweight 调至 neutral、目标价升至 $475，<span class="tag">券商观点</span>，股价仍大跌。<a href="https://seekingalpha.com/news/4600928-bitcoin-selloff-wipes-over-220m-in-value-from-teslas-crypto-treasury">Seeking Alpha</a></li>
+      <li><strong>继续跟踪</strong>：SpaceX 6/12 挂牌是否带动「马斯克生态」重估，或宏观利率继续压制 TSLA。</li>
+    </ul>
+
+    <h3>SpaceX / SPCX IPO</h3>
+    <ul>
+      <li><strong>定价与规模</strong>：SEC 修订文件（6/3）确认 $135/股、555.6M 股、募资约 $75B；6/4 上线独立 IPO 网站与路演材料（SEC FWP）。</li>
+      <li><strong>时间表</strong>：媒体报道 6/11 定价、<strong>6/12 Nasdaq 挂牌 SPCX</strong>（以 SEC 为准）。</li>
+      <li><strong>S&P 500 入指受阻</strong>（6/4）：因 2025 GAAP 净亏，至少一年无法满足盈利与 seasoning；万亿被动 S&P 500 买盘短期缺席。<a href="https://investinglive.com/stock-market-update/spacex-faces-full-sp-500-wait-as-index-giant-rejects-fast-track-entry-rules-20260604/">investingLive</a></li>
+      <li><strong>治理</strong>：上市后 Musk 保留约 82.4% 投票权；Nasdaq「受控公司」规则适用（CNBC 引述招股书）。</li>
+      <li><strong>交叉风险</strong>：6/5 宏观抛售或压低 mega-IPO 认购情绪；与 Anthropic/OpenAI 同期 IPO 窗口形成流动性竞争。</li>
+    </ul>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <h3>大盘</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指数</th><th>6/4 收盘</th><th>涨跌</th><th>6/5 收盘</th><th>涨跌</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>标普 500</td><td class="price">7584.31</td><td class="change-up">+0.41%</td><td class="price">7383.74</td><td class="change-down">-2.64%</td><td><a href="https://www.bbntimes.com/companies/s-p-500-index-plunges-2-64-to-7-383-in-worst-day-in-over-a-year-as-broadcom-shock-meets-searing-jobs-data">BBN Times</a></td></tr>
+          <tr><td>纳斯达克</td><td class="price">26830.96</td><td class="change-down">-0.09%</td><td>约 -3%*</td><td class="change-down">约 -3%</td><td><a href="https://www.fool.com/investing/2026/06/05/market-indexes-tumble-at-midday-as-treasury-yields/">Motley Fool</a></td></tr>
+          <tr><td>道琼斯</td><td class="price">51561.93</td><td class="change-up">+1.73%</td><td>约 -0.8%*</td><td class="change-down">约 -0.8%</td><td>同上</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="meta">* 纳指/道指 6/5 精确收盘以交易所官方为准；Motley Fool 午间报道与 BBN Times 收盘数据交叉验证标普。</p>
+
+    <h3>AI 算力链（收盘价，美东 16:00）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>标的</th><th>6/4 收盘</th><th>涨跌</th><th>6/5 收盘</th><th>涨跌</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>NVDA</td><td class="price">$218.66</td><td class="change-up">+1.82%</td><td class="price">$205.10</td><td class="change-down">-6.20%</td><td><a href="https://finance.yahoo.com/quote/NVDA/">Yahoo</a></td></tr>
+          <tr><td>AVGO</td><td class="price">$419.03</td><td class="change-down">-12.55%</td><td class="price">$385.73</td><td class="change-down">-7.92%</td><td><a href="https://www.cnbc.com/quotes/AVGO">CNBC</a></td></tr>
+          <tr><td>TSLA</td><td class="price">$418.45</td><td class="change-down">-1.24%</td><td class="price">$391.00</td><td class="change-down">-6.56%</td><td><a href="https://www.cnbc.com/quotes/TSLA">CNBC</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>可能影响</strong>：6/4 仍有道指创新高与纳指持平的轮动；6/5 非农一举逆转，AI 链从 Broadcom 指引失望延续至全盘抛售。</p>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指数</th><th>收盘</th><th>涨跌</th><th>时间</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>恒生指数</td><td class="price">约 24962*</td><td class="change-down">-1.15%</td><td>2026-06-05</td><td><a href="https://www.163.com/dy/article/KUMJ03OI05198CJN.html">财联社</a></td></tr>
+          <tr><td>恒生科技指数</td><td>—</td><td class="change-down">-1.75%</td><td>2026-06-05</td><td><a href="http://hkstock.cnfol.com/shichangfenxi/20260605/32271381.shtml">中金在线</a></td></tr>
+          <tr><td>指数检讨</td><td>纳入 MiniMax、智谱</td><td>—</td><td>6/8 生效</td><td><a href="https://www.stcn.com/article/detail/3923277.html">证券时报</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="meta">* 恒指精确点位以港交所/行情终端为准；报道一致指向失守 25000 与三连阴。个股 6/5 收盘价未逐只核对 HKEX。</p>
+    <p><strong>可能影响</strong>：6/2 大涨后连续回吐，AI 应用叙事交易降温；6/8 起新成分股或带来被动资金再平衡。</p>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>主体</th><th>事件</th><th>估值/规模</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SpaceX (+xAI)</td><td>定价 $135；拟 6/12 SPCX</td><td>~$1.77T；募资 ~$75B</td><td><a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a></td></tr>
+          <tr><td>Anthropic</td><td>6/1 保密 S-1 审阅中</td><td>媒体称 ~$965B 私募</td><td><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">官方</a></td></tr>
+          <tr><td>MiniMax / 智谱</td><td>纳入恒生科技指数</td><td>6/8 生效</td><td><a href="https://www.stcn.com/article/detail/3923277.html">证券时报</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <ul>
+      <li><strong>Broadcom</strong>（6/3 盘后）：Q2 收入 $22.19B 超预期；Q3 总收入指引 $29.4B 超预期，但 <strong>Q3 AI 半导体 $16.0B 低于华尔街</strong>。CEO 重申 2027 年 AI 收入超 $100B。<a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial">Broadcom IR</a></li>
+      <li><strong>SpaceX</strong>（招股书）：2025 收入约 $18.7B、净亏约 $4.9B。<a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a></li>
+      <li>窗口内无 NVDA/MSFT/GOOGL 新财报；下一关注 6 月中下旬科技财报季预告。</li>
+    </ul>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <div class="focus-box">
+      <p><strong>利率</strong>：非农强劲推升加息定价，压制成长股估值。</p>
+      <p><strong>算力预期</strong>：Broadcom 指引或引发「AI 资本开支回报」再争论。</p>
+      <p><strong>IPO 执行</strong>：SpaceX 6/12 与宏观抛售叠加，首日波动风险上升。</p>
+      <p><strong>指数规则</strong>：S&P 拒绝 fast-track，改变被动资金路径假设。</p>
+    </div>
+    <div class="warn">本报告不提供买卖建议；价格均标注时间与来源。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>SpaceX 6/11 定价、6/12 SPCX 首日与 greenshoe。</li>
+      <li>6/5 大跌后科技板块是否出现技术性反弹或延续防御轮动。</li>
+      <li>美债收益率与联储官员表态。</li>
+      <li>港股 6/6 开盘：恒科新成分 6/8 生效前的资金流。</li>
+      <li>Tesla 是否就 SpaceX 上市发布 8-K 或澄清关联交易。</li>
+      <li>SEC：Anthropic/OpenAI 公开 S-1。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：BLS、Broadcom IR、SEC SpaceX、SpaceNews、Fortune、investingLive、Yahoo Finance、CNBC、财联社、证券时报、Motley Fool、BBN Times。</p>
+    <p><strong>缺口</strong>：Bloomberg 付费；HKEX 个股 6/5 未逐条核对；纳指/道指 6/5 精确收盘待交易所核对；JPM TSLA 评级需原研报确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260606/</code></p>
+  </section>
+</body>
+</html>
