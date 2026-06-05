@@ -56,18 +56,33 @@ HTML 必须包含（CI 会校验）：
 python3 scripts/validate_report_ui.py --kind STOCK --date "$REPORT_DATE"
 ```
 
-## 4. 发布前门禁（全部通过才可 push）
+## 4. 发布前门禁（全部通过才可上线）
+
+**禁止**只 `git push` 到 `cursor/*` 功能分支就结束。GitHub Pages **仅**在 `main` 有 push 时部署（见 `.github/workflows/pages.yml`）。
+
+### 4.1 在功能分支上先提交日报（可分开两次 commit）
 
 ```bash
-python3 -m unittest discover -s tests -p 'test_*.py' -q
-python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
-python3 scripts/validate_report_ui.py --kind STOCK --date "$REPORT_DATE"
-python3 scripts/build_pages_index.py
-git add ...
-git commit -m "daily AI news report $REPORT_ISO"    # AI 变更
-git commit -m "daily stock news report $REPORT_ISO" # 股市变更（可分开）
-git push origin main
+# 已 eval report_date.py，且 $REPORT_DATE 等变量已就绪
+git add tmp/AI/$REPORT_DATE/ $REPORT_MONTH/AI/$REPORT_DATE.html
+git commit -m "daily AI news report $REPORT_ISO"
+
+git add tmp/STOCK/$REPORT_DATE/ $REPORT_MONTH/STOCK/$REPORT_DATE.html
+git commit -m "daily stock news report $REPORT_ISO"
 ```
+
+### 4.2 合并到 main 并触发 Pages（必须执行）
+
+将 `<TRIGGERED_AT>` 替换为 `automation_trigger_info.triggeredAt`：
+
+```bash
+chmod +x scripts/publish_to_main.sh
+./scripts/publish_to_main.sh '<TRIGGERED_AT>'
+```
+
+脚本会：跑全套测试与 `validate_report_ui.py` → `build_pages_index.py` → 若当前不在 `main` 则 **merge 进 main** → `git push origin main`。
+
+若 Agent 环境无法执行上述脚本，至少 `git push origin <当前分支>`；仓库已配置 `.github/workflows/auto-merge-daily.yml`，在检测到 `YYYY-MM/(AI|STOCK)/YYYYMMDD.html` 推送至 `cursor/**` 时会 **自动合并到 main**（备用路径，可能延迟数分钟）。
 
 若 `validate_report_ui.py` 失败：**不得 push**；应修正 HTML 直至通过，或对照 `2026-06/*20260602.html` 迁移样式。
 

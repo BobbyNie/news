@@ -33,8 +33,8 @@ python scripts/report_date.py <TRIGGERED_AT>
 8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind AI --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
 9. 每条重要判断必须附来源链接。不要编造无法验证的信息。
 10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
-11. **必须** `git add`、`git commit`、`git push origin main`。commit message: `daily AI news report ${REPORT_ISO}`。
-12. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
+11. **必须** `git add`、`git commit`（message: `daily AI news report ${REPORT_ISO}`）。若与股市日报同一次 Automation，先完成本步再处理 STOCK；**最终**运行 `./scripts/publish_to_main.sh '<TRIGGERED_AT>'` 合并到 `main` 并 `git push origin main`（禁止只留在 `cursor/*` 分支）。
+12. 确认 `main` push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。备用：仅 push 功能分支时由 `auto-merge-daily.yml` 自动合并。
 
 ## 输出要求
 

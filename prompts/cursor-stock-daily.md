@@ -29,8 +29,8 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind STOCK --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
 9. 每条重要判断必须附来源链接，价格、涨跌、市值等实时数据必须注明时间和来源。不要给买卖建议。
 10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
-11. **必须** `git add`、`git commit`、`git push origin main`。commit message: `daily stock news report ${REPORT_ISO}`。
-12. 确认 push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。
+11. **必须** `git add`、`git commit`（message: `daily stock news report ${REPORT_ISO}`）。**最终**运行 `./scripts/publish_to_main.sh '<TRIGGERED_AT>'` 合并到 `main` 并 `git push origin main`（禁止只留在 `cursor/*` 分支）。
+12. 确认 `main` push 成功；GitHub Actions `Publish News Pages` 会在 push 到 `main` 后自动部署 Pages。备用：仅 push 功能分支时由 `auto-merge-daily.yml` 自动合并。
 
 ## 输出要求
 

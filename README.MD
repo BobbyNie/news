@@ -36,7 +36,7 @@ archive/
 5. 去重、排序并生成中文 HTML 日报。
 6. 输出到 `YYYY-MM/AI/YYYYMMDD.html` 或 `YYYY-MM/STOCK/YYYYMMDD.html`。
 7. 运行 `python3 scripts/build_pages_index.py` 更新索引。
-8. `git commit` 并 **`git push origin main`**（Pages 仅在有 push 时发布）。
+8. `git commit` 后运行 **`./scripts/publish_to_main.sh`**（合并到 `main` 并 push；Pages 仅在有 push 到 `main` 时发布）。
 
 ## 报告日期（澳门时区）
 
@@ -72,15 +72,29 @@ python3 scripts/validate_report_ui.py --all-since 20260601
 
 也可改用 Cron `0 8 * * *` + 时区 `Asia/Macau`，则 `triggeredAt` 与澳门日历日一致，逻辑相同。
 
-两条任务完成后都必须 **push 到 `main`**，否则 GitHub 上看不到新提交，Pages 也不会更新。
+两条任务完成后都必须让变更进入 **`main`**，否则 GitHub 上看不到新提交，Pages 也不会更新。
+
+### 发布到 main（Automation 必做）
+
+Cursor Cloud Agent 常在 `cursor/*` 功能分支开发。生成并 commit 日报后**必须**执行：
+
+```bash
+chmod +x scripts/publish_to_main.sh
+./scripts/publish_to_main.sh '<automation_trigger_info.triggeredAt>'
+```
+
+脚本会校验 UI、重建 `index.html`、合并进 `main` 并 `git push origin main`。
+
+**备用**：若 Agent 只能 push 功能分支，[auto-merge-daily.yml](.github/workflows/auto-merge-daily.yml) 检测到 `YYYY-MM/(AI|STOCK)/YYYYMMDD.html` 变更后，会自动合并到 `main`（通常延迟数分钟）。
 
 ## GitHub Pages 发布
 
 每次提交到 `main` 后，GitHub Actions 会自动：
 
-1. [validate-reports.yml](.github/workflows/validate-reports.yml)：运行全部单元测试 + `validate_report_ui.py --all-since 20260601`。
-2. [pages.yml](.github/workflows/pages.yml)：同上校验通过后构建并部署 Pages。
-3. 扫描 `YYYY-MM/AI/*.html` 和 `YYYY-MM/STOCK/*.html`，生成最新报告在最上面的 `index.html`。
+1. [auto-merge-daily.yml](.github/workflows/auto-merge-daily.yml)（仅 `cursor/**` 分支）：将日报合并进 `main`。
+2. [validate-reports.yml](.github/workflows/validate-reports.yml)：运行全部单元测试 + `validate_report_ui.py --all-since 20260601`。
+3. [pages.yml](.github/workflows/pages.yml)：同上校验通过后构建并部署 Pages。
+4. 扫描 `YYYY-MM/AI/*.html` 和 `YYYY-MM/STOCK/*.html`，生成最新报告在最上面的 `index.html`。
 
 本地预览索引可运行：
 
