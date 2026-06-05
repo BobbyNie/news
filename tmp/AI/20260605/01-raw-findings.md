@@ -78,3 +78,35 @@
 - **来源**：各公司官网
 - **可信度**：—
 - **摘要**：清单内 DeepSeek、智谱、月之暗面等无重大可验证官方新闻稿。
+
+## 11. Google Gemma 4 12B
+
+- **时间**：2026-06-03
+- **来源**：Google 官方博客
+- **链接**：https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/
+- **可信度**：official
+- **摘要**：无编码器多模态架构；约 16GB 本机可跑；Apache 2.0；支持音频/视觉直连 LLM backbone。
+
+## 12. NVIDIA Nemotron 3 Ultra
+
+- **时间**：2026-06-04
+- **来源**：NVIDIA Technical Blog
+- **链接**：https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-powers-faster-more-efficient-reasoning-for-long-running-agents/
+- **可信度**：official
+- **摘要**：550B MoE（55B active）；面向长程 Agent；NVFP4 量化；宣称较其他开源前沿模型 Agent 任务成本降约 30%。
+
+## 13. Anthropic Dynamic Workflows in Claude Code
+
+- **时间**：2026-05-28（窗口内；6/3 媒体解读仍活跃）
+- **来源**：Anthropic 官方博客
+- **链接**：https://claude.com/blog/introducing-dynamic-workflows-in-claude-code
+- **可信度**：official
+- **摘要**：Claude 动态编写 JS 编排脚本，并行数十至数百子 Agent；研究预览；Token 消耗显著高于普通会话。
+
+## 14. 港股恒指 6/4–6/5
+
+- **时间**：2026-06-04、2026-06-05 收盘
+- **来源**：Yahoo Finance HSI 历史
+- **链接**：https://finance.yahoo.com/quote/%5EHSI/history/
+- **可信度**：market_disclosure
+- **摘要**：6/4 收 25253.40；6/5 收 24961.95（-1.15%）；连续回吐。恒生指数公司 6/5 收盘后实施季度检讨，腾讯等权重上限调至 8%（6/8 生效）。

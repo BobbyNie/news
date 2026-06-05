@@ -9,4 +9,8 @@
 | P1 | NVIDIA Vera Rubin 量产 | Agentic 算力供给时间表明确 | 2026 秋出货；巩固 AI 工厂标准 | [NVIDIA](https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory) |
 | P2 | Anthropic S-1 + 投行牵头报道 | 与 SpaceX/OpenAI 形成 IPO 三连击 | 二级市场供给压力；企业 Claude 叙事强化 | [Anthropic](https://www.anthropic.com/news/confidential-draft-s1-sec) |
 | P2 | 美股 6/3 AI 股回调 | 风险偏好短期降温 | NVDA/半导体波动；不影响长期 capex 故事 | [CNBC](https://www.cnbc.com/2026/06/02/stock-market-today-live-updates.html) |
+| P1 | Google Gemma 4 12B（6/3） | 无编码器多模态、本机 16GB 可跑 | 边缘 Agent 与开源生态竞争加剧 | [Google](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/) |
+| P1 | NVIDIA Nemotron 3 Ultra（6/4） | 550B MoE 开源、长程 Agent 编排 | 降低企业 Agent 推理成本叙事 | [NVIDIA](https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-powers-faster-more-efficient-reasoning-for-long-running-agents/) |
+| P2 | Anthropic Dynamic Workflows（5/28） | 并行子 Agent 脚本化编排 | 强化 Claude Code 企业粘性 | [Anthropic](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code) |
+| P2 | 港股 6/4–6/5 连续走弱 | 恒指两连阴；指数检讨将限权腾讯等 | 科网波动或延续至 6/8 权重调整 | [Yahoo HSI](https://finance.yahoo.com/quote/%5EHSI/history/) |
 | P3 | 港股科网 6/3 回吐 | 腾讯 Agent 预期 vs 现实落差 | 波动加大；待官方产品稿 | [GuruFocus](https://www.gurufocus.com/news/8898258/hong-kong-stocks-decline-tencent-0700-and-meituan-3690-lead-losses) |
