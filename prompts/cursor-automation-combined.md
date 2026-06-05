@@ -24,9 +24,18 @@
 
 按 `prompts/cursor-ai-daily.md` 执行步骤 1–8（来源重检 → 原始发现 → 排序 → HTML）。
 
+AI 来源重检必须覆盖 `financial_ai_sources`，金融行业 AI 采集坚持**官方/监管/IR/交易所/主流媒体优先**。券商研报、咨询机构白皮书、论坛和社媒只能作补充，并须标注来源级别和待验证点。
+
+AI HTML 必须每日固定包含两个专题：
+
+- `<section id="finance-ai">`，标题「金融行业 AI 专题」：全球银行、券商、保险、资管、支付、交易所、regtech/suptech。
+- `<section id="mainland-finance-ai">`，标题「中国内地金融行业 AI 专题」：人民银行、金监总局、证监会、交易所、内地金融机构与内地 AI 供应商落地。
+
+若本窗口没有高可信金融 AI 更新，仍保留专题，并写明「本窗口未见可验证重大更新」和已检查来源。
+
 HTML 必须包含（CI 会校验）：
 
-- `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`
+- `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`、`finance-ai`、`mainland-finance-ai`
 - `body { max-width: 760px; }`、`-webkit-text-size-adjust: 100%`
 - **不得**出现 `max-width: 920px`
 

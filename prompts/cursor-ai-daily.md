@@ -23,13 +23,13 @@ python scripts/report_date.py <TRIGGERED_AT>
 严格按以下步骤执行：
 
 0. **必须先运行** `eval "$(python3 scripts/report_date.py)"`，用输出的 `REPORT_DATE` / `REPORT_ISO` / `REPORT_MONTH` / `REPORT_WINDOW` 作为唯一日期依据。**禁止使用 UTC 或系统默认时区日期**（UTC 23:00 时澳门已是次日）。
-1. 读取 `sources/ai-sources.yaml` 和 `sources/source-review-rules.md`。
-2. 先重检清单：搜索过去 24-48 小时是否有新的重点 AI 公司、官方来源、X/Facebook 官方账号、主流媒体专题或论坛来源需要加入跟踪。把结果写入 `tmp/AI/YYYYMMDD/00-source-review.md`。
-3. 按清单检索官方博客、RSS、新闻稿、主流媒体、X/Facebook、论坛、研究社区。公开官方来源优先，X/Facebook 仅作为补充，必须验证官方账号。把原始发现写入 `tmp/AI/YYYYMMDD/01-raw-findings.md`。
+1. 读取 `sources/ai-sources.yaml`（含 `financial_ai_sources`）和 `sources/source-review-rules.md`。
+2. 先重检清单：搜索过去 24-48 小时是否有新的重点 AI 公司、官方来源、X/Facebook 官方账号、主流媒体专题、论坛来源或金融行业 AI 来源需要加入跟踪。金融 AI 采集必须坚持**官方/监管/IR/交易所/主流媒体优先**。把结果写入 `tmp/AI/YYYYMMDD/00-source-review.md`。
+3. 按清单检索官方博客、RSS、新闻稿、主流媒体、X/Facebook、论坛、研究社区，以及 `financial_ai_sources` 中的金融监管、交易所、央行、行业机构与金融机构来源。公开官方来源优先，X/Facebook 仅作为补充，必须验证官方账号。把原始发现写入 `tmp/AI/YYYYMMDD/01-raw-findings.md`。
 4. 去重、按重要性排序，把候选新闻写入 `tmp/AI/YYYYMMDD/02-ranked-items.md`。
 5. 生成中文草稿到 `tmp/AI/YYYYMMDD/03-draft-cn.md`。
 6. **生成 HTML 前**必须完整阅读本文件 **「移动端 UI 设计要求」** 与 **HTML 结构** 章节；以 `2026-06/AI/20260602.html` 为结构参考，**禁止**复用 `max-width: 920px` 旧模板。
-7. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、公司跟踪表、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
+7. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、金融行业 AI 专题、中国内地金融行业 AI 专题、公司跟踪表、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
 8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind AI --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
 9. 每条重要判断必须附来源链接。不要编造无法验证的信息。
 10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
@@ -44,6 +44,16 @@ python scripts/report_date.py <TRIGGERED_AT>
 - X/Facebook 内容只作为补充信号，除非能确认官方账号。
 - 无法访问的来源要在“来源覆盖与缺口”列出。
 - 不写投资建议。
+
+## 金融 AI 专题要求
+
+AI 日报必须每日固定输出两个金融行业专题，不能只在市场行情或资本叙事中零散提及：
+
+- `<section id="finance-ai">`，标题为「金融行业 AI 专题」：覆盖全球银行、券商、保险、资管、支付、交易所、regtech/suptech、金融市场基础设施与金融机构 AI 风险管理。
+- `<section id="mainland-finance-ai">`，标题为「中国内地金融行业 AI 专题」：严格聚焦中国内地范围，包括人民银行、国家金融监督管理总局、中国证监会、上交所、深交所、内地银行/券商/保险/资管、内地 AI 供应商在金融机构的可验证落地。港股和跨境券商仅作交叉影响，不并入内地主线。
+- 两个专题都必须包含四个小项：**核心结论**、**可验证事件**、**行业影响**、**待跟踪/缺口**。
+- 来源门槛：**官方/监管/IR/交易所/主流媒体优先**；券商研报、咨询机构白皮书、论坛和社媒只能作补充，并须标注来源级别和待验证点。
+- 若本窗口没有高可信新闻，仍必须保留专题，并写明「本窗口未见可验证重大更新」，同时列出已检查来源和下一步跟踪点。
 
 ## 移动端 UI 设计要求
 
@@ -170,6 +180,8 @@ th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
   <section id="window">更新时间与数据窗口</section>
   <section id="top"><h2>今日最重要的 5-10 条</h2><ol class="top-list">...</ol></section>
   <section id="details">分主题详情</section>
+  <section id="finance-ai"><h2>金融行业 AI 专题</h2>核心结论、可验证事件、行业影响、待跟踪/缺口</section>
+  <section id="mainland-finance-ai"><h2>中国内地金融行业 AI 专题</h2>核心结论、可验证事件、行业影响、待跟踪/缺口</section>
   <section id="companies">公司跟踪表或公司卡片</section>
   <section id="risks">风险与不确定性</section>
   <section id="next">明日继续跟踪</section>
