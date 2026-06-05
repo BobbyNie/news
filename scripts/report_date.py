@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import shlex
 from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -67,7 +68,7 @@ def emit_env(triggered_at: str | None = None, report_day: date | None = None) ->
         "REPORT_TZ": "Asia/Macau",
     }
     for key, value in values.items():
-        print(f"{key}={value}")
+        print(f"export {key}={shlex.quote(value)}")
 
 
 def print_details(triggered_at: str) -> None:

@@ -54,10 +54,13 @@ class ReportDateTests(unittest.TestCase):
         with contextlib.redirect_stdout(buf):
             module.emit_env(triggered_at="2026-06-05T11:16:27.102Z")
         out = buf.getvalue()
-        self.assertIn("REPORT_DATE=20260605", out)
-        self.assertIn("REPORT_ISO=2026-06-05", out)
-        self.assertIn("REPORT_GENERATED_AT=2026-06-05 19:16（澳门时间）", out)
-        self.assertIn("REPORT_WINDOW=2026-06-03 19:16 ~ 2026-06-05 19:16（澳门时间 UTC+8）", out)
+        self.assertIn("export REPORT_DATE=20260605", out)
+        self.assertIn("export REPORT_ISO=2026-06-05", out)
+        self.assertIn("export REPORT_GENERATED_AT='2026-06-05 19:16（澳门时间）'", out)
+        self.assertIn(
+            "export REPORT_WINDOW='2026-06-03 19:16 ~ 2026-06-05 19:16（澳门时间 UTC+8）'",
+            out,
+        )
 
 
 if __name__ == "__main__":
