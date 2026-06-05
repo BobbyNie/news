@@ -110,3 +110,19 @@
 - **链接**：https://finance.yahoo.com/quote/%5EHSI/history/
 - **可信度**：market_disclosure
 - **摘要**：6/4 收 25253.40；6/5 收 24961.95（-1.15%）；连续回吐。恒生指数公司 6/5 收盘后实施季度检讨，腾讯等权重上限调至 8%（6/8 生效）。
+
+## 15. S&P 拒绝 SpaceX 快速纳入 S&P 500
+
+- **时间**：2026-06-04
+- **来源**：S&P Dow Jones / CNBC 转述（beincrypto、New Kerala 等交叉）
+- **链接**：https://beincrypto.com/spacex-ipo-sp500-exclusion-profitability-rules-nasdaq/ · https://www.newkerala.com/news/a/spacex-wont-get-early-entry-key-index-as-731.htm
+- **可信度**：major_media（指数公司官方表态转述）
+- **摘要**：S&P 维持 GAAP 四季盈利与 seasoning 规则，不因市值为 SpaceX 开绿灯；2025 净亏 $49 亿致 S&P 500 至少一年内无法纳入。Nasdaq 已设 megacap 快速入指路径；Total Market Index 规则将放宽。
+
+## 16. 美股 6/5 盘前（撰写时未收盘）
+
+- **时间**：2026-06-05 美东盘前约 09:18
+- **来源**：stockanalysis
+- **链接**：https://stockanalysis.com/stocks/nvda/history/ · https://stockanalysis.com/stocks/tsla/history/
+- **可信度**：market_disclosure
+- **摘要**：NVDA 盘前约 $214.50（-1.90% vs 6/4 收 $218.66）；TSLA 盘前约 $420.09（+0.39% vs 6/4 收 $418.45）。全日收盘待 6/5 16:00 美东后更新。
