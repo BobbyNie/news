@@ -24,12 +24,12 @@ python scripts/report_date.py <TRIGGERED_AT>
 
 0. **必须先运行** `eval "$(python3 scripts/report_date.py)"`，用输出的 `REPORT_DATE` / `REPORT_ISO` / `REPORT_MONTH` / `REPORT_WINDOW` 作为唯一日期依据。**禁止使用 UTC 或系统默认时区日期**（UTC 23:00 时澳门已是次日）。
 1. 读取 `sources/ai-sources.yaml` 和 `sources/source-review-rules.md`。
-2. 先重检清单：搜索过去 24-48 小时是否有新的重点 AI 公司、官方来源、模型/产品发布页、开发者文档、X/Facebook 官方账号、主流媒体专题、论坛或研究社区需要加入跟踪；除非直接对应 AI 产品、模型、开发者工具或企业采用，不新增金融、股票、宏观或纯资本市场来源。把结果写入 `tmp/AI/YYYYMMDD/00-source-review.md`。
-3. 按清单检索官方博客、RSS、新闻稿、主流媒体、X/Facebook、论坛、研究社区，以及 `industry_ai_adoption_sources` 中与 AI 实际落地直接相关的行业来源。公开官方来源优先，X/Facebook 仅作为补充，必须验证官方账号。把原始发现写入 `tmp/AI/YYYYMMDD/01-raw-findings.md`。
+2. 先重检清单：搜索过去 24-48 小时是否有新的重点 AI 公司、官方来源、模型/产品发布页、开发者文档、X/Facebook 官方账号、主流媒体专题、论坛、研究社区，或银行/金融机构 AI 应用来源需要加入跟踪；除非直接对应 AI 产品、模型、开发者工具、银行新服务或企业采用，不新增股票、宏观或纯资本市场来源。把结果写入 `tmp/AI/YYYYMMDD/00-source-review.md`。
+3. 按清单检索官方博客、RSS、新闻稿、主流媒体、X/Facebook、论坛、研究社区，以及 `industry_ai_adoption_sources` 中与 AI 实际落地直接相关的行业来源，特别是 `banking_and_finance_ai` 下的银行/金融机构 AI 应用来源。公开官方来源优先，X/Facebook 仅作为补充，必须验证官方账号。把原始发现写入 `tmp/AI/YYYYMMDD/01-raw-findings.md`。
 4. 按下方 **「AI 行业内容边界」** 去重、分级、排序，把候选新闻写入 `tmp/AI/YYYYMMDD/02-ranked-items.md`。
 5. 生成中文草稿到 `tmp/AI/YYYYMMDD/03-draft-cn.md`。
 6. **生成 HTML 前**必须完整阅读本文件 **「移动端 UI 设计要求」** 与 **HTML 结构** 章节；以 `2026-06/AI/20260602.html` 为结构参考，**禁止**复用 `max-width: 920px` 旧模板。
-7. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、模型/产品/Agent/开发者工具主线、公司跟踪表、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
+7. 用中文生成 HTML 报告到 `YYYY-MM/AI/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、主题详情、模型/产品/Agent/开发者工具主线、公司跟踪表、金融业 AI 应用专栏（银行优先）、风险与不确定性、明日继续跟踪、来源覆盖与缺口。
 8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind AI --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
 9. 每条重要判断必须附来源链接。不要编造无法验证的信息。
 10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
@@ -53,7 +53,8 @@ AI 日报的主线必须是 AI 行业进展，而不是股市日报、宏观日�
 - 不得把宏观、利率、股价、指数、IPO 定价或入指事件作为 AI 日报主线；这些内容默认归股市日报。
 - 只有直接改变 AI 产品路线、模型能力、算力供给或企业采用时，才可作为低优先级背景；写法必须落到 AI 能力、交付、供给、采用或治理，不写交易结论。
 - 上市公司财报、IR、融资、并购或 IPO 只在披露了可验证的 AI 产品、模型、算力、客户采用或研发投入变化时进入 AI 日报；不得以股价涨跌、估值、募资规模、指数调仓或资金流作为入选理由。
-- 金融行业 AI 只作为行业应用案例处理：必须是可验证的 AI 系统上线、模型风险治理、监管科技或金融机构真实采用；不得固定每日输出金融专题，也不得用金融就业、港股指数、券商观点补位。
+- 金融业 AI 应用专栏（银行优先）是 AI 日报的固定底部栏目，但它只写金融机构如何使用或建设 AI：银行、券商、保险、资管、支付、交易所、监管科技等主体推出的银行新服务、客户服务、财富管理、风控/反欺诈、信贷审批、合规/监管科技、内部开发者工具、AI 基础设施建设、模型治理或与 AI 公司/云厂商共建项目。
+- 金融业 AI 应用专栏必须使用 `<section id="finance-ai-applications">`；没有可验证银行或金融机构 AI 应用更新时，保留专栏并写明已检查来源、未见新服务/建设，不得用宏观、利率、股价、指数、IPO 定价、入指事件、金融就业或券商观点填充。
 - 窗口内缺少高可信 AI 新闻时，宁可减少条目并写明已检查来源，不要用宏观、行情或 IPO 噪音凑满 5-10 条。
 
 ## 移动端 UI 设计要求
@@ -182,6 +183,7 @@ th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
   <section id="top"><h2>今日最重要的 5-10 条</h2><ol class="top-list">...</ol></section>
   <section id="details">分主题详情</section>
   <section id="companies">公司跟踪表或公司卡片</section>
+  <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2>银行新服务、客户服务、财富管理、风控/反欺诈、信贷审批、合规/监管科技、内部开发者工具、AI 基础设施建设；无可验证更新时写明已检查来源与缺口，不用行情补位。</section>
   <section id="risks">风险与不确定性</section>
   <section id="next">明日继续跟踪</section>
   <section id="coverage">来源覆盖与缺口</section>

@@ -28,9 +28,11 @@
 
 不得把宏观、利率、股价、指数、IPO 定价或入指事件作为 AI 日报主线；只有直接改变 AI 产品路线、模型能力、算力供给或企业采用时，才可作为低优先级背景。纯股票、指数、估值、募资规模、资金流与交易风险写入股市日报，不要写入 AI 日报。
 
+AI HTML 必须在下方固定包含 `<section id="finance-ai-applications">`，标题为「金融业 AI 应用专栏（银行优先）」：只写银行、券商、保险、资管、支付、交易所、监管科技等主体如何应用或建设 AI，尤其是银行新服务、客户服务、财富管理、风控/反欺诈、信贷审批、合规/监管科技、内部开发者工具、AI 基础设施建设、模型治理或与 AI 公司/云厂商共建项目。不得用宏观、利率、股价、指数、IPO 定价、入指事件、金融就业或券商观点填充。
+
 HTML 必须包含（CI 会校验）：
 
-- `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`
+- `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`、`finance-ai-applications`
 - `body { max-width: 760px; }`、`-webkit-text-size-adjust: 100%`
 - **不得**出现 `max-width: 920px`
 

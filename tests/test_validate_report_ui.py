@@ -38,11 +38,24 @@ class ValidateReportUITest(unittest.TestCase):
         errors = validate_report_html(html, "STOCK")
         self.assertTrue(any("change-up" in error for error in errors))
 
-    def test_ai_report_does_not_require_finance_sections(self) -> None:
+    def test_ai_report_requires_finance_ai_applications_column(self) -> None:
         html = """
         <body class="report report-ai">
         <header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p></header>
         <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
+        <div class="table-wrap"><table></table></div>
+        <style>body { max-width: 760px; } html { -webkit-text-size-adjust: 100%; }</style>
+        </body>
+        """
+        errors = validate_report_html(html, "AI")
+        self.assertTrue(any("finance-ai-applications" in error for error in errors))
+
+    def test_ai_report_accepts_finance_ai_applications_column(self) -> None:
+        html = """
+        <body class="report report-ai">
+        <header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p></header>
+        <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
+        <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2></section>
         <div class="table-wrap"><table></table></div>
         <style>body { max-width: 760px; } html { -webkit-text-size-adjust: 100%; }</style>
         </body>

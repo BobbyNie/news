@@ -87,6 +87,22 @@ industry_ai_adoption_sources:
     - MIT Technology Review AI:
         site: "https://www.technologyreview.com/topic/artificial-intelligence/"
         focus: "AI 研究、产品化、产业采用与风险"
+  banking_and_finance_ai:
+    - HSBC and AI:
+        site: "https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai"
+        focus: "银行生成式 AI、客户服务、员工工具、市场洞察、模型治理与 Mistral AI 等合作"
+    - HSBC Wealth Intelligence:
+        site: "https://www.privatebanking.hsbc.com/media-releases-and-news/hsbc-deploys-wealth-intelligence/"
+        focus: "私人银行面向客户经理和投资顾问的生成式 AI 服务与知识检索"
+    - Bank of America Erica:
+        site: "https://info.bankofamerica.com/en/digital-banking/erica"
+        focus: "AI 虚拟金融助手、客户服务、账户管理、交易检索、提醒和 Merrill 场景"
+    - DBS AI banking:
+        site: "https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/ethical-and-responsible-ai-in-banking.html"
+        focus: "AI 银行、客户服务助手、负责任 AI、风控、运营效率和治理框架"
+    - JPMorganChase AI:
+        site: "https://www.jpmorganchase.com/about/technology/news/jpmc-evident-25"
+        focus: "银行 AI 采用成熟度、内部 AI 工具、客户与员工应用、治理和透明度"
   regulated_industries:
     - BIS Innovation Hub:
         site: "https://www.bis.org/about/bisih/topics/suptech_regtech.htm"
@@ -117,5 +133,6 @@ priority_topics:
   - open_source
   - enterprise_adoption
   - industry_ai_adoption
+  - banking_ai_applications
   - strategic_partnership
   - major_hiring_or_departure

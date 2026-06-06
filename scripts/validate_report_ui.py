@@ -38,6 +38,12 @@ FORBIDDEN = [
     "max-width: 920px",
 ]
 
+AI_FINANCE_APPLICATION_MARKERS = [
+    'section id="finance-ai-applications"',
+    # Backward compatibility for already-published reports before the application-focused section name.
+    'section id="finance-ai"',
+]
+
 
 @dataclass(frozen=True)
 class ReportRef:
@@ -59,6 +65,9 @@ def validate_report_html(html: str, kind: str) -> list[str]:
     for marker in FORBIDDEN:
         if marker in html:
             errors.append(f"legacy template marker must not appear: {marker!r}")
+
+    if kind == "AI" and not any(marker in html for marker in AI_FINANCE_APPLICATION_MARKERS):
+        errors.append('missing required marker for AI: \'section id="finance-ai-applications"\'')
 
     if "<table" in html and "table-wrap" not in html:
         errors.append("tables must be wrapped in .table-wrap")
