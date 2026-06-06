@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 年第 23 周 AI + 股市周报</title>
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --ai: #2563eb;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 800px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 340px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+      letter-spacing: 0;
+    }
+    .hero-weekly {
+      margin: 0 -18px;
+      padding: 30px 18px 20px;
+      background: #101828;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--ai);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.76rem, 8vw, 2.42rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.24rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--ai); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: weeklyitem; display: grid; gap: 12px; }
+    .weekly-card {
+      counter-increment: weeklyitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .weekly-card::before {
+      content: counter(weeklyitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .quote-line, .price, .change-up, .change-down { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-weekly { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-weekly">
+  <header class="hero hero-weekly">
+    <p class="eyebrow">AI + MARKET WEEKLY BRIEF</p>
+    <h1>2026 年第 23 周 AI + 股市周报</h1>
+    <p class="lead">综合本周 AI 行业进展、公开市场定价、财报/IPO、监管风险与下周观察。</p>
+    <div class="meta-grid">
+      <span>生成时间：2026-06-07 05:02（澳门时间）</span>
+      <span>周报窗口：2026-06-01 ~ 2026-06-07（澳门时间 UTC+8）</span>
+      <span>发布 URL：https://bobbynie.github.io/news/2026-06/2026-W23.html</span>
+    </div>
+  </header>
+
+  <section id="window">
+    <h2>更新时间与周报窗口</h2>
+    <p>本周覆盖 2026-06-01 至 2026-06-07。周报以本周已生成的 AI / 股市日报为基线，再补充窗口内的治理、IPO、模型栈与市场波动更新；不是单日日报拼接。</p>
+  </section>
+
+  <section id="top">
+    <h2>本周最重要的 8-12 条</h2>
+    <ol class="top-list">
+      <li class="weekly-card"><strong>SpaceX/SPCX 以 $135 预期发行价进入上市倒计时</strong> — 事实：SpaceX 官方新闻稿确认申请 Nasdaq / Nasdaq Texas，ticker SPCX，预期发行价 $135；AI 影响：xAI 被放进 SpaceX 公开市场叙事；市场影响：约 $75B 级 IPO 测试科技股流动性；下周跟踪：6/11 定价、6/12 首日。<a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/6.4.26_SpaceX_Announces_IPO_US.pdf">SpaceX</a></li>
+      <li class="weekly-card"><strong>AI 治理进入国会讨论与生物安全供应链筛查</strong> — 事实：众院 AI 草案提出 CAISI、frontier developer 风险计划与事故上报；AI CEO 公开信要求 synthetic DNA/RNA 筛查；AI 影响：高风险模型治理更具体；市场影响：大型模型商上市叙事将面对合规成本；下周跟踪：草案修订与国会回应。<a href="https://www.axios.com/2026/06/04/house-draft-bill-regulate-ai">Axios</a> · <a href="https://fortune.com/2026/06/05/openai-anthropic-microsoft-ceos-congress-bioweapon-safeguards/">Fortune</a></li>
+      <li class="weekly-card"><strong>OpenAI 推进 Dreaming V3 与 API moderation scores</strong> — 事实：记忆系统升级，API 生成请求可返回 moderation scores；AI 影响：长期上下文和安全审核进入主产品链路；市场影响：企业采用与开发者粘性增强；下周跟踪：rollout、SDK 示例和企业案例。<a href="https://openai.com/index/chatgpt-memory-dreaming/">OpenAI Dreaming</a> · <a href="https://openai.com/products/release-notes/">Release notes</a></li>
+      <li class="weekly-card"><strong>Microsoft Build 2026 让自研 MAI 模型成为平台变量</strong> — 事实：七个自研模型发布，MAI-Thinking-1 进入 Foundry private preview；AI 影响：Microsoft 降低对外部模型单一路径依赖；市场影响：MSFT 的 AI 利润率叙事不再只绑定 OpenAI；下周跟踪：GitHub/VS Code/Copilot 接入。<a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/">Microsoft</a></li>
+      <li class="weekly-card"><strong>Anthropic 融资、Opus 4.8 与保密 S-1 形成 IPO 叙事</strong> — 事实：Series H、模型升级和保密 S-1 接连出现；AI 影响：Claude enterprise 与 agentic coding 进入公开市场定价前夜；市场影响：AI 私企估值锚上移；下周跟踪：公开 S-1、承销与财务指标。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic</a></li>
+      <li class="weekly-card"><strong>6/5 强非农打断 AI 高估值链条的顺风</strong> — 事实：非农强于预期后，NVDA、AVGO、TSLA 等承压；AI 影响：不否定长期需求，但暴露估值敏感度；市场影响：利率重新压制成长股；下周跟踪：芯片链能否修复。<a href="https://www.bls.gov/news.release/empsit.nr0.htm">BLS</a> · <a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a></li>
+      <li class="weekly-card"><strong>Broadcom 指引余波让定制 ASIC 交易降温</strong> — 事实：AVGO 6/5 跌 7.92%，财报后卖压延续；AI 影响：ASIC 替代 GPU 的增长斜率被重估；市场影响：AVGO、AMD、MRVL、TSM 等链条分化；下周跟踪：卖方解读与客户订单。<a href="https://finance.yahoo.com/quote/AVGO/">Yahoo Finance</a> · <a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial">Broadcom IR</a></li>
+      <li class="weekly-card"><strong>Google / NVIDIA / Anthropic 的 agent 工具链继续扩张</strong> — 事实：Managed Agents、Gemma 4、Nemotron 3 Ultra、Claude Code workflows 都在争夺开发者流程；AI 影响：竞争重点转向 runtime、沙箱、长任务编排；市场影响：云与开发者平台收入有长期支撑；下周跟踪：GA、价格与企业案例。<a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/">Google</a></li>
+      <li class="weekly-card"><strong>港股 AI 交易先涨后回吐，6/8 成分调整是下一变量</strong> — 事实：港股科网和 AI 股本周波动扩大，Zhipu、MiniMax 调整生效在即；AI 影响：中资大模型股进入指数化资金讨论；市场影响：被动与南向资金可能放大波动；下周跟踪：恒科调整后的真实资金流。<a href="https://www.livemint.com/market/zhipu-minimax-seen-joining-hk-tech-gauge-luring-more-ai-bets-11779405594387.html">Livemint</a></li>
+    </ol>
+  </section>
+
+  <section id="ai">
+    <h2>AI 行业主线</h2>
+    <h3>产品与开发者安全</h3>
+    <p>OpenAI 本周最强的行业增量不只是 Dreaming V3 记忆，而是把用户长期上下文、API 生成请求中的 moderation scores、第三方评估 playbook 和 frontier safety blueprint 串成了产品与治理组合。这说明“更强模型”之外，记忆、审核、评估和上线制度正在成为竞争维度。</p>
+    <h3>模型栈与 Agent 平台</h3>
+    <p>Microsoft 的七个 MAI 自研模型、Google 的 Managed Agents、NVIDIA 的 Nemotron 3 Ultra、Anthropic 的 Claude Code workflows 都指向同一趋势：开发者要的不是单个聊天模型，而是可审计、可运行、可持久化的 agentic 工作流。</p>
+  </section>
+
+  <section id="market">
+    <h2>股市主线</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>主线</th><th>本周事实</th><th>市场影响</th><th>下周跟踪</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SpaceX/SPCX</td><td>$135 预期发行价，ticker SPCX，注册声明未生效</td><td>史上最大 IPO 之一，测试科技股流动性</td><td>6/11 定价、6/12 交易、指数规则</td></tr>
+          <tr><td>芯片 / 算力链</td><td>NVDA、AVGO 在 6/5 承压</td><td>AI 高估值链条短线拥挤度下降</td><td>美债收益率、Broadcom 指引解读</td></tr>
+          <tr><td>港股 AI</td><td>Zhipu / MiniMax 恒科调整 6/8 生效前夕</td><td>被动资金和南向资金可能放大波动</td><td>成分调整后的真实成交和资金流</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="cross-impact">
+    <h2>AI 与股市交叉影响</h2>
+    <p>本周交叉影响集中在“AI 私企如何被公开市场定价”。Anthropic 保密 S-1、SpaceX/SPCX 公开 IPO 路演、OpenAI 产品与治理更新同时出现，使投资者开始比较不同 AI 资产的收入质量、亏损、算力成本、治理风险和流动性路径。市场短期能否承接 SpaceX，会影响之后 Anthropic、OpenAI、Perplexity 等 AI 资产的上市窗口。</p>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p>本周按 HSBC、Bank of America、DBS、JPMorganChase、BIS、FSB、IOSCO 等来源复检，未见新的银行 AI 服务、财富管理助手、风控/反欺诈、合规科技或 AI 基础设施建设公告。该栏目保留缺口说明，不用宏观、利率、股价或 IPO 信息补位。</p>
+  </section>
+
+  <section id="musk">
+    <h2>马斯克相关股票专题</h2>
+    <div class="focus-box">
+      <p>TSLA 是已上市、会实时反映科技股和马斯克生态情绪的股票；SpaceX/SPCX 是即将上市、含 Starlink 与 xAI 叙事的新资产；xAI 则把 AI 私企估值放进 SpaceX 的公开市场故事。下周不应把三者简单等同，而要分别看流动性、投票权、财务披露、指数纳入和 AI 叙事贡献。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>SpaceX 注册声明尚未生效，最终价格、规模和交易日期仍需以 SEC 文件为准。</li>
+      <li>美国 AI 法案仍是讨论草案，正式文本、两院路径和白宫态度都可能变化。</li>
+      <li>6/5 强非农后的收益率路径可能继续压制高估值 AI 股票。</li>
+      <li>银行 AI 应用本周缺少新硬证据，不能把市场或宏观信息误写成应用落地。</li>
+    </ul>
+    <div class="warn">本周报不提供买卖建议；所有价格、涨跌、IPO 与监管信息均按来源和状态标注。</div>
+  </section>
+
+  <section id="next">
+    <h2>下周继续跟踪</h2>
+    <ul>
+      <li>SpaceX 6/11 定价、6/12 SPCX 首日交易、greenshoe 与指数路径。</li>
+      <li>NVDA、AVGO、TSLA 下周一是否修复 6/5 跌幅，及美债收益率变化。</li>
+      <li>美国众院 AI 草案是否进入听证、修订或正式引入阶段。</li>
+      <li>OpenAI moderation scores、Dreaming V3 和 Microsoft MAI 模型是否出现更多 SDK、价格或企业案例。</li>
+      <li>港股 6/8 恒科调整后 Zhipu、MiniMax、腾讯、阿里资金流。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：6/1–6/7 AI / STOCK 日报与 tmp artifacts、OpenAI、Anthropic、Microsoft、Google、NVIDIA、Broadcom、SpaceX、BLS、Yahoo Finance、Axios、Fortune、Livemint 等来源。</p>
+    <p><strong>缺口</strong>：Bloomberg / Reuters 原文部分不可稳定访问；HKEX 个股逐笔数据未逐项复核；银行 AI 应用没有窗口内新增公告；SpaceX 最终招股文件仍待后续确认。</p>
+    <p>工作文件：<code>tmp/WEEKLY/2026-W23/</code>（00 来源重检 · 01 日报整合 · 02 AI 发现 · 03 市场发现 · 04 排序 · 05 草稿）</p>
+  </section>
+</body>
+</html>
