@@ -12,14 +12,17 @@ from datetime import date
 from pathlib import Path
 
 
-REPORT_PATH_RE = re.compile(r"^(?P<month>\d{4}-\d{2})/(?P<section>AI|STOCK)/(?P<date>\d{8})\.html$")
+DAILY_REPORT_PATH_RE = re.compile(r"^(?P<month>\d{4}-\d{2})/(?P<section>AI|STOCK)/(?P<date>\d{8})\.html$")
+WEEKLY_REPORT_PATH_RE = re.compile(r"^(?P<month>\d{4}-\d{2})/(?P<year>\d{4})-W(?P<week>\d{2})\.html$")
 SECTION_LABELS = {
     "AI": "AI 日报",
     "STOCK": "股市日报",
+    "WEEKLY": "AI + 股市周报",
 }
 SECTION_ORDER = {
     "AI": 0,
     "STOCK": 1,
+    "WEEKLY": 2,
 }
 
 
@@ -43,6 +46,10 @@ def parse_report_date(value: str) -> date:
     return date(int(value[0:4]), int(value[4:6]), int(value[6:8]))
 
 
+def parse_weekly_report_date(year: str, week: str) -> date:
+    return date.fromisocalendar(int(year), int(week), 7)
+
+
 def extract_title(path: Path) -> str:
     text = path.read_text(encoding="utf-8", errors="replace")
     match = re.search(r"<title>(.*?)</title>", text, flags=re.IGNORECASE | re.DOTALL)
@@ -53,15 +60,28 @@ def extract_title(path: Path) -> str:
 
 def discover_reports(root: Path) -> list[Report]:
     reports: list[Report] = []
-    for path in root.glob("????-??/*/*.html"):
+    paths = [*root.glob("????-??/*/*.html"), *root.glob("????-??/*.html")]
+    for path in sorted(paths):
         relative_path = path.relative_to(root).as_posix()
-        match = REPORT_PATH_RE.match(relative_path)
-        if not match:
+        daily_match = DAILY_REPORT_PATH_RE.match(relative_path)
+        if daily_match:
+            reports.append(
+                Report(
+                    report_date=parse_report_date(daily_match.group("date")),
+                    section=daily_match.group("section"),
+                    relative_path=relative_path,
+                    title=extract_title(path),
+                )
+            )
+            continue
+
+        weekly_match = WEEKLY_REPORT_PATH_RE.match(relative_path)
+        if not weekly_match:
             continue
         reports.append(
             Report(
-                report_date=parse_report_date(match.group("date")),
-                section=match.group("section"),
+                report_date=parse_weekly_report_date(weekly_match.group("year"), weekly_match.group("week")),
+                section="WEEKLY",
                 relative_path=relative_path,
                 title=extract_title(path),
             )

@@ -42,6 +42,31 @@ def report_month(dt: datetime) -> str:
     return dt.strftime("%Y-%m")
 
 
+def weekly_report_end(dt: datetime) -> date:
+    """Return the most recent completed Macau Sunday for a weekly report."""
+    days_since_sunday = (dt.weekday() + 1) % 7
+    return dt.date() - timedelta(days=days_since_sunday)
+
+
+def weekly_report_start(week_end: date) -> date:
+    return week_end - timedelta(days=6)
+
+
+def weekly_report_file(week_end: date) -> str:
+    iso_year, iso_week, _ = week_end.isocalendar()
+    return f"{iso_year}-W{iso_week:02d}"
+
+
+def weekly_report_label(week_end: date) -> str:
+    iso_year, iso_week, _ = week_end.isocalendar()
+    return f"{iso_year} 年第 {iso_week:02d} 周"
+
+
+def weekly_report_window(week_end: date) -> str:
+    week_start = weekly_report_start(week_end)
+    return f"{week_start.isoformat()} ~ {week_end.isoformat()}（澳门时间 UTC+8）"
+
+
 def format_generated_at(dt: datetime) -> str:
     return f"{dt.strftime('%Y-%m-%d %H:%M')}（澳门时间）"
 
@@ -59,6 +84,8 @@ def format_window(dt: datetime, hours: int = 48) -> str:
 
 def emit_env(triggered_at: str | None = None, report_day: date | None = None) -> None:
     dt = resolve_trigger(triggered_at, report_day)
+    week_end = weekly_report_end(dt)
+    week_year, week_number, _ = week_end.isocalendar()
     values = {
         "REPORT_DATE": report_yyyymmdd(dt),
         "REPORT_ISO": report_iso(dt),
@@ -66,6 +93,14 @@ def emit_env(triggered_at: str | None = None, report_day: date | None = None) ->
         "REPORT_WINDOW": format_window(dt),
         "REPORT_GENERATED_AT": format_generated_at(dt),
         "REPORT_TZ": "Asia/Macau",
+        "REPORT_WEEK_START": weekly_report_start(week_end).isoformat(),
+        "REPORT_WEEK_END": week_end.isoformat(),
+        "REPORT_WEEK_MONTH": week_end.strftime("%Y-%m"),
+        "REPORT_WEEK_YEAR": str(week_year),
+        "REPORT_WEEK_NUMBER": f"{week_number:02d}",
+        "REPORT_WEEK_FILE": weekly_report_file(week_end),
+        "REPORT_WEEK_LABEL": weekly_report_label(week_end),
+        "REPORT_WEEK_WINDOW": weekly_report_window(week_end),
     }
     for key, value in values.items():
         print(f"export {key}={shlex.quote(value)}")
@@ -74,12 +109,17 @@ def emit_env(triggered_at: str | None = None, report_day: date | None = None) ->
 def print_details(triggered_at: str) -> None:
     dt = resolve_trigger(triggered_at)
     start, end = collection_window_from_trigger(dt)
+    week_end = weekly_report_end(dt)
     print(f"report_date={report_yyyymmdd(dt)}")
     print(f"report_date_iso={report_iso(dt)}")
     print(f"month_dir={report_month(dt)}")
     print(f"generated_at={format_generated_at(dt)}")
     print(f"window_start={start}")
     print(f"window_end={end}")
+    print(f"weekly_report_file={weekly_report_file(week_end)}")
+    print(f"weekly_report_label={weekly_report_label(week_end)}")
+    print(f"weekly_report_month={week_end.strftime('%Y-%m')}")
+    print(f"weekly_report_window={weekly_report_window(week_end)}")
 
 
 def main() -> None:

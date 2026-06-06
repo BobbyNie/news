@@ -19,6 +19,19 @@ class PublishToMainTest(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, text)
 
+    def test_publish_script_supports_weekly_reports(self) -> None:
+        script = ROOT / "scripts" / "publish_to_main.sh"
+        text = script.read_text(encoding="utf-8")
+        for phrase in (
+            "--weekly",
+            "REPORT_WEEK_FILE",
+            "REPORT_WEEK_MONTH",
+            "tmp/WEEKLY",
+            "weekly AI stock news report",
+        ):
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, text)
+
     def test_combined_prompt_requires_publish_to_main(self) -> None:
         prompt = (ROOT / "prompts" / "cursor-automation-combined.md").read_text(encoding="utf-8")
         self.assertIn("publish_to_main.sh", prompt)

@@ -157,6 +157,31 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
 
+    def test_weekly_prompt_requires_combined_weekly_report_workflow(self) -> None:
+        prompt = (ROOT / "prompts" / "cursor-weekly.md").read_text(encoding="utf-8")
+
+        required = [
+            "AI + 股市周报",
+            "每周日",
+            "automation_trigger_info.triggeredAt",
+            "Asia/Macau",
+            "REPORT_WEEK_FILE",
+            "YYYY-Www.html",
+            "cursor-ai-daily.md",
+            "cursor-stock-daily.md",
+            "移动端 UI 设计要求",
+            "AI 行业内容边界",
+            "不提供买卖建议",
+            "python3 scripts/build_pages_index.py",
+            "index.html",
+            "publish_to_main.sh --weekly",
+            "weekly AI stock news report",
+        ]
+
+        for text in required:
+            with self.subTest(text=text):
+                self.assertIn(text, prompt)
+
 
 if __name__ == "__main__":
     unittest.main()

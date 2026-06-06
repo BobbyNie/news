@@ -17,12 +17,15 @@ sources/
 prompts/
   cursor-ai-daily.md
   cursor-stock-daily.md
+  cursor-weekly.md
 tmp/
   AI/YYYYMMDD/
   STOCK/YYYYMMDD/
+  WEEKLY/YYYY-Www/
 YYYY-MM/
   AI/YYYYMMDD.html
   STOCK/YYYYMMDD.html
+  YYYY-Www.html
 archive/
   rejected/
 ```
@@ -60,6 +63,7 @@ echo "$REPORT_DATE $REPORT_ISO $REPORT_GENERATED_AT"
 - **合并双日报（推荐）**：使用 [prompts/cursor-automation-combined.md](prompts/cursor-automation-combined.md) — 一条 Cron 同时生成 AI + 股市，并强制 mobile-first UI 校验。
 - AI 日报：使用 [prompts/cursor-ai-daily.md](prompts/cursor-ai-daily.md)。
 - 股市日报：使用 [prompts/cursor-stock-daily.md](prompts/cursor-stock-daily.md)。
+- AI + 股市周报：使用 [prompts/cursor-weekly.md](prompts/cursor-weekly.md)，建议每周日运行，输出到 `YYYY-MM/YYYY-Www.html`，例如 `2026-06/2026-W23.html`。
 
 生成 HTML 后 **必须**通过 UI 校验（否则 CI 会失败、不得 push）：
 
@@ -84,6 +88,12 @@ chmod +x scripts/publish_to_main.sh
 ```
 
 脚本会校验 UI、重建 `index.html`、合并进 `main` 并 `git push origin main`。
+
+周报发布使用：
+
+```bash
+./scripts/publish_to_main.sh --weekly '<automation_trigger_info.triggeredAt>'
+```
 
 **备用**：若 Agent 只能 push 功能分支，[auto-merge-daily.yml](.github/workflows/auto-merge-daily.yml) 检测到 `YYYY-MM/(AI|STOCK)/YYYYMMDD.html` 变更后，会自动合并到 `main`（通常延迟数分钟）。
 

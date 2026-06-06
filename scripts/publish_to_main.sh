@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-# Publish daily reports to main (triggers GitHub Pages).
+# Publish daily or weekly reports to main (triggers GitHub Pages).
 # Safe for Cursor Automation on cursor/* feature branches: merges into main then pushes.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+
+MODE="daily"
+if [[ "${1:-}" == "--weekly" ]]; then
+  MODE="weekly"
+  shift
+fi
 
 TRIGGERED_AT="${1:-${TRIGGERED_AT:-}}"
 if [[ -n "$TRIGGERED_AT" ]]; then
@@ -13,27 +19,52 @@ else
   eval "$(python3 scripts/report_date.py)"
 fi
 
+if [[ "$MODE" == "weekly" ]]; then
+  RUN_LABEL="$REPORT_WEEK_FILE"
+else
+  RUN_LABEL="$REPORT_ISO"
+fi
+
 run_gates() {
   python3 -m unittest discover -s tests -p 'test_*.py' -q
-  python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
-  python3 scripts/validate_report_ui.py --kind STOCK --date "$REPORT_DATE"
+  if [[ "$MODE" == "daily" ]]; then
+    python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
+    python3 scripts/validate_report_ui.py --kind STOCK --date "$REPORT_DATE"
+  else
+    python3 scripts/validate_report_ui.py --latest
+  fi
   python3 scripts/build_pages_index.py
 }
 
 stage_reports() {
-  git add \
-    "tmp/AI/${REPORT_DATE}/" \
-    "tmp/STOCK/${REPORT_DATE}/" \
-    "${REPORT_MONTH}/AI/${REPORT_DATE}.html" \
-    "${REPORT_MONTH}/STOCK/${REPORT_DATE}.html" \
-    index.html 2>/dev/null || true
+  if [[ "$MODE" == "weekly" ]]; then
+    git add \
+      "tmp/WEEKLY/${REPORT_WEEK_FILE}/" \
+      "${REPORT_WEEK_MONTH}/${REPORT_WEEK_FILE}.html" \
+      index.html 2>/dev/null || true
+  else
+    git add \
+      "tmp/AI/${REPORT_DATE}/" \
+      "tmp/STOCK/${REPORT_DATE}/" \
+      "${REPORT_MONTH}/AI/${REPORT_DATE}.html" \
+      "${REPORT_MONTH}/STOCK/${REPORT_DATE}.html" \
+      index.html 2>/dev/null || true
+  fi
 }
 
 ensure_reports_exist() {
   local missing=0
-  for f in \
-    "${REPORT_MONTH}/AI/${REPORT_DATE}.html" \
-    "${REPORT_MONTH}/STOCK/${REPORT_DATE}.html"; do
+  local files=()
+  if [[ "$MODE" == "weekly" ]]; then
+    files=("${REPORT_WEEK_MONTH}/${REPORT_WEEK_FILE}.html")
+  else
+    files=(
+      "${REPORT_MONTH}/AI/${REPORT_DATE}.html"
+      "${REPORT_MONTH}/STOCK/${REPORT_DATE}.html"
+    )
+  fi
+
+  for f in "${files[@]}"; do
     if [[ ! -f "$f" ]]; then
       echo "Missing report: $f" >&2
       missing=1
@@ -47,7 +78,11 @@ ensure_reports_exist() {
 commit_pending_on_branch() {
   stage_reports
   if ! git diff --cached --quiet; then
-    git commit -m "daily news reports ${REPORT_ISO}"
+    if [[ "$MODE" == "weekly" ]]; then
+      git commit -m "weekly AI stock news report ${REPORT_WEEK_FILE}"
+    else
+      git commit -m "daily news reports ${REPORT_ISO}"
+    fi
   fi
 }
 
@@ -59,7 +94,7 @@ merge_branch_into_main() {
   git checkout main
   git pull origin main
 
-  if git merge "$source_ref" -m "merge: daily reports ${REPORT_ISO} from ${source_label}"; then
+  if git merge "$source_ref" -m "merge: ${MODE} reports ${RUN_LABEL} from ${source_label}"; then
     return 0
   fi
 
@@ -80,7 +115,7 @@ rebuild_index_if_needed() {
   python3 scripts/build_pages_index.py
   git add index.html
   if ! git diff --cached --quiet; then
-    git commit -m "chore: rebuild index after merge ${REPORT_ISO}"
+    git commit -m "chore: rebuild index after merge ${RUN_LABEL}"
   fi
 }
 
@@ -95,7 +130,7 @@ SOURCE_REF="$(git rev-parse HEAD)"
 
 if [[ "$CURRENT_BRANCH" == "main" ]]; then
   git push origin main
-  echo "Pushed main (${REPORT_ISO}). GitHub Pages deploy triggered."
+  echo "Pushed main (${RUN_LABEL}). GitHub Pages deploy triggered."
   exit 0
 fi
 
@@ -103,6 +138,6 @@ merge_branch_into_main "$SOURCE_REF" "$CURRENT_BRANCH"
 run_gates
 rebuild_index_if_needed
 git push origin main
-echo "Merged ${CURRENT_BRANCH} -> main (${REPORT_ISO}). GitHub Pages deploy triggered."
+echo "Merged ${CURRENT_BRANCH} -> main (${RUN_LABEL}). GitHub Pages deploy triggered."
 
 git checkout "$CURRENT_BRANCH" 2>/dev/null || true

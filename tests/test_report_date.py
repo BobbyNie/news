@@ -62,6 +62,24 @@ class ReportDateTests(unittest.TestCase):
             out,
         )
 
+    def test_emit_env_includes_weekly_report_fields(self):
+        import io
+        import contextlib
+
+        module = load_module()
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            module.emit_env(triggered_at="2026-06-07T23:00:00Z")
+        out = buf.getvalue()
+        self.assertIn("export REPORT_DATE=20260608", out)
+        self.assertIn("export REPORT_WEEK_MONTH=2026-06", out)
+        self.assertIn("export REPORT_WEEK_FILE=2026-W23", out)
+        self.assertIn("export REPORT_WEEK_LABEL='2026 年第 23 周'", out)
+        self.assertIn(
+            "export REPORT_WEEK_WINDOW='2026-06-01 ~ 2026-06-07（澳门时间 UTC+8）'",
+            out,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
