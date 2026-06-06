@@ -25,12 +25,17 @@ eval "$(python3 scripts/report_date.py '<TRIGGERED_AT>')"
    - `sources/source-review-rules.md`
    - `sources/ai-sources.yaml` / `sources/stock-sources.yaml`
 2. 先做来源重检，记录本周新增、失效或需要调整的来源，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/00-source-review.md`。
-3. 检索 `REPORT_WEEK_WINDOW` 内的 AI 行业进展，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/01-ai-findings.md`。必须遵守 AI 行业内容边界：优先新模型、新功能、Agent、开发者工具/API、开源/研究、企业采用、算力供给、安全/治理与公司产品路线；不得用宏观、股价、指数、IPO 定价或资金流填充 AI 主线。
-4. 检索 `REPORT_WEEK_WINDOW` 内的美股、港股、AI IPO/独角兽、财报指引、监管风险、重要公司新闻与马斯克相关股票专题，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/02-stock-findings.md`。
-5. 去重并按“本周影响力”和“下周可继续跟踪性”排序，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/03-ranked-weekly-themes.md`。同一事件若同时影响 AI 行业与股市，只保留一个主条目，并在影响分析中分别写清 AI 与市场维度。
-6. 生成中文草稿到 `tmp/WEEKLY/${REPORT_WEEK_FILE}/04-draft-cn.md`。
-7. 用中文生成 HTML 周报到 `${REPORT_WEEK_MONTH}/${REPORT_WEEK_FILE}.html`。标题使用 `${REPORT_WEEK_LABEL} AI + 股市周报`。
-8. 生成后运行：
+3. **先读取本周已生成的每日 AI 日报与股市日报**，把日报已覆盖事实、来源、缺口和连续主题整合成周报基线，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/01-daily-report-rollup.md`。
+   - 遍历 `REPORT_WEEK_START` 到 `REPORT_WEEK_END` 的每个澳门日历日 `YYYYMMDD`。
+   - 读取 `${REPORT_WEEK_MONTH}/AI/YYYYMMDD.html` 与 `${REPORT_WEEK_MONTH}/STOCK/YYYYMMDD.html`（若跨月，也检查对应日期自己的 `YYYY-MM/AI/YYYYMMDD.html` 与 `YYYY-MM/STOCK/YYYYMMDD.html`）。
+   - 同时读取 `tmp/AI/YYYYMMDD/02-ranked-items.md`、`tmp/AI/YYYYMMDD/03-draft-cn.md`、`tmp/STOCK/YYYYMMDD/02-ranked-items.md`、`tmp/STOCK/YYYYMMDD/03-draft-cn.md`。
+   - 若某天日報或 tmp artifact 缺失，在 rollup 中记录缺口；不得跳过既有日報只重新检索，也不得把日報已经覆盖过的事实当成本周新发现重复堆叠。
+4. 检索 `REPORT_WEEK_WINDOW` 内的 AI 行业进展，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/02-ai-findings.md`。必须以 `01-daily-report-rollup.md` 为基线，只补充、核验或更新日報未覆盖/后续有变化的事实。必须遵守 AI 行业内容边界：优先新模型、新功能、Agent、开发者工具/API、开源/研究、企业采用、算力供给、安全/治理与公司产品路线；不得用宏观、股价、指数、IPO 定价或资金流填充 AI 主线。
+5. 检索 `REPORT_WEEK_WINDOW` 内的美股、港股、AI IPO/独角兽、财报指引、监管风险、重要公司新闻与马斯克相关股票专题，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/03-stock-findings.md`。必须以 `01-daily-report-rollup.md` 为基线，只补充、核验或更新日報未覆盖/后续有变化的事实。
+6. 去重并按“本周影响力”和“下周可继续跟踪性”排序，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/04-ranked-weekly-themes.md`。同一事件若同时影响 AI 行业与股市，只保留一个主条目，并在影响分析中分别写清 AI 与市场维度。
+7. 生成中文草稿到 `tmp/WEEKLY/${REPORT_WEEK_FILE}/05-draft-cn.md`。
+8. 用中文生成 HTML 周报到 `${REPORT_WEEK_MONTH}/${REPORT_WEEK_FILE}.html`。标题使用 `${REPORT_WEEK_LABEL} AI + 股市周报`。
+9. 生成后运行：
 
 ```bash
 python3 -m unittest discover -s tests -p 'test_*.py' -q
@@ -38,8 +43,8 @@ python3 scripts/validate_report_ui.py --latest
 python3 scripts/build_pages_index.py
 ```
 
-9. 确认根目录 `index.html` 已出现本周周报链接。
-10. 提交并发布。推荐直接运行：
+10. 确认根目录 `index.html` 已出现本周周报链接。
+11. 提交并发布。推荐直接运行：
 
 ```bash
 ./scripts/publish_to_main.sh --weekly '<TRIGGERED_AT>'

@@ -182,6 +182,26 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
 
+    def test_weekly_prompt_integrates_existing_daily_reports(self) -> None:
+        prompt = (ROOT / "prompts" / "cursor-weekly.md").read_text(encoding="utf-8")
+
+        required = [
+            "先读取本周已生成的每日 AI 日报与股市日报",
+            "${REPORT_WEEK_MONTH}/AI/YYYYMMDD.html",
+            "${REPORT_WEEK_MONTH}/STOCK/YYYYMMDD.html",
+            "tmp/AI/YYYYMMDD/02-ranked-items.md",
+            "tmp/AI/YYYYMMDD/03-draft-cn.md",
+            "tmp/STOCK/YYYYMMDD/02-ranked-items.md",
+            "tmp/STOCK/YYYYMMDD/03-draft-cn.md",
+            "tmp/WEEKLY/${REPORT_WEEK_FILE}/01-daily-report-rollup.md",
+            "不得跳过既有日報只重新检索",
+            "日報已经覆盖过的事实",
+        ]
+
+        for text in required:
+            with self.subTest(text=text):
+                self.assertIn(text, prompt)
+
 
 if __name__ == "__main__":
     unittest.main()
