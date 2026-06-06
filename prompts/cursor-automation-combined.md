@@ -24,18 +24,13 @@
 
 按 `prompts/cursor-ai-daily.md` 执行步骤 1–8（来源重检 → 原始发现 → 排序 → HTML）。
 
-AI 来源重检必须覆盖 `financial_ai_sources`，金融行业 AI 采集坚持**官方/监管/IR/交易所/主流媒体优先**。券商研报、咨询机构白皮书、论坛和社媒只能作补充，并须标注来源级别和待验证点。
+必须遵守 `prompts/cursor-ai-daily.md` 的 **AI 行业内容边界**：AI 日报聚焦新模型、新功能、Agent、开发者工具/API、开源/研究、企业或行业 AI 采用、算力供给、安全/治理和公司产品路线。
 
-AI HTML 必须每日固定包含两个专题：
-
-- `<section id="finance-ai">`，标题「金融行业 AI 专题」：全球银行、券商、保险、资管、支付、交易所、regtech/suptech。
-- `<section id="mainland-finance-ai">`，标题「中国内地金融行业 AI 专题」：人民银行、金监总局、证监会、交易所、内地金融机构与内地 AI 供应商落地。
-
-若本窗口没有高可信金融 AI 更新，仍保留专题，并写明「本窗口未见可验证重大更新」和已检查来源。
+不得把宏观、利率、股价、指数、IPO 定价或入指事件作为 AI 日报主线；只有直接改变 AI 产品路线、模型能力、算力供给或企业采用时，才可作为低优先级背景。纯股票、指数、估值、募资规模、资金流与交易风险写入股市日报，不要写入 AI 日报。
 
 HTML 必须包含（CI 会校验）：
 
-- `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`、`finance-ai`、`mainland-finance-ai`
+- `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`
 - `body { max-width: 760px; }`、`-webkit-text-size-adjust: 100%`
 - **不得**出现 `max-width: 920px`
 

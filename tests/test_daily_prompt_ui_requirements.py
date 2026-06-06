@@ -23,49 +23,62 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
 
-    def test_ai_prompt_requires_finance_ai_special_topics(self) -> None:
+    def test_ai_prompt_enforces_ai_industry_content_boundary(self) -> None:
         prompt = (ROOT / "prompts" / "cursor-ai-daily.md").read_text(encoding="utf-8")
 
         required = [
-            'section id="finance-ai"',
-            'section id="mainland-finance-ai"',
-            "金融行业 AI 专题",
-            "中国内地金融行业 AI 专题",
-            "核心结论",
-            "可验证事件",
-            "行业影响",
-            "待跟踪/缺口",
-            "本窗口未见可验证重大更新",
-            "官方/监管/IR/交易所/主流媒体优先",
+            "AI 行业内容边界",
+            "新模型",
+            "新功能",
+            "Agent",
+            "开发者工具",
+            "开源/研究",
+            "安全/治理",
+            "不得把宏观、利率、股价、指数、IPO 定价或入指事件作为 AI 日报主线",
+            "只有直接改变 AI 产品路线、模型能力、算力供给或企业采用时，才可作为低优先级背景",
+            "窗口内缺少高可信 AI 新闻时，宁可减少条目并写明已检查来源",
         ]
 
         for text in required:
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
 
-    def test_ai_sources_include_finance_ai_seed_sources(self) -> None:
+        forbidden = [
+            "AI 日报必须每日固定输出两个金融行业专题",
+            'section id="finance-ai"',
+            'section id="mainland-finance-ai"',
+        ]
+
+        for text in forbidden:
+            with self.subTest(text=text):
+                self.assertNotIn(text, prompt)
+
+    def test_ai_sources_prioritize_industry_topics_over_market_topics(self) -> None:
         sources = (ROOT / "sources" / "ai-sources.yaml").read_text(encoding="utf-8")
 
         required = [
-            "financial_ai_sources",
-            "BIS Innovation Hub",
-            "FSB AI in finance",
-            "IOSCO AI/capital markets",
-            "中国人民银行金融科技规划",
-            "国家金融监督管理总局数字金融/科技监管",
-            "中国证监会数字金融与资本市场政策",
-            "上交所/深交所官方动态",
-            "financial_industry_ai",
-            "mainland_financial_ai",
-            "regtech_suptech",
-            "ai_risk_management",
-            "ai_banking_adoption",
-            "ai_capital_markets",
+            "industry_ai_adoption_sources",
+            "developer_tools",
+            "agent_platforms",
+            "research_breakthrough",
+            "enterprise_adoption",
+            "industry_ai_adoption",
         ]
 
         for text in required:
             with self.subTest(text=text):
                 self.assertIn(text, sources)
+
+        forbidden = [
+            "financial_ai_sources",
+            "financial_industry_ai",
+            "mainland_financial_ai",
+            "ai_capital_markets",
+        ]
+
+        for text in forbidden:
+            with self.subTest(text=text):
+                self.assertNotIn(text, sources)
 
     def test_stock_prompt_requires_mobile_market_report_ui(self) -> None:
         prompt = (ROOT / "prompts" / "cursor-stock-daily.md").read_text(encoding="utf-8")
@@ -100,20 +113,25 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
 
-    def test_combined_automation_prompt_requires_ai_finance_topics(self) -> None:
+    def test_combined_automation_prompt_requires_ai_content_boundary(self) -> None:
         prompt = (ROOT / "prompts" / "cursor-automation-combined.md").read_text(encoding="utf-8")
 
         required = [
-            "finance-ai",
-            "mainland-finance-ai",
-            "金融行业 AI 专题",
-            "中国内地金融行业 AI 专题",
-            "官方/监管/IR/交易所/主流媒体优先",
+            "AI 行业内容边界",
+            "新模型",
+            "新功能",
+            "Agent",
+            "不得把宏观、利率、股价、指数、IPO 定价或入指事件作为 AI 日报主线",
+            "只有直接改变 AI 产品路线、模型能力、算力供给或企业采用时，才可作为低优先级背景",
         ]
 
         for text in required:
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
+
+        for text in ["finance-ai", "mainland-finance-ai"]:
+            with self.subTest(text=text):
+                self.assertNotIn(text, prompt)
 
 
 if __name__ == "__main__":

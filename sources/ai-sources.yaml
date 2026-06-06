@@ -63,37 +63,40 @@ media_ai:
     - 晚点 LatePost
     - 财新 科技/AI
 
-financial_ai_sources:
-  global:
+industry_ai_adoption_sources:
+  developer_platforms:
+    - OpenAI Developers:
+        site: "https://platform.openai.com/docs/overview"
+        focus: "API、SDK、工具调用、Agent 与开发者平台更新"
+    - Anthropic Docs:
+        site: "https://docs.anthropic.com/"
+        focus: "Claude API、模型能力、工具使用与企业部署更新"
+    - Google AI Developers:
+        site: "https://ai.google.dev/"
+        focus: "Gemini API、开发者工具、开源模型与示例"
+    - Microsoft AI Developer Blog:
+        site: "https://devblogs.microsoft.com/"
+        focus: "Copilot、Azure AI、开发者工具链与 Agent 平台"
+  enterprise_and_vertical_ai:
+    - AWS Machine Learning Blog:
+        site: "https://aws.amazon.com/blogs/machine-learning/"
+        focus: "企业 AI 落地、模型服务、MLOps 与云端推理"
+    - NVIDIA AI Enterprise:
+        site: "https://blogs.nvidia.com/blog/category/enterprise/"
+        focus: "企业 AI 软件、推理、数据中心与行业部署"
+    - MIT Technology Review AI:
+        site: "https://www.technologyreview.com/topic/artificial-intelligence/"
+        focus: "AI 研究、产品化、产业采用与风险"
+  regulated_industries:
     - BIS Innovation Hub:
         site: "https://www.bis.org/about/bisih/topics/suptech_regtech.htm"
-        focus: "央行创新、suptech/regtech、金融监管 AI、金融市场基础设施"
+        focus: "仅在出现可验证 AI 系统、监管科技、模型风险治理或行业采用时引用"
     - FSB AI in finance:
         site: "https://www.fsb.org/2024/11/fsb-assesses-the-financial-stability-implications-of-artificial-intelligence/"
-        focus: "AI 对金融稳定、模型风险、第三方依赖与监管协调的影响"
+        focus: "仅用于 AI 模型风险、第三方依赖、治理或金融机构 AI 采用，不用于行情或利率叙事"
     - IOSCO AI/capital markets:
         site: "https://www.iosco.org/library/pubdocs/pdf/IOSCOPD788.pdf"
-        focus: "资本市场 AI 用例、风险、治理、市场中介与资管应用"
-  mainland_china:
-    - 中国人民银行金融科技规划:
-        site: "https://www.pbc.gov.cn/zhengwugongkai/4081330/4406346/4693549/4470403/index.html"
-        focus: "金融科技规划、智能金融、金融服务全生命周期智能化"
-    - 国家金融监督管理总局数字金融/科技监管:
-        site: "https://www.nfra.gov.cn/"
-        focus: "银行保险机构数字金融、人工智能安全应用、模型风险与科技监管"
-    - 中国证监会数字金融与资本市场政策:
-        site: "https://www.csrc.gov.cn/"
-        focus: "资本市场数字化智能化、监管科技、证券期货行业 AI 应用"
-    - 上交所/深交所官方动态:
-        sse: "https://www.sse.com.cn/"
-        szse: "https://www.szse.cn/"
-        focus: "交易所 AI 活动、金融科技创新试点、监管科技与上市公司 AI 落地"
-  media:
-    - Reuters Fintech/AI
-    - Bloomberg AI in Finance
-    - Financial Times AI in Finance
-    - 财新 金融科技/数字金融
-    - 证券时报 金融科技
+        focus: "仅用于资本市场中的 AI 用例与治理，不用于指数、股价或交易结论"
 
 forums_and_research:
   - Hacker News
@@ -105,16 +108,14 @@ forums_and_research:
 priority_topics:
   - model_release
   - product_release
-  - funding
-  - merger_acquisition
+  - developer_tools
+  - agent_platforms
+  - research_breakthrough
   - regulation
   - safety_security
   - compute_infrastructure
   - open_source
+  - enterprise_adoption
+  - industry_ai_adoption
+  - strategic_partnership
   - major_hiring_or_departure
-  - financial_industry_ai
-  - mainland_financial_ai
-  - regtech_suptech
-  - ai_risk_management
-  - ai_banking_adoption
-  - ai_capital_markets

@@ -38,6 +38,18 @@ class ValidateReportUITest(unittest.TestCase):
         errors = validate_report_html(html, "STOCK")
         self.assertTrue(any("change-up" in error for error in errors))
 
+    def test_ai_report_does_not_require_finance_sections(self) -> None:
+        html = """
+        <body class="report report-ai">
+        <header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p></header>
+        <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
+        <div class="table-wrap"><table></table></div>
+        <style>body { max-width: 760px; } html { -webkit-text-size-adjust: 100%; }</style>
+        </body>
+        """
+        errors = validate_report_html(html, "AI")
+        self.assertEqual(errors, [])
+
 
 if __name__ == "__main__":
     unittest.main()
