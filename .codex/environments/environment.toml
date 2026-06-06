@@ -6,7 +6,7 @@ name = "news"
 script = "cd \"$CODEX_WORKTREE_PATH\""
 
 [setup.darwin]
-script = "cd ”CODEX_WORKTREE_PATH“"
+script = "cd \"$CODEX_WORKTREE_PATH\""
 
 [cleanup]
 script = "docker compose down --remove-orphans"
