@@ -2,11 +2,9 @@
 
 | 等级 | 事件 | 为什么重要 | 可能影响 | 证据 |
 |------|------|------------|----------|------|
-| P0 | 5 月非农 +172K 引发 6/5 科技股抛售 | 利率路径重定价直接冲击 AI 高 Beta 资产 | NVDA -6.2%；纳指约 -3%；风险偏好降温 | BLS、Motley Fool |
-| P0 | Broadcom AI 指引低于预期余波 | 定制 ASIC 叙事首次明显「不及最乐观预期」 | AVGO 两日跌约 20%；AMD/INTC 跟跌 | Broadcom IR、CNBC |
-| P1 | OpenAI Dreaming V3 | 消费者侧记忆/个性化架构升级，算力效率 5x | 提升留存与付费转化；隐私治理压力上升 | OpenAI 官方 |
-| P1 | SpaceX $135 定价 + 6/12 路演 | 史上最大 IPO 进入最后一周 | 流动性虹吸、xAI 叙事公开定价 | SEC、SpaceNews |
-| P1 | S&P 拒绝 SpaceX 快速入指 | 被动 S&P 500 资金短期无法配置 | 首日及同业估值锚分化 | Fortune、investingLive |
-| P2 | OpenAI 联邦治理蓝图 | CAISI vs NSA 评估权之争 | 影响 Anthropic/OpenAI 上市合规叙事 | OpenAI、SiliconANGLE |
-| P2 | 港股恒科三连阴 | AI 应用叙事交易降温 | 腾讯等权重调整 6/8 生效 | 财联社 |
-| P3 | FSB 金融 AI 最佳实践（6/1） | 监管咨询将启动 | 银行模型治理长期框架 | FSB 官方 |
+| P0 | OpenAI Dreaming V3 | 直接改变 ChatGPT 的长期上下文与个性化记忆机制，是可感知的核心产品升级 | 影响用户留存、长期任务体验、记忆隐私与个性化竞争 | OpenAI Dreaming |
+| P0 | OpenAI API moderation scores | 明确属于开发者工作流能力更新，降低安全调用链复杂度 | 更容易把安全审核直接嵌入生成请求和产品日志 | OpenAI release notes |
+| P1 | OpenAI frontier safety blueprint | 触及最强模型发布前评估与联邦治理机构角色 | 影响企业部署、合规预期和前沿模型上线节奏 | OpenAI blueprint |
+| P1 | Microsoft biosecurity + agentic systems | 把 agentic programming 与实验自动化放入高风险治理语境 | 大厂会更重视高风险领域中的 agent 审计、限制和评估 | Microsoft |
+| P2 | Google 6/5 官方 recap 强调 Gemini 3.5 / Managed Agents / AI Studio | 显示 Google 当前的 AI 平台主推方向是 agentic 开发栈而非单点模型营销 | 与 OpenAI API、Anthropic 工具链形成平台竞争 | Google recap / Managed Agents |
+| P3 | 金融业 AI 应用来源复检无新增 | 是固定栏目要求，但没有高可信新稿 | 栏位只能如实写缺口，不可用股市新闻补位 | HSBC / BoA / DBS / JPM / BIS / FSB / IOSCO |

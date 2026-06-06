@@ -15,7 +15,6 @@
       --accent-2: #0891b2;
       --warning-bg: #fff7ed;
       --warning-line: #f59e0b;
-      --down: #b42318;
       color-scheme: light;
     }
     * { box-sizing: border-box; }
@@ -82,7 +81,6 @@
       font-variant-numeric: tabular-nums;
     }
     .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
-    .change-down { color: var(--down); font-weight: 850; }
     .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
     th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
@@ -98,98 +96,49 @@
   <header class="hero hero-ai">
     <p class="eyebrow">AI DAILY BRIEF</p>
     <h1>2026-06-06 AI 日报</h1>
-    <p class="lead">非农超预期重定价利率路径；Broadcom 指引余波与 OpenAI Dreaming V3 并列。</p>
+    <p class="lead">聚焦新模型、新功能、开发者 API、Agent 平台、安全治理与企业采用。</p>
     <div class="meta-grid"><span>生成时间：2026-06-06 07:01（澳门时间）｜采集窗口：2026-06-04 07:01 ~ 2026-06-06 07:01（澳门时间 UTC+8）</span></div>
   </header>
 
   <section id="window">
     <h2>更新时间与数据窗口</h2>
     <p class="meta">生成时间：2026-06-06 07:01（澳门时间）｜采集窗口：2026-06-04 07:01 ~ 2026-06-06 07:01（澳门时间 UTC+8）</p>
-    <p>本窗口最大变量是 <strong>6 月 5 日美国非农</strong>：新增就业 17.2 万远超预期，市场重新定价联储加息，标普跌 2.64%、纳指跌约 3%，<strong>NVDA 收 $205.10（-6.20%）</strong>。此前 <strong>Broadcom</strong> Q3 AI 芯片指引 $160 亿低于华尔街最乐观预期，股价 6/4–6/5 累计重挫。产品侧 <strong>OpenAI Dreaming V3</strong>（6/4）升级记忆架构；资本侧 <strong>SpaceX 路演</strong> 与 <strong>S&P 拒绝快速入指</strong>（6/4）继续发酵。</p>
+    <p>本窗口最重要的变化来自 <strong>OpenAI 直接更新用户记忆与开发者 API</strong>，而不是股价、指数或 IPO。ChatGPT 记忆系统升级到 Dreaming V3，OpenAI API 又把 moderation scores 直接并入生成请求；这两项都属于能马上改变产品体验和开发工作流的实质更新。治理层面，OpenAI 与 Microsoft 也都在把前沿模型评估与 agentic systems 风险显式制度化。</p>
   </section>
 
   <section id="top">
-    <h2>今日最重要的 5–10 条</h2>
+    <h2>今日最重要的 5-10 条</h2>
     <ol class="top-list">
-      <li class="news-card"><strong>5 月非农 +172,000 远超预期</strong>（2026-06-05，BLS）— 失业率 4.3%；市场押注年内联储加息，10 年期收益率升至约 4.54%。标普收 7,383.74（<span class="change-down">-2.64%</span>），为逾一年来最差单日表现；科技板块跌约 4.3%。<span class="tag">宏观</span> <a href="https://www.bls.gov/news.release/empsit.nr0.htm">BLS</a> · <a href="https://www.bbntimes.com/companies/s-p-500-index-plunges-2-64-to-7-383-in-worst-day-in-over-a-year-as-broadcom-shock-meets-searing-jobs-data">BBN Times</a></li>
-      <li class="news-card"><strong>NVDA 随大盘重挫</strong>— 6/5 收 <code>$205.10</code>（<span class="change-down">-6.20%</span>），前一日收 $218.66。AI 算力龙头对利率敏感度在本窗口充分暴露。<span class="tag">算力</span> <a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a></li>
-      <li class="news-card"><strong>Broadcom AI 指引失望余波</strong>（财报 6/3 盘后）— Q2 AI 收入 $10.8B（+143% YoY）超预期，但 Q3 AI 指引 $16.0B 低于分析师约 $16.36–17.2B；6/4 跌约 12.55%，6/5 续跌至 $385.73。<span class="tag">半导体</span> <a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial">Broadcom IR</a> · <a href="https://www.cnbc.com/quotes/AVGO">CNBC</a></li>
-      <li class="news-card"><strong>OpenAI 发布 Dreaming V3 记忆架构</strong>（2026-06-04，官方）— 后台合成用户记忆、可审阅 summary；服务 dreaming 算力需求降约 5x，计划向 Free 用户扩展。先向美国 Plus/Pro 推出。<span class="tag">产品</span> <a href="https://openai.com/index/chatgpt-memory-dreaming/">OpenAI</a></li>
-      <li class="news-card"><strong>SpaceX 固定 IPO 价 $135/股</strong>，拟 6/12 挂牌 <strong>SPCX</strong>（SEC 修订稿 6/3–6/4）— 募资约 $750 亿、估值约 $1.77 万亿；6/4 启动独立 IPO 网站与路演。<span class="tag">IPO</span> <a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a> · <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026040610/spacexfwp.htm">SEC</a></li>
-      <li class="news-card"><strong>S&P 拒绝 SpaceX 快速纳入 S&P 500</strong>（2026-06-04）— 维持 GAAP 盈利与 12 个月 seasoning 规则；2025 净亏约 $49 亿致至少一年内无法入指，被动 S&P 500 基金短期不会被迫买入。<span class="tag">指数</span> <a href="https://fortune.com/2026/06/05/sp-500-spacex-elon-musk-retirement-savings-401k/">Fortune</a> · <a href="https://investinglive.com/stock-market-update/spacex-faces-full-sp-500-wait-as-index-giant-rejects-fast-track-entry-rules-20260604/">investingLive</a></li>
-      <li class="news-card"><strong>OpenAI 联邦前沿 AI 治理蓝图</strong>（2026-06-03，官方）— 主张 CAISI 对最强模型做发布前评估并建议缓释，但不应拥有批准/阻止部署权；与白宫 EO 中部分 NSA 评估路径存在分歧（媒体报道）。<span class="tag">监管</span> <a href="https://openai.com/index/frontier-safety-blueprint/">OpenAI</a> · <a href="https://siliconangle.com/2026/06/03/policy-paper-openai-diverges-white-house-ai-safety/">SiliconANGLE</a></li>
-      <li class="news-card"><strong>港股三连阴</strong>— 6/5 恒指跌 1.15% 失守 25000，恒生科技指数跌 1.75%；6/5 收盘后指数检讨生效，MiniMax、智谱纳入恒科（6/8 起）。<span class="tag">区域</span> <a href="https://www.163.com/dy/article/KUMJ03OI05198CJN.html">财联社</a></li>
+      <li class="news-card"><strong>OpenAI 发布 Dreaming V3 记忆系统</strong>（2026-06-04）— ChatGPT 从“保存记忆”升级到“自动合成并随时间更新的记忆”，目标是减少 stale memory、提升长期上下文连续性，并先向美国 Plus/Pro 用户推出。<span class="tag">产品</span> <a href="https://openai.com/index/chatgpt-memory-dreaming/">OpenAI</a></li>
+      <li class="news-card"><strong>OpenAI API 新增 moderation scores</strong>（2026-06-04）— Responses API 与 Chat Completions API 现在可在一次生成请求中同时返回输入与输出的 moderation 结果，明显降低开发者把安全审核串进生成链路的复杂度。<span class="tag">开发者 API</span> <a href="https://openai.com/products/release-notes/">OpenAI release notes</a></li>
+      <li class="news-card"><strong>OpenAI 提出前沿 AI 民主治理蓝图</strong>（2026-06-03，窗口内持续发酵）— 主张对最强模型做发布前评估并强化 CAISI，但不主张由监管机构直接掌握部署否决权。<span class="tag">安全 / 治理</span> <a href="https://openai.com/index/frontier-safety-blueprint/">OpenAI</a></li>
+      <li class="news-card"><strong>Microsoft 将 agentic systems 纳入生物安全风险框架</strong>（2026-06-04）— 微软明确指出，通用模型、专用生物工具、实验自动化与 agentic programming environments 的组合，正在降低非专业用户跨入高风险实验流程的门槛。<span class="tag">安全 / 治理</span> <a href="https://blogs.microsoft.com/on-the-issues/2026/06/04/strengthening-biosecurity-in-the-era-of-ai/">Microsoft</a></li>
+      <li class="news-card"><strong>Google 用 6/5 官方 recap 继续主推 Gemini 3.5 与 Managed Agents</strong> — 虽然底层能力首发在 5 月 I/O，但 6 月 5 日的官方回顾再次集中强调 Gemini 3.5、Gemini Omni、Managed Agents in the Gemini API 和 AI Studio，说明 Google 当前平台竞争重点已转向 agent runtime 与开发栈。<span class="tag">平台竞争</span> <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/">Google</a> · <a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/">Managed Agents</a></li>
     </ol>
   </section>
 
   <section id="details">
     <h2>分主题详情</h2>
 
-    <h3>宏观冲击：从「软着陆」到「更高更久」</h3>
+    <h3>产品主线：记忆正在从静态存档变成持续更新的上下文系统</h3>
     <ul>
-      <li>BLS（6/5）：5 月非农 +172,000，3–4 月亦上修；失业率 4.3%。<strong>金融活动就业减少 22,000</strong>，为 2025 年 5 月以来累计减少 107,000 的一部分。</li>
-      <li>市场反应：标普 -2.64%、纳指约 -3%；资金轮动至必需消费、医疗、公用事业等防御板块（Motley Fool）。</li>
-      <li>对 AI 资产含义：高 Beta、远期现金流折现敏感标的（NVDA、未盈利 mega-IPO）首当其冲；不等于 AI 需求基本面突变，但<strong>估值倍数</strong>承压。</li>
+      <li><strong>Dreaming V3</strong> 是本窗口最强的用户侧产品更新。OpenAI 的重点不只是“记住更多”，而是让记忆会随着时间自动修正，减少过期和矛盾信息。<a href="https://openai.com/index/chatgpt-memory-dreaming/">OpenAI</a></li>
+      <li>这会直接影响长期任务、持续协作和个性化体验，也会把“上下文 freshness”变成下一轮 AI 助手竞争点。</li>
+      <li>配套的 ChatGPT release notes 也同步确认这是面向 Plus/Pro 美国用户的当日上线更新，并计划扩展至更多国家和免费层。<a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT release notes</a></li>
     </ul>
 
-    <h3>算力链：Broadcom 与 NVIDIA 分化叙事</h3>
+    <h3>开发者工具：安全能力正在并入主生成路径</h3>
     <ul>
-      <li><strong>Broadcom</strong>：定制 ASIC 与 AI 网络仍高速增长（Q2 AI +143%），但 Q3 指引 $16B 令「永远 beat」预期首次松动；CEO Hock Tan 仍重申 2027 年 AI 半导体收入超 $100B 长期目标。</li>
-      <li><strong>NVIDIA</strong>：6/4 仍收高 +1.82%，6/5 随大盘回吐 -6.20%— 显示宏观因子可压倒个股叙事。</li>
+      <li>OpenAI 在 API release notes 中把 moderation scores 直接并入 Responses API 和 Chat Completions API 的生成响应，意味着开发者不必再总是拆成“先生成、再单独审核”的两段式流程。<a href="https://openai.com/products/release-notes/">OpenAI release notes</a></li>
+      <li>这类更新的价值不在 headline，而在真实工程摩擦变小：日志、审计、告警和产品 UI 都更容易围绕单次响应统一落地。</li>
+      <li>Google 则从另一侧推进平台竞争：Managed Agents in the Gemini API 提供受管 Linux 沙箱、代码执行和持久环境，并允许用 <code>AGENTS.md</code> / <code>SKILL.md</code> 定义 agent。6 月 5 日的 recap 表明这条线仍在被持续强化。<a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/">Google Managed Agents</a></li>
     </ul>
 
-    <h3>产品：记忆、治理与 IPO 三连击</h3>
+    <h3>治理与风险：大厂开始把 agentic workflows 当作能力边界处理</h3>
     <ul>
-      <li><strong>Dreaming V3</strong>：ChatGPT 从「显式 saved memories」走向后台合成记忆，隐私与可解释性争议将升温；算力效率提升使 Free 层 rollout 成为可能。</li>
-      <li><strong>治理蓝图</strong>：OpenAI 试图在「强制评估」与「保留部署自主权」之间走中间路线，影响 Anthropic/OpenAI 上市前后的监管叙事。</li>
-      <li><strong>SpaceX</strong>：距 6/12 挂牌一周；S&P 入指受阻意味着万亿叙事需靠主动资金与 Nasdaq 100 等路径承接。</li>
-    </ul>
-  </section>
-
-  <section id="finance-ai">
-    <h2>金融行业 AI 专题</h2>
-    <h3>核心结论</h3>
-    <p>本窗口金融 AI 主线是<strong>宏观利率冲击</strong>叠加<strong>就业结构分化</strong>：BLS 显示金融活动就业继续收缩，而整体非农强劲推升利率预期，银行/保险/资管估值与 AI capex 融资环境同步承压。监管侧，FSB 6 月全会（6/1，略早于窗口起点，已检）确认将发布金融机构负责任 AI 采纳最佳实践咨询稿，但<strong>本 48 小时窗口内无 BIS/FSB/IOSCO 新文件</strong>。</p>
-    <h3>可验证事件</h3>
-    <ul>
-      <li><strong>BLS 就业报告</strong>（2026-06-05，官方）：金融活动就业 5 月 -22,000；保险承运及相关活动 -11,000，商业银行 -3,000。<a href="https://www.bls.gov/news.release/empsit.nr0.htm">BLS</a></li>
-      <li><strong>FSB 6 月全会</strong>（2026-06-01，官方，已检来源）：讨论金融 AI 负责任采纳报告，拟数周内公开咨询，10 月提交 G20。<a href="https://www.fsb.org/2026/06/fsb-plenary-highlights-potential-new-vulnerabilities-to-financial-stability/">FSB</a></li>
-      <li><strong>S&P SpaceX 入指规则</strong>（2026-06-04，指数公司声明，媒体报道）：维持盈利门槛— 直接影响被动指数基金配置节奏，属<strong>市场基础设施</strong>事件。<a href="https://investinglive.com/stock-market-update/spacex-faces-full-sp-500-wait-as-index-giant-rejects-fast-track-entry-rules-20260604/">investingLive</a></li>
-      <li><strong>OpenAI 治理蓝图</strong>（2026-06-03，官方）：CAISI 评估框架— 若金融机构通过 Bedrock 等渠道部署前沿模型，联邦评估标准将影响合规成本。<a href="https://openai.com/index/frontier-safety-blueprint/">OpenAI</a></li>
-    </ul>
-    <h3>行业影响</h3>
-    <ul>
-      <li><strong>银行/保险</strong>：更高利率预期或改善净息差叙事，但金融就业收缩暗示业务线调整；AI 自动化与人力收缩的长期关系需继续观察，本窗口无大型银行官方 AI 落地稿。</li>
-      <li><strong>资管/被动投资</strong>：SpaceX 短期无法进入 S&P 500，改变 mega-IPO 对指数资金的「自动承接」假设；Anthropic/OpenAI 上市亦需满足相同盈利与 seasoning 规则。</li>
-      <li><strong>模型风险</strong>：OpenAI Dreaming V3 强化消费者记忆能力，金融机构若借鉴类似架构，数据留存与算法披露压力将上升（背景：人民银行《人工智能算法金融应用评价规范》等既有框架）。</li>
-    </ul>
-    <h3>待跟踪/缺口</h3>
-    <ul>
-      <li>已检查：<a href="https://www.bis.org/about/bisih/topics/suptech_regtech.htm">BIS Innovation Hub</a>、<a href="https://www.fsb.org/2024/11/fsb-assesses-the-financial-stability-implications-of-artificial-intelligence/">FSB AI in finance</a>、<a href="https://www.iosco.org/library/pubdocs/pdf/IOSCOPD788.pdf">IOSCO</a> — <strong>本窗口未见新官方发布</strong>（FSB 6/1 全会为已检最近事件）。</li>
-      <li>待 FSB 咨询稿发布：金融机构 AI 治理、第三方依赖、模型风险披露细则。</li>
-      <li>券商研报仅作补充，不作事实依据；社媒 IPO 传闻须 SEC 文件确认。</li>
-    </ul>
-  </section>
-
-  <section id="mainland-finance-ai">
-    <h2>中国内地金融行业 AI 专题</h2>
-    <h3>核心结论</h3>
-    <p><strong>本窗口未见可验证重大更新</strong>：人民银行、国家金融监督管理总局、中国证监会、上交所、深交所官网及清单内内地 AI 公司（DeepSeek、智谱、月之暗面等）均无与本窗口匹配的 AI 监管新规或金融机构官方落地公告。市场侧仅有港股指数检讨（MiniMax、智谱纳入恒生科技指数，6/8 生效），属<strong>指数编制</strong>而非内地监管政策。</p>
-    <h3>可验证事件</h3>
-    <ul>
-      <li><strong>恒生科技指数季检</strong>（2026-05-22 公告，2026-06-05 收盘后实施）：纳入 MiniMax-W、智谱；剔除金蝶国际、金山软件；6/8 起生效。<a href="https://www.stcn.com/article/detail/3923277.html">证券时报</a></li>
-      <li><strong>港股行情</strong>：6/5 恒指续跌 1.15%，科网板块三连阴；无人民银行/金监总局/证监会同期 AI 专文。</li>
-    </ul>
-    <h3>行业影响</h3>
-    <ul>
-      <li>在缺乏监管新稿情况下，内地金融 AI 叙事仍由<strong>港股科网估值</strong>与<strong>未证实的 Agent 产品传闻</strong>驱动，波动大于可验证基本面增量。</li>
-      <li>人民银行 3 月科技工作会议提出的「积极稳妥、安全有序推进金融领域人工智能应用」仍为政策基调，但本窗口无新细则落地。</li>
-    </ul>
-    <h3>待跟踪/缺口</h3>
-    <ul>
-      <li>已检查：<a href="https://www.pbc.gov.cn/zhengwugongkai/4081330/4406346/4693549/4470403/index.html">人民银行金融科技规划</a>、<a href="https://www.nfra.gov.cn/">金监总局</a>、<a href="https://www.csrc.gov.cn/">证监会</a>、<a href="https://www.sse.com.cn/">上交所</a>、<a href="https://www.szse.cn/">深交所</a> — 无本窗口新稿。</li>
-      <li>内地银行/券商/保险 IR 未检出可验证 AI 系统上线公告；财新/证券时报金融科技频道需付费或未命中窗口。</li>
-      <li>港股腾讯等仅作交叉影响，不并入内地监管主线。</li>
+      <li>OpenAI 的 blueprint 继续推动“发布前评估 + 联邦协调机构 + 跨政府韧性计划”的路线，核心是先把最强模型纳入更制度化的前置评估，但不把部署决定完全交给政府。<a href="https://openai.com/index/frontier-safety-blueprint/">OpenAI blueprint</a></li>
+      <li>Microsoft 的 6 月 4 日文章更进一步，把风险拆成四层：通用模型、专用生物工具、实验室自动化和 agentic systems，并强调真正危险的是这些能力被工作流式拼接后形成的复合能力。<a href="https://blogs.microsoft.com/on-the-issues/2026/06/04/strengthening-biosecurity-in-the-era-of-ai/">Microsoft</a></li>
+      <li>这说明“Agent 能做更多事”已经不只是效率叙事，也在变成安全评估和权限边界设计的中心问题。</li>
     </ul>
   </section>
 
@@ -198,49 +147,53 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>公司</th><th>48h 关键动态</th><th>状态</th><th>来源</th></tr>
+          <tr><th>公司 / 平台</th><th>48h 关键动态</th><th>状态</th><th>来源</th></tr>
         </thead>
         <tbody>
-          <tr><td>NVIDIA</td><td>6/5 收 $205.10（-6.20%）</td><td>宏观敏感</td><td><a href="https://finance.yahoo.com/quote/NVDA/">Yahoo</a></td></tr>
-          <tr><td>Broadcom</td><td>Q3 AI 指引 $16B 低于预期；股价两日大跌</td><td>指引失望</td><td><a href="https://investors.broadcom.com/">IR</a></td></tr>
-          <tr><td>OpenAI</td><td>Dreaming V3；联邦治理蓝图</td><td>活跃</td><td><a href="https://openai.com/news/">OpenAI</a></td></tr>
-          <tr><td>SpaceX / xAI</td><td>$135 定价；6/12 SPCX；路演进行中</td><td>IPO 倒计时</td><td><a href="https://spacenews.com/spacex-to-raise-at-least-75-billion-in-ipo/">SpaceNews</a></td></tr>
-          <tr><td>Anthropic</td><td>保密 S-1 审阅中（6/1 官方，窗口外背景）</td><td>IPO 观察</td><td><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic</a></td></tr>
-          <tr><td>腾讯 / 阿里</td><td>港股三连阴；微信 Agent 仍无官方稿</td><td>观察</td><td>媒体</td></tr>
-          <tr><td>MiniMax / 智谱</td><td>纳入恒生科技指数（6/8 生效）</td><td>指数事件</td><td><a href="https://www.stcn.com/article/detail/3923277.html">证券时报</a></td></tr>
+          <tr><td>OpenAI</td><td>Dreaming V3 上线；API 增加 moderation scores；frontier blueprint 持续发酵</td><td>本窗口最强增量来源</td><td><a href="https://openai.com/index/chatgpt-memory-dreaming/">Dreaming</a> · <a href="https://openai.com/products/release-notes/">Release notes</a> · <a href="https://openai.com/index/frontier-safety-blueprint/">Blueprint</a></td></tr>
+          <tr><td>Google</td><td>6/5 官方 recap 持续强调 Gemini 3.5、Managed Agents、AI Studio</td><td>平台与 agent runtime 竞争继续</td><td><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/">Recap</a> · <a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/">Managed Agents</a></td></tr>
+          <tr><td>Microsoft</td><td>将 agentic systems 明确纳入生物安全治理讨论</td><td>安全叙事变具体</td><td><a href="https://blogs.microsoft.com/on-the-issues/2026/06/04/strengthening-biosecurity-in-the-era-of-ai/">Microsoft</a></td></tr>
+          <tr><td>Anthropic / Meta AI / DeepMind / AWS / Perplexity</td><td>本窗口未检出同等级、可稳定引用的头部官方新增</td><td>继续跟踪</td><td>—</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p>按 prompt 复检了 HSBC、Bank of America、DBS、JPMorganChase，以及 BIS、FSB、IOSCO 等来源后，<strong>本窗口未见新的银行官方 AI 服务、财富管理助手、风控/反欺诈、合规科技或 AI 基础设施建设公告</strong>。</p>
+    <p>因此这一栏只能如实保留“已检查、未见新增”的事实说明，不能再用非农、利率、股价、指数、IPO、金融就业或券商观点补位。</p>
+    <ul>
+      <li>已检查银行来源：<a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC</a>、<a href="https://info.bankofamerica.com/en/digital-banking/erica">Bank of America Erica</a>、<a href="https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/ethical-and-responsible-ai-in-banking.html">DBS</a>、<a href="https://www.jpmorganchase.com/about/technology/news/jpmc-evident-25">JPMorganChase</a></li>
+      <li>已检查监管 / 市场基础设施来源：<a href="https://www.bis.org/about/bisih/topics/suptech_regtech.htm">BIS</a>、<a href="https://www.fsb.org/2024/11/fsb-assesses-the-financial-stability-implications-of-artificial-intelligence/">FSB</a>、<a href="https://www.iosco.org/library/pubdocs/pdf/IOSCOPD788.pdf">IOSCO</a></li>
+    </ul>
+  </section>
+
   <section id="risks">
     <h2>风险与不确定性</h2>
     <ul>
-      <li><strong>利率路径</strong>：非农强劲或推迟降息甚至引发加息定价，压制 AI 高估值资产。</li>
-      <li><strong>算力预期</strong>：Broadcom 指引是否预示定制 ASIC 周期拐点，尚待后续 hyperscaler 订单验证。</li>
-      <li><strong>IPO 供给</strong>：SpaceX 6/12 挂牌或分流流动性，与宏观抛售叠加放大波动。</li>
-      <li><strong>隐私与治理</strong>：Dreaming V3 与 OpenAI 联邦蓝图均触及用户数据与评估权边界。</li>
+      <li><strong>窗口密度风险</strong>：本窗口高价值官方新增本来就不多，若硬凑 8-10 条，很容易重新滑回股价、指数和 IPO 噪音。</li>
+      <li><strong>产品可见性风险</strong>：Dreaming V3 当日先向美国 Plus/Pro 推出，全球免费层 rollout 节奏仍待官方后续确认。</li>
+      <li><strong>治理执行风险</strong>：无论是 OpenAI 的联邦治理蓝图，还是 Microsoft 的生物安全框架，真正难点都不在原则，而在未来怎样落实评估、权限和审计。</li>
     </ul>
-    <div class="warn">本报告不构成投资建议；不编造无法验证的事实。</div>
+    <div class="warn">本报告不构成投资建议。与 AI 功能、模型、开发者工具或企业采用没有直接关系的宏观、股价和 IPO 事件，已从主线中剔除。</div>
   </section>
 
   <section id="next">
     <h2>明日继续跟踪</h2>
     <ul>
-      <li>SpaceX 6/11 定价、6/12 SPCX 首日表现与 greenshoe。</li>
-      <li>利率预期与科技板块是否延续 6/5 防御轮动。</li>
-      <li>Broadcom 同行（AMD、MRVL）是否出现指引连锁反应。</li>
-      <li>OpenAI Dreaming V3 向 Free / 国际市场 rollout 时间表。</li>
-      <li>FSB 金融 AI 最佳实践咨询稿是否发布。</li>
-      <li>港股 6/6：恒科新成分（MiniMax、智谱）6/8 生效前的资金流。</li>
-      <li>SEC：Anthropic / OpenAI 是否出现公开注册文件。</li>
+      <li>OpenAI Dreaming V3 是否公布更多国家、免费层和移动端 rollout 节奏。</li>
+      <li>OpenAI moderation scores 后续是否扩展到更多审核维度或 SDK 示例。</li>
+      <li>Google Managed Agents 与 AI Studio 是否出现新的正式 GA、价格或企业案例。</li>
+      <li>Anthropic、Meta AI、DeepMind、AWS、Perplexity 是否出现能与本窗口 OpenAI 同等级对齐的官方新稿。</li>
+      <li>银行和金融机构是否出现真正可验证的 AI 服务上线或模型治理建设公告，而不是市场评论。</li>
     </ul>
   </section>
 
   <section id="coverage">
     <h2>来源覆盖与缺口</h2>
-    <p><strong>已覆盖</strong>：BLS、Broadcom IR、OpenAI、SEC SpaceX FWP、SpaceNews、Fortune、investingLive、Yahoo Finance、财联社、证券时报、FSB（已检）。</p>
-    <p><strong>缺口</strong>：Bloomberg/WSJ 全文付费；SEC 保密 S-1 未公开；内地监管与 AI 公司官网无重大稿；X 未系统抓取；港股个股 6/5 未逐只核对 HKEX。</p>
+    <p><strong>已覆盖</strong>：OpenAI Dreaming、OpenAI release notes、OpenAI frontier blueprint、Microsoft 官方治理文章、Google 6/5 官方 recap、Google Managed Agents 文档文章、银行/监管科技清单来源复检。</p>
+    <p><strong>缺口</strong>：Anthropic、Meta AI、DeepMind、AWS、Perplexity 本窗口缺少同等级头部官方新增，或公开页面未命中可稳定引用的新稿；付费媒体未作为核心事实来源。</p>
     <p>工作文件：<code>tmp/AI/20260606/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
   </section>
 </body>
