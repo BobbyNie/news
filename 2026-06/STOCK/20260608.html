@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-08 股市日报</title>
+  <style>
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+      letter-spacing: 0;
+    }
+    .hero-stock {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      color: #101828;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card {
+      counter-increment: marketitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+    }
+    .market-card::before {
+      content: counter(marketitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #dcfce7;
+      color: var(--market);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .price, .quote-line, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select { padding: 0 0.5rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-08 股市日报</h1>
+    <p class="lead">周一澳门清晨、美股尚未开盘；聚焦 6/5 科技股回撤、SPCX 倒计时、港股 AI 调整与马斯克股票专题。</p>
+    <div class="market-strip"><span>生成时间：2026-06-08 05:01（澳门时间）｜采集窗口：2026-06-06 05:01 ~ 2026-06-08 05:01（澳门时间 UTC+8）｜市场日历：美股 6/8 美东稍后开盘；港股 6/8 开盘待验证</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+    </div>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-08 05:01（澳门时间）｜采集窗口：2026-06-06 05:01 ~ 2026-06-08 05:01（澳门时间 UTC+8）</p>
+    <p><strong>市场日历</strong>：本报告生成时，美股仍停留在 2026-06-05 美东收盘数据；港股 2026-06-08 交易尚未完成。价格、涨跌与市值描述均以来源标注时间为准。</p>
+    <p class="warn">下文只写事实、可能影响与继续跟踪，<strong>不构成买卖建议</strong>。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>6/5 美股录得 10 月以来最差一天</strong> — AP 汇总称 S&P 500 下跌 <span class="change-down">-2.6%</span>，Dow 跌约 695 点，Nasdaq 跌 <span class="change-down">-4.2%</span>；Nvidia 与 Broadcom 是主要拖累。<span class="tag">美股</span> <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-b9d2661cbba6cc326c618c06769d8291">AP</a></li>
+      <li class="market-card"><strong>NVDA 6/5 收盘约 <span class="change-down">-6.20%</span></strong> — 最新交易价约 <span class="price">205.10 美元</span>，半导体链成为 AI capex 交易降温的核心载体。<span class="tag">AI 芯片</span> <a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a></li>
+      <li class="market-card"><strong>AVGO 6/5 收盘约 <span class="change-down">-7.92%</span></strong> — Broadcom 财报后卖压延续，定制 ASIC 需求斜率被重新审视。<span class="tag">半导体</span> <a href="https://www.axios.com/2026/06/05/stocks-nasdaq-tech-stocks">Axios</a></li>
+      <li class="market-card"><strong>SpaceX 官方 IPO 文件确认 SPCX 与 <span class="price">135 美元</span> 预期发行价</strong> — 公司申请在 Nasdaq Global Select Market 与 Nasdaq Texas 上市；注册声明尚未生效。<span class="tag">IPO</span> <a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/6.4.26_SpaceX_Announces_IPO_US.pdf">SpaceX</a></li>
+      <li class="market-card"><strong>TSLA 是周一最直接的马斯克生态风险偏好载体</strong> — TSLA 6/5 收盘约 <span class="price">391.00 美元</span>、<span class="change-down">-6.61%</span>；SPCX 上市前情绪可能与 Tesla 波动相互影响。<span class="tag">马斯克</span> <a href="https://finance.yahoo.com/quote/TSLA/">Yahoo Finance</a></li>
+      <li class="market-card"><strong>港股 AI 成分调整等待 6/8 交易验证</strong> — Zhipu、MiniMax-W 相关恒科调整生效节点临近，但澳门清晨尚需等待港股交易后复核资金流。<span class="tag">港股 AI</span> <a href="https://www.livemint.com/market/zhipu-minimax-seen-joining-hk-tech-gauge-luring-more-ai-bets-11779405594387.html">Livemint</a></li>
+    </ol>
+  </section>
+
+  <section id="musk">
+    <h2>专题：与伊隆·马斯克相关的股票</h2>
+    <div class="focus-box">
+      <p>本窗口的马斯克专题分为两条线：<strong>Tesla (TSLA)</strong> 是已经交易、会立即反映风险偏好的股票；<strong>SpaceX / SPCX</strong> 是 6 月 IPO 倒计时资产，仍以最终 SEC / Nasdaq 文件为准。两者都与马斯克相关，但流动性、投票权、财务披露、估值锚和指数路径完全不同。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>载体</th><th>窗口内要点</th><th>可能影响</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TSLA</td><td>6/5 美东收盘约 391.00 美元，约 <span class="change-down">-6.61%</span></td><td>周一可作为马斯克生态风险偏好和成长股修复的温度计</td><td><a href="https://finance.yahoo.com/quote/TSLA/">Yahoo Finance</a></td></tr>
+          <tr><td>SpaceX / SPCX</td><td>官方新闻稿确认预期发行价 135 美元，ticker SPCX；注册声明未生效</td><td>最终 prospectus、定价与首日交易会检验 mega IPO 承接</td><td><a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/6.4.26_SpaceX_Announces_IPO_US.pdf">SpaceX</a></td></tr>
+          <tr><td>xAI 叙事</td><td>作为马斯克生态和 SpaceX / AI 私企估值讨论的背景变量</td><td>除非出现算力、模型、商业合同或财务披露，不单独作为股价判断</td><td>来源边界复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <h3>AI 算力链与高估值科技</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>标的</th><th>最新来源时间</th><th>价格 / 涨跌</th><th>解读</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>NVDA</td><td>2026-06-05 美东收盘后</td><td><span class="price">205.10 美元</span> / <span class="change-down">-6.20%</span></td><td>AI 龙头对利率、半导体卖压和 capex 质疑敏感</td><td><a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a></td></tr>
+          <tr><td>AVGO</td><td>2026-06-05 美东收盘后</td><td><span class="price">385.73 美元</span> / <span class="change-down">-7.92%</span></td><td>财报后估值和定制 ASIC 预期继续被重估</td><td><a href="https://finance.yahoo.com/quote/AVGO/">Yahoo Finance</a></td></tr>
+          <tr><td>SPY</td><td>2026-06-05 美东收盘后</td><td><span class="price">737.55 美元</span> / <span class="change-down">-2.61%</span></td><td>指数层面显示回撤不只集中在单一芯片股</td><td><a href="https://finance.yahoo.com/quote/SPY/">Yahoo Finance</a></td></tr>
+          <tr><td>QQQ</td><td>2026-06-05 美东收盘后</td><td><span class="price">705.06 美元</span> / <span class="change-down">-4.77%</span></td><td>高估值科技和 AI 交易集中承压</td><td><a href="https://finance.yahoo.com/quote/QQQ/">Yahoo Finance</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>可能影响</strong>：强非农后的利率压力没有直接否定长期 AI capex，但会降低短线估值容忍度。周一若 NVDA、AVGO、QQQ 不能修复，SPCX 路演和 AI 私企估值讨论也会面对更谨慎的二级市场环境。</p>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>报告生成时，港股 6/8 交易尚未完成。最明确变量仍是恒生科技指数成分调整和 AI 主题资金再平衡，尤其是 Zhipu / MiniMax-W 相关讨论。方向判断需等待开盘后成交额、南向资金和成分股波动复核。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>主题</th><th>时间</th><th>可能影响</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zhipu / MiniMax-W 恒科调整</td><td>6/8 生效节点</td><td>港股 AI 资金再平衡，波动可能高于大盘</td><td><a href="https://www.livemint.com/market/zhipu-minimax-seen-joining-hk-tech-gauge-luring-more-ai-bets-11779405594387.html">Livemint</a></td></tr>
+          <tr><td>腾讯 / 阿里 / 百度</td><td>6/8 交易待复核</td><td>大型科网股会受恒科、南向资金和美股科技情绪共同影响</td><td>待 HKEX / 行情复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>SpaceX / SPCX</strong>：官方新闻稿确认预期发行价 <span class="price">135.00 美元</span>，申请 Nasdaq Global Select Market 与 Nasdaq Texas，ticker SPCX；注册声明未生效，不能把发行结果写成已经完成。<a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/6.4.26_SpaceX_Announces_IPO_US.pdf">SpaceX</a></li>
+      <li><strong>Anthropic</strong>：保密 S-1 仍是本月 AI IPO 供给主线之一，本窗口未见新的公开 S-1。<a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic</a></li>
+      <li><strong>OpenAI / Perplexity / 其他 AI 私企</strong>：窗口内未见同等级上市文件；估值讨论不作为硬披露。</li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <ul>
+      <li><strong>Broadcom</strong>：财报后卖压延续至 6/5，市场焦点仍是 AI 半导体指引与定制 ASIC 需求斜率。<a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial">Broadcom IR</a></li>
+      <li><strong>NVIDIA</strong>：窗口内无新财报；6/5 股价下跌属于宏观与半导体卖压，不等同于数据中心需求被证伪。</li>
+      <li><strong>SpaceX</strong>：IPO 文件会成为下周主要“类财报”信息源，需继续核对收入、亏损、投票权和风险因素。</li>
+    </ul>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <div class="focus-box">
+      <p><strong>利率风险</strong>：强就业数据可能推迟降息预期，高估值科技股对收益率继续敏感。</p>
+      <p><strong>IPO 执行风险</strong>：SpaceX 注册声明尚未生效，价格、时间和规模仍需以最终 SEC 文件为准。</p>
+      <p><strong>指数风险</strong>：S&P 500 与 Nasdaq 100 的纳入规则不同，短期被动资金需求可能被误读。</p>
+      <p><strong>港股再平衡风险</strong>：恒科成分调整带来的资金流可能放大 Zhipu、MiniMax-W 等高波动 AI 股价格变化。</p>
+    </div>
+    <div class="warn">本报告不提供买卖建议；价格、涨跌和 IPO 条款均按来源标注时间与状态。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>6/8 美股开盘后 NVDA、AVGO、TSLA、QQQ 是否修复 6/5 跌幅。</li>
+      <li>SpaceX 是否提交最终招股文件、定价补充文件或路演更新。</li>
+      <li>SPCX 注册声明是否生效，首日交易安排是否变化。</li>
+      <li>港股 6/8 恒科成分调整生效后，Zhipu、MiniMax-W 与大型科网股资金流。</li>
+      <li>美债收益率、联储官员表态与宏观数据对成长股估值的二次影响。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：SpaceX 官方 IPO 新闻稿、AP 市场汇总、Axios 科技股报道、Yahoo Finance 行情页面、Livemint 港股 AI 指数调整报道、Broadcom IR。</p>
+    <p><strong>缺口</strong>：Reuters / Bloomberg 部分原文不可稳定访问；港股 6/8 交易尚未完成；SPCX 最终发行价和注册声明生效状态仍待 SEC / Nasdaq 后续文件确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260608/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script>
+  (() => {
+    const controls = document.querySelector("[data-reader-controls]");
+    if (!controls) return;
+    const buttons = controls.querySelectorAll("button");
+    const status = controls.querySelector("[data-reader-status]");
+    const rate = controls.querySelector("[data-reader-rate]");
+    const synth = window.speechSynthesis;
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      buttons.forEach((button) => { button.disabled = true; });
+      status.textContent = "此浏览器不支持浏览器朗读。";
+      return;
+    }
+    const text = () => Array.from(document.body.querySelectorAll("header, section"))
+      .map((node) => node.innerText.trim()).filter(Boolean).join("\n\n");
+    controls.querySelector("[data-reader-start]").addEventListener("click", () => {
+      synth.cancel();
+      const utterance = new SpeechSynthesisUtterance(text());
+      utterance.lang = "zh-Hant";
+      utterance.rate = Number(rate.value || 1);
+      utterance.onend = () => { status.textContent = "朗读完成。"; };
+      status.textContent = "正在朗读。";
+      synth.speak(utterance);
+    });
+    controls.querySelector("[data-reader-pause]").addEventListener("click", () => { synth.pause(); status.textContent = "已暂停。"; });
+    controls.querySelector("[data-reader-resume]").addEventListener("click", () => { synth.resume(); status.textContent = "继续朗读。"; });
+    controls.querySelector("[data-reader-stop]").addEventListener("click", () => { synth.cancel(); status.textContent = "已停止。"; });
+    window.addEventListener("beforeunload", () => synth.cancel());
+  })();
+  </script>
+</body>
+</html>
