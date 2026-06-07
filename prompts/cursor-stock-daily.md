@@ -53,7 +53,9 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 - 表格与宽内容：行情表必须包在 `<div class="table-wrap">` 中，允许内部横向滚动，但页面本身不能横向滚动。
 - 专题框：如马斯克、IPO、财报专题可用 `.focus-box`，但不要嵌套多层卡片。
 - 浏览器自检：生成后用 390px 手机宽度检查 `document.documentElement.scrollWidth <= window.innerWidth`；只有 `.table-wrap` 内部允许横向滚动。
-- 所有 CSS 必须内联在 `<style>`，不依赖外部字体、JS 或远程资源。
+- 语音朗读：必须在 `</header>` 后、正文 section 前加入 `<div class="reader-controls" data-reader-controls>`，包含“朗读 / 暂停 / 继续 / 停止”按钮、语速选择和状态文本；控件必须适合 390px 手机宽度，不得造成页面横向滚动。
+- 朗读脚本：必须使用内联 `<script>` 调用浏览器 Web Speech API，HTML 中必须出现 `speechSynthesis` 与 `SpeechSynthesisUtterance`；默认 `lang = "zh-Hant"`，不支持时禁用按钮并显示“不支持浏览器朗读”。
+- 所有 CSS 和 JS 必须内联在 `<style>` / `<script>`，不依赖外部字体、JS 或远程资源。
 
 建议使用以下视觉基底，可按内容轻微调整但必须保留类名：
 
@@ -143,6 +145,12 @@ th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: le
 th { background: #eee7d7; color: #374151; font-weight: 850; }
 .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
 .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+.reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reader-controls button, .reader-controls select { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+.reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+.reader-controls select { padding: 0 0.5rem; }
+.reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
 @media (min-width: 760px) {
   body { padding: 0 28px 58px; }
   .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
@@ -167,6 +175,16 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
     <p class="lead">美股、港股、AI IPO、财报与监管风险。</p>
     <div class="market-strip">生成时间、采集窗口与市场日历</div>
   </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+    </div>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文。</p>
+  </div>
   <section id="window">更新时间与数据窗口</section>
   <section id="top"><h2>今日最重要的 5-10 条</h2><ol class="top-list">...</ol></section>
   <section id="us">美股重点</section>
@@ -176,6 +194,36 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
   <section id="risks">监管与风险</section>
   <section id="next">明日继续跟踪</section>
   <section id="coverage">来源覆盖与缺口</section>
+  <script>
+  (() => {
+    const controls = document.querySelector("[data-reader-controls]");
+    if (!controls) return;
+    const buttons = controls.querySelectorAll("button");
+    const status = controls.querySelector("[data-reader-status]");
+    const rate = controls.querySelector("[data-reader-rate]");
+    const synth = window.speechSynthesis;
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      buttons.forEach((button) => { button.disabled = true; });
+      status.textContent = "此浏览器不支持浏览器朗读。";
+      return;
+    }
+    const text = () => Array.from(document.body.querySelectorAll("header, section"))
+      .map((node) => node.innerText.trim()).filter(Boolean).join("\n\n");
+    controls.querySelector("[data-reader-start]").addEventListener("click", () => {
+      synth.cancel();
+      const utterance = new SpeechSynthesisUtterance(text());
+      utterance.lang = "zh-Hant";
+      utterance.rate = Number(rate.value || 1);
+      utterance.onend = () => { status.textContent = "朗读完成。"; };
+      status.textContent = "正在朗读。";
+      synth.speak(utterance);
+    });
+    controls.querySelector("[data-reader-pause]").addEventListener("click", () => { synth.pause(); status.textContent = "已暂停。"; });
+    controls.querySelector("[data-reader-resume]").addEventListener("click", () => { synth.resume(); status.textContent = "继续朗读。"; });
+    controls.querySelector("[data-reader-stop]").addEventListener("click", () => { synth.cancel(); status.textContent = "已停止。"; });
+    window.addEventListener("beforeunload", () => synth.cancel());
+  })();
+  </script>
 </body>
 </html>
 ```

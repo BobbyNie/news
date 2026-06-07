@@ -33,6 +33,7 @@ AI HTML 必须在下方固定包含 `<section id="finance-ai-applications">`，�
 HTML 必须包含（CI 会校验）：
 
 - `AI DAILY BRIEF`、`hero hero-ai`、`top-list`、`news-card`、`table-wrap`、`finance-ai-applications`
+- 语音朗读控件：`reader-controls`、`data-reader-controls`、`speechSynthesis`、`SpeechSynthesisUtterance`
 - `body { max-width: 760px; }`、`-webkit-text-size-adjust: 100%`
 - **不得**出现 `max-width: 920px`
 
@@ -51,6 +52,7 @@ python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
 HTML 必须包含（CI 会校验）：
 
 - `MARKET DAILY BRIEF`、`hero hero-stock`、`top-list`、`market-card`、`change-up`、`table-wrap`
+- 语音朗读控件：`reader-controls`、`data-reader-controls`、`speechSynthesis`、`SpeechSynthesisUtterance`
 - `body { max-width: 780px; }`、`-webkit-text-size-adjust: 100%`
 - **不得**出现 `max-width: 920px`
 
@@ -99,6 +101,7 @@ chmod +x scripts/publish_to_main.sh
 | 首屏 hero | `hero-ai` + 深色顶栏 | `hero-stock` + 纸面顶栏 |
 | 要闻列表 | `ol.top-list` > `li.news-card` | `ol.top-list` > `li.market-card` |
 | 表格 | 包在 `div.table-wrap` 内 | 同上 |
+| 语音朗读 | `reader-controls` + Web Speech API 内联脚本 | 同上 |
 | 页宽 | 760px | 780px |
 | 涨跌色 | — | `.change-up` / `.change-down` |
 | 390px 视口 | 页面本身不横向滚动 | 同上 |

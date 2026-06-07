@@ -15,6 +15,11 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "hero-ai",
             "top-list",
             "公司卡片",
+            "语音朗读",
+            "reader-controls",
+            "data-reader-controls",
+            "speechSynthesis",
+            "SpeechSynthesisUtterance",
             "scrollWidth",
             "validate_report_ui.py",
         ]
@@ -114,6 +119,11 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "hero-stock",
             "market-card",
             "change-up",
+            "语音朗读",
+            "reader-controls",
+            "data-reader-controls",
+            "speechSynthesis",
+            "SpeechSynthesisUtterance",
             "tabular-nums",
             "validate_report_ui.py",
         ]
@@ -132,6 +142,11 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "max-width: 920px",
             "hero-ai",
             "hero-stock",
+            "语音朗读",
+            "reader-controls",
+            "data-reader-controls",
+            "speechSynthesis",
+            "SpeechSynthesisUtterance",
         ]
 
         for text in required:
@@ -172,6 +187,11 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "移动端 UI 设计要求",
             "AI 行业内容边界",
             "不提供买卖建议",
+            "语音朗读",
+            "reader-controls",
+            "data-reader-controls",
+            "speechSynthesis",
+            "SpeechSynthesisUtterance",
             "python3 scripts/build_pages_index.py",
             "index.html",
             "publish_to_main.sh --weekly",

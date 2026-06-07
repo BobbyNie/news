@@ -66,15 +66,16 @@ python3 scripts/build_pages_index.py
 HTML 必须包含：
 
 1. 首屏：`<header class="hero hero-weekly">`，英文眉标 `AI + MARKET WEEKLY BRIEF`，标题 `${REPORT_WEEK_LABEL} AI + 股市周报`，生成时间、周报窗口、输出 URL。
-2. `#top`：本周最重要 8-12 条，使用 `<ol class="top-list">` 与 `<li class="weekly-card">`。每条写清“事实 -> AI 影响 -> 市场影响 -> 下周跟踪”。
-3. `#ai`：AI 行业主线，覆盖模型/产品/Agent/开发者工具/算力/安全治理。
-4. `#market`：股市主线，覆盖美股、港股、AI IPO/独角兽、财报与监管。
-5. `#cross-impact`：AI 与股市交叉影响，说明产品、算力、监管、财报或资本市场事件如何互相反馈。
-6. `#finance-ai-applications`：金融业 AI 应用专栏（银行优先），无可验证更新时写明已检查来源与缺口。
-7. `#musk`：与伊隆·马斯克相关的股票专题。
-8. `#risks`：风险与不确定性。
-9. `#next`：下周继续跟踪。
-10. `#coverage`：来源覆盖与缺口。
+2. 语音朗读：`</header>` 后必须加入 `<div class="reader-controls" data-reader-controls>`，包含“朗读 / 暂停 / 继续 / 停止”按钮、语速选择和状态文本，并在文末用内联 `<script>` 调用 `speechSynthesis` 与 `SpeechSynthesisUtterance`。
+3. `#top`：本周最重要 8-12 条，使用 `<ol class="top-list">` 与 `<li class="weekly-card">`。每条写清“事实 -> AI 影响 -> 市场影响 -> 下周跟踪”。
+4. `#ai`：AI 行业主线，覆盖模型/产品/Agent/开发者工具/算力/安全治理。
+5. `#market`：股市主线，覆盖美股、港股、AI IPO/独角兽、财报与监管。
+6. `#cross-impact`：AI 与股市交叉影响，说明产品、算力、监管、财报或资本市场事件如何互相反馈。
+7. `#finance-ai-applications`：金融业 AI 应用专栏（银行优先），无可验证更新时写明已检查来源与缺口。
+8. `#musk`：与伊隆·马斯克相关的股票专题。
+9. `#risks`：风险与不确定性。
+10. `#next`：下周继续跟踪。
+11. `#coverage`：来源覆盖与缺口。
 
 ## 移动端 UI 设计要求
 
@@ -83,7 +84,8 @@ HTML 必须包含：
 - 视觉方向：克制的研究周报感，浅色正文背景，首屏深色标题区，蓝色用于 AI 线索，绿色/红色只用于市场涨跌状态。
 - 页面宽度：`body` 最大宽度约 `800px`，手机左右 padding 约 `18px`，正文 `font-size: 16px` 起、`line-height: 1.65` 左右。
 - 不得使用 `max-width: 920px` 旧模板，不得生成裸 `h1/table/ul` 页面。
-- 所有 CSS 必须内联在 `<style>`，不依赖外部字体、JS 或远程资源。
+- 语音朗读控件必须适合 390px 手机宽度，不得造成页面横向滚动；浏览器不支持 Web Speech API 时禁用按钮并显示“不支持浏览器朗读”。
+- 所有 CSS 和 JS 必须内联在 `<style>` / `<script>`，不依赖外部字体、JS 或远程资源。
 - 表格必须包在 `<div class="table-wrap">` 中允许内部横向滚动；页面本身不得横向滚动。
 - 浏览器自检：用 390px 手机宽度检查 `document.documentElement.scrollWidth <= window.innerWidth`，只有 `.table-wrap` 内部允许横向滚动。
 
@@ -167,6 +169,12 @@ th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: le
 th { background: #eef4ff; color: #1e3a8a; font-weight: 850; }
 .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
 .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+.reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+.reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reader-controls button, .reader-controls select { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+.reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+.reader-controls select { padding: 0 0.5rem; }
+.reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
 @media (min-width: 760px) {
   body { padding: 0 28px 58px; }
   .hero-weekly { margin-inline: -28px; padding: 42px 28px 24px; }
@@ -191,6 +199,16 @@ th { background: #eef4ff; color: #1e3a8a; font-weight: 850; }
     <p class="lead">综合本周 AI 行业进展、市场变化、财报/IPO、监管风险与下周观察。</p>
     <div class="meta-grid">生成时间、周报窗口、发布 URL</div>
   </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+    </div>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文。</p>
+  </div>
   <section id="window">更新时间与周报窗口</section>
   <section id="top"><h2>本周最重要的 8-12 条</h2><ol class="top-list">...</ol></section>
   <section id="ai">AI 行业主线</section>
@@ -201,6 +219,36 @@ th { background: #eef4ff; color: #1e3a8a; font-weight: 850; }
   <section id="risks">风险与不确定性</section>
   <section id="next">下周继续跟踪</section>
   <section id="coverage">来源覆盖与缺口</section>
+  <script>
+  (() => {
+    const controls = document.querySelector("[data-reader-controls]");
+    if (!controls) return;
+    const buttons = controls.querySelectorAll("button");
+    const status = controls.querySelector("[data-reader-status]");
+    const rate = controls.querySelector("[data-reader-rate]");
+    const synth = window.speechSynthesis;
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      buttons.forEach((button) => { button.disabled = true; });
+      status.textContent = "此浏览器不支持浏览器朗读。";
+      return;
+    }
+    const text = () => Array.from(document.body.querySelectorAll("header, section"))
+      .map((node) => node.innerText.trim()).filter(Boolean).join("\n\n");
+    controls.querySelector("[data-reader-start]").addEventListener("click", () => {
+      synth.cancel();
+      const utterance = new SpeechSynthesisUtterance(text());
+      utterance.lang = "zh-Hant";
+      utterance.rate = Number(rate.value || 1);
+      utterance.onend = () => { status.textContent = "朗读完成。"; };
+      status.textContent = "正在朗读。";
+      synth.speak(utterance);
+    });
+    controls.querySelector("[data-reader-pause]").addEventListener("click", () => { synth.pause(); status.textContent = "已暂停。"; });
+    controls.querySelector("[data-reader-resume]").addEventListener("click", () => { synth.resume(); status.textContent = "继续朗读。"; });
+    controls.querySelector("[data-reader-stop]").addEventListener("click", () => { synth.cancel(); status.textContent = "已停止。"; });
+    window.addEventListener("beforeunload", () => synth.cancel());
+  })();
+  </script>
 </body>
 </html>
 ```

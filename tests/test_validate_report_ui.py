@@ -1,7 +1,9 @@
 from pathlib import Path
+import subprocess
+import sys
 import unittest
 
-from scripts.validate_report_ui import validate_report_html
+from scripts.validate_report_ui import latest_reports, validate_report_html
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +64,63 @@ class ValidateReportUITest(unittest.TestCase):
         """
         errors = validate_report_html(html, "AI")
         self.assertEqual(errors, [])
+
+    def test_future_ai_report_requires_read_aloud_controls(self) -> None:
+        html = """
+        <body class="report report-ai">
+        <header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p></header>
+        <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
+        <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2></section>
+        <div class="table-wrap"><table></table></div>
+        <style>body { max-width: 760px; } html { -webkit-text-size-adjust: 100%; }</style>
+        </body>
+        """
+        errors = validate_report_html(html, "AI", report_date="20260608")
+        self.assertTrue(any("reader-controls" in error for error in errors))
+
+    def test_future_ai_report_accepts_read_aloud_controls(self) -> None:
+        html = """
+        <body class="report report-ai">
+        <header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p></header>
+        <div class="reader-controls" data-reader-controls>
+          <button type="button">朗读</button>
+        </div>
+        <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
+        <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2></section>
+        <div class="table-wrap"><table></table></div>
+        <style>body { max-width: 760px; } html { -webkit-text-size-adjust: 100%; }</style>
+        <script>const synth = window.speechSynthesis; const utterance = new SpeechSynthesisUtterance("x");</script>
+        </body>
+        """
+        errors = validate_report_html(html, "AI", report_date="20260608")
+        self.assertEqual(errors, [])
+
+    def test_weekly_report_passes_mobile_requirements(self) -> None:
+        html = (ROOT / "2026-06/2026-W23.html").read_text(encoding="utf-8")
+        errors = validate_report_html(html, "WEEKLY", report_date="20260607")
+        self.assertEqual(errors, [])
+
+    def test_latest_reports_include_weekly_report(self) -> None:
+        reports = latest_reports(ROOT)
+        self.assertIn("WEEKLY", {report.kind for report in reports})
+
+    def test_cli_validates_weekly_report_by_week(self) -> None:
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "scripts" / "validate_report_ui.py"),
+                "--root",
+                str(ROOT),
+                "--kind",
+                "WEEKLY",
+                "--date",
+                "2026-W23",
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
 
 
 if __name__ == "__main__":
