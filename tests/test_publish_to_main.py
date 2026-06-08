@@ -44,6 +44,16 @@ class PublishToMainTest(unittest.TestCase):
         self.assertIn("cursor/**", text)
         self.assertIn("push origin main", text)
 
+    def test_report_validation_workflow_runs_for_reader_assets(self) -> None:
+        for relative_path in (
+            ".github/workflows/validate-reports.yml",
+            ".github/workflows/pages.yml",
+        ):
+            with self.subTest(relative_path=relative_path):
+                workflow = ROOT / relative_path
+                text = workflow.read_text(encoding="utf-8")
+                self.assertIn("assets/**", text)
+
 
 if __name__ == "__main__":
     unittest.main()

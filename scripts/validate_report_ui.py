@@ -13,6 +13,7 @@ from pathlib import Path
 DAILY_REPORT_FILE_RE = re.compile(r"^(?P<month>\d{4}-\d{2})/(?P<section>AI|STOCK)/(?P<date>\d{8})\.html$")
 WEEKLY_REPORT_FILE_RE = re.compile(r"^(?P<month>\d{4}-\d{2})/(?P<year>\d{4})-W(?P<week>\d{2})\.html$")
 WEEKLY_DATE_RE = re.compile(r"^(?P<year>\d{4})-W(?P<week>\d{2})$")
+SCRIPT_SRC_RE = re.compile(r"<script\b[^>]*\bsrc=[\"'](?P<src>[^\"']+)[\"'][^>]*>", re.IGNORECASE)
 
 AI_REQUIRED = [
     "AI DAILY BRIEF",
@@ -74,9 +75,23 @@ READ_ALOUD_REQUIRED_SINCE = "20260608"
 READ_ALOUD_REQUIRED = [
     "reader-controls",
     "data-reader-controls",
-    "speechSynthesis",
-    "SpeechSynthesisUtterance",
+    "data-reader-start",
+    "data-reader-pause",
+    "data-reader-resume",
+    "data-reader-stop",
+    "data-google-tts-key",
+    "data-google-tts-voice",
+    "data-google-tts-save",
+    "data-google-tts-clear",
+    "data-reader-status",
+    "report-reader.js",
 ]
+
+READ_ALOUD_SCRIPT_BY_KIND = {
+    "AI": "../../assets/report-reader.js",
+    "STOCK": "../../assets/report-reader.js",
+    "WEEKLY": "../assets/report-reader.js",
+}
 
 
 @dataclass(frozen=True)
@@ -115,6 +130,10 @@ def validate_report_html(html: str, kind: str, *, report_date: str | None = None
         for marker in READ_ALOUD_REQUIRED:
             if marker not in html:
                 errors.append(f"missing required read-aloud marker for {kind}: {marker!r}")
+        script_marker = READ_ALOUD_SCRIPT_BY_KIND[kind]
+        script_srcs = {match.group("src") for match in SCRIPT_SRC_RE.finditer(html)}
+        if script_marker not in script_srcs:
+            errors.append(f"missing required read-aloud script for {kind}: {script_marker!r}")
 
     if "<table" in html and "table-wrap" not in html:
         errors.append("tables must be wrapped in .table-wrap")

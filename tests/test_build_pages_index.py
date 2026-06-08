@@ -67,12 +67,14 @@ class BuildPagesIndexTests(unittest.TestCase):
         self.assertEqual(reports[0].section_label, "AI + 股市周报")
         self.assertEqual(reports[0].display_date, "2026-06-07")
 
-    def test_build_site_writes_index_and_copies_reports_only(self):
+    def test_build_site_writes_index_and_copies_reports_and_assets_only(self):
         module = load_module()
         self.write_report("2026-05/AI/20260526.html", "2026-05-26 AI 日报")
         self.write_report("2026-05/STOCK/20260526.html", "2026-05-26 股市日报")
         self.write_report("2026-05/2026-W22.html", "2026 年第 22 周 AI + 股市周报")
         self.write_report("2026-04/STOCK/20260430.html", "2026-04-30 股市日报")
+        (self.tmpdir / "assets").mkdir()
+        (self.tmpdir / "assets" / "report-reader.js").write_text("reader", encoding="utf-8")
         (self.tmpdir / "tmp" / "AI" / "20260526").mkdir(parents=True)
         (self.tmpdir / "tmp" / "AI" / "20260526" / "01-raw-findings.md").write_text("raw", encoding="utf-8")
 
@@ -87,6 +89,7 @@ class BuildPagesIndexTests(unittest.TestCase):
         self.assertTrue((site_dir / "2026-05" / "AI" / "20260526.html").exists())
         self.assertTrue((site_dir / "2026-05" / "STOCK" / "20260526.html").exists())
         self.assertTrue((site_dir / "2026-05" / "2026-W22.html").exists())
+        self.assertEqual((site_dir / "assets" / "report-reader.js").read_text(encoding="utf-8"), "reader")
         self.assertFalse((site_dir / "tmp").exists())
 
 

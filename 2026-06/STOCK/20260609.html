@@ -62,9 +62,9 @@
     .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
     .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
     .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    .reader-controls button, .reader-controls select { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
     .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
-    .reader-controls select { padding: 0 0.5rem; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
     .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
     @media (min-width: 760px) {
       body { padding: 0 28px 58px; }
@@ -88,7 +88,13 @@
       <button type="button" data-reader-stop>停止</button>
       <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
     </div>
-    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文。</p>
+    <div class="reader-actions">
+      <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+      <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+      <button type="button" data-google-tts-save>保存 Key</button>
+      <button type="button" data-google-tts-clear>清除 Key</button>
+    </div>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
   </div>
 
   <section id="window">
@@ -198,35 +204,6 @@
     <p>工作文件：<code>tmp/STOCK/20260609/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
   </section>
 
-  <script>
-  (() => {
-    const controls = document.querySelector("[data-reader-controls]");
-    if (!controls) return;
-    const buttons = controls.querySelectorAll("button");
-    const status = controls.querySelector("[data-reader-status]");
-    const rate = controls.querySelector("[data-reader-rate]");
-    const synth = window.speechSynthesis;
-    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
-      buttons.forEach((button) => { button.disabled = true; });
-      status.textContent = "此浏览器不支持浏览器朗读。";
-      return;
-    }
-    const text = () => Array.from(document.body.querySelectorAll("header, section"))
-      .map((node) => node.innerText.trim()).filter(Boolean).join("\n\n");
-    controls.querySelector("[data-reader-start]").addEventListener("click", () => {
-      synth.cancel();
-      const utterance = new SpeechSynthesisUtterance(text());
-      utterance.lang = "zh-Hant";
-      utterance.rate = Number(rate.value || 1);
-      utterance.onend = () => { status.textContent = "朗读完成。"; };
-      status.textContent = "正在朗读。";
-      synth.speak(utterance);
-    });
-    controls.querySelector("[data-reader-pause]").addEventListener("click", () => { synth.pause(); status.textContent = "已暂停。"; });
-    controls.querySelector("[data-reader-resume]").addEventListener("click", () => { synth.resume(); status.textContent = "继续朗读。"; });
-    controls.querySelector("[data-reader-stop]").addEventListener("click", () => { synth.cancel(); status.textContent = "已停止。"; });
-    window.addEventListener("beforeunload", () => synth.cancel());
-  })();
-  </script>
+  <script src="../../assets/report-reader.js" defer></script>
 </body>
 </html>

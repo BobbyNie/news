@@ -9,12 +9,14 @@ on:
       - "scripts/validate_report_ui.py"
       - "tests/**"
       - "prompts/**"
+      - "assets/**"
   pull_request:
     paths:
       - "**.html"
       - "scripts/validate_report_ui.py"
       - "tests/**"
       - "prompts/**"
+      - "assets/**"
   workflow_dispatch:
 
 jobs:

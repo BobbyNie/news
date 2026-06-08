@@ -146,12 +146,20 @@ def copy_reports(root: Path, site_dir: Path, reports: list[Report]) -> None:
         shutil.copy2(source, destination)
 
 
+def copy_assets(root: Path, site_dir: Path) -> None:
+    assets = root / "assets"
+    if not assets.exists():
+        return
+    shutil.copytree(assets, site_dir / "assets")
+
+
 def build_site(root: Path, site_dir: Path) -> None:
     reports = discover_reports(root)
     if site_dir.exists():
         shutil.rmtree(site_dir)
     site_dir.mkdir(parents=True)
     copy_reports(root, site_dir, reports)
+    copy_assets(root, site_dir)
     (site_dir / "index.html").write_text(render_index(reports), encoding="utf-8")
 
 

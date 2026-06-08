@@ -22,6 +22,11 @@ class LatestReportUIOutputTest(unittest.TestCase):
             "top-list",
             "news-card",
             "table-wrap",
+            "data-google-tts-key",
+            "data-google-tts-voice",
+            "data-google-tts-save",
+            "data-google-tts-clear",
+            "../../assets/report-reader.js",
         ]
 
         for text in required:
@@ -38,6 +43,11 @@ class LatestReportUIOutputTest(unittest.TestCase):
             "market-card",
             "change-up",
             "table-wrap",
+            "data-google-tts-key",
+            "data-google-tts-voice",
+            "data-google-tts-save",
+            "data-google-tts-clear",
+            "../../assets/report-reader.js",
         ]
 
         for text in required:
