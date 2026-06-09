@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-09 股市日报</title>
+  <style>
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+      letter-spacing: 0;
+    }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select { padding: 0 0.5rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-09 股市日报</h1>
+    <p class="lead">美股 AI 硬件链修复，Marvell 入标普继续放大 AI 数据中心交易；港股科技等待本地催化。</p>
+    <div class="market-strip"><span>生成时间：2026-06-09 05:30（澳门时间）｜采集窗口：2026-06-07 05:30 ~ 2026-06-09 05:30（澳门时间 UTC+8）｜市场日历：覆盖 2026-06-08 美股交易日，港股以可访问公开报价与公告为准</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+    </div>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-09 05:30（澳门时间）｜采集窗口：2026-06-07 05:30 ~ 2026-06-09 05:30（澳门时间 UTC+8）</p>
+    <p>本次日报以 6 月 8 日美股和窗口内官方/主流媒体材料为主。价格与涨跌若来自公开行情页，均标注来源；缺少统一权威面板的数据不会补造。</p>
+    <p class="warn">以下只写事实、可能影响与继续跟踪，不构成买卖建议。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股在 AI 硬件修复带动下企稳</strong>。事实：AP 报道 S&amp;P 500 在上周大跌后小幅上涨，AI 芯片、内存和硬件公司表现较强；可能影响：大盘风险偏好仍高度依赖 AI 基建链；继续跟踪：该修复是否扩散到软件和云。<a href="https://apnews.com/article/a4b9336d67a15d19d9aa5394e5a30be6">来源</a></li>
+      <li class="market-card"><strong>Marvell 入标普叠加 AI 数据中心叙事</strong>。事实：市场媒体报道 Marvell 因 S&amp;P 500 纳入确认继续被交易；可能影响：被动资金与 AI 供应链叙事同时放大波动；继续跟踪：正式指数公告、公司披露和估值回撤风险。<a href="https://www.fool.com/coverage/stock-market-today/2026/06/08/stock-market-today-june-8-marvell-technology-surges-after-sp-500-inclusion-confirmed/">来源</a></li>
+      <li class="market-card"><strong>Apple WWDC AI 更新影响 AAPL 生态预期</strong>。事实：Apple 发布第三代 Foundation Models，并展示开发者访问 Apple Intelligence 的入口；可能影响：市场会重新评估 Apple 是否能把 AI 从系统功能扩散到第三方 App；继续跟踪：beta、地区和设备限制。<a href="https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models">模型</a> · <a href="https://developer.apple.com/apple-intelligence/">开发者</a></li>
+      <li class="market-card"><strong>OpenAI 路线图影响 AI 独角兽估值框架</strong>。事实：OpenAI 6 月 8 日文章聚焦 AI 广泛收益、安全治理和研究自动化；可能影响：MSFT 生态、AI 云和未上市模型公司估值会更受治理节奏影响；继续跟踪：是否有新商业政策或 API 门槛。<a href="https://openai.com/index/built-for-broad-benefit/">来源</a></li>
+      <li class="market-card"><strong>马斯克相关股票缺少窗口内新官方催化</strong>。事实：xAI 官网窗口内未见重大新稿，Tesla 仍是马斯克相关上市主线；可能影响：短线更依赖 TSLA 行情、自动驾驶/机器人叙事和市场风险偏好；继续跟踪：xAI/Tesla 是否发布交叉产品或融资事件。<a href="https://x.ai/news">xAI</a> · <a href="https://finance.yahoo.com/quote/TSLA/">TSLA 行情页</a></li>
+      <li class="market-card"><strong>港股 AI 平台股等待本地公告催化</strong>。事实：腾讯、阿里、百度、小米仍是港股 AI 代理标的，但窗口内未见同等级公司公告；可能影响：若美股 AI 硬件继续修复，港股可能更多跟随情绪；继续跟踪：HKEXnews 与公司 IR。<a href="https://www.hkexnews.hk/">HKEXnews</a> · <a href="https://finance.yahoo.com/quote/0700.HK/">腾讯报价页</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 事件</th><th>事实</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>AI 硬件链</td><td>AP 称 AI 芯片、内存和硬件公司在 6 月 8 日表现较好</td><td>风险偏好重新集中到 AI 基建</td><td><a href="https://apnews.com/article/a4b9336d67a15d19d9aa5394e5a30be6">AP</a></td></tr>
+          <tr><td>MRVL</td><td>S&amp;P 500 纳入确认与 AI 数据中心叙事叠加</td><td>指数资金与估值波动同时放大</td><td><a href="https://www.fool.com/coverage/stock-market-today/2026/06/08/stock-market-today-june-8-marvell-technology-surges-after-sp-500-inclusion-confirmed/">Motley Fool</a></td></tr>
+          <tr><td>AAPL</td><td>Apple 发布 Foundation Models 与开发者入口</td><td>AI 叙事从防守转向生态兑现</td><td><a href="https://developer.apple.com/apple-intelligence/">Apple Developer</a></td></tr>
+          <tr><td>MSFT / AI 云</td><td>OpenAI broad benefit 路线图影响长期合作与治理预期</td><td>商业化节奏与安全门槛更受关注</td><td><a href="https://openai.com/index/built-for-broad-benefit/">OpenAI</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>美股今天的核心不是全部科技股同步上涨，而是 AI 基建链先从上周抛售中恢复。若后续修复不能扩散到软件、云和终端 AI，指数仍会高度依赖少数硬件龙头。</p>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>港股科技仍以腾讯、阿里、百度、小米等平台股作为 AI 代理标的，但本窗口没有发现同等级公司公告或 HKEX 披露。今天的处理方式是保留跟踪，不用美股 AI 硬件修复直接推导港股必然同步。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>跟踪理由</th><th>窗口内新增</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>0700.HK 腾讯</td><td>云、广告、游戏和企业 AI 工具代理标的</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/0700.HK/">报价页</a> · <a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>9988.HK 阿里巴巴</td><td>云与通义生态代理标的</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/9988.HK/">报价页</a></td></tr>
+          <tr><td>9888.HK 百度</td><td>文心、智能云与自动驾驶相关</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/9888.HK/">报价页</a></td></tr>
+          <tr><td>1810.HK 小米</td><td>端侧 AI、EV、IoT 生态</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/1810.HK/">报价页</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>OpenAI</strong>：6 月 8 日 broad benefit 文章影响长期估值与治理预期，但不是上市文件或融资公告。<a href="https://openai.com/index/built-for-broad-benefit/">OpenAI</a></li>
+      <li><strong>xAI</strong>：窗口内官网未见重大新稿；若与 Tesla、X 或算力采购出现交叉披露，再纳入高优先级。<a href="https://x.ai/news">xAI News</a></li>
+      <li><strong>Anthropic / Perplexity / CoreWeave / Scale AI</strong>：未发现窗口内同等级 IPO 或融资新披露；保留观察。</li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>本窗口没有重点 AI 大盘股财报日。市场更关注的是 AI 硬件链从抛售中修复，以及 Marvell 这类供应链标的在指数纳入和 AI 数据中心叙事下的估值测试。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：后续若 Broadcom、Oracle、Adobe 等披露 AI 相关订单、云收入或客户采用数据，应优先验证其是否改变全年指引，而不是只看盘后涨跌。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>AI 交易集中</strong>：AP 报道中的修复主要来自 AI 硬件与相关公司，说明指数仍容易被少数主题牵动。</li>
+      <li><strong>指数纳入波动</strong>：Marvell 的 S&amp;P 500 纳入会引发被动资金预期，但这不等于基本面已经覆盖估值。</li>
+      <li><strong>Apple 兑现风险</strong>：Foundation Models 与开发者 API 需要 beta 可用性、设备覆盖和开发者采用来验证。</li>
+      <li><strong>港股数据缺口</strong>：缺少统一可访问官方收盘面板，港股只写可核验报价页与公告来源。</li>
+    </ul>
+    <div class="warn">本报告不提供买卖建议；所有“可能影响”只用于事件跟踪。</div>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：本窗口未见 xAI 官网发布重大新模型、融资或与 Tesla 的正式交叉产品公告；因此马斯克相关股票今天不应用传闻填充，仍以 Tesla 的公开行情页、自动驾驶/机器人进展和 xAI 官方 news 作为跟踪入口。</p>
+    <ul>
+      <li><strong>TSLA</strong>：Tesla 是唯一直接上市的马斯克相关大盘标的；行情与波动请以公开报价页和公司公告为准。<a href="https://finance.yahoo.com/quote/TSLA/">Yahoo Finance</a></li>
+      <li><strong>xAI</strong>：窗口内官网未见重大新增；若后续发布 Grok、API、融资或算力合作公告，再判断是否影响 Tesla / AI 供应链。<a href="https://x.ai/news">xAI News</a></li>
+      <li><strong>风险</strong>：社媒讨论不能作为唯一来源；涉及马斯克个人言论时，必须有官方账号或主流媒体交叉确认。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Marvell 入标普后是否出现正式公司披露、被动资金预期修正或估值回撤。</li>
+      <li>Apple WWDC 后续 session 是否给出 Foundation Models framework 的可用性和限制。</li>
+      <li>OpenAI 路线图是否引发 MSFT、AI 云和监管政策层面的新反馈。</li>
+      <li>港股科技平台是否出现 HKEXnews、IR 或云/AI 产品新公告。</li>
+      <li>Tesla / xAI 是否有官方交叉事件，而非社媒传闻。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：AP Markets、OpenAI、Apple ML Research、Apple Developer、xAI News、HKEXnews、Yahoo Finance 公开报价页。</p>
+    <p><strong>缺口</strong>：Reuters/Bloomberg 部分页面访问受限；港股缺少统一可访问官方收盘面板；Marvell 入标普仍需继续追踪正式指数/公司披露。</p>
+    <p>工作文件：<code>tmp/STOCK/20260609/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script>
+  (() => {
+    const controls = document.querySelector("[data-reader-controls]");
+    if (!controls) return;
+    const buttons = controls.querySelectorAll("button");
+    const status = controls.querySelector("[data-reader-status]");
+    const rate = controls.querySelector("[data-reader-rate]");
+    const synth = window.speechSynthesis;
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      buttons.forEach((button) => { button.disabled = true; });
+      status.textContent = "此浏览器不支持浏览器朗读。";
+      return;
+    }
+    const text = () => Array.from(document.body.querySelectorAll("header, section"))
+      .map((node) => node.innerText.trim()).filter(Boolean).join("\n\n");
+    controls.querySelector("[data-reader-start]").addEventListener("click", () => {
+      synth.cancel();
+      const utterance = new SpeechSynthesisUtterance(text());
+      utterance.lang = "zh-Hant";
+      utterance.rate = Number(rate.value || 1);
+      utterance.onend = () => { status.textContent = "朗读完成。"; };
+      status.textContent = "正在朗读。";
+      synth.speak(utterance);
+    });
+    controls.querySelector("[data-reader-pause]").addEventListener("click", () => { synth.pause(); status.textContent = "已暂停。"; });
+    controls.querySelector("[data-reader-resume]").addEventListener("click", () => { synth.resume(); status.textContent = "继续朗读。"; });
+    controls.querySelector("[data-reader-stop]").addEventListener("click", () => { synth.cancel(); status.textContent = "已停止。"; });
+    window.addEventListener("beforeunload", () => synth.cancel());
+  })();
+  </script>
+</body>
+</html>

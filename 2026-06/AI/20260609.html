@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-09 AI 日报</title>
+  <style>
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select { padding: 0 0.5rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-09 AI 日报</h1>
+    <p class="lead">OpenAI 把 AGI 路线图推向治理与共享收益；Apple 把系统级基础模型交到开发者入口。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-09 05:30（澳门时间）｜采集窗口：2026-06-07 05:30 ~ 2026-06-09 05:30（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+    </div>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-09 05:30（澳门时间）｜采集窗口：2026-06-07 05:30 ~ 2026-06-09 05:30（澳门时间 UTC+8）</p>
+    <p>本窗口没有密集的新模型发布潮，真正值得放在前面的，是 OpenAI 对 AGI 进程的治理表达，以及 Apple 在 WWDC 窗口把 Foundation Models、Private Cloud Compute 与开发者框架接成平台。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 发布 broad benefit 路线图</strong>：文章把 AGI 研发自动化、共享收益、安全协调和必要时放缓前沿发展放到同一框架下；这会影响外部对 OpenAI 产品节奏和治理承诺的判断。<span class="tag">治理 / AGI</span> <a href="https://openai.com/index/built-for-broad-benefit/">来源</a></li>
+      <li class="news-card"><strong>Apple 发布第三代 Apple Foundation Models</strong>：Apple ML Research 把端侧模型、Private Cloud Compute 和模型效率作为 Apple Intelligence 的基础，说明 Apple 的 AI 路线仍优先服务系统级体验。<span class="tag">模型 / 端侧 AI</span> <a href="https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models">来源</a></li>
+      <li class="news-card"><strong>Foundation Models framework 成为开发者入口</strong>：Apple Developer 页面显示第三方 App 可通过原生 Swift API 访问 Apple Foundation Models 与模型提供商协议，App Intents 则把应用能力接入 Siri/Apple Intelligence。<span class="tag">开发者工具</span> <a href="https://developer.apple.com/apple-intelligence/">来源</a></li>
+      <li class="news-card"><strong>AI 芯片与硬件股从抛售中修复</strong>：AP 报道 6 月 8 日美股企稳，AI 芯片、内存和 AI 硬件公司表现较好；这不是 AI 产品新闻，但说明算力供给仍是行业景气的市场代理。<span class="tag">算力供给</span> <a href="https://apnews.com/article/a4b9336d67a15d19d9aa5394e5a30be6">来源</a></li>
+      <li class="news-card"><strong>金融机构 AI 正从单点模型转向交易基础模型</strong>：NVIDIA 的金融服务文章列出交易基础模型在欺诈、信贷、支付、个性化和 agentic commerce 中的用法，可作为银行和支付机构 AI 落地的跟踪样板。<span class="tag">金融 AI</span> <a href="https://blogs.nvidia.com/blog/financial-institutions-transaction-foundation-models/">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>OpenAI：把 AGI 叙事从能力竞赛拉回治理与分配</h3>
+    <p>OpenAI 6 月 8 日文章没有发布新 API 或模型，而是公开阐述其希望 AI 广泛受益的路线：研究自动化会加速，社会也需要协调机制、共享收益安排和安全/对齐节奏。对行业而言，这会把“谁先到达更强模型”扩展为“谁能让治理承诺经得起产品化验证”。<a href="https://openai.com/index/built-for-broad-benefit/">OpenAI</a></p>
+    <h3>Apple：WWDC 的 AI 重点落在模型进入系统与开发者生态</h3>
+    <p>Apple Machine Learning Research 介绍第三代 Foundation Models，重点不是堆参数，而是端侧与云端模型如何服务 Apple Intelligence。Apple Developer 同步呈现 Foundation Models framework 和 App Intents 的开发入口，意味着第三方 App 有机会把系统模型能力嵌入日常功能。<a href="https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models">Apple ML Research</a> · <a href="https://developer.apple.com/apple-intelligence/">Apple Developer</a></p>
+    <h3>算力链：市场修复仍在验证 AI 基建景气</h3>
+    <p>AP 的市场报道显示，上周大跌后，AI 芯片、内存与硬件公司是 6 月 8 日表现较强的板块。AI 日报不把股价当主线，但市场愿意继续给算力链风险溢价，说明训练、推理和数据中心供给仍是产业预期核心。<a href="https://apnews.com/article/a4b9336d67a15d19d9aa5394e5a30be6">AP</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>发布 broad benefit 路线图，讨论 AGI 收益分配、治理协调和研究自动化</td><td>治理与路线图，不是新 API</td><td><a href="https://openai.com/index/built-for-broad-benefit/">官方</a></td></tr>
+          <tr><td>Apple</td><td>第三代 Foundation Models 与开发者入口成为 WWDC AI 主线</td><td>端侧/云端模型平台化</td><td><a href="https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models">ML Research</a> · <a href="https://developer.apple.com/apple-intelligence/">Developer</a></td></tr>
+          <tr><td>NVIDIA / 金融服务生态</td><td>交易基础模型案例继续说明金融机构 AI 架构演进</td><td>金融 AI 专栏背景</td><td><a href="https://blogs.nvidia.com/blog/financial-institutions-transaction-foundation-models/">官方</a></td></tr>
+          <tr><td>Anthropic / Google DeepMind / Meta AI / xAI</td><td>本窗口未见同等级官方新增模型或产品发布</td><td><span class="tag">续追</span></td><td>官方清单重检</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>本窗口未见银行官方新服务发布</strong>：已检查 HSBC、Bank of America、DBS、JPMorganChase 及金融监管/行业来源，未发现 6 月 7-9 日新的银行客户服务、财富管理、信贷审批或合规 AI 产品公告。</p>
+    <p>仍值得跟踪的是金融机构从单点模型走向交易基础模型。NVIDIA 6 月 1 日文章称，金融机构正用交易基础模型统一欺诈、信贷、推荐、支付和客户行为理解；案例涉及 Revolut、Mastercard、Adyen、Stripe、EXL、GFT 等。该方向对银行的意义在于：专有交易数据可能成为可治理的模型层，而不是分散在多个业务线的孤立模型。<a href="https://blogs.nvidia.com/blog/financial-institutions-transaction-foundation-models/">NVIDIA</a></p>
+    <div class="warn">这部分只写金融机构如何使用或建设 AI；宏观、股价、指数和 IPO 估值没有被用来填充专栏。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI 路线图是治理与战略信号，不等同于新模型、新 API 或监管承诺已经落地。</li>
+      <li>Apple 的第三代模型仍需观察 beta 可用性、地区限制、设备覆盖和第三方开发者真实采用。</li>
+      <li>AI 硬件股修复属于市场背景，不应反向推导为模型能力或企业采用已经同步改善。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>WWDC 后续 session 是否给出更多 Foundation Models framework、App Intents、Siri 和地区可用性细节。</li>
+      <li>OpenAI 是否把 broad benefit 路线图转化为开发者政策、安全评估或产品发布节奏变化。</li>
+      <li>Anthropic、Google DeepMind、Meta AI、xAI 是否补发窗口内没有出现的模型或企业产品更新。</li>
+      <li>银行/支付机构是否发布基于交易基础模型的新风控、财富管理或客户服务案例。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方、Apple ML Research、Apple Developer、AP、NVIDIA Blog、既有银行/金融 AI 跟踪来源。</p>
+    <p><strong>缺口</strong>：Anthropic、Google DeepMind、Meta AI、xAI、Perplexity 官方清单未见 6 月 7-9 日同等级新稿；银行官方新服务缺口已在金融 AI 专栏标注。</p>
+    <p>工作文件：<code>tmp/AI/20260609/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script>
+  (() => {
+    const controls = document.querySelector("[data-reader-controls]");
+    if (!controls) return;
+    const buttons = controls.querySelectorAll("button");
+    const status = controls.querySelector("[data-reader-status]");
+    const rate = controls.querySelector("[data-reader-rate]");
+    const synth = window.speechSynthesis;
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      buttons.forEach((button) => { button.disabled = true; });
+      status.textContent = "此浏览器不支持浏览器朗读。";
+      return;
+    }
+    const text = () => Array.from(document.body.querySelectorAll("header, section"))
+      .map((node) => node.innerText.trim()).filter(Boolean).join("\n\n");
+    controls.querySelector("[data-reader-start]").addEventListener("click", () => {
+      synth.cancel();
+      const utterance = new SpeechSynthesisUtterance(text());
+      utterance.lang = "zh-Hant";
+      utterance.rate = Number(rate.value || 1);
+      utterance.onend = () => { status.textContent = "朗读完成。"; };
+      status.textContent = "正在朗读。";
+      synth.speak(utterance);
+    });
+    controls.querySelector("[data-reader-pause]").addEventListener("click", () => { synth.pause(); status.textContent = "已暂停。"; });
+    controls.querySelector("[data-reader-resume]").addEventListener("click", () => { synth.resume(); status.textContent = "继续朗读。"; });
+    controls.querySelector("[data-reader-stop]").addEventListener("click", () => { synth.cancel(); status.textContent = "已停止。"; });
+    window.addEventListener("beforeunload", () => synth.cancel());
+  })();
+  </script>
+</body>
+</html>
