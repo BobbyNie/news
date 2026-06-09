@@ -53,9 +53,9 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 - 表格与宽内容：行情表必须包在 `<div class="table-wrap">` 中，允许内部横向滚动，但页面本身不能横向滚动。
 - 专题框：如马斯克、IPO、财报专题可用 `.focus-box`，但不要嵌套多层卡片。
 - 浏览器自检：生成后用 390px 手机宽度检查 `document.documentElement.scrollWidth <= window.innerWidth`；只有 `.table-wrap` 内部允许横向滚动。
-- 语音朗读：必须在 `</header>` 后、正文 section 前加入 `<div class="reader-controls" data-reader-controls>`，包含“朗读 / 暂停 / 继续 / 停止”按钮、语速选择和状态文本；控件必须适合 390px 手机宽度，不得造成页面横向滚动。
+- 语音朗读：必须在 `</header>` 后、正文 section 前加入 `<div class="reader-controls" data-reader-controls>`，包含“朗读 / 暂停 / 继续 / 停止”按钮、语速选择、`⚙` 设置按钮和状态文本；设置点击后必须弹出浮窗，不得把 Google TTS key 直接摊在正文里，控件必须适合 390px 手机宽度且不得造成页面横向滚动。
 - 朗读脚本：必须引用共用 JS `<script src="../../assets/report-reader.js" defer></script>`，不要重新生成或改写朗读逻辑；共用 JS 会只朗读正文、优先使用用户本机保存的 Google TTS key、失败时回退浏览器普通话朗读。
-- Google TTS 设置：控件必须包含 `data-google-tts-key`、`data-google-tts-voice`、`data-google-tts-save`、`data-google-tts-clear`；提示用户 API key 只保存在本机 `localStorage`，并应在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。
+- Google TTS 设置：设置窗必须使用 `<dialog class="reader-settings" data-reader-settings>`；控件必须包含 `data-reader-settings-open`、`data-reader-settings-close`、`data-google-tts-key`、`data-google-tts-voice`、`data-google-tts-save`、`data-google-tts-clear`；提示用户 API key 只保存在本机 `localStorage`，并应在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。
 - 所有 CSS 必须内联在 `<style>`；JS 只引用本仓库 `assets/report-reader.js`，不内联朗读逻辑，不依赖外部 JS 或远程字体。
 
 建议使用以下视觉基底，可按内容轻微调整但必须保留类名：
@@ -151,6 +151,14 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
 .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
 .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
 .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+.reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+.reader-settings { border: 0; padding: 0; background: transparent; }
+.reader-settings::backdrop { background: rgba(15, 23, 42, 0.38); }
+.reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15, 23, 42, 0.28); }
+.reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.reader-settings-grid { display: grid; gap: 10px; }
+.reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
 .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
 @media (min-width: 760px) {
   body { padding: 0 28px 58px; }
@@ -183,11 +191,25 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
       <button type="button" data-reader-resume>继续</button>
       <button type="button" data-reader-stop>停止</button>
       <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
-      <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
-      <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
-      <button type="button" data-google-tts-save>保存 Key</button>
-      <button type="button" data-google-tts-clear>清除 Key</button>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
     </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head">
+          <strong>朗读设置</strong>
+          <button type="button" data-reader-settings-close aria-label="关闭">×</button>
+        </div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions">
+          <button type="button" data-google-tts-save>保存 Key</button>
+          <button type="button" data-google-tts-clear>清除 Key</button>
+        </div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
     <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
   </div>
   <section id="window">更新时间与数据窗口</section>

@@ -87,11 +87,15 @@ class ValidateReportUITest(unittest.TestCase):
           <button type="button" data-reader-pause>暂停</button>
           <button type="button" data-reader-resume>继续</button>
           <button type="button" data-reader-stop>停止</button>
-          <input type="password" data-google-tts-key>
-          <select data-google-tts-voice></select>
-          <button type="button" data-google-tts-save>保存 Key</button>
-          <button type="button" data-google-tts-clear>清除 Key</button>
+          <button type="button" data-reader-settings-open aria-label="设置">⚙</button>
           <p data-reader-status>可使用浏览器语音朗读本文。</p>
+          <dialog data-reader-settings>
+            <button type="button" data-reader-settings-close>关闭</button>
+            <input type="password" data-google-tts-key>
+            <select data-google-tts-voice></select>
+            <button type="button" data-google-tts-save>保存 Key</button>
+            <button type="button" data-google-tts-clear>清除 Key</button>
+          </dialog>
         </div>
         <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
         <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2></section>
@@ -109,10 +113,13 @@ class ValidateReportUITest(unittest.TestCase):
         <header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p></header>
         <div class="reader-controls" data-reader-controls>
           <button type="button" data-reader-start>朗读</button>
-          <input type="password" data-google-tts-key>
-          <select data-google-tts-voice></select>
-          <button type="button" data-google-tts-save>保存 Key</button>
-          <button type="button" data-google-tts-clear>清除 Key</button>
+          <button type="button" data-reader-settings-open aria-label="设置">⚙</button>
+          <dialog data-reader-settings>
+            <input type="password" data-google-tts-key>
+            <select data-google-tts-voice></select>
+            <button type="button" data-google-tts-save>保存 Key</button>
+            <button type="button" data-google-tts-clear>清除 Key</button>
+          </dialog>
         </div>
         <section id="top"><ol class="top-list"><li class="news-card">x</li></ol></section>
         <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2></section>
@@ -129,10 +136,13 @@ class ValidateReportUITest(unittest.TestCase):
         <header class="hero hero-weekly"><p class="eyebrow">AI + MARKET WEEKLY BRIEF</p></header>
         <div class="reader-controls" data-reader-controls>
           <button type="button" data-reader-start>朗读</button>
-          <input type="password" data-google-tts-key>
-          <select data-google-tts-voice></select>
-          <button type="button" data-google-tts-save>保存 Key</button>
-          <button type="button" data-google-tts-clear>清除 Key</button>
+          <button type="button" data-reader-settings-open aria-label="设置">⚙</button>
+          <dialog data-reader-settings>
+            <input type="password" data-google-tts-key>
+            <select data-google-tts-voice></select>
+            <button type="button" data-google-tts-save>保存 Key</button>
+            <button type="button" data-google-tts-clear>清除 Key</button>
+          </dialog>
         </div>
         <section id="top"><ol class="top-list"><li class="weekly-card">x</li></ol></section>
         <div class="table-wrap"><table></table></div>

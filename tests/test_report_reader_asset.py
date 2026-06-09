@@ -23,9 +23,14 @@ class ReportReaderAssetTest(unittest.TestCase):
             "speechSynthesis",
             "SpeechSynthesisUtterance",
             "zh-CN",
+            "data-reader-settings-open",
+            "data-reader-settings-close",
+            "data-reader-settings",
             "data-google-tts-key",
             "data-google-tts-save",
             "data-google-tts-clear",
+            "showModal",
+            "close()",
         ]
 
         for text in required:

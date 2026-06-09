@@ -22,10 +22,9 @@ class LatestReportUIOutputTest(unittest.TestCase):
             "top-list",
             "news-card",
             "table-wrap",
+            "data-reader-settings-open",
+            "data-reader-settings",
             "data-google-tts-key",
-            "data-google-tts-voice",
-            "data-google-tts-save",
-            "data-google-tts-clear",
             "../../assets/report-reader.js",
         ]
 
@@ -43,10 +42,9 @@ class LatestReportUIOutputTest(unittest.TestCase):
             "market-card",
             "change-up",
             "table-wrap",
+            "data-reader-settings-open",
+            "data-reader-settings",
             "data-google-tts-key",
-            "data-google-tts-voice",
-            "data-google-tts-save",
-            "data-google-tts-clear",
             "../../assets/report-reader.js",
         ]
 

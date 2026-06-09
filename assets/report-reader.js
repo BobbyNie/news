@@ -96,6 +96,24 @@
     return URL.createObjectURL(blob);
   }
 
+  function openSettingsDialog(settingsDialog) {
+    if (!settingsDialog) return;
+    if (typeof settingsDialog.showModal === "function") {
+      if (!settingsDialog.open) settingsDialog.showModal();
+      return;
+    }
+    settingsDialog.setAttribute("open", "");
+  }
+
+  function closeSettingsDialog(settingsDialog) {
+    if (!settingsDialog) return;
+    if (typeof settingsDialog.close === "function" && settingsDialog.open) {
+      settingsDialog.close();
+      return;
+    }
+    settingsDialog.removeAttribute("open");
+  }
+
   async function synthesizeGoogleAudio(text, apiKey, voiceName) {
     const response = await fetch(`${GOOGLE_TTS_ENDPOINT}${encodeURIComponent(apiKey)}`, {
       method: "POST",
@@ -188,12 +206,44 @@
   function initReader(controls) {
     const status = controls.querySelector("[data-reader-status]");
     const rate = controls.querySelector("[data-reader-rate]");
-    const apiKeyInput = controls.querySelector("[data-google-tts-key]");
-    const voiceSelect = controls.querySelector("[data-google-tts-voice]");
+    const settingsDialog = controls.querySelector("[data-reader-settings]");
+    const settingsOpenButton = controls.querySelector("[data-reader-settings-open]");
+    const settingsCloseButton = controls.querySelector("[data-reader-settings-close]");
+    const settingsScope = settingsDialog || controls;
+    const apiKeyInput = settingsScope.querySelector("[data-google-tts-key]") || controls.querySelector("[data-google-tts-key]");
+    const voiceSelect = settingsScope.querySelector("[data-google-tts-voice]") || controls.querySelector("[data-google-tts-voice]");
     const googlePlayer = createGooglePlayer(status);
 
     if (apiKeyInput) apiKeyInput.value = getStorageValue(API_KEY_STORAGE_KEY);
     if (voiceSelect) voiceSelect.value = getStorageValue(VOICE_STORAGE_KEY) || DEFAULT_GOOGLE_VOICE;
+
+    settingsOpenButton?.addEventListener("click", () => {
+      if (!settingsDialog) return;
+      if (settingsDialog.open) {
+        closeSettingsDialog(settingsDialog);
+      } else {
+        openSettingsDialog(settingsDialog);
+      }
+    });
+
+    settingsCloseButton?.addEventListener("click", () => {
+      closeSettingsDialog(settingsDialog);
+    });
+
+    settingsDialog?.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeSettingsDialog(settingsDialog);
+    });
+
+    settingsDialog?.addEventListener("click", (event) => {
+      if (event.target === settingsDialog) {
+        closeSettingsDialog(settingsDialog);
+      }
+    });
+
+    settingsDialog?.addEventListener("close", () => {
+      settingsOpenButton?.focus();
+    });
 
     controls.querySelector("[data-google-tts-save]")?.addEventListener("click", () => {
       const keySaved = setStorageValue(API_KEY_STORAGE_KEY, apiKeyInput?.value.trim() || "");

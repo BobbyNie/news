@@ -79,11 +79,15 @@ READ_ALOUD_REQUIRED = [
     "data-reader-pause",
     "data-reader-resume",
     "data-reader-stop",
+    "data-reader-settings-open",
+    "data-reader-settings",
+    "data-reader-settings-close",
     "data-google-tts-key",
     "data-google-tts-voice",
     "data-google-tts-save",
     "data-google-tts-clear",
     "data-reader-status",
+    "<dialog",
     "report-reader.js",
 ]
 
