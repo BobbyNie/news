@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-10 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-10 股市日报</h1>
+    <p class="lead">美股 AI 科技修复，Oracle 财报验证 AI 云，OpenAI 资本市场路径牵动云股与独角兽估值。</p>
+    <div class="market-strip"><span>生成时间：2026-06-10 12:02（澳门时间）｜采集窗口：2026-06-08 12:02 ~ 2026-06-10 12:02（澳门时间 UTC+8）｜市场日历：覆盖 2026-06-09 美股交易日与 6 月 10 日盘前公开材料</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-10 12:02（澳门时间）｜采集窗口：2026-06-08 12:02 ~ 2026-06-10 12:02（澳门时间 UTC+8）</p>
+    <p>行情数字采用 2026-06-10 00:15 UTC 工具行情快照，并附 Yahoo Finance 报价页作为复核入口；正式成交与盘后变化仍以交易所、券商和公司公告为准。</p>
+    <p class="warn">本报告不提供买卖建议；所有“可能影响”只用于事件跟踪。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股 AI 与大型科技修复</strong>。事实：S&amp;P 500 快照 6,023.12，<span class="change-up">+0.54%</span>；Nasdaq 19,714.99，<span class="change-up">+1.09%</span>。可能影响：指数仍由科技和 AI 风险偏好牵动；继续跟踪：修复是否扩散到软件与云。<a href="https://finance.yahoo.com/quote/%5EGSPC/">S&amp;P</a> · <a href="https://finance.yahoo.com/quote/%5EIXIC/">Nasdaq</a></li>
+      <li class="market-card"><strong>NVDA 继续代表 AI 基建交易</strong>。事实：NVDA 快照 145.49 美元，<span class="change-up">+2.66%</span>；NVIDIA 与 HPE、Samsung AI factory 合作延续基建链叙事。可能影响：服务器、HBM、网络和数据中心订单继续被资金跟踪。<a href="https://finance.yahoo.com/quote/NVDA/">行情</a> · <a href="https://nvidianews.nvidia.com/news/nvidia-hpe-samsung-ai-factory-korea">事件</a></li>
+      <li class="market-card"><strong>Oracle 财报验证 AI 云预期</strong>。事实：Oracle 已安排 6 月 10 日盘后发布 FY2026 Q4 与全年结果。可能影响：AI 云、数据库、RPO、资本开支和指引会影响云基础设施链；继续跟踪：盘后电话会和订单口径。<a href="https://investor.oracle.com/news/news-details/2026/Oracle-Announces-Fiscal-2026-Fourth-Quarter-and-Fiscal-Full-Year-Financial-Results-Release-Date/default.aspx">Oracle IR</a></li>
+      <li class="market-card"><strong>OpenAI S-1 影响 AI 独角兽与 MSFT 生态</strong>。事实：OpenAI 称已保密递交拟议 IPO 的 S-1 草案。可能影响：AI 独角兽估值、披露义务和微软生态预期会被重估；继续跟踪：SEC 流程和商业合作披露。<a href="https://openai.com/index/openai-confidentially-submits-draft-registration-statement/">来源</a></li>
+      <li class="market-card"><strong>AWS Bedrock 接入 OpenAI 模型与 Codex</strong>。事实：AWS 宣布 OpenAI open-weight models 与 Codex on Bedrock GA。可能影响：AMZN、MSFT、ORCL 等云股的 AI 竞争叙事更重视企业治理环境。<a href="https://aws.amazon.com/blogs/aws/openai-open-weight-models-on-aws-are-now-generally-available-in-amazon-bedrock/">模型</a> · <a href="https://aws.amazon.com/blogs/aws/introducing-codex-on-amazon-bedrock/">Codex</a></li>
+      <li class="market-card"><strong>马斯克相关股票专题：TSLA 上涨但缺少 xAI 官方新稿</strong>。事实：TSLA 快照 326.09 美元，<span class="change-up">+6.07%</span>；xAI 官网窗口内未见同等级新稿。可能影响：短线更多是 Tesla 自身与市场风险偏好，避免用传闻填充。<a href="https://finance.yahoo.com/quote/TSLA/">TSLA</a> · <a href="https://x.ai/news">xAI</a></li>
+      <li class="market-card"><strong>港股科技等待本地公告催化</strong>。事实：腾讯、阿里、百度、小米仍是 AI 代理标的，但窗口内未见同等级 HKEX/IR 新公告。可能影响：可跟随外部 AI 情绪，但需要本地披露验证。<a href="https://www.hkexnews.hk/">HKEXnews</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 指数</th><th>快照</th><th>事实与可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>S&amp;P 500</td><td><span class="price">6,023.12</span>，<span class="change-up">+0.54%</span></td><td>大盘修复，但仍由科技和 AI 风险偏好牵动</td><td><a href="https://finance.yahoo.com/quote/%5EGSPC/">Yahoo Finance</a></td></tr>
+          <tr><td>Nasdaq Composite</td><td><span class="price">19,714.99</span>，<span class="change-up">+1.09%</span></td><td>科技股修复强于大盘</td><td><a href="https://finance.yahoo.com/quote/%5EIXIC/">Yahoo Finance</a></td></tr>
+          <tr><td>NVDA</td><td><span class="price">145.49 美元</span>，<span class="change-up">+2.66%</span></td><td>AI factory 事件强化基建链叙事</td><td><a href="https://finance.yahoo.com/quote/NVDA/">行情</a> · <a href="https://nvidianews.nvidia.com/news/nvidia-hpe-samsung-ai-factory-korea">NVIDIA</a></td></tr>
+          <tr><td>AAPL</td><td><span class="price">202.94 美元</span>，<span class="change-up">+1.59%</span></td><td>WWDC 后市场继续评估 Apple Intelligence 兑现</td><td><a href="https://finance.yahoo.com/quote/AAPL/">Yahoo Finance</a></td></tr>
+          <tr><td>TSLA</td><td><span class="price">326.09 美元</span>，<span class="change-up">+6.07%</span></td><td>马斯克主题上涨，但 xAI 缺少官方新催化</td><td><a href="https://finance.yahoo.com/quote/TSLA/">Yahoo Finance</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>港股科技今天不应只用美股 AI 反弹作结论。腾讯、阿里、百度、小米仍是 AI、云、广告、端侧设备和自动驾驶代理标的，但窗口内没有发现同等级 HKEXnews 或公司 IR 新公告。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>跟踪理由</th><th>窗口内新增</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>0700.HK 腾讯</td><td>云、广告、游戏与企业 AI 工具</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/0700.HK/">报价页</a> · <a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>9988.HK 阿里巴巴</td><td>云、通义、企业 AI 与电商广告</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/9988.HK/">报价页</a></td></tr>
+          <tr><td>9888.HK 百度</td><td>文心、智能云、自动驾驶</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/9888.HK/">报价页</a></td></tr>
+          <tr><td>1810.HK 小米</td><td>端侧 AI、EV、IoT 生态</td><td>未见同等级新公告</td><td><a href="https://finance.yahoo.com/quote/1810.HK/">报价页</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>OpenAI</strong>：保密递交 S-1 草案会把 AI 独角兽披露、治理和商业合作放到市场定价框架中。<a href="https://openai.com/index/openai-confidentially-submits-draft-registration-statement/">OpenAI</a></li>
+      <li><strong>Anthropic</strong>：Fable / Mythos 5 强化模型能力叙事，但不是融资或 IPO 文件。<a href="https://www.anthropic.com/news/fable-mythos-5">Anthropic</a></li>
+      <li><strong>xAI</strong>：官网窗口内未见同等级重大新稿；与 Tesla 或算力链的影响需等官方披露。<a href="https://x.ai/news">xAI News</a></li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>今天最重要财报观察是 Oracle。公司已公告 6 月 10 日盘后发布 FY2026 Q4 与全年结果；市场要看的不是单日涨跌，而是 AI 云订单、RPO、数据库需求、资本开支和下一财年指引是否支撑 AI 基建估值。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：Oracle 电话会中若提到 AI 训练/推理客户、云容量、GPU 供应或数据库迁移，应优先验证其是否改变全年收入和资本开支路径。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>AI 交易集中</strong>：Nasdaq 强于 S&amp;P，NVDA、TSLA、AAPL 同步上涨，说明指数仍容易被少数主题牵动。</li>
+      <li><strong>财报前波动</strong>：Oracle 财报前的 AI 云预期可能在盘后被订单、毛利、资本开支或指引修正。</li>
+      <li><strong>OpenAI 披露不确定</strong>：保密 S-1 不等于上市时间、估值或发行规模已确定。</li>
+      <li><strong>港股数据缺口</strong>：缺少统一可访问官方收盘面板，港股部分只写可核验报价页与公告入口。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：TSLA 在快照中上涨，但 xAI 官网窗口内未见重大新模型、融资或与 Tesla 的正式交叉产品公告。因此今天只把 Tesla 行情和 xAI 官方缺口作为事实，不使用未核验社媒传闻。</p>
+    <ul>
+      <li><strong>TSLA</strong>：公开快照为 326.09 美元，<span class="change-up">+6.07%</span>；正式成交请复核交易所或券商报价。<a href="https://finance.yahoo.com/quote/TSLA/">Yahoo Finance</a></li>
+      <li><strong>xAI</strong>：官网 news 未见同等级新稿；若后续出现 Grok、API、融资、数据中心或 Tesla 产品交叉披露，再提高优先级。<a href="https://x.ai/news">xAI News</a></li>
+      <li><strong>风险</strong>：马斯克个人言论和社媒截图不能作为唯一来源，必须有官方账号或主流媒体交叉确认。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Oracle 财报、电话会和盘后反应，重点看 AI 云订单、RPO、CapEx 和下一财年指引。</li>
+      <li>OpenAI S-1 后续是否带来合作、收入结构、治理或监管披露。</li>
+      <li>AWS Bedrock 承接 OpenAI 模型/Codex 是否引发云股竞争格局变化。</li>
+      <li>NVDA、HPE、Samsung AI factory 合作是否出现订单、交付或区域政策细节。</li>
+      <li>Tesla / xAI 是否有官方交叉事件，而非社媒传闻。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Yahoo Finance 报价页、Oracle IR、OpenAI 官方、AWS News Blog、NVIDIA News、xAI News、HKEXnews。</p>
+    <p><strong>缺口</strong>：Reuters/Bloomberg/FT 部分内容受登录或付费限制；港股缺少统一可访问官方收盘面板；行情快照需以正式报价复核。</p>
+    <p>工作文件：<code>tmp/STOCK/20260610/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>

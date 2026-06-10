@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-10 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-10 AI 日报</h1>
+    <p class="lead">Anthropic 直接更新模型与 Agent 能力；OpenAI 把治理、资本结构与云端部署推到行业前台。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-10 12:02（澳门时间）｜采集窗口：2026-06-08 12:02 ~ 2026-06-10 12:02（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-10 12:02（澳门时间）｜采集窗口：2026-06-08 12:02 ~ 2026-06-10 12:02（澳门时间 UTC+8）</p>
+    <p>本窗口的 AI 新闻分成三类：Anthropic 直接发布模型与 Agent 能力，OpenAI 给出治理和资本市场信号，AWS 把 OpenAI 模型与 Codex 放进 Bedrock 企业环境。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>Anthropic 发布 Fable 与 Mythos 5</strong>：官方称新系统聚焦自我博弈、长期任务执行、代理推理和多模态推理，是窗口内最直接的模型/Agent 能力更新。<span class="tag">模型 / Agent</span> <a href="https://www.anthropic.com/news/fable-mythos-5">来源</a></li>
+      <li class="news-card"><strong>OpenAI 发布 broad benefit 路线图</strong>：OpenAI 把 AGI、研究自动化、收益分配和安全协调放进同一治理框架；这会影响外部对其产品节奏和治理承诺的判断。<span class="tag">治理 / AGI</span> <a href="https://openai.com/index/built-for-broad-benefit/">来源</a></li>
+      <li class="news-card"><strong>AWS Bedrock 承接 OpenAI open-weight models</strong>：AWS 宣布 OpenAI open-weight models 在 Bedrock GA，企业可以在云端治理框架内接入模型。<span class="tag">企业采用</span> <a href="https://aws.amazon.com/blogs/aws/openai-open-weight-models-on-aws-are-now-generally-available-in-amazon-bedrock/">来源</a></li>
+      <li class="news-card"><strong>Codex on Amazon Bedrock GA</strong>：软件开发 agent 进入 AWS 管理环境，说明企业开发者工具竞争正从聊天入口走向权限、审计和部署环境。<span class="tag">开发者工具</span> <a href="https://aws.amazon.com/blogs/aws/introducing-codex-on-amazon-bedrock/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA、HPE、Samsung 推进 AI factory</strong>：合作把算力、服务器、HBM 和国家级 AI 基建串联起来，继续强化“AI factory”作为基础设施产品的叙事。<span class="tag">算力供给</span> <a href="https://nvidianews.nvidia.com/news/nvidia-hpe-samsung-ai-factory-korea">来源</a></li>
+      <li class="news-card"><strong>OpenAI 保密递交 S-1 草案</strong>：这是公司治理和披露路径信号，不作为 AI 日报的估值主线；交易与 IPO 定价影响放入股市日报。<span class="tag">公司路线</span> <a href="https://openai.com/index/openai-confidentially-submits-draft-registration-statement/">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>模型与 Agent：Anthropic 直接给出能力更新</h3>
+    <p>Anthropic 的 Fable / Mythos 5 是今天最符合 AI 日报主线的事件：它围绕自我博弈、长期任务执行和多模态推理，直接关系到 Claude 生态在复杂 agent 场景中的能力边界。后续需要看独立评测、API 可用性和企业部署限制。<a href="https://www.anthropic.com/news/fable-mythos-5">Anthropic</a></p>
+    <h3>OpenAI：治理叙事和资本结构同时升温</h3>
+    <p>OpenAI 的 broad benefit 文章强调研究自动化、收益分配、安全协调和必要时放缓前沿发展；同日披露的保密 S-1 草案则意味着未来披露义务、资本结构和治理安排会被更严格审视。AI 日报只把它作为治理与路线图背景，不写 IPO 定价。<a href="https://openai.com/index/built-for-broad-benefit/">路线图</a> · <a href="https://openai.com/index/openai-confidentially-submits-draft-registration-statement/">S-1</a></p>
+    <h3>企业平台：Bedrock 把模型与 Codex 放进治理环境</h3>
+    <p>AWS 同时宣布 OpenAI open-weight models on Bedrock GA 和 Codex on Bedrock GA，信号很明确：企业 AI 采购不只看模型榜单，也看权限、审计、数据边界、工具链和云平台整合。<a href="https://aws.amazon.com/blogs/aws/openai-open-weight-models-on-aws-are-now-generally-available-in-amazon-bedrock/">模型</a> · <a href="https://aws.amazon.com/blogs/aws/introducing-codex-on-amazon-bedrock/">Codex</a></p>
+    <h3>算力供给：AI factory 继续产品化</h3>
+    <p>NVIDIA、HPE、Samsung 的合作延续了“AI factory”从营销词变成数据中心、服务器、HBM、网络和软件栈组合产品的趋势。它不等同于新模型，但会影响企业和国家级 AI 能力的交付速度。<a href="https://nvidianews.nvidia.com/news/nvidia-hpe-samsung-ai-factory-korea">NVIDIA News</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>Anthropic</td><td>Fable 与 Mythos 5，强调 agent、长期任务和多模态推理</td><td>P0，需等独立评测</td><td><a href="https://www.anthropic.com/news/fable-mythos-5">官方</a></td></tr>
+          <tr><td>OpenAI</td><td>Broad benefit 路线图；保密递交 S-1 草案</td><td>治理与资本结构信号</td><td><a href="https://openai.com/index/built-for-broad-benefit/">路线图</a> · <a href="https://openai.com/index/openai-confidentially-submits-draft-registration-statement/">S-1</a></td></tr>
+          <tr><td>AWS / OpenAI</td><td>OpenAI open-weight models 与 Codex on Bedrock GA</td><td>企业平台与开发者工具</td><td><a href="https://aws.amazon.com/blogs/aws/openai-open-weight-models-on-aws-are-now-generally-available-in-amazon-bedrock/">模型</a> · <a href="https://aws.amazon.com/blogs/aws/introducing-codex-on-amazon-bedrock/">Codex</a></td></tr>
+          <tr><td>NVIDIA / HPE / Samsung</td><td>AI factory 合作推进算力基础设施</td><td>算力供给</td><td><a href="https://nvidianews.nvidia.com/news/nvidia-hpe-samsung-ai-factory-korea">官方</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新增模型或产品发布</td><td><span class="tag">续追</span></td><td>官方清单重检</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>银行官方新服务缺口</strong>：已检查 HSBC、Bank of America、DBS、JPMorganChase 与监管科技跟踪来源，本窗口未见新的银行客户服务、财富管理、信贷审批或合规 AI 产品公告。</p>
+    <p>可继续作为银行业 AI 成熟度样本的是 JPMorganChase 的 Evident AI Index 2025 介绍：它把银行 AI 采用放在员工工具、客户应用、治理、透明度和成熟度评估框架中。金融业专栏只写金融机构如何建设和治理 AI，不用宏观、股价、指数或 IPO 填充。<a href="https://www.jpmorganchase.com/about/technology/news/jpmc-evident-25">JPMorganChase</a></p>
+    <div class="warn">若未来出现银行客户服务、财富管理、风控或合规 AI 新产品，应优先使用银行官网、IR 或监管披露核验。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>Anthropic 新模型能力仍需独立基准、实际 API 限制和企业部署反馈验证。</li>
+      <li>OpenAI 路线图和 S-1 草案是治理/资本结构信号，不代表新模型或新 API 已上线。</li>
+      <li>AWS Bedrock GA 的真实采用取决于企业权限、成本、数据边界和开发者迁移成本。</li>
+      <li>AI factory 合作需要后续订单、交付时间和算力利用率验证。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Anthropic 是否给出 Fable / Mythos 5 的 API、价格、上下文窗口和企业可用性细节。</li>
+      <li>OpenAI S-1 是否带来更多治理、收入结构或合作方披露。</li>
+      <li>AWS Bedrock 的 OpenAI 模型与 Codex 是否获得企业案例或迁移工具更新。</li>
+      <li>Google DeepMind、Meta AI、xAI、Perplexity 是否补发窗口内没有出现的模型/产品更新。</li>
+      <li>银行/支付机构是否发布新的 AI 客服、财富管理、风控或合规系统。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方、Anthropic 官方、AWS News Blog、NVIDIA News、JPMorganChase Technology、既有银行/金融 AI 来源清单。</p>
+    <p><strong>缺口</strong>：Reuters/Bloomberg/The Information 部分内容受登录或付费限制；Google DeepMind、Meta AI、xAI、Perplexity 官方清单未见同等级窗口内新稿。</p>
+    <p>工作文件：<code>tmp/AI/20260610/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
