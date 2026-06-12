@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-12 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-12 AI 日报</h1>
+    <p class="lead">企业 AI 进入可控云端工作区、既有采购路径和受监管行业系统集成。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-12 12:02（澳门时间）｜采集窗口：2026-06-10 12:02 ~ 2026-06-12 12:02（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-12 12:02（澳门时间）｜采集窗口：2026-06-10 12:02 ~ 2026-06-12 12:02（澳门时间 UTC+8）</p>
+    <p>本窗口没有单一“新模型压倒性发布”，更重要的是企业 AI 交付方式变化：Codex 需要持久工作区，企业客户希望沿既有云采购和治理流程部署模型，受监管行业则更依赖带现场工程和合规边界的系统集成。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 宣布收购 Ona，强化 Codex 长任务云端工作区</strong>：官方称交易将扩展 Codex 的 secure、customer-controlled cloud infrastructure，让 agent 可在软件和知识工作中持续运行。<span class="tag">Agent / Codex</span> <a href="https://openai.com/index/openai-to-acquire-ona/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 与 Oracle 打通 OCI 采购路径</strong>：Oracle 客户将可用既有 cloud commitment 访问 OpenAI frontier models 与 Codex，企业 AI 采用从模型选择进入采购、治理和云流程绑定。<span class="tag">企业采用</span> <a href="https://openai.com/index/openai-on-oracle-cloud/">来源</a></li>
+      <li class="news-card"><strong>Anthropic / DXC 将 Claude 集成到受监管行业系统</strong>：DXC 将训练数万名 Claude-certified FDE，把 Claude 带入大型银行、保险、航空、制造和政府机构依赖的系统。<span class="tag">行业落地</span> <a href="https://www.anthropic.com/news/dxc-anthropic-alliance">来源</a></li>
+      <li class="news-card"><strong>OpenAI 披露疑似 PRC 关联影响行动瞄准 AI 政策辩论</strong>：被封禁账号围绕 AI 数据中心、电价、关税和技术竞争生成内容，显示 AI 基础设施已成为舆论安全对象。<span class="tag">安全 / 治理</span> <a href="https://openai.com/index/prc-linked-influence-operations-ai-debates/">来源</a></li>
+      <li class="news-card"><strong>Oracle 财报验证 AI 云基础设施需求</strong>：Oracle 官方披露 Q4 IaaS 收入 58 亿美元、同比增长 93%，RPO 达 6380 亿美元，继续说明企业 AI 部署受制于云容量。<span class="tag">算力 / 云</span> <a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/default.aspx">来源</a></li>
+      <li class="news-card"><strong>金融业 AI：有系统集成信号，缺少银行官方新服务</strong>：DXC/Claude 指向银行和保险核心系统，但 HSBC、DBS 等银行官方页未见窗口内新的面向客户 AI 产品公告。<span class="tag">金融 AI</span> <a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC</a> · <a href="https://www.dbs.com/media/news-list.page">DBS</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>Agent 平台：Codex 需要持久、可控的云端工作空间</h3>
+    <p>OpenAI 收购 Ona 的关键词不是简单扩团队，而是给 Codex 一个可长期工作的受控环境。若交易完成，Codex 更可能承担跨代码库、跨知识资产和跨流程的长任务，而不是只在一次会话里给出代码片段。后续要看 Ona 能力如何进入 Codex、企业权限如何隔离，以及是否支持客户自有云或混合云边界。<a href="https://openai.com/index/openai-to-acquire-ona/">OpenAI</a></p>
+    <h3>企业采用：Oracle 合作把 AI 部署嵌入既有采购流程</h3>
+    <p>OpenAI / Oracle OCI 合作说明企业 AI 的瓶颈正在从“能不能调用模型”转向“能不能用已有云承诺、审批、审计和治理流程调用模型”。对 CIO 和采购团队而言，使用 Oracle Universal Credits 访问 OpenAI models 与 Codex，可能比新增独立供应商路径更容易落地。<a href="https://openai.com/index/openai-on-oracle-cloud/">OpenAI / Oracle</a></p>
+    <h3>受监管行业：Claude 通过 DXC 进入核心系统集成</h3>
+    <p>Anthropic 与 DXC 的联盟直接点名银行、保险、政府等受监管系统。DXC 将训练数万名 Claude-certified forward-deployed engineers，并称内部已用 Claude 编写 DXC OASIS 新平台超过 95% 的代码。真正值得跟踪的是：模型厂商是否会越来越依靠行业 IT 服务商，把 AI 做进核心运营系统、交易流程、理赔和合规场景。<a href="https://www.anthropic.com/news/dxc-anthropic-alliance">Anthropic</a></p>
+    <h3>安全治理：AI 基础设施成为舆论操作目标</h3>
+    <p>OpenAI 披露的 PRC 关联影响行动没有显示明显外溢，但内容主题瞄准 AI 数据中心、电价、关税和技术竞争。这说明数据中心建设、能源价格和 AI 产业政策正在成为地缘叙事战场，AI 公司需要把威胁情报、内容安全和公共政策沟通放到基础设施扩张的一线。<a href="https://openai.com/index/prc-linked-influence-operations-ai-debates/">OpenAI</a></p>
+    <h3>算力供给：Oracle 数据显示云容量需求仍强</h3>
+    <p>Oracle FY2026 Q4 显示 IaaS 收入同比增长 93%，RPO 达 6380 亿美元。AI 日报不写股价和交易结论，但这些数据说明企业模型部署、推理容量和数据中心建设仍是行业瓶颈。后续需要看资本开支、交付周期、电力和客户预付款如何约束实际供给。<a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/default.aspx">Oracle IR</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI / Ona</td><td>OpenAI 宣布收购 Ona，扩展 Codex 长任务和客户可控云基础设施</td><td>P0，等待整合细节</td><td><a href="https://openai.com/index/openai-to-acquire-ona/">官方</a></td></tr>
+          <tr><td>OpenAI / Oracle</td><td>OCI 客户可用既有 Oracle cloud commitment 访问 OpenAI models 与 Codex</td><td>P0，企业采购路径变化</td><td><a href="https://openai.com/index/openai-on-oracle-cloud/">官方</a></td></tr>
+          <tr><td>Anthropic / DXC</td><td>Claude 将通过 DXC FDE 集成进银行、保险、航空、制造和政府系统</td><td>P0，受监管行业采用</td><td><a href="https://www.anthropic.com/news/dxc-anthropic-alliance">官方</a></td></tr>
+          <tr><td>Oracle</td><td>IaaS 收入 58 亿美元、同比增长 93%；RPO 6380 亿美元</td><td>P1，云容量与 AI 基建</td><td><a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/default.aspx">IR</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新模型或开发者平台发布</td><td><span class="tag">续追</span></td><td>官方清单重检</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>核心信号</strong>：Anthropic / DXC 联盟明确把大型银行和保险机构列为 Claude 集成对象，说明金融业 AI 可能先通过受控 IT 服务、现场工程和托管系统进入核心流程，而不是先发布面向客户的聊天产品。<a href="https://www.anthropic.com/news/dxc-anthropic-alliance">Anthropic</a></p>
+    <p><strong>银行官方基线</strong>：HSBC 官方 AI 页面显示，其正向全体同事开放生成式 AI 工具，并为客户-facing colleagues 配备 AI 工具，同时设置 Chief AI Officer 负责规模化采用。该页不是今日新公告，但可作为银行 AI 治理和员工工具基线。<a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC</a></p>
+    <p><strong>今日缺口</strong>：已检查 HSBC、DBS、Bank of America、JPMorganChase 与监管科技跟踪来源，本窗口未见新的银行客户服务、财富管理、风控、信贷审批或合规 AI 产品公告。DBS 6 月 11 日新闻为 tokenised physical gold，不属于 AI 应用更新。<a href="https://www.dbs.com/media/news-list.page">DBS</a></p>
+    <div class="warn">金融业专栏只写金融机构如何建设和治理 AI；不使用宏观、利率、股价、IPO 定价或指数叙事填充。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI/Ona 仍是收购公告，Codex 何时获得具体新功能、如何计费、如何隔离客户数据都待确认。</li>
+      <li>OpenAI/Oracle 合作需要看 OCI 上线区域、权限模型、可用模型清单、延迟和实际客户转化。</li>
+      <li>DXC/Anthropic 未披露具体银行客户或上线系统，不能把联盟公告直接等同于某家银行产品发布。</li>
+      <li>Oracle 云需求强，但数据中心建设、电力、GPU、融资和交付周期仍会约束 AI 基础设施扩张。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否披露 Ona 团队、产品形态、Codex 工作区权限和企业可用时间表。</li>
+      <li>OpenAI / Oracle OCI 合作是否给出模型列表、区域、价格和安全边界。</li>
+      <li>Anthropic / DXC 是否发布银行、保险或政府客户案例。</li>
+      <li>Oracle AI 云订单是否转化为交付容量，而不是只停留在 RPO。</li>
+      <li>银行/支付/券商是否发布新的 AI 客服、财富管理、风控或合规系统。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方、Anthropic 官方、Oracle Investor Relations、HSBC 官方 AI 页面、DBS 官方新闻列表。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、WSJ、FT 部分内容受登录或付费限制；Google DeepMind、Meta AI、xAI、Perplexity 官方清单未见同等级新模型或开发者平台更新；银行官方未见窗口内新 AI 服务公告。</p>
+    <p>工作文件：<code>tmp/AI/20260612/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
