@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-15 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-15 股市日报</h1>
+    <p class="lead">SPCX 首周流动性、期权交易和 AI IPO 风险披露成为今天的市场主线。</p>
+    <div class="market-strip"><span>生成时间：2026-06-15 12:03（澳门时间）｜采集窗口：2026-06-13 12:03 ~ 2026-06-15 12:03（澳门时间 UTC+8）｜市场日历：覆盖 SpaceX 首日后公开材料；港股 6 月 15 日交易需盘后复核</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-15 12:03（澳门时间）｜采集窗口：2026-06-13 12:03 ~ 2026-06-15 12:03（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响和继续跟踪，不构成买卖建议。价格和涨跌数据以来源时间为准；SPCX 首日后行情、期权和指数纳入需以后续交易所、券商或指数公司公告复核。</p>
+    <p class="warn">部分媒体对 SpaceX 市值和首日估值口径不同，本文只在明确来源处引用价格，不把单一媒体口径写成最终交易所结论。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>SPCX 首日后，期权交易成为下一轮波动催化</strong>。事实：The Times 称 SpaceX 期权预计周二开始交易。可能影响：首周隐含波动率、做市和散户参与会影响 SPCX 与 TSLA 情绪；继续跟踪：交易所和券商实际期权链。<a href="https://www.thetimes.com/business/companies-markets/article/spacex-ipo-options-trading-elon-musk-d6gr92fl7">The Times</a></li>
+      <li class="market-card"><strong>SpaceX 首日交易给 AI / 航天资产提供公开估值锚</strong>。事实：Business Insider 报道发行价 <span class="price">$135</span>，开盘 <span class="price">$150</span>，盘中高见 <span class="price">$176.52</span>，收于 <span class="change-up">$160.95</span>。可能影响：OpenAI、Anthropic 等后续 AI IPO 会被拿来对比；继续跟踪：首周成交和锁定期。<a href="https://www.businessinsider.com/spacex-spcx-top-investors-first-day-trading-takeaways-2026-6">Business Insider</a></li>
+      <li class="market-card"><strong>SpaceX 官方材料仍是定价与募资用途基准</strong>。事实：官方定价公告确认发行价和 ticker SPCX，roadshow 把 AI compute infrastructure 写入用途。可能影响：SPCX 同时被按航天、卫星互联网、AI 基建和马斯克生态定价；继续跟踪：正式交割和超额配售。<a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX_PricingAnnouncement.pdf">SpaceX</a></li>
+      <li class="market-card"><strong>Fed 与通胀风险将测试 SpaceX 后的高成长风险偏好</strong>。事实：MarketWatch 把 SpaceX 首秀与本周 Fed、通胀和地缘风险放在同一框架。可能影响：高 duration 科技和 AI IPO 风险偏好可能波动；继续跟踪：Fed 表态和美债收益率。<a href="https://www.marketwatch.com/story/spacex-shows-investors-still-want-moonshots-the-fed-may-test-that-theory-this-week-d7771f3a">MarketWatch</a></li>
+      <li class="market-card"><strong>中国 AI 股票相对估值成为港股科技背景变量</strong>。事实：WSJ 讨论 Alibaba、Baidu、Tencent 等中国 AI 公司相对美国 AI 股票估值较低。可能影响：港股科技可能受“低估值 AI 暴露”叙事支撑；继续跟踪：HKEX / 公司公告与地缘风险。<a href="https://www.wsj.com/finance/stocks/a-place-where-some-ai-stocks-are-still-cheap-china-22559ee9">WSJ</a></li>
+      <li class="market-card"><strong>Oracle AI 云仍是企业 AI 链条的现金流样本</strong>。事实：Oracle Q4 IaaS 收入 <span class="price">$5.8B</span>，同比 <span class="change-up">+93%</span>；RPO <span class="price">$638B</span>。可能影响：AI 云订单、交付和资本开支继续被市场拆分估值；继续跟踪：OpenAI / OCI 贡献。<a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/default.aspx">Oracle IR</a></li>
+      <li class="market-card"><strong>Anthropic 模型访问限制进入 AI IPO 风险框架</strong>。事实：公司称美国政府要求暂停 Fable 5 / Mythos 5 对外国国民访问。可能影响：AI 私企上市披露会更重视国家安全、出口控制和客户连续性；继续跟踪：恢复时间表。<a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 主题</th><th>窗口内事实</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>SPCX</td><td>Business Insider 报道首日收于 <span class="change-up">$160.95</span>，较 <span class="price">$135</span> 发行价大幅上涨</td><td>首周成交、期权、锁定期和指数预期决定下一阶段波动</td><td><a href="https://www.businessinsider.com/spacex-spcx-top-investors-first-day-trading-takeaways-2026-6">BI</a></td></tr>
+          <tr><td>SPCX Options</td><td>The Times 称期权预计周二开始交易，初期可能活跃且昂贵</td><td>隐含波动率会成为市场对 SpaceX 风险的实时定价</td><td><a href="https://www.thetimes.com/business/companies-markets/article/spacex-ipo-options-trading-elon-musk-d6gr92fl7">The Times</a></td></tr>
+          <tr><td>ORCL</td><td>Q4 IaaS 同比 <span class="change-up">+93%</span>，RPO <span class="price">$638B</span></td><td>AI 云需求强，但交付和资本开支仍是折现项</td><td><a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Record-Q4-and-FY-2026-Results-Driven-by-Cloud-Infrastructure--Cloud-Applications/default.aspx">IR</a></td></tr>
+          <tr><td>OpenAI / Anthropic IPO 链条</td><td>OpenAI 采购路径扩展；Anthropic 模型访问限制</td><td>估值不只看收入，还看模型安全、合规和客户连续性</td><td><a href="https://openai.com/index/openai-on-oracle-cloud/">OpenAI</a></td></tr>
+          <tr><td>TSLA</td><td>无新官方资本事件；受马斯克生态风险偏好传导</td><td>不能把 SPCX 表现机械外推到 TSLA，需看 Tesla 自身披露</td><td><a href="https://ir.tesla.com/sec-filings">Tesla IR</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>截至生成时点，港股 2026-06-15 当日交易仍需盘后复核。今天先把港股科技放在两个背景下看：一是全球 AI IPO 与高成长风险偏好，二是中国 AI 股票相对美国 AI 股票估值较低的叙事。该叙事不能替代公司公告和交易数据。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>跟踪理由</th><th>窗口内新增</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>9988.HK 阿里巴巴</td><td>云、通义、企业 AI 与电商广告</td><td>WSJ 将其列入中国 AI 相对估值讨论；需盘后复核报价</td><td><a href="https://www.wsj.com/finance/stocks/a-place-where-some-ai-stocks-are-still-cheap-china-22559ee9">WSJ</a></td></tr>
+          <tr><td>9888.HK 百度</td><td>文心、智能云、自动驾驶</td><td>同属中国 AI 估值对比对象；未见新 HKEX 同等级公告</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>0700.HK 腾讯</td><td>游戏、广告、云与企业 AI 工具</td><td>同属中国 AI 估值对比对象；需关注公司公告与南向资金</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>1810.HK 小米</td><td>端侧 AI、EV、IoT 生态</td><td>窗口内未见同等级 AI / IR 新公告</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>SpaceX / SPCX</strong>：首日交易后，期权、指数纳入、交割和首周成交是最重要变量。<a href="https://www.businessinsider.com/spacex-spcx-top-investors-first-day-trading-takeaways-2026-6">Business Insider</a></li>
+      <li><strong>OpenAI</strong>：Ona 收购和 Oracle OCI 合作强化企业分发路径，后续若进入公开市场，采购路径和 agent 基础设施会成为估值叙事。<a href="https://openai.com/index/openai-to-acquire-ona/">Ona</a></li>
+      <li><strong>Anthropic</strong>：Fable / Mythos 事件把国家安全、出口控制和模型可用性写入 AI IPO 风险框架。<a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic</a></li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>Oracle 仍是 AI 云链条中最值得跟踪的公开财报样本。Q4 IaaS 收入 58 亿美元、同比增长 93%，RPO 达 6380 亿美元，说明 AI 云需求仍强；但市场会继续追问订单转交付、数据中心资本开支、毛利和自由现金流。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：OpenAI / OCI 合作实际可用时间、客户预付款、数据中心交付节奏和融资安排。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>SPCX 波动风险</strong>：期权开通可能放大首周波动，首日表现不能替代基本面与现金流验证。</li>
+      <li><strong>指数纳入不确定性</strong>：Nasdaq 100、S&amp;P 500 等指数规则和委员会决定不同，不能提前写成确定事实。</li>
+      <li><strong>AI 模型监管风险</strong>：Anthropic 事件说明模型访问可能受国家安全、出口控制和客户身份影响。</li>
+      <li><strong>港股数据缺口</strong>：生成时点未纳入 6 月 15 日港股收盘，需盘后更新报价和成交。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：SPCX 首日后，马斯克相关资产从 TSLA 单一公开市场主轴扩展到 SpaceX。SpaceX 官方材料把 AI compute infrastructure 写入募资用途，使 SPCX 与 xAI、Starlink、卫星网络和未来数据中心叙事绑定。但 SPCX、TSLA 和 xAI 不是同一资产，不能把一个标的的涨跌直接外推到另一个标的。</p>
+    <ul>
+      <li><strong>SPCX</strong>：跟踪期权开通、首周成交、交割、超额配售、锁定期和指数纳入公告。<a href="https://content.spacex.com/cms-assets/assets/SpaceX%20IPO%20Roadshow.pdf">Roadshow</a></li>
+      <li><strong>TSLA</strong>：关注风险偏好和马斯克注意力传导，但仍以 Tesla 车辆、能源、自动驾驶和公司披露为主。<a href="https://ir.tesla.com/sec-filings">Tesla IR</a></li>
+      <li><strong>xAI</strong>：只有出现官方融资、客户、算力或与 SpaceX 的正式安排时才写入确定事实；社媒合并猜测不作为依据。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>SPCX 期权链、隐含波动率、成交和首周报价稳定性。</li>
+      <li>Nasdaq 100 / S&amp;P 500 对 SpaceX 的指数纳入规则、时间和公告。</li>
+      <li>Fed 表态、美债收益率和地缘风险对高成长 AI / 航天资产的影响。</li>
+      <li>OpenAI、Anthropic 后续 IPO 文件、监管风险披露和模型访问更新。</li>
+      <li>腾讯、阿里、百度、小米 6 月 15 日港股收盘表现与公司公告。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：SpaceX 官方定价公告 / roadshow、Business Insider、The Times、MarketWatch、WSJ、Oracle IR、OpenAI 官方、Anthropic 官方、HKEXnews、Tesla IR。</p>
+    <p><strong>缺口</strong>：Bloomberg、FT、WSJ 部分内容受登录或付费限制；SPCX 期权开通和指数纳入需后续交易所 / 指数公司公告；港股 2026-06-15 收盘数据未在生成时点写入。</p>
+    <p>工作文件：<code>tmp/STOCK/20260615/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-15 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-15 AI 日报</h1>
+    <p class="lead">模型访问控制、受监管行业部署和企业 agent 训练成为今天的硬主线。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-15 12:03（澳门时间）｜采集窗口：2026-06-13 12:03 ~ 2026-06-15 12:03（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-15 12:03（澳门时间）｜采集窗口：2026-06-13 12:03 ~ 2026-06-15 12:03（澳门时间 UTC+8）</p>
+    <p>窗口内没有新的压倒性模型发布，但 Anthropic Fable / Mythos 停用事件继续发酵，企业部署、云分发和员工培训成为更重要的采用变量。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>Anthropic Fable 5 / Mythos 5 访问限制继续成为行业焦点</strong>：公司称美国政府基于国家安全授权要求暂停外国国民访问，Anthropic 因合规需要对所有客户禁用两个模型。<span class="tag">安全 / 治理</span> <a href="https://www.anthropic.com/news/fable-mythos-access">来源</a></li>
+      <li class="news-card"><strong>AWS Fable 5 发布页成为供应链状态对照</strong>：AWS 曾宣布 Fable 5 on AWS，随后 Anthropic 更新模型访问不可用，企业依赖云市场模型时需要实时检查可用性。<span class="tag">云 / 可用性</span> <a href="https://aws.amazon.com/blogs/aws/anthropic-claude-fable-5-on-aws-mythos-class-capabilities-with-built-in-safeguards-now-available/">来源</a></li>
+      <li class="news-card"><strong>TCS 与 Anthropic 把 Claude 带入受监管行业</strong>：TCS 将把 Claude 打包进保险 claims processing、银行 lending advisory 等方案，并由团队实施和运行。<span class="tag">企业采用</span> <a href="https://www.anthropic.com/news/tcs-anthropic-partnership">来源</a></li>
+      <li class="news-card"><strong>OpenAI Academy 新课程把 agent 工作流培训产品化</strong>：三门课程覆盖 AI 基础、应用 AI 到重复工作、以及带上下文、边界和评审的 Agents and Workflows。<span class="tag">AI Adoption</span> <a href="https://openai.com/index/academy-courses-applying-ai-at-work/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 收购 Ona 继续扩展 Codex 持久云端环境</strong>：Ona 将把安全、客户可控、持久执行环境带入 Codex，支撑长时间运行的软件和知识工作 agent。<span class="tag">Agent / 开发者工具</span> <a href="https://openai.com/index/openai-to-acquire-ona/">来源</a></li>
+      <li class="news-card"><strong>OpenAI / Oracle 合作降低企业采购阻力</strong>：OCI 客户可用既有 Oracle cloud commitment 访问 OpenAI models 与 Codex。<span class="tag">企业分发</span> <a href="https://openai.com/index/openai-on-oracle-cloud/">来源</a></li>
+      <li class="news-card"><strong>Preply 案例显示教育 AI 更偏“增强人类 tutor”</strong>：OpenAI 披露 Preply 用 AI 生成课堂总结、个性化反馈和练习，嵌入 tutor workflow。<span class="tag">垂直采用</span> <a href="https://openai.com/index/preply/">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>模型访问控制：从安全评测进入客户连续性</h3>
+    <p>Anthropic 表示，美国政府指令要求暂停 Fable 5 和 Mythos 5 对外国国民的访问，范围包括美国境内和公司内部外国籍员工。公司称无法在现有服务中可靠地只切掉相关用户，因此选择对所有客户禁用两个模型。这个事件说明 frontier model 的风险不再只停留在 benchmark、safety card 或发布说明，而是会直接影响 API 可用性、云市场分发、跨境团队协作和客户合同。<a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic</a></p>
+    <h3>受监管行业：系统集成商成为 Claude 进入核心流程的入口</h3>
+    <p>TCS / Anthropic 合作明确覆盖金融服务、公共部门、生命科学、医疗、航空、电信等行业，并点名保险 claims processing、银行 lending advisory。TCS 同时称将让 50,000 名员工使用 Claude。这类合作的关键不是“某个聊天机器人上线”，而是行业方案、权限、审计、实施和运维谁来承担。<a href="https://www.anthropic.com/news/tcs-anthropic-partnership">Anthropic</a> · <a href="https://www.tcs.com/who-we-are/newsroom/press-release/tcs-anthropic-launch-global-premier-partnership-drive-enterprise-ai-scaling">TCS</a></p>
+    <h3>企业 agent：训练、环境和采购路径正在补齐</h3>
+    <p>OpenAI Academy 的 Agents and Workflows 课程把“如何给 agent 设上下文、边界和评审”变成标准化培训；Ona 收购指向 Codex 的持久执行环境；Oracle OCI 合作则把 OpenAI models 与 Codex 接入企业既有云承诺。三件事连在一起，说明企业 agent 的短板正在从模型能力转向组织落地条件。<a href="https://openai.com/index/academy-courses-applying-ai-at-work/">OpenAI Academy</a> · <a href="https://openai.com/index/openai-to-acquire-ona/">Ona</a> · <a href="https://openai.com/index/openai-on-oracle-cloud/">Oracle</a></p>
+    <h3>垂直采用：教育案例强调人与 AI 的流程分工</h3>
+    <p>Preply 使用 OpenAI 生成 lesson summaries、个性化反馈和练习，OpenAI 页面披露其员工和 tutor 采用数据。它的信号是：高频行业工作流更可能先通过“专业人员 + AI 辅助”扩散，而不是直接替代服务主体。<a href="https://openai.com/index/preply/">OpenAI / Preply</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>Anthropic</td><td>Fable 5 / Mythos 5 因美国政府指令暂停访问</td><td>P0，安全与可用性风险</td><td><a href="https://www.anthropic.com/news/fable-mythos-access">官方声明</a></td></tr>
+          <tr><td>AWS / Anthropic</td><td>Fable 5 on AWS 发布页成为模型供应链状态对照</td><td>P1，云分发需复核</td><td><a href="https://aws.amazon.com/blogs/aws/anthropic-claude-fable-5-on-aws-mythos-class-capabilities-with-built-in-safeguards-now-available/">AWS</a></td></tr>
+          <tr><td>TCS / Anthropic</td><td>Claude 进入金融、公共部门、医疗等受监管行业方案</td><td>P0，企业采用</td><td><a href="https://www.anthropic.com/news/tcs-anthropic-partnership">Anthropic</a></td></tr>
+          <tr><td>OpenAI</td><td>Academy 新课程；Ona 收购；Oracle OCI 分发</td><td>P1，企业落地基础设施</td><td><a href="https://openai.com/news/">News</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>窗口内未见同等级官方新模型或开发者平台公告</td><td><span class="tag">续追</span></td><td>官方清单复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>本日可验证增量</strong>：TCS / Anthropic 合作明确点名 financial services，并写入银行 lending advisory、保险 claims processing 等行业方案；TCS 将负责方案实施与运行。<a href="https://www.anthropic.com/news/tcs-anthropic-partnership">Anthropic</a></p>
+    <p><strong>不能过度外推</strong>：官方材料尚未披露具体银行客户上线案例，因此只能写“银行 lending advisory 方案方向”，不能写成某家银行已发布新服务。</p>
+    <p><strong>银行官方缺口</strong>：已复核 HSBC、DBS、Bank of America、JPMorganChase 等银行 AI 基线来源，窗口内未见新的银行客户服务、财富管理、风控、信贷审批或合规 AI 产品公告。</p>
+    <div class="warn">本栏目只写金融机构如何建设、采用或治理 AI；不使用宏观、利率、股价、IPO 定价或指数信息补位。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>美国政府对 Anthropic 的原始指令未公开，外部只能核验 Anthropic 声明与主流媒体报道。</li>
+      <li>Fable 5 / Mythos 5 是否恢复、何时恢复、是否影响 AWS Bedrock 和企业合同仍待官方更新。</li>
+      <li>TCS 合作尚未披露具体银行客户上线案例，不能等同于银行新产品发布。</li>
+      <li>OpenAI 收购 Ona 仍需监管审批，Codex 持久云端环境的权限边界、日志和计费方式仍待披露。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Anthropic Fable / Mythos 恢复访问时间表、客户迁移和政府沟通结果。</li>
+      <li>AWS Bedrock、企业客户和开发者文档是否更新 Fable 5 可用性说明。</li>
+      <li>TCS 是否披露具体银行、保险或公共部门 Claude 客户案例。</li>
+      <li>OpenAI Academy 企业采用案例、Ona 并购审批和 Oracle OCI 上架时间。</li>
+      <li>银行、券商、保险、支付和监管科技是否出现新的 AI 服务或模型治理公告。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方、Anthropic 官方、AWS News Blog、TCS newsroom、Oracle Marketplace、银行 AI 基线来源。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT、WSJ 部分内容受登录或付费限制；美国政府对 Anthropic 的原始指令未公开；Google DeepMind、Meta AI、xAI、Perplexity 未见窗口内同等级官方更新。</p>
+    <p>工作文件：<code>tmp/AI/20260615/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
+
