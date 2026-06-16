@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-16 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-16 AI 日报</h1>
+    <p class="lead">企业采用体系、模型访问风险和 AI 基础设施约束，是今天比单点模型发布更重要的主线。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-16 12:30（澳门时间）｜采集窗口：2026-06-14 12:30 ~ 2026-06-16 12:30（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-16 12:30（澳门时间）｜采集窗口：2026-06-14 12:30 ~ 2026-06-16 12:30（澳门时间 UTC+8）</p>
+    <p>窗口内未见 OpenAI、Anthropic、Google DeepMind、Meta AI 或 xAI 的全新旗舰模型发布。今天更值得记录的是企业采用路径、模型访问限制和 AI 基础设施劳动力供给。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI Partner Network 进入官方 Product 列表</strong>：OpenAI Newsroom 显示 6 月 14 日发布 Partner Network，企业 AI 交付从 API 采购扩展到 partner、实施和治理生态。<span class="tag">企业采用</span> <a href="https://openai.com/news/product-releases/">来源</a></li>
+      <li class="news-card"><strong>Anthropic Fable 5 / Mythos 5 访问限制仍是治理风险样本</strong>：公司称美国政府基于国家安全授权要求暂停外国国民访问相关模型，客户连续性和跨境访问控制成为采购风险。<span class="tag">安全 / 治理</span> <a href="https://www.anthropic.com/news/fable-mythos-access">来源</a></li>
+      <li class="news-card"><strong>Claude Corps 把 AI 技能扩散做成大型 fellowship</strong>：Anthropic 宣布投入 1.5 亿美元，培训 1,000 名 fellows，并与 400+ 非营利组织合作。<span class="tag">社会采用</span> <a href="https://www.anthropic.com/news/claude-corps">来源</a></li>
+      <li class="news-card"><strong>OpenAI Academy 继续把企业 AI 培训产品化</strong>：OpenAI News 列表显示新课程聚焦 next era of work，和 Partner Network 一起指向“组织能力建设”而非单点模型更新。<span class="tag">培训 / 工作流</span> <a href="https://openai.com/news/">来源</a></li>
+      <li class="news-card"><strong>Google.org skilled worker initiative 暴露 AI 基建劳动力瓶颈</strong>：Axios 报道 Google 推出 5,000 万美元计划训练美国基础设施技能工人，数据中心建设能力成为 AI 供给约束。<span class="tag">算力供给</span> <a href="https://www.axios.com/2026/06/11/google-trade-worker-initiative-ai">来源</a></li>
+      <li class="news-card"><strong>HSBC 生成式 AI 银行应用基线继续值得跟踪</strong>：HSBC 披露 20,000+ 开发者使用 coding assistants，并在 CIB 服务、credit analysis、客服摘要和内部生产力工具中使用生成式 AI。<span class="tag">金融 AI</span> <a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai/transforming-hsbc-with-ai">来源</a></li>
+      <li class="news-card"><strong>DBS 显示银行 AI 正进入模型治理与 MLOps 阶段</strong>：DBS 页面披露 2,000+ AI/ML models、430+ use cases，并强调 LLM applications、agentic AI、MLOps 和 responsible AI。<span class="tag">银行 AI</span> <a href="https://www.dbs.com/careers/internships/dsi">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>企业采用：OpenAI 从工具供应走向 partner 交付体系</h3>
+    <p>OpenAI Product 列表在 6 月 14 日出现 Partner Network，这是今天最接近窗口核心的官方新线索。它的含义不在于单个模型能力提升，而是 OpenAI 需要通过 partner、实施、行业方案和组织培训把模型接入企业工作流。与 OpenAI Academy 的课程线索合看，企业 AI 采用正在转向“技术 + 交付 + 培训 + 评审”的组合。<a href="https://openai.com/news/product-releases/">OpenAI Product</a> · <a href="https://openai.com/news/">OpenAI News</a></p>
+    <h3>治理风险：模型可用性成为采购和上市披露变量</h3>
+    <p>Anthropic Fable 5 / Mythos 5 停用事件继续是行业风险样本。Anthropic 称政府指令要求暂停外国国民访问相关模型，公司因此禁用模型以确保合规。无论后续争议如何解决，企业采购 frontier models 时都需要把国家安全、出口控制、用户身份、日志留存和替代模型路径写入 continuity plan。<a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic</a></p>
+    <h3>社会部署：Claude Corps 把 AI 人才嵌入非营利组织</h3>
+    <p>Claude Corps 的重点是把 AI 技能和组织改造嵌入公益机构，而不是发布新模型。Anthropic 披露项目将培训 1,000 名 fellows，首批覆盖 400+ 非营利组织，并提供薪酬、培训、token budget 和测量评估机制。它说明模型公司正在承担一部分“如何让组织真正使用 AI”的落地责任。<a href="https://www.anthropic.com/news/claude-corps">Anthropic</a></p>
+    <h3>算力供给：劳动力也成为数据中心瓶颈</h3>
+    <p>Axios 报道 Google 的 5,000 万美元 skilled worker initiative，目标是缓解 AI 基础设施建设所需的美国技能工人缺口。这类计划提示：AI 供给竞争不只看 GPU、HBM、电力和融资，还看数据中心建设、运维和本地劳动力管线。<a href="https://www.axios.com/2026/06/11/google-trade-worker-initiative-ai">Axios</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>Partner Network 出现在官方 Product 列表；Academy 课程继续强化企业培训</td><td>P0，企业采用体系</td><td><a href="https://openai.com/news/product-releases/">Product</a></td></tr>
+          <tr><td>Anthropic</td><td>Fable 5 / Mythos 5 访问限制继续影响模型治理和客户连续性判断</td><td>P0，安全与合规风险</td><td><a href="https://www.anthropic.com/news/fable-mythos-access">官方声明</a></td></tr>
+          <tr><td>Anthropic / Claude Corps</td><td>1.5 亿美元、1,000 名 fellows、400+ 非营利组织的 AI fellowship</td><td>P1，社会部署</td><td><a href="https://www.anthropic.com/news/claude-corps">官方公告</a></td></tr>
+          <tr><td>Google / Google.org</td><td>5,000 万美元 skilled worker initiative，聚焦 AI 基建劳动力</td><td>P1，算力供给背景</td><td><a href="https://www.axios.com/2026/06/11/google-trade-worker-initiative-ai">Axios</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>窗口内未见同等级官方新模型或开发者平台公告</td><td><span class="tag">续追</span></td><td>官方来源复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>窗口内结论</strong>：已复核银行和金融机构 AI 来源，未见新的银行客户服务、财富管理、风控、信贷审批或合规 AI 产品公告。因此本日保留专栏，写明已核验基线与缺口，不使用行情或宏观内容补位。</p>
+    <div class="company-card">
+      <h3>HSBC：生成式 AI 已进入开发者、机构客户服务和信贷分析</h3>
+      <p>HSBC 披露超过 20,000 名开发者使用 coding assistants；Corporate and Institutional Banking 服务团队部署生成式 AI assistant，支持每年 300 万次客户交互；并用生成式 AI 支持 credit analysis write-ups、客服摘要和内部 productivity tool。<a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai/transforming-hsbc-with-ai">HSBC</a></p>
+    </div>
+    <div class="company-card">
+      <h3>DBS：AI/ML、LLM applications、agentic AI 和 MLOps 进入生产系统</h3>
+      <p>DBS 页面披露其部署 2,000+ AI/ML models、430+ AI use cases，并在人才计划中明确 LLM-powered applications、agentic AI solutions、evaluations、guardrails、MLOps 和 responsible AI。<a href="https://www.dbs.com/careers/internships/dsi">DBS</a></p>
+    </div>
+    <div class="warn">未发现今日可验证的新银行 AI 服务发布；不得用利率、股价、IPO、指数或券商观点填充本栏目。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI Partner Network 详情页在抓取环境中未稳定展开，今日只引用官方 Newsroom/Product 列表，不外推 partner 名单。</li>
+      <li>Anthropic Fable / Mythos 事件缺少政府原始指令公开文本，需等待 Anthropic 或政府后续文件。</li>
+      <li>Google.org skilled worker initiative 来自主流媒体报道，需继续寻找 Google 官方页面或项目更新。</li>
+      <li>金融业 AI 应用今日没有新的银行产品公告，银行基线只能作为持续跟踪背景。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI Partner Network 的 partner 名单、行业覆盖和企业采用案例。</li>
+      <li>Anthropic Fable 5 / Mythos 5 是否恢复、是否影响云市场和企业合同。</li>
+      <li>Google 是否发布 skilled worker initiative 官方项目页或合作机构清单。</li>
+      <li>HSBC、DBS、Bank of America、JPMorganChase 是否出现新的 AI 客户服务、风控、财富管理或模型治理公告。</li>
+      <li>Google DeepMind、Meta AI、xAI、Perplexity 是否发布窗口内新模型、开发者工具或 agent 平台更新。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI Newsroom/Product、Anthropic News、Axios、HSBC、DBS、既有银行 AI 基线来源。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT、WSJ 部分内容受登录或付费限制；OpenAI 个别详情页抓取不稳定；社媒和论坛未作为唯一事实来源。</p>
+    <p>工作文件：<code>tmp/AI/20260616/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-16 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-16 股市日报</h1>
+    <p class="lead">地缘缓和后的风险偏好、AI 云资本开支和马斯克相关资产，是今天的市场重点。</p>
+    <div class="market-strip"><span>生成时间：2026-06-16 12:30（澳门时间）｜采集窗口：2026-06-14 12:30 ~ 2026-06-16 12:30（澳门时间 UTC+8）｜市场日历：关注 6 月 16 日美股开盘前期货、Fed 和本周经济数据</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-16 12:30（澳门时间）｜采集窗口：2026-06-14 12:30 ~ 2026-06-16 12:30（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响和继续跟踪，不构成买卖建议。Yahoo Finance 报价接口返回 Too Many Requests，CNBC quote endpoint 返回 Access Denied；因此未写入未核验实时价格，只引用可验证媒体、IR、SEC 和 HKEX 来源。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股在地缘缓和后大涨，周二期货小幅回落</strong>。事实：IBD 报道 6 月 15 日美股因美伊协议消息上涨，道指创新高、纳指涨幅更大；6 月 16 日开盘前期货略低。可能影响：风险偏好恢复但仍受 Fed、油价和协议细节约束；继续跟踪：美债收益率、Fed 和经济数据。<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-us-iran-deal-oil-prices/">IBD 6/15</a> · <a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-us-iran-deal-nvidia-micron-sandisk-spacex/">IBD 6/16</a></li>
+      <li class="market-card"><strong>Nvidia、Micron、Sandisk 与 SpaceX 被列为上涨焦点</strong>。事实：IBD 报道 Nvidia <span class="change-up">+3.5%</span>、Micron <span class="change-up">+11%</span>、Sandisk <span class="change-up">+6.5%</span>、SpaceX <span class="change-up">+19%</span>。可能影响：AI 算力、存储和马斯克生态仍是高 beta 主线；继续跟踪：是否由基本面跟进。<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-us-iran-deal-nvidia-micron-sandisk-spacex/">来源</a></li>
+      <li class="market-card"><strong>Oracle 仍是 AI 云资本开支和订单兑现样本</strong>。事实：Oracle IR SEC filings 显示 2026-06-10 Form 8-K。可能影响：AI 云订单、数据中心融资、交付和自由现金流会继续影响估值；继续跟踪：RPO 转收入和融资安排。<a href="https://investor.oracle.com/sec-filings/default.aspx">Oracle IR</a></li>
+      <li class="market-card"><strong>CoreWeave 进入 AI 基建融资与减持观察</strong>。事实：CoreWeave IR 显示 2026-06-11 Form 144 和 8-K。可能影响：neocloud 股票对资本结构、客户集中度、GPU 资产融资和股东出售更敏感；继续跟踪：8-K 细节和后续融资。<a href="https://investors.coreweave.com/financials/sec-filings/default.aspx">CoreWeave IR</a></li>
+      <li class="market-card"><strong>中国 AI 股票低估值叙事支持港股科技跟踪</strong>。事实：WSJ 报道 Alibaba、Baidu、Tencent 等中国 AI 公司相对美国 AI 股票估值更低。可能影响：港股科技可能受资金再定价关注；继续跟踪：地缘风险、公司公告和实际业绩。<a href="https://www.wsj.com/finance/stocks/a-place-where-some-ai-stocks-are-still-cheap-china-22559ee9">WSJ</a></li>
+      <li class="market-card"><strong>HKEX AI IPO 生态仍是港股独角兽背景</strong>。事实：HKEX 披露 2026 年初 MiniMax、Zhipu AI、Biren 等 AI 价值链公司在港融资，且约 20 家 AI 公司处于公开上市管线。可能影响：港股 AI 估值需要用交易所披露和流动性验证；继续跟踪：新聆讯和上市文件。<a href="https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/Johnson-Chui/AI-IPOs-Drive-a-Strong-Start-to-2026?sc_lang=en">HKEX</a></li>
+      <li class="market-card"><strong>Tesla 窗口内未见重大新 SEC 事件</strong>。事实：Tesla IR SEC filings 最新可见 2026-06-09 Form 4 / 144，窗口内未见同等级新 8-K。可能影响：TSLA 不应被 SpaceX 或 xAI 传闻机械外推；继续跟踪：Tesla 自身交付、自动驾驶、能源和监管披露。<a href="https://ir.tesla.com/sec-filings">Tesla IR</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 主题</th><th>窗口内事实</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>NVDA / MU / SNDK</td><td>IBD 报道 Nvidia <span class="change-up">+3.5%</span>、Micron <span class="change-up">+11%</span>、Sandisk <span class="change-up">+6.5%</span>，时间为 2026-06-15 美股交易日</td><td>AI 算力和存储链条仍受风险偏好与供需预期推动</td><td><a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-us-iran-deal-nvidia-micron-sandisk-spacex/">IBD</a></td></tr>
+          <tr><td>ORCL</td><td>Oracle IR 显示 2026-06-10 Form 8-K，AI 云订单和资本开支仍需跟踪</td><td>估值取决于订单交付、数据中心融资和现金流</td><td><a href="https://investor.oracle.com/sec-filings/default.aspx">IR</a></td></tr>
+          <tr><td>CRWV</td><td>CoreWeave IR 显示 2026-06-11 Form 144 和 8-K</td><td>资本结构、潜在减持和客户集中度影响 AI 基建股</td><td><a href="https://investors.coreweave.com/financials/sec-filings/default.aspx">IR</a></td></tr>
+          <tr><td>SPCX / SpaceX</td><td>IBD 报道 SpaceX <span class="change-up">+19%</span>，作为美股风险偏好和马斯克生态焦点</td><td>高波动资产；需等待官方交易、期权和指数纳入资料</td><td><a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-us-iran-deal-nvidia-micron-sandisk-spacex/">IBD</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>由于稳定报价接口不可用，今日港股部分不写未核验收盘价格。可验证主题是：中国大型科技公司的 AI 暴露相对美国 AI 股票估值较低，叠加 HKEX 今年以来 AI IPO 生态，继续支持 9988.HK、9888.HK、0700.HK、1810.HK 等标的的主题跟踪。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>跟踪理由</th><th>窗口内新增</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>9988.HK 阿里巴巴</td><td>云、通义、企业 AI、电商广告</td><td>WSJ 将 Alibaba 纳入中国 AI 低估值讨论；未写入未核验实时报价</td><td><a href="https://www.wsj.com/finance/stocks/a-place-where-some-ai-stocks-are-still-cheap-china-22559ee9">WSJ</a></td></tr>
+          <tr><td>9888.HK 百度</td><td>文心、智能云、Apollo / robotaxi</td><td>同属中国 AI 估值对比对象；需继续看 HKEXnews 与公司公告</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>0700.HK 腾讯</td><td>游戏、广告、云、元宝和企业工具</td><td>同属中国 AI 估值对比对象；未见窗口内同等级新公告</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>1810.HK 小米</td><td>端侧 AI、IoT、EV 和机器人生态</td><td>窗口内未见同等级 AI / IR 新公告</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>港股 AI IPO</strong>：HKEX 披露 MiniMax、Zhipu AI、Biren 等已构成 AI 价值链上市样本，并提到约 20 家 AI 公司处于公开上市管线。<a href="https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/Johnson-Chui/AI-IPOs-Drive-a-Strong-Start-to-2026?sc_lang=en">HKEX</a></li>
+      <li><strong>SpaceX / SPCX</strong>：IBD 今日把 SpaceX 列为上涨焦点；仍需以官方交易所、SEC 或公司 IR 文件确认期权、指数和后续披露。<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-us-iran-deal-nvidia-micron-sandisk-spacex/">IBD</a></li>
+      <li><strong>OpenAI / Anthropic</strong>：OpenAI Partner Network 强化企业采用叙事；Anthropic Fable / Mythos 访问限制提示未来 AI IPO 风险披露会更重视合规和客户连续性。<a href="https://openai.com/news/product-releases/">OpenAI</a> · <a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic</a></li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>Oracle 和 CoreWeave 仍是 AI 基建链条中最值得跟踪的公开市场样本。Oracle 的 8-K 指向 AI 云订单、资本开支和交付问题；CoreWeave 的 144 / 8-K 让市场继续关注融资、潜在减持和客户集中度。今日不把“AI 需求强”写成单向结论，重点是订单、融资成本、资产周转和现金流之间的张力。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：Oracle RPO 转收入速度、CoreWeave 8-K 具体事项、GPU 资产融资、客户合同期限和再融资成本。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>宏观风险</strong>：地缘缓和推动风险偏好，但 Fed、通胀、油价和协议细节仍会左右高成长资产。</li>
+      <li><strong>即时报价缺口</strong>：Yahoo Finance 和 CNBC 报价接口不可用，报告没有写入未核验实时价格。</li>
+      <li><strong>AI 云融资风险</strong>：Oracle、CoreWeave 等 AI 基建相关股票需要同时看订单和资本结构。</li>
+      <li><strong>港股风险</strong>：中国 AI 股票相对估值叙事可能成立，但地缘、监管、盈利兑现和流动性仍是约束。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：SpaceX/SPCX 被 IBD 列为 6 月 15 日风险偏好恢复中的赢家，Tesla 窗口内未见重大新 SEC 事件。写作上必须区分 SPCX、TSLA 和 xAI：SpaceX 的涨跌只能说明马斯克生态风险偏好，不等于 Tesla 基本面改善，也不能替代 xAI 的官方融资或客户披露。</p>
+    <ul>
+      <li><strong>SPCX / SpaceX</strong>：继续跟踪期权链、指数纳入、首周成交、公司 IR/SEC 入口和任何正式交割文件。<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-us-iran-deal-nvidia-micron-sandisk-spacex/">IBD</a></li>
+      <li><strong>TSLA</strong>：以 Tesla 自身交付、FSD/robotaxi、能源、监管和 SEC filings 为准；窗口内只见 2026-06-09 Form 4 / 144。<a href="https://ir.tesla.com/sec-filings">Tesla IR</a></li>
+      <li><strong>xAI</strong>：只有官方融资、客户、算力或与 SpaceX 的正式文件出现时才写入确定事实；社媒猜测不作为唯一依据。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>6 月 16 日美股开盘后 Nvidia、Micron、Sandisk、Oracle、CoreWeave、Tesla 的实际收盘表现。</li>
+      <li>Fed 表态、美债收益率、油价和地缘协议细节对高成长 AI 股票的影响。</li>
+      <li>Oracle 8-K、CoreWeave 8-K / Form 144 的具体披露和市场反应。</li>
+      <li>港股科技收盘数据、HKEXnews 公告和南向资金对 Alibaba、Baidu、Tencent、小米的影响。</li>
+      <li>SPCX/SpaceX 期权链、指数纳入和官方披露入口。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Investor's Business Daily、Oracle IR、CoreWeave IR、Tesla IR、HKEX Group、HKEXnews、Wall Street Journal 摘要。</p>
+    <p><strong>缺口</strong>：Yahoo Finance 报价接口返回 Too Many Requests，CNBC quote endpoint 返回 Access Denied；Bloomberg、FT、WSJ 部分内容受登录或付费限制；港股即时报价和 SpaceX 官方 IR/SEC 入口需继续确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260616/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
