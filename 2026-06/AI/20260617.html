@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-17 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-17 AI 日报</h1>
+    <p class="lead">发布前风险评估、企业扩容、agent guardrails 与金融机构治理化采用，是今天的主线。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-17 12:03（澳门时间）｜采集窗口：2026-06-15 12:03 ~ 2026-06-17 12:03（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-17 12:03（澳门时间）｜采集窗口：2026-06-15 12:03 ~ 2026-06-17 12:03（澳门时间 UTC+8）</p>
+    <p>窗口内没有 OpenAI、Anthropic、Google DeepMind 或 xAI 的全新旗舰模型发布。今天更值得记录的是模型上线前风险评估、企业 AI 生产扩容、agent 安全控制和金融机构在治理框架下推进 AI。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 发布 Deployment Simulation</strong>：用真实部署语境在上线前预测 undesired model behavior，覆盖 GPT-5-series Thinking、agentic coding trajectories 和 tool simulation。<span class="tag">安全评估</span> <a href="https://openai.com/index/deployment-simulation/">来源</a></li>
+      <li class="news-card"><strong>AWS 为生成式 AI 扩容加速</strong>：SageMaker AI container caching 可让 scale-out 事件中的端到端延迟最高加速 2x，并将新实例扩容延迟降低至多 50%。<span class="tag">生产部署</span> <a href="https://aws.amazon.com/blogs/machine-learning/introducing-container-caching-in-amazon-sagemaker-ai-for-faster-model-scaling/">来源</a></li>
+      <li class="news-card"><strong>AWS Bedrock Guardrails 增加 agentic API</strong>：InvokeGuardrailChecks 允许在 agentic workflow 任意步骤调用 detect-only safeguards，由应用决定 block、retry、log 或 bypass。<span class="tag">Agent 治理</span> <a href="https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA XR AI 公测</strong>：把 AR/XR 设备的视频、音频、深度、姿态和传感器信号接入模型、企业数据和工具，面向空间感知多模态 agents。<span class="tag">多模态 Agent</span> <a href="https://blogs.nvidia.com/blog/nvidia-xr-ai/">来源</a></li>
+      <li class="news-card"><strong>HPE AI Factory with NVIDIA 扩展 agentic enterprise 能力</strong>：加入 Vera CPU、NVIDIA Agent Toolkit、Confidential Computing 和 full-stack integration。<span class="tag">AI 基建</span> <a href="https://blogs.nvidia.com/blog/hpe-ai-factory-agentic-enterprise/">来源</a></li>
+      <li class="news-card"><strong>Meta 在 Facebook 推出 AI Mode</strong>：从公开 posts、Groups 和 Reels 中生成搜索答案，平台级 AI search 进入社交内容。<span class="tag">平台 AI</span> <a href="https://techcrunch.com/2026/06/15/metas-new-ai-mode-on-facebook-pulls-from-public-info-across-its-platforms/">来源</a></li>
+      <li class="news-card"><strong>JPMorganChase 强调 agentic AI 的治理边界</strong>：Innovation Week 提到 context、economic guardrails、disciplined governance 和更个性化的银行体验。<span class="tag">金融 AI</span> <a href="https://www.jpmorganchase.com/about/technology/blog/key-takeaways-from-innovation-week-2026">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>安全评估：OpenAI 把上线前风险预测做得更接近生产环境</h3>
+    <p>OpenAI 的 Deployment Simulation 重点不是发布新模型，而是把模型发布前评估从静态测试扩展到真实对话语境。官方说明该方法用于估计 undesired model behavior，并覆盖 GPT-5-series Thinking 部署、agentic coding trajectories 和 tool simulation。对企业采购者而言，这类评估会成为 system card、内控审查和分阶段 rollout 的关键证据。<a href="https://openai.com/index/deployment-simulation/">OpenAI</a></p>
+    <h3>开发者平台：AWS 同时解决扩容和 agent guardrails</h3>
+    <p>SageMaker AI container caching 指向生成式 AI 生产部署的冷启动和扩容瓶颈；Bedrock Guardrails InvokeGuardrailChecks API 则把安全检查放进 agentic workflow 的任意步骤。两条官方更新合看，企业 AI 的竞争点正在从“能不能调用模型”转向“能否低延迟扩容、可观察、可控并符合应用策略”。<a href="https://aws.amazon.com/blogs/machine-learning/introducing-container-caching-in-amazon-sagemaker-ai-for-faster-model-scaling/">SageMaker AI</a> · <a href="https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/">Bedrock Guardrails</a></p>
+    <h3>AI 基建：NVIDIA 推动 agents 进入现场与私有 AI 工厂</h3>
+    <p>NVIDIA XR AI public beta 把 AR/XR 设备的多模态信号接入模型、企业数据和工具，适合工厂、实验室、医疗和培训等现场场景。HPE AI Factory with NVIDIA 则把 Vera CPU、Agent Toolkit、Confidential Computing 和 full-stack integration 放进企业私有 AI 路线，说明合规、安全和部署位置仍是 agentic enterprise 的核心变量。<a href="https://blogs.nvidia.com/blog/nvidia-xr-ai/">NVIDIA XR AI</a> · <a href="https://blogs.nvidia.com/blog/hpe-ai-factory-agentic-enterprise/">HPE AI Factory</a></p>
+    <h3>平台 AI：Facebook AI Mode 把社交内容变成答案来源</h3>
+    <p>TechCrunch 报道 Meta 在 Facebook 推出 AI Mode，由 Meta AI 从公开 posts、Groups 和 Reels 中生成搜索答案。这让平台级 search 进入社交内容，但也提高了来源可追溯、公开内容授权、社区信息质量和广告体验的治理要求。<a href="https://techcrunch.com/2026/06/15/metas-new-ai-mode-on-facebook-pulls-from-public-info-across-its-platforms/">TechCrunch</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>Deployment Simulation 用真实部署语境预测模型上线前风险</td><td>P0，安全评估</td><td><a href="https://openai.com/index/deployment-simulation/">官方</a></td></tr>
+          <tr><td>AWS</td><td>SageMaker AI container caching 和 Bedrock Guardrails InvokeGuardrailChecks API</td><td>P0，生产化平台</td><td><a href="https://aws.amazon.com/blogs/machine-learning/">AWS ML Blog</a></td></tr>
+          <tr><td>NVIDIA</td><td>XR AI public beta；HPE AI Factory with NVIDIA 扩展 agentic enterprise</td><td>P1，AI 基建</td><td><a href="https://blogs.nvidia.com/blog/nvidia-xr-ai/">XR AI</a></td></tr>
+          <tr><td>Meta</td><td>Facebook AI Mode 从公开社交内容生成搜索答案</td><td>P1，平台 AI</td><td><a href="https://techcrunch.com/2026/06/15/metas-new-ai-mode-on-facebook-pulls-from-public-info-across-its-platforms/">TechCrunch</a></td></tr>
+          <tr><td>JPMorganChase</td><td>Innovation Week 强调 agentic AI、governance、客户渠道和数据产品</td><td>P2，金融 AI</td><td><a href="https://www.jpmorganchase.com/about/technology/blog/key-takeaways-from-innovation-week-2026">官方</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>窗口内结论</strong>：今日有可验证银行 AI 更新。JPMorganChase 6 月 15 日 Innovation Week blog 直接讨论 agentic AI、治理、客户渠道和个性化银行体验；HSBC Wealth Intelligence 作为财富管理 AI 应用基线继续保留。</p>
+    <div class="company-card">
+      <h3>JPMorganChase：agentic AI 要配合 context、economic guardrails 和治理</h3>
+      <p>JPMorganChase 写到 agentic AI 的业务价值取决于 context、economic guardrails 和 disciplined governance，并强调 AI embedded in workflows、客户渠道同步、model-task matching、安全和数据产品化。对银行而言，重点不是单独展示 chat bot，而是把 AI 嵌入端到端产品生命周期与客户服务触点。<a href="https://www.jpmorganchase.com/about/technology/blog/key-takeaways-from-innovation-week-2026">JPMorganChase</a></p>
+    </div>
+    <div class="company-card">
+      <h3>HSBC Wealth Intelligence：生成式 AI 支持私人银行研究和客户洞察</h3>
+      <p>HSBC Private Bank 披露 Wealth Intelligence 是面向 client-facing staff、investment counsellors 和 product specialists 的生成式 AI-powered ecosystem，由 OpenAI LLM 驱动，用于分析银行研究报告和外部新闻源，支持对客户问题、产品和市场主题的快速洞察。<a href="https://www.privatebanking.hsbc.com/media-releases-and-news/hsbc-deploys-wealth-intelligence/">HSBC</a></p>
+    </div>
+    <div class="warn">本栏目只写金融机构如何使用或建设 AI；未使用宏观、利率、股价、IPO 定价、指数或券商观点填充。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI Deployment Simulation 是评估方法更新，不能外推为模型能力提升或发布节奏变化。</li>
+      <li>AWS 性能数字来自官方 blog，实际收益取决于模型大小、镜像、区域、实例池和流量模式。</li>
+      <li>Meta AI Mode 来源包含社交平台公开内容，答案质量、版权/授权和可追溯性需要继续观察。</li>
+      <li>JPMorganChase 与 HSBC 的银行 AI 线索是产品和治理路径，不构成金融机构经营或股价判断。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否把 Deployment Simulation 写入更多 system card、deployment note 或 API 发布流程。</li>
+      <li>AWS Bedrock Guardrails API 是否出现客户案例、pricing、latency 和审计集成细节。</li>
+      <li>NVIDIA XR AI 是否有企业试点、设备支持清单和边缘推理部署成本。</li>
+      <li>Meta AI Mode 是否扩大到更多地区，并如何处理公开内容引用和来源可见性。</li>
+      <li>JPMorganChase、HSBC、DBS、Bank of America 是否发布新的银行 AI 客户服务、风控、信贷或财富管理产品。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI、AWS Machine Learning Blog、NVIDIA Blog、TechCrunch、JPMorganChase、HSBC Private Bank。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、Financial Times、Wall Street Journal 部分内容受登录或付费限制；社媒与论坛未作为唯一事实来源。</p>
+    <p>工作文件：<code>tmp/AI/20260617/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
