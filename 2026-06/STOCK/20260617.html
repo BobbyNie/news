@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-17 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-17 股市日报</h1>
+    <p class="lead">AI 债务融资、SpaceX/SPCX 热度、主题 ETF 与港股科技跟踪。</p>
+    <div class="market-strip"><span>生成时间：2026-06-17 12:03（澳门时间）｜采集窗口：2026-06-15 12:03 ~ 2026-06-17 12:03（澳门时间 UTC+8）｜市场日历：关注美股 AI 债券融资、SpaceX/SPCX 后续交易、港股科技公告</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-17 12:03（澳门时间）｜采集窗口：2026-06-15 12:03 ~ 2026-06-17 12:03（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响和继续跟踪，不构成买卖建议。港股实时成交数据未通过稳定官方接口取得，因此不写未核验盘中价格；涉及价格和融资数字均注明来源页面。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>Nvidia 债券融资把 AI capex 推到债务市场</strong>。事实：Axios 报道 Nvidia 计划出售 200 亿美元 corporate bonds，是 2021 年以来首次债券发行；Goldman Sachs 估计 hyperscalers 2026 年 capex 将达 7700 亿美元。可能影响：AI 股估值需同时看订单、自由现金流、债务成本和回购空间；继续跟踪：正式发行文件和利率。<a href="https://www.axios.com/2026/06/16/ai-nvidia-bonds-debt">Axios</a></li>
+      <li class="market-card"><strong>SpaceX/SPCX IPO 后热度继续维持</strong>。事实：Investing.com IPO calendar 显示 Space Exploration Technologies Corp (SPCX) 2026-06-12 在 Nasdaq IPO，发行规模 750 亿美元，IPO 价 <span class="price">135.00</span>，页面价格 <span class="change-up">201.80</span>。可能影响：马斯克相关资产高波动；继续跟踪：官方披露、自由流通量、期权和指数纳入。<a href="https://www.investing.com/ipo-calendar/">Investing.com</a></li>
+      <li class="market-card"><strong>OpenAI Q1 现金消耗进入 AI 独角兽风险观察</strong>。事实：Investing.com 新闻列表显示 Reuters 摘要称 OpenAI 2026 年一季度 burn 37 亿美元，超过 57 亿美元收入的一半。可能影响：潜在 IPO 和融资估值会更关注现金流；继续跟踪：官方财务披露。<a href="https://www.investing.com/ipo-calendar/">来源</a></li>
+      <li class="market-card"><strong>AI / MANGOS 主题 ETF 申报出现</strong>。事实：Investing.com 新闻列表显示 Reuters 摘要称美国资产管理公司申报第一批围绕 AI 与 MANGOS 的 ETF。可能影响：主题交易可能篮子化并放大拥挤度；继续跟踪：SEC 文件、成分股和费率。<a href="https://www.investing.com/ipo-calendar/">来源</a></li>
+      <li class="market-card"><strong>Snap 高价 AR glasses 测试 AI/AR 消费终端</strong>。事实：Investing.com 新闻列表显示 Reuters 摘要称 Snap 推出 <span class="price">2,195 美元</span> consumer AR glasses。可能影响：SNAP、META、AAPL 等硬件和平台叙事继续比较；继续跟踪：需求、开发者生态和毛利。<a href="https://www.investing.com/ipo-calendar/">来源</a></li>
+      <li class="market-card"><strong>港股科技维持主题跟踪，今日不写未核验实时涨跌</strong>。事实：已复核 HKEX / HKEXnews 官方入口，但未取得稳定可核验港股实时数据。可能影响：Alibaba、Tencent、Baidu、小米和 AI IPO 管线仍需公告驱动；继续跟踪：公司公告和成交数据。<a href="https://www.hkex.com.hk/?sc_lang=en">HKEX</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 主题</th><th>窗口内事实</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>NVDA / AI capex</td><td>Axios 2026-06-16 报道 Nvidia 计划出售 200 亿美元 corporate bonds；hyperscaler 2026 capex 估计 7700 亿美元</td><td>AI 资本开支进入债券、现金流和回购约束讨论</td><td><a href="https://www.axios.com/2026/06/16/ai-nvidia-bonds-debt">Axios</a></td></tr>
+          <tr><td>SPCX / SpaceX</td><td>Investing.com IPO calendar：2026-06-12 Nasdaq IPO，发行规模 750 亿美元，IPO 价 135.00，页面价格 201.80</td><td>新上市高波动，需等待官方交易和披露资料</td><td><a href="https://www.investing.com/ipo-calendar/">IPO Calendar</a></td></tr>
+          <tr><td>OpenAI</td><td>Investing.com 新闻列表显示 Reuters 摘要：Q1 burn 37 亿美元，收入 57 亿美元</td><td>AI 独角兽融资和潜在 IPO 更重视现金流</td><td><a href="https://www.investing.com/ipo-calendar/">Investing.com</a></td></tr>
+          <tr><td>SNAP</td><td>新闻摘要称 Snap 推出 2,195 美元 consumer AR glasses</td><td>AI/AR 终端需要验证需求、生态和毛利</td><td><a href="https://www.investing.com/ipo-calendar/">Investing.com</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>今日港股部分不写未核验实时价格。继续跟踪 9988.HK 阿里巴巴、0700.HK 腾讯、9888.HK 百度、1810.HK 小米，以及 MiniMax、智谱 AI、月之暗面、燧原科技、壁仞科技等 AI IPO 管线。判断依据应优先来自 HKEXnews、公司公告、业绩会和正式聆讯文件。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>跟踪理由</th><th>今日处理</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>9988.HK 阿里巴巴</td><td>云、通义、企业 AI、电商广告</td><td>未写未核验实时涨跌，等待公司公告和可验证报价</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>0700.HK 腾讯</td><td>游戏、广告、云、元宝和企业工具</td><td>继续跟踪 AI 产品和业绩兑现</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>9888.HK 百度</td><td>文心、智能云、Apollo / robotaxi</td><td>继续看智能云和 robotaxi 披露</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>1810.HK 小米</td><td>端侧 AI、IoT、EV 和机器人生态</td><td>继续看 EV、AIoT 和端侧 AI 数据</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>SpaceX/SPCX</strong>：Investing.com IPO calendar 给出 IPO 日期、发行规模、发行价和页面价格；后续要用官方披露验证流通量、锁定期、期权和指数纳入。<a href="https://www.investing.com/ipo-calendar/">来源</a></li>
+      <li><strong>OpenAI</strong>：Reuters 摘要中的 Q1 burn 线索属于资本市场风险，不代表 AI 产品或模型能力变化；需等待官方财务或融资文件。<a href="https://www.investing.com/ipo-calendar/">来源</a></li>
+      <li><strong>主题 ETF</strong>：AI / MANGOS ETF 申报说明资金端正在把 AI 和马斯克相关资产产品化，需等 SEC 文件确认成分、费率和风险披露。<a href="https://www.investing.com/ipo-calendar/">来源</a></li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>今天没有把单一财报作为主线，核心是 AI 基础设施融资方式变化。Nvidia 债券融资线索提示 AI 链条需要同时看订单、产能、现金流、债务成本和 shareholder returns；OpenAI burn 摘要则提示 private AI labs 的收入增速和现金消耗会同时进入 IPO 与估值讨论。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：Nvidia 债券发行文件、hyperscaler capex guidance、OpenAI 后续融资/财务披露、CoreWeave/Oracle 等 AI 基建公司现金流。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>债务风险</strong>：AI 基建融资进入债券市场后，利率、信用利差和再融资风险会影响估值。</li>
+      <li><strong>主题拥挤</strong>：AI / MANGOS ETF 可能提高流动性，也可能放大同步回撤。</li>
+      <li><strong>价格来源限制</strong>：港股实时数据未稳定取得，报告不写未核验涨跌幅。</li>
+      <li><strong>私企透明度</strong>：OpenAI、SpaceX 和 xAI 的信息透明度低于上市公司，需优先等待正式文件。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：SpaceX/SPCX 是今天马斯克相关资产的交易焦点，但不能把 SPCX 的高波动直接外推为 TSLA 或 xAI 的基本面变化。三者应分开判断：SPCX 看 IPO 后交易、期权、流通量和航天商业化；TSLA 看交付、FSD/robotaxi、能源和监管；xAI 看官方融资、客户、算力和产品披露。</p>
+    <ul>
+      <li><strong>SPCX / SpaceX</strong>：Investing.com IPO calendar 显示 IPO 价 <span class="price">135.00</span>、页面价格 <span class="change-up">201.80</span>，但仍需官方披露和交易所数据确认。<a href="https://www.investing.com/ipo-calendar/">Investing.com</a></li>
+      <li><strong>TSLA</strong>：本报告未发现窗口内可验证的新重大 Tesla SEC 事件；继续以 Tesla IR/SEC filings 为准。<a href="https://ir.tesla.com/sec-filings">Tesla IR</a></li>
+      <li><strong>xAI</strong>：只有官方融资、客户合同、算力采购或与 SpaceX/Tesla 的正式文件出现时才写入确定事实，社媒猜测不作为唯一依据。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Nvidia 债券发行规模、票息、评级和用途是否由正式文件确认。</li>
+      <li>SPCX/SpaceX 期权、自由流通量、首周成交和官方披露入口。</li>
+      <li>OpenAI burn 相关报道是否出现 Reuters 原文、融资文件或公司回应。</li>
+      <li>AI / MANGOS ETF 的 SEC 申报文件、成分股、权重和费用。</li>
+      <li>港股科技和 AI IPO 管线的 HKEXnews 公告、聆讯文件和可验证成交数据。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Axios、Investing.com IPO calendar / Reuters 摘要、HKEX、HKEXnews、Tesla IR。</p>
+    <p><strong>缺口</strong>：Bloomberg、FT、WSJ、MarketWatch 部分内容受登录或付费限制；港股实时价格未通过稳定官方接口取得；SpaceX/SPCX 官方 IR/SEC 入口需继续确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260617/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
