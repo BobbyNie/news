@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-18 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-18 股市日报</h1>
+    <p class="lead">Fed 后风险偏好收缩，AI 龙头高位震荡，SpaceX/SPCX 成为马斯克资产新焦点。</p>
+    <div class="market-strip"><span>生成时间：2026-06-18 12:10（澳门时间）｜采集窗口：2026-06-16 12:10 ~ 2026-06-18 12:10（澳门时间 UTC+8）｜市场日历：美股最新完整交易日为 2026-06-17，港股关注 2026-06-18 盘中方向</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-18 12:10（澳门时间）｜采集窗口：2026-06-16 12:10 ~ 2026-06-18 12:10（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响与继续跟踪，不构成买卖建议。港股个股实时数据未通过稳定官方接口取得，因此不写未核验精确涨跌；美股价格使用延迟行情和明确时间戳。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>Fed 后美股转跌</strong>。事实：Investors.com 报道道指跌约 507 点，S&P 500 跌 1.2%，Nasdaq 跌 1.4%；Fed 维持 3.5%-3.75% 利率区间。可能影响：高估值 AI 股票重新受利率和收益率约束；继续跟踪收益率和通胀措辞。<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-fed-decision-warsh-spacex-stock-spcx/">来源</a></li>
+      <li class="market-card"><strong>NVDA 延迟报价显示高位震荡</strong>。事实：MarketWatch 显示 NVDA regular close <span class="price">$204.65</span>，after-hours <span class="change-up">$205.25 +0.29%</span>。可能影响：AI 龙头仍是核心锚，但不能完全免疫 risk-off；继续跟踪 AI capex 和拥挤度。<a href="https://www.marketwatch.com/investing/stock/nvda">来源</a></li>
+      <li class="market-card"><strong>SpaceX/SPCX IPO 后波动成为马斯克资产焦点</strong>。事实：Investors.com 报道 SPCX 回落约 <span class="change-down">-5%</span>，但仍显著高于 IPO 价。可能影响：SPCX 可能分流部分 TSLA 叙事资金；继续跟踪官方披露、流通量、期权和指数纳入。<a href="https://www.investors.com/news/spacex-stock-spcx-ast-spacemobile-bluebird-launch-asts-stock-dragon-iss/">来源</a></li>
+      <li class="market-card"><strong>TSLA 与 SPCX 需要分开判断</strong>。事实：MarketWatch 显示 TSLA regular close <span class="price">$396.38</span>，after-hours <span class="change-up">$396.73 +0.09%</span>。可能影响：Tesla 的基本面仍看交付、FSD/robotaxi、能源和监管；继续跟踪 Tesla IR / SEC。<a href="https://www.marketwatch.com/investing/stock/tsla">来源</a></li>
+      <li class="market-card"><strong>ORCL 跌幅小于部分大盘科技，但 AI backlog 仍待兑现</strong>。事实：MarketWatch 报道 Oracle 6 月 17 日跌 <span class="change-down">-2.55%</span> 至 <span class="price">$183.53</span>。可能影响：AI 基建交易进入收入确认和现金流检验；继续跟踪 OCI、capex 和 backlog conversion。<a href="https://www.marketwatch.com/data-news/oracle-corp-stock-outperforms-competitors-despite-losses-on-the-day-23f81af7-732c041d18f2">来源</a></li>
+      <li class="market-card"><strong>CoreWeave 官方 IR 报价仍显示 AI cloud 高弹性</strong>。事实：IR 页面显示 CRWV <span class="price">$106.71</span>，<span class="change-up">+$6.16 / +6.13%</span>，成交量 21,919,441。可能影响：AI infrastructure proxy 继续高波动；继续跟踪客户集中度、债务和 GPU capacity。<a href="https://investors.coreweave.com/stock-info/default.aspx">来源</a></li>
+      <li class="market-card"><strong>港股科技弱于美股 AI 主线</strong>。事实：Trading Economics 显示 HK50 约 23,874，日跌约 <span class="change-down">-1.80%</span>。可能影响：港股科技更依赖盈利、政策和南向资金；继续跟踪 HKEXnews 与公司公告。<a href="https://tradingeconomics.com/hong-kong/stock-market">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 指标</th><th>价格 / 数据</th><th>涨跌</th><th>时间与来源</th></tr></thead>
+        <tbody>
+          <tr><td>Dow Jones</td><td class="price">51,492</td><td class="change-down">约 -507 点</td><td>2026-06-17 收盘，<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-fed-decision-warsh-spacex-stock-spcx/">Investors.com</a></td></tr>
+          <tr><td>S&P 500</td><td class="price">7,420</td><td class="change-down">-1.2%</td><td>2026-06-17 收盘，<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-fed-decision-warsh-spacex-stock-spcx/">Investors.com</a></td></tr>
+          <tr><td>Nasdaq</td><td class="price">26,021</td><td class="change-down">-1.4%</td><td>2026-06-17 收盘，<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-fed-decision-warsh-spacex-stock-spcx/">Investors.com</a></td></tr>
+          <tr><td>NVDA</td><td class="price">$204.65 close / $205.25 after-hours</td><td class="change-up">after-hours +0.29%</td><td>2026-06-17 18:08 EDT，<a href="https://www.marketwatch.com/investing/stock/nvda">MarketWatch</a></td></tr>
+          <tr><td>TSLA</td><td class="price">$396.38 close / $396.73 after-hours</td><td class="change-up">after-hours +0.09%</td><td>2026-06-17 18:04 EDT，<a href="https://www.marketwatch.com/investing/stock/tsla">MarketWatch</a></td></tr>
+          <tr><td>ORCL</td><td class="price">$183.53</td><td class="change-down">-2.55%</td><td>2026-06-17，<a href="https://www.marketwatch.com/data-news/oracle-corp-stock-outperforms-competitors-despite-losses-on-the-day-23f81af7-732c041d18f2">MarketWatch</a></td></tr>
+          <tr><td>CRWV</td><td class="price">$106.71</td><td class="change-up">+6.13%</td><td>CoreWeave IR stock info，<a href="https://investors.coreweave.com/stock-info/default.aspx">公司 IR</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>美股今天的关键不是 AI 主题消失，而是宏观利率重新压到高估值资产上。NVDA 仍是 AI 核心锚，CoreWeave 仍有高 beta，但 Oracle、SPCX 和大盘回落说明资金开始更严格地区分订单、现金流、capex 和估值。</p>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>港股方面，当前环境未取得稳定官方个股实时接口，因此不写腾讯、阿里、小米、百度的未核验精确涨跌。可验证方向性背景是 Trading Economics 的 HK50 数据：约 23,874 点，日跌约 1.80%，近一月跌约 7.46%。该数据仅作大盘背景，个股判断仍以 HKEXnews、公司公告、业绩和正式报价为准。<a href="https://tradingeconomics.com/hong-kong/stock-market">Trading Economics</a></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>跟踪理由</th><th>今日处理</th><th>首选来源</th></tr></thead>
+        <tbody>
+          <tr><td>0700.HK 腾讯</td><td>广告、游戏、云、元宝与企业 AI 工具</td><td>不写未核验实时涨跌，等待公告和稳定报价</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>9988.HK 阿里巴巴</td><td>云、通义、企业 AI 和电商广告</td><td>继续跟踪云增长和 AI 产品商业化</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>1810.HK 小米</td><td>端侧 AI、AIoT、EV 和机器人生态</td><td>第三方报价显示接近低位，但不写精确涨跌</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+          <tr><td>9888.HK 百度</td><td>文心、智能云、Apollo / robotaxi</td><td>继续看智能云和 robotaxi 披露</td><td><a href="https://www.hkexnews.hk/">HKEXnews</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>SpaceX/SPCX</strong>：IPO 后波动成为本窗口最重要的独角兽/新股线索。媒体报道称首个显著回落日跌约 5%，但仍远高于 IPO 价；后续必须用交易所、SEC 和公司披露确认流通量、锁定期和期权。<a href="https://www.investors.com/news/spacex-stock-spcx-ast-spacemobile-bluebird-launch-asts-stock-dragon-iss/">Investors.com</a></li>
+      <li><strong>OpenAI / Anthropic / xAI</strong>：本窗口没有新的官方 IPO 文件。AI 独角兽估值讨论继续存在，但本报告不使用未确认社媒传闻。</li>
+      <li><strong>CoreWeave</strong>：作为已上市 AI cloud / GPU capacity proxy，官方 IR 报价显示仍高波动，需关注客户集中度、债务和 GPU supply。<a href="https://investors.coreweave.com/stock-info/default.aspx">CoreWeave IR</a></li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>今天没有单一财报驱动全市场，重点转向 AI infrastructure backlog、capex 和现金流兑现。Oracle 的 AI backlog 和 OCI 增长叙事仍吸引资金，但 MarketWatch 当日价格显示在大盘走弱中同样承压；CoreWeave 的价格弹性说明市场仍愿意交易 GPU cloud 增长，但风险也更集中。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：Oracle OCI revenue / backlog conversion、CoreWeave 客户集中度与融资成本、Nvidia data center orders、hyperscaler capex guidance。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>利率风险</strong>：Fed 维持利率但更重视价格稳定，收益率上行会压缩高估值 AI 股票估值倍数。</li>
+      <li><strong>IPO 后波动</strong>：SPCX / SpaceX 交易透明度、自由流通量和锁定期仍需官方文件确认。</li>
+      <li><strong>AI 基建现金流</strong>：backlog 和 capex 不等于即时自由现金流，Oracle 与 CoreWeave 都需验证收入转换和融资成本。</li>
+      <li><strong>港股数据缺口</strong>：未取得稳定官方个股实时价格，报告已避免写未核验涨跌幅。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：SpaceX/SPCX 是今天马斯克相关资产的核心变量，但它不能直接替代 Tesla 或 xAI 基本面。三者需要分开看：SPCX 看航天发射、Starlink、政府/AI contracts、流通量和 IPO 后交易结构；TSLA 看交付、FSD/robotaxi、能源和监管；xAI 看官方融资、客户、模型、算力采购和与 SpaceX/Tesla 的正式合作文件。</p>
+    <ul>
+      <li><strong>SPCX / SpaceX</strong>：Investors.com 报道 IPO 后回落约 <span class="change-down">-5%</span>，同时 SpaceX 完成 AST SpaceMobile BlueBird satellites 发射和 Dragon commercial resupply mission。<a href="https://www.investors.com/news/spacex-stock-spcx-ast-spacemobile-bluebird-launch-asts-stock-dragon-iss/">Investors.com</a></li>
+      <li><strong>TSLA</strong>：MarketWatch delayed quote 显示 regular close <span class="price">$396.38</span>，after-hours <span class="change-up">$396.73 +0.09%</span>；今日未发现新的重大 Tesla SEC / IR 事件。<a href="https://www.marketwatch.com/investing/stock/tsla">MarketWatch</a> · <a href="https://ir.tesla.com/sec-filings">Tesla IR</a></li>
+      <li><strong>xAI</strong>：只有官方融资、客户合同、算力采购或与 SpaceX/Tesla 的正式披露出现时才写入确定事实，社媒猜测不作为唯一依据。</li>
+    </ul>
+    <div class="warn">本专题不提供买卖建议；马斯克相关资产波动高，必须区分上市公司、IPO 新股和私人公司披露质量。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Fed 后收益率和科技股估值倍数是否继续压缩。</li>
+      <li>SPCX / SpaceX 是否出现正式 SEC、Nasdaq、IR 或期权/流通量披露。</li>
+      <li>NVDA、ORCL、CRWV 是否继续分化，AI backlog 和 capex 叙事是否有新数据。</li>
+      <li>TSLA 是否发布与 robotaxi、FSD、交付、监管或能源业务相关的新披露。</li>
+      <li>港股科技是否出现 HKEXnews 公告、业绩会、南向资金或政策催化。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Investors.com、MarketWatch、CoreWeave Investor Relations、Trading Economics、HKEXnews、Tesla IR。</p>
+    <p><strong>缺口</strong>：Bloomberg、FT、WSJ 部分内容受登录或付费限制；港股个股实时价格未通过稳定官方接口取得；SPCX / SpaceX 正式交易结构仍需官方文件确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260618/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>

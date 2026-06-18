@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-18 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-18 AI 日报</h1>
+    <p class="lead">科学 AI 实验闭环、生命科学评测、企业 agents 上下文与韩国生态扩张，是今天的主线。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-18 12:10（澳门时间）｜采集窗口：2026-06-16 12:10 ~ 2026-06-18 12:10（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-18 12:10（澳门时间）｜采集窗口：2026-06-16 12:10 ~ 2026-06-18 12:10（澳门时间 UTC+8）</p>
+    <p>本窗口没有新的通用旗舰模型发布。更关键的变化是：OpenAI 把科学 AI 推向真实实验和生命科学专家评测，Anthropic 把 Claude 生态扩展到韩国政府安全合作和大型企业工程体系，AWS 继续把企业 agents 的上下文、自治与推理运维产品化。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 近自主 AI chemist 改进反应条件</strong>：GPT-5.4 与 Molecule.one Maria AI、高通量实验室协作，为 Chan-Lam coupling 找到添加剂思路并完成 bench-scale 验证。<span class="tag">科学 AI</span> <a href="https://openai.com/index/ai-chemist-improves-reaction/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 发布 LifeSciBench</strong>：750 个专家任务、1,062 个附件、19,020 条 rubric criteria，用真实生命科学研究任务评估模型。<span class="tag">评测</span> <a href="https://openai.com/index/introducing-life-sci-bench/">来源</a></li>
+      <li class="news-card"><strong>Anthropic 开设 Seoul office 并签署韩国 AI safety MOU</strong>：同时披露 NAVER、Nexon、LG CNS、Samsung SDS、Channel Corp 等企业采用。<span class="tag">企业采用</span> <a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">来源</a></li>
+      <li class="news-card"><strong>AWS Context 把企业数据关系变成 agent context layer</strong>：面向企业 agents 提供 governed relationships、business rules 和 knowledge graph。<span class="tag">Agent 基础设施</span> <a href="https://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/">来源</a></li>
+      <li class="news-card"><strong>Amazon Quick 推出 autonomous agents</strong>：用户可用自然语言创建持续运行的 agents，并通过 guardrails 控制自治程度。<span class="tag">生产力 Agent</span> <a href="https://aws.amazon.com/blogs/machine-learning/get-back-hours-every-day-with-autonomous-agents-in-amazon-quick/">来源</a></li>
+      <li class="news-card"><strong>SageMaker AI Async Inference 支持 inline payloads</strong>：最大 128,000 bytes，减少异步调用前上传 S3 的往返与复杂度。<span class="tag">推理运维</span> <a href="https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-async-inference-now-supports-inline-request-payloads/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA 强调 AI data center 光互连供应链</strong>：Coherent Texas 项目显示 lasers、transceivers、silicon photonics 正成为 AI 基建瓶颈之一。<span class="tag">算力供给</span> <a href="https://blogs.nvidia.com/blog/coherent-texas-ai-optical/">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>科学 AI：从 benchmark 走向实验闭环</h3>
+    <p>OpenAI 的 AI chemist 案例将 GPT-5.4、Molecule.one Maria AI、高通量实验室和人类化学家连接成闭环。官方称 Maria Lab 共运行 10,080 个反应，优化条件下 88% boronic acids 和 83% sulfonamides 的测得产率改善；bench-scale 人工验证 14 组中 11 组提升。重点不是“模型替代科学家”，而是模型提出假设、人类选择路线、实验平台验证和人类再校正。<a href="https://openai.com/index/ai-chemist-improves-reaction/">OpenAI</a></p>
+    <p>LifeSciBench 则补上评测侧：它覆盖证据处理、实验设计、科学推理、转化判断和科学沟通，而不是只问模型事实记忆。对生命科学客户而言，这比通用聊天评测更接近采购和安全审查需要。<a href="https://openai.com/index/introducing-life-sci-bench/">OpenAI</a></p>
+
+    <h3>区域采用：Anthropic 把韩国作为安全与企业工程生态</h3>
+    <p>Anthropic 首尔办公室不只是市场扩张。官方披露与韩国 Ministry of Science and ICT 的 MOU 覆盖 AI safety、cybersecurity、Korean-language model safety evaluation 和 AI-enabled cyber threats 信息交流；企业侧则包括 NAVER 全工程组织使用 Claude Code、Nexon 支持 live-service game engineering、LG CNS / Samsung SDS / Hanwha / Channel Corp 等采用。<a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Anthropic</a></p>
+
+    <h3>企业 agents：AWS 正在补上下文、自治和推理运维</h3>
+    <p>AWS Context 将企业数据、关系和业务规则整理成 agents 可用的 governed context；Amazon Quick autonomous agents 让任务持续运行并通过 guardrails 控制自治；SageMaker AI Async Inference inline payloads 则减少异步调用前 S3 上传步骤。三条更新合看，企业 AI 的难点正在从“调用模型”转向“带着正确上下文、权限和运维路径执行”。<a href="https://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/">AWS Context</a> · <a href="https://aws.amazon.com/blogs/machine-learning/get-back-hours-every-day-with-autonomous-agents-in-amazon-quick/">Amazon Quick</a> · <a href="https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-async-inference-now-supports-inline-request-payloads/">SageMaker AI</a></p>
+
+    <h3>AI 基建：光互连进入算力供给视野</h3>
+    <p>NVIDIA 关于 Coherent Texas 项目的文章强调，AI data center 的瓶颈不仅是 GPU，也包括 indium phosphide、gallium arsenide、lasers、transceivers、optical modules 和 silicon photonics。随着 Vera Rubin Ultra NVL576 等大规模 GPU 域推进，光互连会成为算力供应链跟踪的一部分。<a href="https://blogs.nvidia.com/blog/coherent-texas-ai-optical/">NVIDIA</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>AI chemist 与 LifeSciBench 两篇科学 AI 更新；Deployment Simulation 仍作为上线前风险评估背景</td><td>P0，科学 AI / 评测</td><td><a href="https://openai.com/index/ai-chemist-improves-reaction/">AI chemist</a> · <a href="https://openai.com/index/introducing-life-sci-bench/">LifeSciBench</a></td></tr>
+          <tr><td>Anthropic</td><td>首尔办公室、韩国政府 AI safety MOU、NAVER / Nexon / LG CNS 等采用案例</td><td>P1，区域生态</td><td><a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">官方</a></td></tr>
+          <tr><td>AWS</td><td>AWS Context、Amazon Quick autonomous agents、SageMaker AI Async Inference inline payloads</td><td>P1，企业 agents</td><td><a href="https://aws.amazon.com/blogs/machine-learning/">AWS ML Blog</a></td></tr>
+          <tr><td>NVIDIA / Coherent</td><td>Texas optical component supply chain 与 AI data center networking</td><td>P2，算力供给</td><td><a href="https://blogs.nvidia.com/blog/coherent-texas-ai-optical/">NVIDIA</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新增</td><td>继续跟踪</td><td>官方页复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>窗口内结论</strong>：今天没有新的银行单独产品发布；可验证增量主要来自近期 Anthropic 与 TCS、DXC 的受监管行业合作，继续构成金融 AI 采用基线。这里不使用宏观、股价、利率或 IPO 题材填充。</p>
+    <div class="company-card">
+      <h3>TCS：Claude 进入金融服务、保险与银行工程工作流</h3>
+      <p>TCS 与 Anthropic 合作，将 Claude 提供给 50,000 名员工，并为 regulated industries 构建 Claude-powered products。官方金融用例包括 insurer claims processing、bank lending advisory，以及 Claude Code 支持银行金融服务产品团队的软件工程与 IT operations。<a href="https://www.anthropic.com/news/tcs-anthropic-partnership">Anthropic / TCS</a></p>
+    </div>
+    <div class="company-card">
+      <h3>DXC：把 Claude 集成进银行和保险核心系统现代化</h3>
+      <p>DXC 与 Anthropic 的 multi-year alliance 计划训练 Claude-certified forward-deployed engineers，并把 Claude 集成到其为大型 banks、insurers、airlines、manufacturers 和 government agencies 运行的 mission-critical systems。金融机构价值在于合规、安全、核心系统迁移和可审计 agentic workflows。<a href="https://www.anthropic.com/news/dxc-anthropic-alliance">Anthropic / DXC</a></p>
+    </div>
+    <div class="warn">已检查 HSBC、Bank of America、DBS、JPMorganChase、BIS、FSB、IOSCO 等来源；本窗口未见新的银行客户服务、信贷审批或风控产品发布。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI AI chemist 结果来自特定反应体系，仍需独立复现、更广 substrate scope 和成本/安全评估。</li>
+      <li>LifeSciBench 是评测框架，不等同于模型在所有生命科学任务中已经可自动执行。</li>
+      <li>AWS autonomous agents 的实际价值取决于企业数据治理、权限、审计和错误恢复设计。</li>
+      <li>Anthropic 韩国采用案例来自官方披露，客户生产指标和 ROI 仍需后续案例验证。</li>
+      <li>金融 AI 合作案例是近期采用基线，不应误读为今天新签约。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否把 AI chemist 和 LifeSciBench 方法开放给更多科研机构或发布更完整评测数据。</li>
+      <li>Anthropic 韩国 MOU 是否带来韩文安全评估、政府试点或更多企业 Claude Code 案例。</li>
+      <li>AWS Context / Quick autonomous agents 是否披露 pricing、客户案例、权限模型和审计能力。</li>
+      <li>NVIDIA / Coherent optical supply chain 是否出现更多订单、CHIPS Act 后续或数据中心互连指标。</li>
+      <li>银行、保险和资管机构是否发布可验证 AI 服务、风控或核心系统现代化更新。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI、Anthropic、AWS Machine Learning Blog、NVIDIA Blog，以及 TCS / DXC 受监管行业合作官方材料。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT、WSJ 部分内容受登录或付费限制；X/Facebook 未作为唯一事实来源；Google DeepMind、Meta AI、xAI、Perplexity 本窗口未见同等级官方新增。</p>
+    <p>工作文件：<code>tmp/AI/20260618/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
