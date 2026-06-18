@@ -8,6 +8,8 @@
 - Investors.com stock market today live coverage：提供 2026-06-17 美股收盘指数、Fed 决议、SpaceX/SPCX post-IPO 波动、AI/energy/biotech sector notes。
 - CoreWeave investor relations stock info：官方 IR 页面提供 CRWV 最新价格、成交量和涨跌，可作 AI infrastructure stock 补充来源。
 - HK50 / Trading Economics：可作为港股大盘 CFD 方向性补充，但不替代 HKEX / 公司公告。
+- IPO primary sources：SEC S-1/F-1、Nasdaq / NYSE IPO calendar、HKEX newly listed securities、HKEXnews 新申请 / 聆讯后资料集，新增为“港股和美股近期 IPO 专栏”的首选来源。
+- IPO cross-check sources：Renaissance Capital IPO Calendar、BusinessWire / company release、AAStocks、uSMART、StockAnalysis、ACN Newswire、FreshPlaza；仅在有官方或交易所线索时用于补充财务、定价与行情。
 
 ## 失效或降权建议
 
@@ -18,7 +20,9 @@
 
 - 港股个股实时价格在当前环境未通过稳定官方接口取得；报告中只写可验证大盘和官方入口，不伪造实时个股涨跌。
 - Bloomberg、FT、WSJ 部分市场文章存在付费或登录限制。
+- 部分港股招股书 PDF 可访问但解析成本高，今日用 HKEX 新上市表和可核验媒体转引补充；后续应优先打开 HKEXnews prospectus / allotment result PDF。
 
 ## 需要人工确认的来源
 
 - SpaceX/SPCX IPO 后行情和市值高度依赖交易所与正式披露，媒体报道之间口径可能不同，需要持续核验。
+- KARD、FCBM 今日开始交易，需在下一期补正式首日收盘表现；DPC、HQVT 等待最终上市 / 首日交易数据。

@@ -35,6 +35,13 @@
 - 可能影响：市场会继续把 CoreWeave 与 Nvidia、Oracle、OpenAI compute demand 绑定。
 - 证据链接：https://investors.coreweave.com/stock-info/default.aspx
 
+## P1 - 港股和美股近期 IPO 专栏需要固定跟踪
+
+- 事件：美股 KARD、FCBM 于 2026-06-18 开始交易，DPC 已公开提交 NYSE IPO 文件；港股 SENASIC、LIULIUMEI 已新上市，HQVT 预计 2026-06-22 上市。
+- 为什么重要：IPO 重新成为风险偏好和流动性分流的直接观察窗口，也能提前识别 AI、半导体、消费和防务供应链的新公开资产。
+- 可能影响：重点关注 DPC 的防务/航空供应链与杠杆修复、KARD 的临床里程碑与 cash runway、HQVT/SENASIC 的订单、毛利率和上市后成交质量；不把关注等级写成买卖建议。
+- 证据链接：https://www.renaissancecapital.com/IPO-Center/Calendar；https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en；https://www.sec.gov/Archives/edgar/data/2123613/000119312526239298/d107928ds1.htm；https://www.businesswire.com/news/home/20260526375677/en/Doncasters-Files-Registration-Statement-for-Proposed-Initial-Public-Offering
+
 ## P2 - 港股科技走弱，缺少稳定官方个股实时数据
 
 - 事件：Trading Economics 显示 HK50 2026-06-18 跌约 1.80%，近一月跌约 7.46%；小米等港股科技股接近低位的第三方报价线索存在，但未用作正式涨跌幅。

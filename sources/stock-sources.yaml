@@ -9,6 +9,26 @@ official_market_sources:
     - HKEXnews: "https://www.hkexnews.hk/"
     - company investor relations pages
 
+ipo_primary_sources:
+  us:
+    - SEC S-1/F-1 registration statements: "https://www.sec.gov/search-filings"
+    - SEC EDGAR company filing APIs: "https://www.sec.gov/edgar/sec-api-documentation"
+    - Nasdaq IPO Calendar: "https://www.nasdaq.com/market-activity/ipos"
+    - NYSE IPO Center: "https://www.nyse.com/ipo-center/filings"
+  hk:
+    - HKEXnews New Applicants: "https://www1.hkexnews.hk/app/appindex.html"
+    - HKEXnews Post Hearing Information Packs: "https://www1.hkexnews.hk/app/sehkappmainindex.htm"
+    - HKEXnews Prospectuses: "https://www.hkexnews.hk/index.htm"
+    - HKEXnews Allotment Results: "https://www.hkexnews.hk/index.htm"
+
+ipo_secondary_cross_checks:
+  - Renaissance Capital IPO Center
+  - IPO Scoop
+  - Reuters Deals
+  - Bloomberg Deals
+  - Financial Times Capital Markets
+  - 36氪 IPO/资本
+
 market_media:
   - Reuters Markets
   - Bloomberg Markets
@@ -77,6 +97,9 @@ priority_topics:
   - guidance
   - financing
   - ipo
+  - recent_ipos
+  - upcoming_ipos
+  - ipo_watch_rating
   - merger_acquisition
   - regulation
   - major_orders

@@ -156,6 +156,54 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, prompt)
 
+    def test_stock_prompt_requires_recent_ipo_column_and_watch_rating(self) -> None:
+        prompt = (ROOT / "prompts" / "cursor-stock-daily.md").read_text(encoding="utf-8")
+
+        required = [
+            'section id="recent-ipos"',
+            "港股和美股近期 IPO 专栏",
+            "近期已上市 IPO",
+            "即将 IPO / 已递表 / 已提交注册文件",
+            "美股：SEC S-1/F-1、Nasdaq IPO Calendar、NYSE IPO Center",
+            "港股：HKEXnews 新申请、聆讯后资料集、招股书、配发结果",
+            "业务质量",
+            "财务质量",
+            "估值与发行条款",
+            "行业景气",
+            "基石/战略投资者",
+            "流动性与锁定期",
+            "监管与诉讼风险",
+            "关注等级：值得重点关注 / 谨慎关注 / 暂不关注 / 信息不足",
+            "没有可验证近期或即将 IPO 时，保留专栏并写明已检查来源",
+            "不得把关注等级写成买入、卖出、目标价或确定收益判断",
+        ]
+
+        for text in required:
+            with self.subTest(text=text):
+                self.assertIn(text, prompt)
+
+    def test_stock_sources_include_primary_recent_ipo_sources(self) -> None:
+        sources = (ROOT / "sources" / "stock-sources.yaml").read_text(encoding="utf-8")
+
+        required = [
+            "ipo_primary_sources",
+            "SEC S-1/F-1 registration statements",
+            "Nasdaq IPO Calendar",
+            "NYSE IPO Center",
+            "HKEXnews New Applicants",
+            "HKEXnews Post Hearing Information Packs",
+            "HKEXnews Allotment Results",
+            "Renaissance Capital IPO Center",
+            "IPO Scoop",
+            "recent_ipos",
+            "upcoming_ipos",
+            "ipo_watch_rating",
+        ]
+
+        for text in required:
+            with self.subTest(text=text):
+                self.assertIn(text, sources)
+
     def test_combined_automation_prompt_requires_ui_gate(self) -> None:
         prompt = (ROOT / "prompts" / "cursor-automation-combined.md").read_text(encoding="utf-8")
 
@@ -201,6 +249,22 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             "不得把宏观、利率、股价、指数、IPO 定价或入指事件作为 AI 日报主线",
             "只有直接改变 AI 产品路线、模型能力、算力供给或企业采用时，才可作为低优先级背景",
             "不得用宏观、利率、股价、指数、IPO 定价、入指事件、金融就业或券商观点填充",
+        ]
+
+        for text in required:
+            with self.subTest(text=text):
+                self.assertIn(text, prompt)
+
+    def test_combined_automation_prompt_requires_stock_recent_ipo_column(self) -> None:
+        prompt = (ROOT / "prompts" / "cursor-automation-combined.md").read_text(encoding="utf-8")
+
+        required = [
+            'section id="recent-ipos"',
+            "港股和美股近期 IPO 专栏",
+            "近期已上市 IPO",
+            "即将 IPO / 已递表 / 已提交注册文件",
+            "关注等级：值得重点关注 / 谨慎关注 / 暂不关注 / 信息不足",
+            "不得把关注等级写成买入、卖出、目标价或确定收益判断",
         ]
 
         for text in required:

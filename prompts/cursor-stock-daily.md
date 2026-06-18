@@ -20,12 +20,12 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 
 0. **必须先运行** `eval "$(python3 scripts/report_date.py)"`，用输出的 `REPORT_DATE` / `REPORT_ISO` / `REPORT_MONTH` / `REPORT_WINDOW` 作为唯一日期依据。**禁止使用 UTC 或系统默认时区日期**（UTC 23:00 时澳门已是次日）。
 1. 读取 `sources/stock-sources.yaml` 和 `sources/source-review-rules.md`。
-2. 先重检清单：搜索过去 24-48 小时是否有新的美股/港股重点公司、AI 独角兽、IPO、SEC/HKEX 披露、官方 IR 来源或主流市场媒体需要加入跟踪。把结果写入 `tmp/STOCK/YYYYMMDD/00-source-review.md`。
+2. 先重检清单：搜索过去 24-48 小时是否有新的美股/港股重点公司、AI 独角兽、近期 IPO、即将 IPO、SEC/HKEX 披露、官方 IR 来源或主流市场媒体需要加入跟踪。IPO 线索必须优先核对 `ipo_primary_sources`，把结果写入 `tmp/STOCK/YYYYMMDD/00-source-review.md`。
 3. 按清单检索 SEC EDGAR、HKEXnews、公司 IR、新闻稿、主流财经媒体和可信市场新闻。把原始发现写入 `tmp/STOCK/YYYYMMDD/01-raw-findings.md`。
 4. 去重、按市场影响排序，把候选新闻写入 `tmp/STOCK/YYYYMMDD/02-ranked-items.md`。
 5. 生成中文草稿到 `tmp/STOCK/YYYYMMDD/03-draft-cn.md`。
 6. **生成 HTML 前**必须完整阅读本文件 **「移动端 UI 设计要求」** 与 **HTML 结构** 章节；以 `2026-06/STOCK/20260602.html` 为结构参考，**禁止**复用 `max-width: 920px` 旧模板。
-7. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、AI 独角兽/IPO、财报与指引、监管与风险、**与伊隆·马斯克相关的股票专题**、明日继续跟踪、来源覆盖与缺口。
+7. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、**港股和美股近期 IPO 专栏**、AI 独角兽/IPO、财报与指引、监管与风险、**与伊隆·马斯克相关的股票专题**、明日继续跟踪、来源覆盖与缺口。
 8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind STOCK --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
 9. 每条重要判断必须附来源链接，价格、涨跌、市值等实时数据必须注明时间和来源。不要给买卖建议。
 10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
@@ -39,6 +39,25 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 - 价格、涨跌、市值、盘前盘后数据必须注明时间、市场和来源。
 - 对未上市独角兽只描述融资、估值、IPO、监管和重大商业事件，不做估值建议。
 - 不提供买卖建议，只写“可能影响”和“需要继续跟踪”。
+- 港股和美股近期 IPO 专栏必须使用 `<section id="recent-ipos">`；没有可验证近期或即将 IPO 时，保留专栏并写明已检查来源、未见足够可靠候选。
+
+## 港股和美股近期 IPO 专栏要求
+
+股票日报必须固定输出 **港股和美股近期 IPO 专栏**，用于覆盖近 30 日已上市公司和未来 30-60 日即将上市、已递表、已通过聆讯、已提交注册文件或已公布发行区间的公司。重点是分析“是否值得继续关注”，不是给买卖建议。
+
+必须分清两类：
+
+- **近期已上市 IPO**：写上市日期、交易所、发行价、募资规模、首日/近期表现、流通量或锁定期、核心业务、主要风险，价格与涨跌必须注明时间和来源。
+- **即将 IPO / 已递表 / 已提交注册文件**：写预计市场、当前阶段、招股书或 SEC S-1/F-1 关键披露、收入增长、毛利率/亏损、现金消耗、客户集中度、行业景气、监管或诉讼风险、发行条款是否已披露。
+
+来源优先级：
+
+- 美股：SEC S-1/F-1、Nasdaq IPO Calendar、NYSE IPO Center、公司 IR/新闻稿；必要时用 Reuters、Bloomberg、FT、Renaissance Capital IPO Center、IPO Scoop 交叉验证。
+- 港股：HKEXnews 新申请、聆讯后资料集、招股书、配发结果、公司公告；必要时用 Reuters、Bloomberg、FT、财新、36氪 IPO/资本交叉验证。
+
+每个即将 IPO 的重点候选必须按以下维度做判断：业务质量、财务质量、估值与发行条款、行业景气、基石/战略投资者、流动性与锁定期、监管与诉讼风险。
+
+每家公司必须给出一个非交易建议式的 **关注等级：值得重点关注 / 谨慎关注 / 暂不关注 / 信息不足**，并用 2-3 句解释证据。不得把关注等级写成买入、卖出、目标价或确定收益判断。
 
 ## 移动端 UI 设计要求
 
@@ -181,7 +200,7 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
   <header class="hero hero-stock">
     <p class="eyebrow">MARKET DAILY BRIEF</p>
     <h1>YYYY-MM-DD 股市日报</h1>
-    <p class="lead">美股、港股、AI IPO、财报与监管风险。</p>
+    <p class="lead">美股、港股、近期 IPO、AI IPO、财报与监管风险。</p>
     <div class="market-strip">生成时间、采集窗口与市场日历</div>
   </header>
   <div class="reader-controls" data-reader-controls>
@@ -216,6 +235,7 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
   <section id="top"><h2>今日最重要的 5-10 条</h2><ol class="top-list">...</ol></section>
   <section id="us">美股重点</section>
   <section id="hk">港股重点</section>
+  <section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2></section>
   <section id="unicorns">AI 独角兽 / IPO</section>
   <section id="earnings">财报与指引</section>
   <section id="risks">监管与风险</section>

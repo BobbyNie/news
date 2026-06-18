@@ -42,6 +42,8 @@ class LatestReportUIOutputTest(unittest.TestCase):
             "market-card",
             "change-up",
             "table-wrap",
+            'section id="recent-ipos"',
+            "港股和美股近期 IPO",
             "data-reader-settings-open",
             "data-reader-settings",
             "data-google-tts-key",

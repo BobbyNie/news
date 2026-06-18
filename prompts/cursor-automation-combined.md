@@ -47,11 +47,13 @@ python3 scripts/validate_report_ui.py --kind AI --date "$REPORT_DATE"
 
 ## 3. 股市日报流程
 
-按 `prompts/cursor-stock-daily.md` 执行；须含 **马斯克相关股票专题**。
+按 `prompts/cursor-stock-daily.md` 执行；须含 **港股和美股近期 IPO 专栏** 与 **马斯克相关股票专题**。
+
+股票 HTML 必须固定包含 `<section id="recent-ipos">`，标题为「港股和美股近期 IPO 专栏」。该专栏必须分清 **近期已上市 IPO** 与 **即将 IPO / 已递表 / 已提交注册文件**，并对重点候选给出非交易建议式的 **关注等级：值得重点关注 / 谨慎关注 / 暂不关注 / 信息不足**。分析必须覆盖业务质量、财务质量、估值与发行条款、行业景气、基石/战略投资者、流动性与锁定期、监管与诉讼风险；不得把关注等级写成买入、卖出、目标价或确定收益判断。没有可验证候选时，仍保留专栏并写明已检查来源。
 
 HTML 必须包含（CI 会校验）：
 
-- `MARKET DAILY BRIEF`、`hero hero-stock`、`top-list`、`market-card`、`change-up`、`table-wrap`
+- `MARKET DAILY BRIEF`、`hero hero-stock`、`top-list`、`market-card`、`change-up`、`table-wrap`、`recent-ipos`
 - 语音朗读控件：`reader-controls`、`data-reader-controls`、`reader-settings-toggle`、`data-reader-settings-open`、`data-reader-settings`、`data-reader-settings-close`、`report-reader.js`、`../../assets/report-reader.js`、`data-google-tts-key`、`data-google-tts-voice`、`data-google-tts-save`、`data-google-tts-clear`、引用共用 JS、不要重新生成或改写朗读逻辑、只朗读正文、普通话、`⚙`
 - `body { max-width: 780px; }`、`-webkit-text-size-adjust: 100%`
 - **不得**出现 `max-width: 920px`

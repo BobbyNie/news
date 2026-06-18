@@ -40,6 +40,49 @@ class ValidateReportUITest(unittest.TestCase):
         errors = validate_report_html(html, "STOCK")
         self.assertTrue(any("change-up" in error for error in errors))
 
+    def test_future_stock_report_requires_recent_ipo_column(self) -> None:
+        html = """
+        <body class="report report-stock">
+        <header class="hero hero-stock"><p class="eyebrow">MARKET DAILY BRIEF</p></header>
+        <section id="top"><ol class="top-list"><li class="market-card">x</li></ol></section>
+        <p class="change-up">+1.0%</p>
+        <div class="table-wrap"><table></table></div>
+        <style>body { max-width: 780px; } html { -webkit-text-size-adjust: 100%; }</style>
+        </body>
+        """
+        errors = validate_report_html(html, "STOCK", report_date="20260618")
+        self.assertTrue(any("recent-ipos" in error for error in errors))
+
+    def test_future_stock_report_accepts_recent_ipo_column(self) -> None:
+        html = """
+        <body class="report report-stock">
+        <header class="hero hero-stock"><p class="eyebrow">MARKET DAILY BRIEF</p></header>
+        <div class="reader-controls" data-reader-controls>
+          <button type="button" data-reader-start>朗读</button>
+          <button type="button" data-reader-pause>暂停</button>
+          <button type="button" data-reader-resume>继续</button>
+          <button type="button" data-reader-stop>停止</button>
+          <button type="button" data-reader-settings-open aria-label="设置">⚙</button>
+          <p data-reader-status>可使用浏览器语音朗读本文。</p>
+          <dialog data-reader-settings>
+            <button type="button" data-reader-settings-close>关闭</button>
+            <input type="password" data-google-tts-key>
+            <select data-google-tts-voice></select>
+            <button type="button" data-google-tts-save>保存 Key</button>
+            <button type="button" data-google-tts-clear>清除 Key</button>
+          </dialog>
+        </div>
+        <section id="top"><ol class="top-list"><li class="market-card">x</li></ol></section>
+        <section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2></section>
+        <p class="change-up">+1.0%</p>
+        <div class="table-wrap"><table></table></div>
+        <style>body { max-width: 780px; } html { -webkit-text-size-adjust: 100%; }</style>
+        <script src="../../assets/report-reader.js" defer></script>
+        </body>
+        """
+        errors = validate_report_html(html, "STOCK", report_date="20260618")
+        self.assertEqual(errors, [])
+
     def test_ai_report_requires_finance_ai_applications_column(self) -> None:
         html = """
         <body class="report report-ai">

@@ -10,4 +10,6 @@ NVDA MarketWatch delayed quote 显示 2026-06-17 regular close $204.65，after-h
 
 港股方面，Trading Economics 显示 HK50 2026-06-18 跌至约 23,874，日跌约 1.80%，近一月跌约 7.46%。当前环境未取得稳定官方港股个股实时接口，因此不写腾讯、阿里、小米、百度的未核验精确涨跌；只跟踪公司公告、HKEXnews、业绩和可验证第三方行情。港股科技没有完整复制美股 AI trade，需要更明确的盈利或政策催化。
 
+新增“港股和美股近期 IPO 专栏”：美股 KARD 和 FCBM 于 2026-06-18 开始交易，DPC 已公开提交 NYSE IPO 文件；港股 SENASIC、LIULIUMEI 已新上市，HQVT 预计 2026-06-22 上市。关注等级只用于判断是否继续跟踪，不写买卖建议。初步结论：DPC 和 HQVT 值得重点关注，前者看防务/航空供应链与杠杆修复，后者看多光谱 AI 增长与上市后成交质量；KARD、FCBM、SENASIC 谨慎关注；LIULIUMEI 暂不关注，等待首轮交易热度消化。
+
 风险：Fed 语气和收益率会压缩高估值 AI 股票；SpaceX/SPCX IPO 后信息透明度和正式披露仍需核验；AI infrastructure backlog 与 capex 不等于即刻现金流；港股实时数据缺口必须明示。

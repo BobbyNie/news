@@ -71,6 +71,12 @@ AI_FINANCE_APPLICATION_MARKERS = [
     'section id="finance-ai"',
 ]
 
+STOCK_RECENT_IPOS_REQUIRED_SINCE = "20260618"
+STOCK_RECENT_IPOS_MARKERS = [
+    'section id="recent-ipos"',
+    "港股和美股近期 IPO",
+]
+
 READ_ALOUD_REQUIRED_SINCE = "20260608"
 READ_ALOUD_REQUIRED = [
     "reader-controls",
@@ -129,6 +135,11 @@ def validate_report_html(html: str, kind: str, *, report_date: str | None = None
 
     if kind == "AI" and not any(marker in html for marker in AI_FINANCE_APPLICATION_MARKERS):
         errors.append('missing required marker for AI: \'section id="finance-ai-applications"\'')
+
+    if kind == "STOCK" and report_date and report_date >= STOCK_RECENT_IPOS_REQUIRED_SINCE:
+        for marker in STOCK_RECENT_IPOS_MARKERS:
+            if marker not in html:
+                errors.append(f"missing required marker for STOCK: {marker!r}")
 
     if report_date and report_date >= READ_ALOUD_REQUIRED_SINCE:
         for marker in READ_ALOUD_REQUIRED:
