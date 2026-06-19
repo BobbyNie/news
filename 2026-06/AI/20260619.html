@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-19 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-19 AI 日报</h1>
+    <p class="lead">企业 AI 治理、健康与生命科学推理、韩国生态扩张，以及银行风控 AI 是今天主线。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-19 12:02（澳门时间）｜采集窗口：2026-06-17 12:02 ~ 2026-06-19 12:02（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-19 12:02（澳门时间）｜采集窗口：2026-06-17 12:02 ~ 2026-06-19 12:02（澳门时间 UTC+8）</p>
+    <p>本窗口没有新的通用旗舰模型发布；更重要的是 OpenAI 把企业 AI 管理、健康问答和罕见病重分析推向可审计流程，Anthropic 把 Claude 生态扩展到韩国政府安全合作和大型企业工程体系，NVIDIA 继续围绕区域 AI cloud 和 AI factory 扩大算力叙事。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 推出企业 credit analytics 与 spend controls</strong>：Global Admin Console 可按用户、产品、模型和 workspace 拆分 ChatGPT / Codex credit consumption，并提供 unified Cost API。<span class="tag">企业治理</span> <a href="https://openai.com/index/chatgpt-enterprise-spend-controls/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 强化 ChatGPT 健康智能</strong>：GPT-5.5 Instant 在 health evaluations 上接近 frontier Thinking models，且免费用户可用；OpenAI 同时披露医生评审体系。<span class="tag">健康 AI</span> <a href="https://openai.com/index/improving-health-intelligence-in-chatgpt/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 用 o3 Deep Research 辅助罕见病病例重分析</strong>：376 个未解决病例中经专家复核和临床确认建立 18 个诊断，额外诊断率 4.8%。<span class="tag">医疗研究</span> <a href="https://openai.com/index/diagnose-rare-childhood-diseases/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 科学 AI 主线继续推进</strong>：AI chemist 改进 Chan-Lam coupling，LifeSciBench 用真实生命科学工作流评估模型。<span class="tag">科学 AI</span> <a href="https://openai.com/index/ai-chemist-improves-reaction/">AI chemist</a> · <a href="https://openai.com/index/introducing-life-sci-bench/">LifeSciBench</a></li>
+      <li class="news-card"><strong>Anthropic 开设 Seoul office 并签韩国 AI safety MOU</strong>：NAVER、Nexon、LG CNS、Samsung SDS 等企业采用案例同步披露。<span class="tag">企业采用</span> <a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">来源</a></li>
+      <li class="news-card"><strong>NVIDIA / SK Telecom 建设韩国 gigawatt-scale AI Cloud</strong>：NVIDIA Newsroom 同时强调 HPE AI Factory with NVIDIA 进入 agents 时代。<span class="tag">算力供给</span> <a href="https://nvidianews.nvidia.com/">来源</a></li>
+      <li class="news-card"><strong>HSBC 与 Google Cloud 发布 AI banking partnership</strong>：重点是 generative AI / agentic AI 驱动的 financial crime risk management。<span class="tag">金融 AI</span> <a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">来源</a></li>
+      <li class="news-card"><strong>Noam Shazeer 转投 OpenAI 的报道强化人才竞争线索</strong>：因未见公司官方公告，列为 P2 竞争格局观察。<span class="tag">人才竞争</span> <a href="https://www.axios.com/2026/06/18/noam-shazeer-google-openai-characterai">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>企业治理：AI 部署进入 FinOps 与审计阶段</h3>
+    <p>OpenAI 的更新把 ChatGPT Enterprise 和 Codex 的 credit usage 放进 Global Admin Console，并允许管理员查看 top users、usage trends、product/model breakdown，以及通过 unified Cost API 接入内部系统。企业采购 AI 的问题不再只是“模型是否足够强”，还包括预算控制、权限分层、ROI 归因和异常使用识别。<a href="https://openai.com/index/chatgpt-enterprise-spend-controls/">OpenAI</a></p>
+
+    <h3>健康与生命科学：模型被嵌进专家流程</h3>
+    <p>OpenAI 的健康文章披露，每周超过 230 million 用户向 ChatGPT 寻求健康和 wellness 帮助；GPT-5.5 Instant 在 HealthBench 等评测上提升，并由 260 多名医生参与评估。罕见病研究则更具体：o3 Deep Research 只提出 evidence-linked hypotheses，专家按照 ACMG/AMP 框架审核，临床实验室确认后才算诊断。<a href="https://openai.com/index/improving-health-intelligence-in-chatgpt/">Health intelligence</a> · <a href="https://openai.com/index/diagnose-rare-childhood-diseases/">Rare diseases</a></p>
+    <p>AI chemist 与 LifeSciBench 共同说明科学 AI 正在从演示走向 workflow：前者需要实验验证和人类校正，后者用 750 个专家任务、1,062 个附件和 19,020 条 rubric criteria 衡量真实生命科学研究能力。<a href="https://openai.com/index/ai-chemist-improves-reaction/">AI chemist</a> · <a href="https://openai.com/index/introducing-life-sci-bench/">LifeSciBench</a></p>
+
+    <h3>生态与算力：韩国成为区域 AI 采用焦点</h3>
+    <p>Anthropic 首尔办公室把 Claude Code、Claude enterprise adoption 和韩国 AI safety 连接起来。NAVER 全工程组织使用 Claude Code，Nexon、LG CNS、Hanwha、Samsung SDS 和 Channel Corp 等采用案例说明 Claude 不只是聊天产品，而是进入软件开发、客户服务和企业知识工作。<a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Anthropic</a></p>
+    <p>NVIDIA 则从算力基础设施侧推进韩国主权 AI 和企业 AI factory 叙事。SK Telecom 计划使用 NVIDIA DSX platform 建设 gigawatt-scale AI Cloud；HPE AI Factory with NVIDIA 面向 agentic AI production 扩展，显示企业 agents 的瓶颈会落到算力、网络、电力、治理和部署工程。<a href="https://nvidianews.nvidia.com/">NVIDIA Newsroom</a></p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>企业 spend controls、健康智能、罕见病重分析、AI chemist、LifeSciBench、Deployment Simulation</td><td>P0，多条官方更新</td><td><a href="https://openai.com/news/">OpenAI News</a></td></tr>
+          <tr><td>Anthropic</td><td>首尔办公室、韩国政府 AI safety MOU、NAVER / Samsung / LG / Nexon 采用案例</td><td>P1，区域生态</td><td><a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">官方</a></td></tr>
+          <tr><td>NVIDIA</td><td>SK Telecom AI Cloud、HPE AI Factory with NVIDIA、agentic AI infrastructure</td><td>P1，算力供给</td><td><a href="https://nvidianews.nvidia.com/">Newsroom</a></td></tr>
+          <tr><td>HSBC / Google Cloud</td><td>AI banking partnership，financial crime architecture，near 1 billion monthly transactions</td><td>P1，金融 AI</td><td><a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">HSBC</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新增</td><td>继续跟踪</td><td>官方页复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <div class="company-card">
+      <h3>HSBC + Google Cloud：AI 进入金融犯罪风控架构</h3>
+      <p>HSBC 官方新闻稿称，将部署 generative AI 和 agentic AI 建设 financial crime architecture，让风险更早被检测、干预更快，并覆盖其每月近 1 billion transactions 的监控场景。这是银行 AI 从客服、投顾和内部知识工具，扩展到金融犯罪、合规和实时风险架构的直接案例。<a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">HSBC</a></p>
+    </div>
+    <div class="company-card">
+      <h3>Bank of America：客户对 AI-led treasury / FX 能力需求升温</h3>
+      <p>BofA 新闻稿强调客户正转向 data and AI-driven capabilities，以强化 resilience、decision-making 和 measurable results。该信息适合作为金融 AI 需求侧信号，但不作为股价或投资判断。<a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/06/bank-of-america-highlights-surging-demand-for-ai-led-treasury--f.html">Bank of America</a></p>
+    </div>
+    <div class="company-card">
+      <h3>JPMorgan / Goldman 香港员工 Claude 访问限制</h3>
+      <p>FT 报道 JPMorgan 切断香港员工访问 Anthropic Claude 的权限，原因与 Anthropic 对 Greater China 的 licensing terms、国家安全和模型蒸馏担忧有关。该事件提示金融机构采用 AI 时，供应商地域条款、合规和模型访问控制会成为部署约束。<a href="https://www.ft.com/content/de83d303-6a03-456b-bfb9-7b11dd502ab3">FT</a></p>
+    </div>
+    <div class="warn">本栏目只写银行、券商、保险、资管、支付和监管科技如何使用或建设 AI；不使用宏观、利率、股价、指数、IPO 定价或金融就业内容填充。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>医疗 AI 只能作为健康信息、就医准备和专家辅助流程，不应被解读为独立诊断。</li>
+      <li>AI chemist 的结果仍是特定反应体系案例，需要更广泛底物范围、成本、安全和独立复现验证。</li>
+      <li>企业 spend controls 改善治理，但不等于 AI ROI 已经自动成立。</li>
+      <li>HSBC / Google Cloud 合作属于强官方信号，但真实效果仍需后续指标和案例。</li>
+      <li>人才流动报道未见公司官方公告，不能直接推导模型能力变化。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否继续披露 GPT-5.5 health、罕见病重分析和科学 AI 的外部验证结果。</li>
+      <li>Anthropic 韩国 MOU 是否带来韩文安全评测、政府试点或更多 Claude Code 客户案例。</li>
+      <li>NVIDIA / SK Telecom AI Cloud 是否披露容量、时间表、客户和电力/网络约束。</li>
+      <li>HSBC / Google Cloud 是否公布风控 AI 架构实施阶段、地区范围和效果指标。</li>
+      <li>JPMorgan / Goldman / Anthropic 香港访问限制是否有官方回应或更多金融机构跟进。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI、Anthropic、NVIDIA Newsroom、HSBC、Bank of America、FT、Axios，以及项目 sources manifest 中的金融 AI 和主流 AI 来源。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、WSJ 部分内容受登录或付费限制；X/Facebook 未作为唯一事实来源；Google DeepMind、Meta AI、xAI、Perplexity 本窗口未见同等级官方新增。</p>
+    <p>工作文件：<code>tmp/AI/20260619/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
