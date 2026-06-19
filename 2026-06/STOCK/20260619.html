@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-19 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-19 股市日报</h1>
+    <p class="lead">美港休市，最新完整交易日是 6 月 18 日；科技反弹、港股回落和 IPO 窗口是重点。</p>
+    <div class="market-strip"><span>生成时间：2026-06-19 12:02（澳门时间）｜采集窗口：2026-06-17 12:02 ~ 2026-06-19 12:02（澳门时间 UTC+8）｜市场日历：美股与港股 2026-06-19 休市，最新完整交易日为 2026-06-18</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-19 12:02（澳门时间）｜采集窗口：2026-06-17 12:02 ~ 2026-06-19 12:02（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响与继续跟踪，不构成买卖建议。今天美股因 Juneteenth 休市，港股也因香港假期休市，因此行情部分以 2026-06-18 收盘和交易所日历为准。<a href="https://www.nyse.com/trade/hours-calendars">NYSE</a> · <a href="https://www.hkex.com.hk/?sc_lang=en">HKEX</a></p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股 6 月 18 日收高，6 月 19 日休市</strong>。事实：AP 报道 S&P 500 涨 <span class="change-up">+1.1%</span> 至 <span class="price">7,500.58</span>，Nasdaq 涨 <span class="change-up">+1.9%</span> 至 <span class="price">26,517.93</span>，Dow 涨 <span class="change-up">+0.1%</span> 至 <span class="price">51,564.70</span>。可能影响：科技和小盘风险偏好修复；继续跟踪休市后资金是否确认。<a href="https://apnews.com/article/411ec68891aa5dc7d7f684e0305e2aa3">来源</a></li>
+      <li class="market-card"><strong>Russell 2000 反弹更强</strong>。事实：AP 报道 Russell 2000 涨 <span class="change-up">+2.1%</span> 至 <span class="price">2,979.77</span>。可能影响：风险偏好从大盘科技扩散至小盘；继续跟踪利率和信用环境。<a href="https://apnews.com/article/411ec68891aa5dc7d7f684e0305e2aa3">来源</a></li>
+      <li class="market-card"><strong>港股 6 月 19 日休市，恒指最新收盘下跌</strong>。事实：MarketWatch 显示恒指 2026-06-18 16:08 HKST 收 <span class="price">23,924.81</span>，跌 <span class="change-down">-387.35 / -1.59%</span>。可能影响：港股科技和消费继续弱于美股科技；继续跟踪 6 月 22 日复市。<a href="https://www.marketwatch.com/investing/index/hsi?countrycode=hk">来源</a></li>
+      <li class="market-card"><strong>腾讯、阿里、美团等权重股 6 月 18 日承压</strong>。事实：Yahoo / Google Finance snippets 显示腾讯收 <span class="price">HK$440.20</span>、跌 <span class="change-down">-1.17%</span>；阿里 HK$104.90、跌 <span class="change-down">-1.87%</span>；美团 HK$71.80、跌 <span class="change-down">-3.49%</span>。可能影响：港股 AI/cloud/internet 主题仍受流动性约束。<a href="https://finance.yahoo.com/quote/0700.HK/">腾讯</a> · <a href="https://www.google.com/finance/beta/quote/0700%3AHKG">同页摘要</a></li>
+      <li class="market-card"><strong>Kardigan 与 First Carolina 进入美股 IPO 交易窗口</strong>。事实：Kardigan 预计 6 月 18 日以 KARD 在 Nasdaq 交易；First Carolina IPO 定价 $12.50，低于 $14-$16 区间。可能影响：IPO 风险偏好仍分化，临床 biotech 与区域银行需分开评估。<a href="https://www.sec.gov/Archives/edgar/data/2123613/000119312526239298/d107928ds1.htm">KARD S-1</a> · <a href="https://www.stocktitan.net/news/FCBM/first-carolina-financial-services-announces-pricing-of-initial-3be2znz7etwp.html">FCBM</a></li>
+      <li class="market-card"><strong>HQVT 预计 6 月 22 日港股上市</strong>。事实：HKEX 新上市表列 HQVT (01392) 于 2026-06-22 新上市；招股相关报道列示发行价 HK$7.20。可能影响：多光谱 AI 题材稀缺但上市初期波动可能高。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX</a> · <a href="https://www.aastocks.com/en/mobile/news.aspx?newsid=NOW.1528552&newssource=AAFN&newstype=71">AAStocks</a></li>
+      <li class="market-card"><strong>HSBC 与 Google Cloud 合作增加银行 AI 主题能见度</strong>。事实：HSBC 将用 generative AI / agentic AI 建设 financial crime architecture。可能影响：银行 AI 支出主题更偏风控与合规；继续跟踪实施指标。<a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">来源</a></li>
+      <li class="market-card"><strong>马斯克相关资产仍需分开看</strong>。事实：今天未见 Tesla IR/SEC 新重大披露；SpaceX/SPCX 和 xAI 需要官方文件确认。可能影响：不能把 Tesla、SpaceX/SPCX、xAI 混成单一交易。<a href="https://ir.tesla.com/sec-filings">Tesla IR</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 指标</th><th>最新可核验数据</th><th>涨跌</th><th>时间与来源</th></tr></thead>
+        <tbody>
+          <tr><td>S&P 500</td><td class="price">7,500.58</td><td class="change-up">+1.1%</td><td>2026-06-18 收盘，<a href="https://apnews.com/article/411ec68891aa5dc7d7f684e0305e2aa3">AP</a></td></tr>
+          <tr><td>Nasdaq Composite</td><td class="price">26,517.93</td><td class="change-up">+1.9%</td><td>2026-06-18 收盘，<a href="https://apnews.com/article/411ec68891aa5dc7d7f684e0305e2aa3">AP</a></td></tr>
+          <tr><td>Dow Jones</td><td class="price">51,564.70</td><td class="change-up">+0.1%</td><td>2026-06-18 收盘，<a href="https://apnews.com/article/411ec68891aa5dc7d7f684e0305e2aa3">AP</a></td></tr>
+          <tr><td>Russell 2000</td><td class="price">2,979.77</td><td class="change-up">+2.1%</td><td>2026-06-18 收盘，<a href="https://apnews.com/article/411ec68891aa5dc7d7f684e0305e2aa3">AP</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>美股反弹的结构偏向 Nasdaq 和 Russell 2000，说明风险偏好有所修复。由于 6 月 19 日休市，今天不能用盘中走势确认延续性；下一个观察点是休市后科技股、半导体和小盘是否继续同步。</p>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>HKEX 明确香港市场 2026-06-19 休市，6 月 22 日恢复交易。港股最新可核验大盘数据为 6 月 18 日恒指收盘 <span class="price">23,924.81</span>，跌 <span class="change-down">-1.59%</span>。这与美股 6 月 18 日反弹形成分化，说明港股科技和消费权重仍受本地流动性、政策预期和盈利修复节奏影响。<a href="https://www.hkex.com.hk/?sc_lang=en">HKEX</a> · <a href="https://www.marketwatch.com/investing/index/hsi?countrycode=hk">MarketWatch</a></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的</th><th>最新可核验数据</th><th>跟踪理由</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>0700.HK 腾讯</td><td class="price">HK$440.20，<span class="change-down">-1.17%</span></td><td>游戏、广告、云与元宝 AI 生态</td><td><a href="https://finance.yahoo.com/quote/0700.HK/">Yahoo Finance</a></td></tr>
+          <tr><td>9988.HK 阿里巴巴</td><td class="price">HK$104.90，<span class="change-down">-1.87%</span></td><td>云、通义、企业 AI 和电商广告</td><td><a href="https://www.google.com/finance/beta/quote/0700%3AHKG">Google Finance 摘要</a></td></tr>
+          <tr><td>3690.HK 美团</td><td class="price">HK$71.80，<span class="change-down">-3.49%</span></td><td>本地生活、无人配送和广告效率</td><td><a href="https://www.google.com/finance/beta/quote/0700%3AHKG">Google Finance 摘要</a></td></tr>
+          <tr><td>0005.HK HSBC</td><td class="price">HK$149.00，<span class="change-up">+0.68%</span></td><td>AI banking partnership 与金融风控 AI</td><td><a href="https://www.google.com/finance/beta/quote/0700%3AHKG">Google Finance 摘要</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="recent-ipos">
+    <h2>港股和美股近期 IPO 专栏</h2>
+    <p>本栏区分近期已上市 IPO 与即将 IPO / 已递表 / 已提交注册文件，只给非交易建议式关注等级，不给买入、卖出、目标价或收益判断。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>市场 / 公司</th><th>阶段与条款</th><th>业务与财务质量</th><th>风险</th><th>关注等级</th></tr></thead>
+        <tbody>
+          <tr><td>美股 Kardigan (KARD)</td><td>即将/近期上市；Nasdaq，预计 2026-06-18 开始交易；SEC S-1 已披露。<a href="https://www.sec.gov/Archives/edgar/data/2123613/000119312526239298/d107928ds1.htm">SEC</a></td><td>心血管精准治疗赛道具备临床事件弹性；项目组合来自并购整合，若关键试验推进顺利，关注度会提高。</td><td>临床阶段亏损、持续融资需求、研发失败、稀释和上市初期流动性风险。</td><td><strong>谨慎关注</strong>：需要看临床里程碑和 cash runway，不看首日情绪。</td></tr>
+          <tr><td>美股 First Carolina Financial (FCBM)</td><td>近期上市；NYSE，发行 5.5m shares，IPO 定价 <span class="price">$12.50</span>，低于此前 <span class="price">$14-$16</span> 区间。<a href="https://www.stocktitan.net/news/FCBM/first-carolina-financial-services-announces-pricing-of-initial-3be2znz7etwp.html">公告</a></td><td>区域银行资产、贷款和存款数据可评估；募资用途包括 organic growth、potential acquisitions、refinancing 和 working capital。</td><td>低于区间定价显示需求需观察；区域银行仍受净息差、信贷周期、商业地产和存款成本影响。</td><td><strong>谨慎关注</strong>：等上市后净息差、资产质量和存款成本数据。</td></tr>
+          <tr><td>港股 HQVT (01392.HK)</td><td>即将上市；HKEX 新上市表显示 2026-06-22 上市；报道列示发行价 <span class="price">HK$7.20</span>、预计净募资约 HK$537m。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX</a> · <a href="https://www.aastocks.com/en/mobile/news.aspx?newsid=NOW.1528552&newssource=AAFN&newstype=71">AAStocks</a></td><td>多光谱 AI / 安全监测题材稀缺，ACN Newswire 转引招股资料称 2023-2025 收入 CAGR 约 138.9%，2025 adjusted net profit RMB55.2m。<a href="https://acnnewswire.com/press-release/english/107752/china%27s-top-multispectral-ai-firm-shenzhen-hqvt-advances-hong-kong-ipo">ACN</a></td><td>客户结构、订单持续性、毛利稳定性和上市初期流动性仍待验证。</td><td><strong>值得重点关注</strong>：产业题材强，但只跟踪订单和财务兑现。</td></tr>
+          <tr><td>港股 HJ SCIENCE-B (06132.HK)</td><td>即将上市；HKEX 新上市表显示 2026-06-23 新上市。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX</a></td><td>新上市表可确认时间，但本窗口未完成足够招股书财务拆解。</td><td>信息不足，且 -B 通常意味着商业化/盈利阶段需重点核实。</td><td><strong>信息不足</strong>：等待招股书财务、研发管线和基石信息整理。</td></tr>
+          <tr><td>港股 Xiaohongshu / Rednote</td><td>媒体称筹备香港 IPO，潜在估值超过 $70bn；未见 HKEX 递表。<a href="https://www.wsj.com/tech/chinas-instagram-readies-hong-kong-ipo-that-could-see-it-valued-at-over-70-billion-879222fa">WSJ</a></td><td>内容社区、电商和广告变现能力强，若递表将成为港股大体量互联网平台候选。</td><td>当前不是正式递表；监管、内容审核、离岸结构和估值都未能核验。</td><td><strong>信息不足</strong>：只列入 watchlist，等待 HKEX 文件。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>OpenAI / Anthropic</strong>：本窗口没有新的官方 IPO 文件；相关估值和上市传闻不作为确定事实。</li>
+      <li><strong>xAI</strong>：只有官方融资、客户、模型发布、算力采购或与 Tesla / SpaceX 的正式披露出现时才写入确定结论。</li>
+      <li><strong>Xiaohongshu / Rednote</strong>：若后续递表，将是港股互联网/AI 内容生态的重要候选；目前只能作为媒体报道线索。</li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>本窗口没有单一财报主导全市场。美股科技反弹更多来自整体风险偏好修复，后续仍需跟踪 NVIDIA、Microsoft、Google、Amazon、Oracle、CoreWeave 等 AI capex / cloud / data center 相关公司的订单、收入确认、自由现金流和融资成本。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：AI capex 是否从订单转为收入，data center 电力和网络约束是否影响交付，港股互联网盈利修复是否能抵消流动性压力。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li>美港今天休市，报告不写 2026-06-19 盘中涨跌。</li>
+      <li>IPO 定价和首日表现不等于长期基本面，临床阶段 biotech 和高增长 AI 港股尤其需要看现金流与订单。</li>
+      <li>港股个股价格来自延迟第三方摘要，应以交易所和公司披露复核。</li>
+      <li>AI 主题反弹仍受利率、估值拥挤、capex 兑现和监管政策影响。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：Tesla、SpaceX/SPCX 和 xAI 不能混成一个交易。Tesla 是上市公司，必须以交付、FSD/robotaxi、能源、利润率、监管和 SEC/IR 披露为准；SpaceX/SPCX 若处于公开交易窗口，核心是自由流通量、锁定期、政府合同、Starlink 和发射节奏；xAI 则只能写官方融资、模型、客户和算力采购。</p>
+    <ul>
+      <li><strong>TSLA</strong>：本窗口未见 Tesla IR/SEC 新重大披露，继续跟踪 <a href="https://ir.tesla.com/sec-filings">Tesla SEC filings</a>。</li>
+      <li><strong>SpaceX/SPCX</strong>：相关交易结构和锁定期必须等官方文件确认；媒体摘要不能替代 SEC、Nasdaq 或公司 IR。</li>
+      <li><strong>xAI</strong>：融资、模型和算力采购需要官方来源；社媒传闻不作为唯一事实来源。</li>
+    </ul>
+    <div class="warn">本专题不提供买卖建议；马斯克相关资产波动高，披露质量和市场结构差异很大。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>美港复市后，6 月 18 日美股科技反弹能否延续。</li>
+      <li>恒指、腾讯、阿里、美团和 HSBC 在 6 月 22 日复市后的方向。</li>
+      <li>Kardigan、First Carolina 和 HQVT 的上市后成交、流通量、锁定期和基本面补充披露。</li>
+      <li>HSBC / Google Cloud AI banking partnership 是否带来更多银行或金融 IT 标的联动。</li>
+      <li>Tesla、SpaceX/SPCX、xAI 是否有正式披露，而非社媒或二手传闻。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：AP、NYSE、HKEX、MarketWatch、Yahoo Finance、Google Finance 摘要、SEC EDGAR、HKEXnews、AAStocks、ACN Newswire、HSBC、Tesla IR、WSJ。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT 部分内容受登录或付费限制；港股个股实时官方行情接口不稳定；SpaceX/SPCX 交易结构仍需官方文件确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260619/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
