@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-22 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-22 股市日报</h1>
+    <p class="lead">美股复市看油价与 Micron，港股复市看新股承接与 AI/TMT IPO 管线。</p>
+    <div class="market-strip"><span>生成时间：2026-06-22 12:35（澳门时间）｜采集窗口：2026-06-20 12:35 ~ 2026-06-22 12:35（澳门时间 UTC+8）｜市场日历：港股 6 月 22 日如常复市，美股现金盘仍待美国时段确认</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-22 12:35（澳门时间）｜采集窗口：2026-06-20 12:35 ~ 2026-06-22 12:35（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响与继续跟踪，不构成买卖建议。澳门午间时美股现金盘尚未开出完整 6 月 22 交易日，因此美股部分以盘前期指、油价和即将公布的 earnings catalyst 为主；港股部分以 HKEX 复市和新上市表为准。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股复市前期指承压，油价因地缘风险上行</strong>。事实：Barron's 摘要显示 Dow、Nasdaq、S&P 500 futures 下跌约 <span class="change-down">0.3%-0.4%</span>，WTI oil 涨约 <span class="change-up">+2.7%</span> 至 <span class="price">$78</span>。可能影响：通胀预期、能源、航空运输和成长股折现率重新被定价；继续跟踪现金盘确认。<a href="https://www.barrons.com/articles/stock-futures-oil-trading-sunday-a0a615fa">来源</a></li>
+      <li class="market-card"><strong>Nvidia、SpaceX、Micron 是盘前焦点</strong>。事实：IBD 指出上周半导体、AI 和 biotech 领涨，Nasdaq 周涨约 <span class="change-up">+2.4%</span>，Micron earnings 将影响 AI memory 主题。可能影响：AI 硬件链是否继续扩散，要看 Micron 指引和油价冲击。<a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-us-iran-talks-hormuz-nvidia-spacex-micron/">来源</a></li>
+      <li class="market-card"><strong>Micron earnings 成为 AI memory / HBM 关键事件</strong>。事实：MarketWatch 摘要称 FactSet 预期 Micron May quarter adjusted EPS 年增接近 <span class="change-up">1,000%</span>，需求来自 AI-related memory chips。可能影响：HBM、DRAM、server supply chain 和 AI capex 交易会被重新校准。<a href="https://www.marketwatch.com/story/microns-earnings-are-a-must-watch-market-event-with-profit-growth-approaching-1-000-78ec4549">来源</a></li>
+      <li class="market-card"><strong>港股 6 月 22 日复市，HQVT 新上市</strong>。事实：HKEX calendar 显示香港市场 6 月 22 日如常重开；新上市表列 HQVT (01392) 于 6 月 22 日新上市。可能影响：AI / multispectral 题材的首日承接和流动性是观察点。<a href="https://www.hkex.com.hk/News/HKEX-Calendar?defaultdate=2026-6-22&sc_lang=en">HKEX Calendar</a> · <a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">新上市表</a></li>
+      <li class="market-card"><strong>香港 IPO 生态仍由 AI/TMT 支撑</strong>。事实：HKEX Q1 数据显示 40 宗 IPO 融资 <span class="price">HK$110.4bn</span>，TMT 是主导行业，并覆盖 AI value chain。可能影响：若二级承接稳定，香港仍会吸引 AI/TMT 候选公司递表。<a href="https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Q1-2026-Hong-Kong-Market-Update?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>Coowa、Momenta 被报准备香港 IPO</strong>。事实：WSJ 报道 Coowa 可能 2-3 个月内递表；Momenta 目标约 <span class="price">$1bn</span> 香港 IPO。可能影响：机器人和自动驾驶软件可能成为下一批港股 AI 候选，但需等 HKEX 文件。<a href="https://www.wsj.com/tech/ai/softbank-backed-robot-maker-gears-up-for-hong-kong-ipo-sources-say-ef2c78a2">Coowa</a> · <a href="https://www.wsj.com/business/autos/chinese-autonomous-driving-unicorn-targets-1-billion-hong-kong-ipo-a8e2401f">Momenta</a></li>
+      <li class="market-card"><strong>HSBC / Google Cloud 支撑银行 AI 主题</strong>。事实：HSBC 将用 generative AI / agentic AI 建设 financial crime architecture，并计划 200+ AI use cases。可能影响：银行科技主题更偏风控、客户经理工具和效率收益。<a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">来源</a></li>
+      <li class="market-card"><strong>马斯克相关资产不能混成单一交易</strong>。事实：xAI 诉 OpenAI 商业秘密案被驳回是 AI 竞争/诉讼线索，不是 Tesla 经营披露，也不是 SpaceX/SPCX 发行条款。可能影响：继续只看 SEC、IR、交易所或公司正式文件。<a href="https://www.wsj.com/tech/judge-dismisses-elon-musks-xai-trade-secret-lawsuit-against-openai-f637c52e">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <p>美股今天的盘前组合是“地缘风险 + 油价 + AI memory earnings”。期指下跌和油价上行会先压估值；Micron 则提供 AI memory / HBM 需求验证。若 Micron 指引继续显示 tight memory supply，AI 硬件链可能获得基本面支撑；若显示周期见顶，Nvidia、AMD、Broadcom、server OEM 和 storage 主题会承压。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>主题</th><th>最新可核验信息</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>期指 / 油价</td><td class="quote-line">Futures 约 -0.3% 至 -0.4%；WTI oil 约 +2.7% 至 $78</td><td>通胀、能源、航空运输、成长股折现率</td><td><a href="https://www.barrons.com/articles/stock-futures-oil-trading-sunday-a0a615fa">Barron's</a></td></tr>
+          <tr><td>Micron</td><td class="quote-line">FactSet 预期 May quarter adjusted EPS 年增接近 1,000%</td><td>HBM / DRAM / AI server supply chain</td><td><a href="https://www.marketwatch.com/story/microns-earnings-are-a-must-watch-market-event-with-profit-growth-approaching-1-000-78ec4549">MarketWatch</a></td></tr>
+          <tr><td>Nvidia / AI chips</td><td>IBD 指上周半导体和 AI stocks 领涨，Nvidia、Micron 为焦点</td><td>AI capex 交易能否延续</td><td><a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-us-iran-talks-hormuz-nvidia-spacex-micron/">IBD</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>HKEX 页面显示香港市场 6 月 22 日如常重开。今天港股重点不是单一指数点位，而是节后复市承接、新股流动性和 AI/TMT IPO 管线。HKEX Q1 数据显示，香港 Q1 2026 新上市 40 家，IPO 融资 HK$110.4bn，TMT 是主导行业，说明 AI value chain 仍在把香港当成主要上市窗口。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>项目</th><th>状态</th><th>跟踪理由</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>HKEX 复市</td><td>2026-06-22 如常重开</td><td>节后首日成交和南向资金承接</td><td><a href="https://www.hkex.com.hk/News/HKEX-Calendar?defaultdate=2026-6-22&sc_lang=en">HKEX</a></td></tr>
+          <tr><td>HQVT (01392)</td><td>2026-06-22 新上市</td><td>多光谱 AI / 安全监测题材，需看首日流动性和订单兑现</td><td><a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX 新上市表</a></td></tr>
+          <tr><td>SENIOR MATERIAL (06067)</td><td>2026-06-23 新上市</td><td>材料 / 新能源链条，需看行业景气与客户结构</td><td><a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX 新上市表</a></td></tr>
+          <tr><td>HJ SCIENCE-B (06132)</td><td>2026-06-23 新上市</td><td>-B 标识提示商业化和盈利阶段需核实</td><td><a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX 新上市表</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="recent-ipos">
+    <h2>港股和美股近期 IPO 专栏</h2>
+    <p>本栏区分近期已上市 IPO 与即将 IPO / 已递表 / 已提交注册文件，只给非交易建议式关注等级，不给买入、卖出、目标价或确定收益判断。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>市场 / 公司</th><th>阶段与条款</th><th>业务与财务质量</th><th>风险</th><th>关注等级</th></tr></thead>
+        <tbody>
+          <tr><td>港股 HQVT (01392)</td><td>近期已上市；HKEX 新上市表显示 2026-06-22 新上市。</td><td>多光谱 AI 题材稀缺，若订单和毛利质量兑现，有较强主题识别度。</td><td>首日流动性、客户集中、订单持续性和估值条款仍需复核。</td><td><strong>值得重点关注</strong>：题材强，但只跟踪成交与财务兑现。</td></tr>
+          <tr><td>港股 SENIOR MATERIAL (06067)</td><td>即将上市；HKEX 新上市表显示 2026-06-23 新上市。</td><td>材料链条可能受新能源和电子供应链周期影响。</td><td>行业价格周期、客户集中、产能爬坡和首日流动性。</td><td><strong>谨慎关注</strong>：等招股书财务与上市后成交验证。</td></tr>
+          <tr><td>港股 HJ SCIENCE-B (06132)</td><td>即将上市；HKEX 新上市表显示 2026-06-23 新上市。</td><td>新上市表可确认时间，但本窗口未完成足够财务和商业化拆解。</td><td>-B 标识、研发/商业化进度、现金消耗、流动性。</td><td><strong>信息不足</strong>：等待招股书重点条款整理。</td></tr>
+          <tr><td>港股 Coowa</td><td>即将 IPO / 准备递表；WSJ 称或 2-3 个月内申请香港 IPO，估值超过 $3bn。</td><td>embodied AI robots、城市服务和制造应用题材强；2025 收入据报道超过人民币 10 亿元。</td><td>未见 HKEX 文件；机器人订单质量、毛利率、客户集中和估值条款待核实。</td><td><strong>信息不足</strong>：列入 watchlist，等待递表。</td></tr>
+          <tr><td>港股 Momenta</td><td>即将 IPO / 媒体称目标约 $1bn 香港 IPO。</td><td>自动驾驶软件，背后股东和合作方包括 GM、Toyota、SAIC、Uber、Mercedes-Benz、Grab 等媒体报道线索。</td><td>未见招股书；收入确认、监管、安全责任和商业化节奏需核实。</td><td><strong>谨慎关注</strong>：产业地位强，但必须等待 HKEX 文件。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>Coowa / Momenta</strong>：两者都是港股 AI value chain 候选，但当前仍以主流媒体线索为主，不能当成正式递表事实。</li>
+      <li><strong>OpenAI / Anthropic / xAI</strong>：本窗口没有可核验 IPO 文件；估值和上市传闻不写成确定结论。</li>
+      <li><strong>SpaceX / SPCX</strong>：社媒和视频线索多，但正式交易结构需要 SEC、Nasdaq 或公司文件确认。</li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>Micron 是本周 AI 硬件链最直接的 earnings catalyst。MarketWatch 摘要显示，市场预期其 May quarter adjusted EPS 年增接近 1,000%，背后是 AI-related memory chips 和 tight memory supply。真正需要看的不是单季同比本身，而是 HBM pricing、capacity、2027 supply、客户订单和毛利弹性。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：Micron 指引是否支持 AI memory shortage 继续存在；FedEx / FedEx Freight 是否给出宏观运输需求信号；Nvidia / server chain 是否随 Micron 指引同步反应。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li>澳门午间时美股现金盘未完成，盘前期指和油价需等实际成交确认。</li>
+      <li>油价上行会同时影响通胀预期、利率和企业利润率，可能压制高估值成长股。</li>
+      <li>IPO 关注等级不等于投资建议；首日涨跌不能替代业务质量、财务质量、估值条款和锁定期分析。</li>
+      <li>WSJ / Barron's / MarketWatch 部分内容受付费墙限制，报告只采用可核验摘要和标题级事实。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：Tesla、SpaceX/SPCX 和 xAI 必须分开看。Tesla 是上市公司，继续以交付、FSD/robotaxi、能源、利润率、监管和 SEC/IR 披露为准；SpaceX/SPCX 若涉及公开交易，核心是正式发行文件、自由流通量、锁定期、政府合同、Starlink 和发射节奏；xAI 则只能写官方融资、模型、客户、算力采购和诉讼文件。</p>
+    <ul>
+      <li><strong>TSLA</strong>：本窗口未见 Tesla IR/SEC 新重大经营披露，继续跟踪 <a href="https://ir.tesla.com/sec-filings">Tesla SEC filings</a>。</li>
+      <li><strong>SpaceX/SPCX</strong>：社媒和视频传播强，但交易条款必须等 SEC/Nasdaq/公司正式文件确认。</li>
+      <li><strong>xAI</strong>：WSJ 报道 xAI 对 OpenAI 的商业秘密诉讼被驳回，这是竞争/诉讼风险线索，不是 Tesla 或 SpaceX 基本面。<a href="https://www.wsj.com/tech/judge-dismisses-elon-musks-xai-trade-secret-lawsuit-against-openai-f637c52e">来源</a></li>
+    </ul>
+    <div class="warn">本专题不提供买卖建议；马斯克相关资产波动高，披露质量、流动性和市场结构差异很大。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>美股现金盘是否确认期指跌幅，油价冲击是否扩散到航空、运输和高估值科技。</li>
+      <li>Micron earnings 和指引是否验证 AI memory / HBM 紧缺。</li>
+      <li>港股复市后 HQVT、SENIOR MATERIAL、HJ SCIENCE-B 的成交、换手和承接质量。</li>
+      <li>Coowa、Momenta 是否出现 HKEX 递表或招股书文件。</li>
+      <li>Tesla、SpaceX/SPCX、xAI 是否出现正式 SEC、IR、交易所或公司公告。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Barron's、IBD、MarketWatch、HKEX Calendar、HKEX Newly Listed Securities、HKEX Insight、WSJ、HSBC、Tesla IR。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT、WSJ、Barron's、MarketWatch 部分内容受登录或付费限制；港股实时官方个股价格未稳定获取；SpaceX/SPCX 交易结构仍需官方文件确认。</p>
+    <p>工作文件：<code>tmp/STOCK/20260622/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>

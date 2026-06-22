@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-22 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-22 AI 日报</h1>
+    <p class="lead">今天主线不是新旗舰模型，而是企业 AI 成本、权限、跨境访问与银行 AI 落地。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-22 12:35（澳门时间）｜采集窗口：2026-06-20 12:35 ~ 2026-06-22 12:35（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-22 12:35（澳门时间）｜采集窗口：2026-06-20 12:35 ~ 2026-06-22 12:35（澳门时间 UTC+8）</p>
+    <p>本窗口内 OpenAI、Anthropic、Google DeepMind、Meta AI、xAI 官方页未见同等级新旗舰模型发布。今日重点转向企业 AI 采用的成本、权限、跨境访问、模型选择，以及银行 AI 从客服走向风控和运营流程。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>Microsoft / Nadella 把 AI 产业集中度推到台前</strong>：WSJ 报道 Nadella 警告不能让少数 AI giants 吞噬经济，强调低成本、可访问和用户可控的模型生态。<span class="tag">产业结构</span> <a href="https://www.wsj.com/tech/ai/microsofts-satya-nadella-we-cant-let-ai-giants-eat-the-economy-b9d33b9f">来源</a></li>
+      <li class="news-card"><strong>Copilot Cowork 走向用量计费与多模型选择</strong>：Axios 报道 Microsoft 正考虑把 DeepSeek 纳入 Copilot Cowork，并以 Azure 托管处理企业安全和数据驻留。<span class="tag">Agent 成本</span> <a href="https://www.axios.com/2026/06/16/microsoft-copilot-cowork-tokenmaxxing-cowork">来源</a></li>
+      <li class="news-card"><strong>OpenAI release notes 更新 ChatGPT app experience</strong>：官方记录显示 ChatGPT 加入多语言发音指导、World Cup conversational updates、connected apps permission controls、聊天组织与分享改进。<span class="tag">产品体验</span> <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">来源</a></li>
+      <li class="news-card"><strong>Anthropic / G7 线索凸显 advanced AI access fragmentation 风险</strong>：FT 摘要显示 Dario Amodei 呼吁 G7 避免先进 AI 工具部署碎片化。<span class="tag">AI 治理</span> <a href="https://www.ft.com/content/573925dd-6d41-4185-810d-2b848195903d">来源</a></li>
+      <li class="news-card"><strong>HSBC 与 Google Cloud 把 agentic AI 放进银行风控</strong>：官方称两年内启用 200+ AI use cases，并用 generative AI / agentic AI 建设 financial crime architecture。<span class="tag">金融 AI</span> <a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">来源</a></li>
+      <li class="news-card"><strong>GPT-5.5 Instant 仍是 OpenAI 近期默认能力底座</strong>：OpenAI 称 factuality、视觉推理、数学科学和 personalization 改进，health intelligence 继续扩散。<span class="tag">默认模型</span> <a href="https://openai.com/index/gpt-5-5-instant/">来源</a></li>
+      <li class="news-card"><strong>健康 AI 继续需要边界表达</strong>：OpenAI health intelligence 更新强调 physician-led evaluation；报告不把健康 AI 写成诊断或治疗建议。<span class="tag">高风险场景</span> <a href="https://openai.com/index/improving-health-intelligence-in-chatgpt/">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>企业 AI：模型能力之外，成本与权限成为采购核心</h3>
+    <p>Microsoft 线索说明 enterprise agent 的核心问题不再只是“模型是否聪明”，还包括持续调用成本、用量计费、不同模型的任务分配、企业数据驻留和合规托管。若 Copilot Cowork 采用更便宜模型作为选项，企业可能更重视“任务路由 + 成本上限 + 安全边界”，而不是单一 frontier model 品牌。</p>
+
+    <h3>产品体验：ChatGPT 继续补齐日常场景</h3>
+    <p>OpenAI release notes 中的发音指导、World Cup conversational updates、connected apps permission controls、chat organization 和 iOS photo uploads 加速，说明 ChatGPT 的竞争正在进入低摩擦日常使用阶段。权限控制尤其重要，因为 connected apps 越多，用户越需要明确知道 AI 何时访问、何时修改、何时需要确认。</p>
+
+    <h3>治理与跨境访问：G7 讨论显示模型部署受政策影响</h3>
+    <p>Anthropic / G7 线索说明 advanced AI tools access 正从公司级安全策略变成国家政策和盟友关系问题。若先进模型访问在国家之间被切碎，企业跨境部署、研究合作、金融机构供应商管理和政府采购都会受到影响。</p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>ChatGPT release notes 更新 app experience；GPT-5.5 Instant 与 health intelligence 继续作为能力背景</td><td>P1，产品体验</td><td><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">Release notes</a></td></tr>
+          <tr><td>Microsoft</td><td>Nadella 讨论 AI 产业集中度；Copilot Cowork 线索指向多模型和用量计费</td><td>P0，企业 AI 成本</td><td><a href="https://www.axios.com/2026/06/16/microsoft-copilot-cowork-tokenmaxxing-cowork">Axios</a></td></tr>
+          <tr><td>Anthropic</td><td>G7 场景讨论 advanced AI access fragmentation；官方新闻页未见本窗口新旗舰发布</td><td>P1，治理</td><td><a href="https://www.ft.com/content/573925dd-6d41-4185-810d-2b848195903d">FT</a></td></tr>
+          <tr><td>HSBC / Google Cloud</td><td>多年 AI banking partnership，覆盖财富管理、金融犯罪风险、客户经理工具和 200+ use cases</td><td>P1，金融 AI</td><td><a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">HSBC</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新增模型或产品发布</td><td>继续跟踪</td><td>官方页复核</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <div class="company-card">
+      <h3>HSBC + Google Cloud：银行 AI 从前台服务进入金融犯罪风控架构</h3>
+      <p>HSBC 官方新闻稿称，合作的 initial delivery 聚焦三类：hyper-personalised wealth management support、stronger financial crime risk management、frontline / relationship manager client service。HSBC 将使用 Google Cloud、Google DeepMind 工程资源、Gemini models 和 Gemini Enterprise Agent Platform，预计两年内启用 200+ AI use cases，并优先投资每项可能带来超过 US$100m 直接收入或效率收益的项目。<a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">HSBC</a></p>
+      <p>金融犯罪场景尤其重要：HSBC 表示会部署 generative AI 和 agentic AI 建设 financial crime architecture，以更早检测风险、更快干预，并覆盖每月接近 10 亿笔金融犯罪监控交易。这是银行 AI 应用从客服和知识检索，转向风控、合规、客户经理工具和运营效率的直接案例。</p>
+    </div>
+    <div class="warn">本栏目只写银行、券商、保险、资管、支付和监管科技如何使用或建设 AI；不使用宏观、利率、股价、指数、IPO 定价或金融就业内容填充。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>Microsoft / DeepSeek / Copilot Cowork 仍需等待 Microsoft 官方文档确认，当前按主流媒体线索处理。</li>
+      <li>G7 闭门讨论和 advanced AI access 限制涉及政策和安全细节，不能把摘要写成完整官方立场。</li>
+      <li>OpenAI health intelligence 不等于独立诊断能力；健康相关内容必须保留专业医疗边界。</li>
+      <li>本窗口没有新旗舰模型发布，报告减少条目并记录缺口，不用股市和 IPO 线索填充 AI 主线。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Microsoft 是否正式披露 Copilot Cowork 的模型选择、定价和 Azure 托管细节。</li>
+      <li>G7 或各国政府是否发布 AI access / frontier model export 的正式文件。</li>
+      <li>OpenAI release notes 是否继续扩展 connected apps 权限和移动端体验。</li>
+      <li>HSBC / Google Cloud 是否披露首批 AI use cases 的地区、上线时间和效果指标。</li>
+      <li>Anthropic、Google DeepMind、Meta AI、xAI 是否出现新的官方模型或开发者平台更新。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI Help Center、OpenAI News、Anthropic News、Google DeepMind Blog、HSBC、Axios、WSJ、FT，以及项目 sources manifest 中的金融 AI 和主流 AI 来源。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、WSJ、FT 部分内容受登录或付费限制；X/Facebook/Instagram 未作为唯一事实来源；Anthropic / Google DeepMind / Meta AI / xAI 官方页在本窗口未见同等级新增。</p>
+    <p>工作文件：<code>tmp/AI/20260622/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
