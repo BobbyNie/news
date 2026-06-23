@@ -12,7 +12,7 @@
 ## 失效或降权建议
 
 - 未发现 stock-sources.yaml 既有来源需要删除。
-- 仅有社媒传播的 SpaceX/SPCX、xAI、Tesla 交易线索全部降权，除非有 SEC、IR、交易所或公司公告。
+- 仅有社媒传播的交易线索全部降权；若已有 SEC、IR、交易所或公司公告，应按披露文件重新评级。
 
 ## 今日访问缺口
 
@@ -23,4 +23,4 @@
 ## 需要人工确认的来源
 
 - 近期 IPO 的发行价、募资额、锁定期与首日表现应继续回查 SEC prospectus、Nasdaq IPO Calendar、NYSE IPO Center、HKEX prospectus / allotment results。
-- 马斯克相关资产若出现 SpaceX/SPCX 二级市场或公开产品，必须等待 SEC/Nasdaq/公司文件。
+- 今日复核显示 SpaceX 已有 SEC 文件和 Nasdaq 页面支持 `SPCX` 作为上市标的；xAI 官方页也显示其已被 SpaceX 收购。后续报告不能再把 `SPCX` 写成“等待正式文件”的状态。

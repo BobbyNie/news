@@ -23,14 +23,14 @@
 
 ## P1
 
-- 事件：港股和美股近期 IPO 需要分清已上市、即将上市、已递表和媒体传闻。
+- 事件：SPCX 已是 SpaceX 上市标的，xAI 已由 SpaceX 收购。
 - 为什么重要：IPO 专栏必须基于 SEC / HKEX / Nasdaq / NYSE primary source。
-- 可能影响：没有 primary source 的 AI 独角兽上市传闻只列入 watchlist，不写成上市事实。
-- 证据链接：https://www.nasdaq.com/market-activity/ipos
+- 可能影响：后续跟踪应围绕 SPCX 的公开成交、债务融资、xAI 整合和披露风险，而不是把 xAI 当成独立待上市标的。
+- 证据链接：https://www.sec.gov/Archives/edgar/data/1181412/000162828026043411/spaceexplorationtechnologi.htm / https://x.ai/news/xai-joins-spacex
 
 ## P2
 
-- 事件：马斯克相关资产继续高噪音。
-- 为什么重要：Tesla、SpaceX/SPCX、xAI 的披露主体、流动性和风险完全不同。
-- 可能影响：只用 Tesla SEC/IR、SpaceX 官方或交易文件、xAI 公司/诉讼文件做事实依据。
-- 证据链接：https://ir.tesla.com/sec-filings
+- 事件：事件驱动股票专题需要去除固定人名和固定股票预设。
+- 为什么重要：固定点名会导致报告漏掉真正的窗口内重大事件，也可能把无更新标的写成每日必写内容。
+- 可能影响：每日只写由 SEC/HKEX、交易所、公司 IR、财报、监管/诉讼、异常成交或主流媒体共同触发的标的。
+- 证据链接：https://www.sec.gov/search-filings

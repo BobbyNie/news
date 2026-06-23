@@ -31,7 +31,7 @@ eval "$(python3 scripts/report_date.py '<TRIGGERED_AT>')"
    - 同时读取 `tmp/AI/YYYYMMDD/02-ranked-items.md`、`tmp/AI/YYYYMMDD/03-draft-cn.md`、`tmp/STOCK/YYYYMMDD/02-ranked-items.md`、`tmp/STOCK/YYYYMMDD/03-draft-cn.md`。
    - 若某天日報或 tmp artifact 缺失，在 rollup 中记录缺口；不得跳过既有日報只重新检索，也不得把日報已经覆盖过的事实当成本周新发现重复堆叠。
 4. 检索 `REPORT_WEEK_WINDOW` 内的 AI 行业进展，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/02-ai-findings.md`。必须以 `01-daily-report-rollup.md` 为基线，只补充、核验或更新日報未覆盖/后续有变化的事实。必须遵守 AI 行业内容边界：优先新模型、新功能、Agent、开发者工具/API、开源/研究、企业采用、算力供给、安全/治理与公司产品路线；不得用宏观、股价、指数、IPO 定价或资金流填充 AI 主线。
-5. 检索 `REPORT_WEEK_WINDOW` 内的美股、港股、AI IPO/独角兽、财报指引、监管风险、重要公司新闻与马斯克相关股票专题，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/03-stock-findings.md`。必须以 `01-daily-report-rollup.md` 为基线，只补充、核验或更新日報未覆盖/后续有变化的事实。
+5. 检索 `REPORT_WEEK_WINDOW` 内的美股、港股、AI IPO/独角兽、财报指引、监管风险、重要公司新闻与事件驱动股票专题，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/03-stock-findings.md`。必须以 `01-daily-report-rollup.md` 为基线，只补充、核验或更新日報未覆盖/后续有变化的事实。不得在周报 prompt 中硬编码固定股票、固定人物或固定公司作为必写对象；只覆盖本周有可核验重大变化的标的。
 6. 去重并按“本周影响力”和“下周可继续跟踪性”排序，写入 `tmp/WEEKLY/${REPORT_WEEK_FILE}/04-ranked-weekly-themes.md`。同一事件若同时影响 AI 行业与股市，只保留一个主条目，并在影响分析中分别写清 AI 与市场维度。
 7. 生成中文草稿到 `tmp/WEEKLY/${REPORT_WEEK_FILE}/05-draft-cn.md`。
 8. 用中文生成 HTML 周报到 `${REPORT_WEEK_MONTH}/${REPORT_WEEK_FILE}.html`。标题使用 `${REPORT_WEEK_LABEL} AI + 股市周报`。
@@ -72,7 +72,7 @@ HTML 必须包含：
 5. `#market`：股市主线，覆盖美股、港股、AI IPO/独角兽、财报与监管。
 6. `#cross-impact`：AI 与股市交叉影响，说明产品、算力、监管、财报或资本市场事件如何互相反馈。
 7. `#finance-ai-applications`：金融业 AI 应用专栏（银行优先），无可验证更新时写明已检查来源与缺口。
-8. `#musk`：与伊隆·马斯克相关的股票专题。
+8. `#event-focus`：事件驱动股票专题；只写本周由公开披露、交易所文件、公司 IR、财报、重大监管/诉讼、异常成交或主流市场媒体触发的具体标的。
 9. `#risks`：风险与不确定性。
 10. `#next`：下周继续跟踪。
 11. `#coverage`：来源覆盖与缺口。
@@ -242,7 +242,7 @@ th { background: #eef4ff; color: #1e3a8a; font-weight: 850; }
   <section id="market">股市主线</section>
   <section id="cross-impact">AI 与股市交叉影响</section>
   <section id="finance-ai-applications">金融业 AI 应用专栏（银行优先）</section>
-  <section id="musk">马斯克相关股票专题</section>
+  <section id="event-focus">事件驱动股票专题</section>
   <section id="risks">风险与不确定性</section>
   <section id="next">下周继续跟踪</section>
   <section id="coverage">来源覆盖与缺口</section>

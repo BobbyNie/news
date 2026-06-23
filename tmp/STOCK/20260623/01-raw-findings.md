@@ -40,10 +40,10 @@
 - 可信度：market_disclosure
 - 中文摘要：美股 IPO 候选需以 SEC S-1/F-1、Nasdaq calendar 或 NYSE filing 为准。未见 OpenAI、Anthropic、xAI 等 AI 独角兽提交可公开核验 IPO 文件。
 
-## 马斯克相关资产
+## SpaceX / xAI / SPCX
 
 - 发布时间或发现时间：2026-06-23 澳门午间复核
-- 来源名称：Tesla IR / SEC / WSJ 摘要
-- 原文链接：https://ir.tesla.com/sec-filings / https://www.sec.gov/edgar/browse/?CIK=1318605
-- 可信度：market_disclosure
-- 中文摘要：Tesla、SpaceX/SPCX、xAI 必须分开。Tesla 用 SEC/IR；SpaceX/SPCX 需交易所或发行文件；xAI 用公司公告或诉讼文件。本窗口不把社媒交易传闻写成事实。
+- 来源名称：SEC / Nasdaq / xAI official / MarketWatch
+- 原文链接：https://www.sec.gov/Archives/edgar/data/1181412/000162828026043411/spaceexplorationtechnologi.htm / https://www.nasdaq.com/market-activity/stocks/spcx / https://x.ai/news/xai-joins-spacex / https://www.marketwatch.com/story/spacex-already-needs-to-raise-more-cash-and-its-stock-is-dropping-a1ec150e
+- 可信度：market_disclosure / official / major_media
+- 中文摘要：SEC 文件显示 Space Exploration Technologies Corp. Class A common stock 的交易代码为 SPCX，Nasdaq 页面也列示 SPCX；xAI 官方页称 SpaceX 已收购 xAI。因此今日报告中“SpaceX/SPCX 需要发行或交易文件”“xAI 独立等待 IPO 文件”的表达不准确，应改为：SPCX 已上市，xAI 已纳入 SpaceX 结构，后续股票跟踪应围绕 SPCX 的成交、债务融资、xAI 整合和披露风险。

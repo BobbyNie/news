@@ -204,6 +204,33 @@ class DailyPromptUIRequirementsTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, sources)
 
+    def test_stock_prompts_do_not_hardcode_tickers_or_personalities(self) -> None:
+        files = [
+            ROOT / "prompts" / "cursor-stock-daily.md",
+            ROOT / "prompts" / "cursor-automation-combined.md",
+            ROOT / "prompts" / "cursor-weekly.md",
+            ROOT / "sources" / "stock-sources.yaml",
+        ]
+
+        forbidden = [
+            "马斯克相关股票专题",
+            "与伊隆·马斯克相关的股票专题",
+            "Tesla",
+            "TSLA",
+            "SpaceX/SPCX",
+            "xAI",
+            "NVDA",
+            "MSFT",
+            "GOOGL",
+            "0700.HK",
+        ]
+
+        for file_path in files:
+            text = file_path.read_text(encoding="utf-8")
+            for marker in forbidden:
+                with self.subTest(file=file_path.name, marker=marker):
+                    self.assertNotIn(marker, text)
+
     def test_combined_automation_prompt_requires_ui_gate(self) -> None:
         prompt = (ROOT / "prompts" / "cursor-automation-combined.md").read_text(encoding="utf-8")
 

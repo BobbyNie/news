@@ -25,7 +25,7 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 4. 去重、按市场影响排序，把候选新闻写入 `tmp/STOCK/YYYYMMDD/02-ranked-items.md`。
 5. 生成中文草稿到 `tmp/STOCK/YYYYMMDD/03-draft-cn.md`。
 6. **生成 HTML 前**必须完整阅读本文件 **「移动端 UI 设计要求」** 与 **HTML 结构** 章节；以 `2026-06/STOCK/20260602.html` 为结构参考，**禁止**复用 `max-width: 920px` 旧模板。
-7. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、**港股和美股近期 IPO 专栏**、AI 独角兽/IPO、财报与指引、监管与风险、**与伊隆·马斯克相关的股票专题**、明日继续跟踪、来源覆盖与缺口。
+7. 用中文生成 HTML 报告到 `YYYY-MM/STOCK/YYYYMMDD.html`。报告必须包含：今日最重要 5-10 条、美股重点、港股重点、**港股和美股近期 IPO 专栏**、AI 独角兽/IPO、财报与指引、监管与风险、**事件驱动股票专题**、明日继续跟踪、来源覆盖与缺口。
 8. **HTML 生成后**运行 `python3 scripts/validate_report_ui.py --kind STOCK --date YYYYMMDD`，失败则修正后重跑，**通过才可 commit**。
 9. 每条重要判断必须附来源链接，价格、涨跌、市值等实时数据必须注明时间和来源。不要给买卖建议。
 10. 完成后运行 `python3 scripts/build_pages_index.py` 更新根目录 `index.html`。
@@ -40,6 +40,7 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 - 对未上市独角兽只描述融资、估值、IPO、监管和重大商业事件，不做估值建议。
 - 不提供买卖建议，只写“可能影响”和“需要继续跟踪”。
 - 港股和美股近期 IPO 专栏必须使用 `<section id="recent-ipos">`；没有可验证近期或即将 IPO 时，保留专栏并写明已检查来源、未见足够可靠候选。
+- 不得在提示词或来源清单中硬编码固定股票、固定人物或固定公司作为每日必写对象；股票关注必须由当天可核验的公开披露、交易所文件、公司 IR、财报、重大监管/诉讼、异常成交或主流市场媒体共同触发。若某个公司或股票没有窗口内可验证重大变化，不得因为名称预设而写入。
 
 ## 港股和美股近期 IPO 专栏要求
 
@@ -70,7 +71,7 @@ Automation 定时为 **UTC 23:00**（= 澳门次日 **07:00**）。**禁止**直
 - 行情数据：价格、涨跌、市值、成交额、盘前盘后必须标注市场、时间和来源；数字使用 `.price` 或 `.quote-line`，CSS 使用 `font-variant-numeric: tabular-nums;`。
 - 涨跌表达：上涨用 `.change-up`，下跌用 `.change-down`；颜色只作辅助，文本必须保留 `+` / `-` 与百分比或金额。
 - 表格与宽内容：行情表必须包在 `<div class="table-wrap">` 中，允许内部横向滚动，但页面本身不能横向滚动。
-- 专题框：如马斯克、IPO、财报专题可用 `.focus-box`，但不要嵌套多层卡片。
+- 专题框：如 IPO、财报、监管、重大并购或异常成交专题可用 `.focus-box`，但不要嵌套多层卡片。
 - 浏览器自检：生成后用 390px 手机宽度检查 `document.documentElement.scrollWidth <= window.innerWidth`；只有 `.table-wrap` 内部允许横向滚动。
 - 语音朗读：必须在 `</header>` 后、正文 section 前加入 `<div class="reader-controls" data-reader-controls>`，包含“朗读 / 暂停 / 继续 / 停止”按钮、语速选择、`⚙` 设置按钮和状态文本；设置点击后必须弹出浮窗，不得把 Google TTS key 直接摊在正文里，控件必须适合 390px 手机宽度且不得造成页面横向滚动。
 - 朗读脚本：必须引用共用 JS `<script src="../../assets/report-reader.js" defer></script>`，不要重新生成或改写朗读逻辑；共用 JS 会只朗读正文、优先使用用户本机保存的 Google TTS key、失败时回退浏览器普通话朗读。
@@ -239,6 +240,7 @@ th { background: #eee7d7; color: #374151; font-weight: 850; }
   <section id="unicorns">AI 独角兽 / IPO</section>
   <section id="earnings">财报与指引</section>
   <section id="risks">监管与风险</section>
+  <section id="event-focus">事件驱动股票专题</section>
   <section id="next">明日继续跟踪</section>
   <section id="coverage">来源覆盖与缺口</section>
   <script src="../../assets/report-reader.js" defer></script>
