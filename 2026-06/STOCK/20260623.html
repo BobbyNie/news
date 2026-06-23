@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-23 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f1eee5; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-23 股市日报</h1>
+    <p class="lead">美股高位中 AI 半导体分化，港股看科技股与新股承接，IPO 和马斯克专题继续只用可核验来源。</p>
+    <div class="market-strip"><span>生成时间：2026-06-23 12:01（澳门时间）｜采集窗口：2026-06-21 12:01 ~ 2026-06-23 12:01（澳门时间 UTC+8）｜市场日历：港股 6 月 23 日交易中，美股 6 月 22 日收盘信息以主流媒体市场 wrap 和公开报价为准</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-23 12:01（澳门时间）｜采集窗口：2026-06-21 12:01 ~ 2026-06-23 12:01（澳门时间 UTC+8）</p>
+    <p>本报告只写事实、可能影响与继续跟踪，不构成买卖建议。价格、涨跌和指数背景以 AP financial markets、MarketWatch、HKEX、Nasdaq IPO Calendar、SEC EDGAR 和公司 IR 等来源复核。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股指数仍在高位，但 AI 半导体链分化</strong>。事实：AP financial markets 与公开报价显示指数维持高位背景，AI 硬件链对财报、指引和获利回吐更敏感。可能影响：NVIDIA、Micron、Broadcom、AMD、TSM、ASML 的估值需要 earnings / guidance 继续验证。<a href="https://apnews.com/hub/financial-markets">来源</a></li>
+      <li class="market-card"><strong>Micron / AI memory 是本周关键 catalyst</strong>。事实：AI server memory、HBM 和 DRAM 仍是半导体链的基本面验证点。可能影响：若毛利和订单继续强，AI capex 交易可延续；若供需转弱，硬件链承压。<a href="https://www.marketwatch.com/markets">来源</a></li>
+      <li class="market-card"><strong>NVIDIA 欧洲 AI supercomputers 支撑长期算力主题</strong>。事实：NVIDIA 官方称欧洲公布 35 台新的 NVIDIA AI HPC supercomputers。可能影响：长期支撑 AI infrastructure 主题，但单日股价仍受估值和获利回吐影响。<a href="https://nvidianews.nvidia.com/news/europe-unveils-a-record-35-new-nvidia-ai-supercomputers">来源</a></li>
+      <li class="market-card"><strong>港股看恒生科技、AI/TMT 和新股承接</strong>。事实：HKEX 公开页可复核港股交易和新上市证券；6 月下旬新股仍是承接质量观察点。可能影响：若新股流动性弱，后续 AI/TMT 候选递表情绪会受压。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>IPO 专栏必须以 SEC / HKEX / Nasdaq / NYSE 为 primary source</strong>。事实：Nasdaq IPO Calendar、SEC EDGAR、HKEX 新申请和新上市表仍是本栏主要依据。可能影响：OpenAI、Anthropic、xAI 等没有公开 IPO 文件时，只能列入 watchlist。<a href="https://www.nasdaq.com/market-activity/ipos">来源</a></li>
+      <li class="market-card"><strong>港股近期 IPO 关注等级保持克制</strong>。事实：HKEX 新上市表可确认近期和即将新上市公司，但业务质量、财务质量、流动性和锁定期仍需逐个招股书复核。可能影响：只给“值得重点关注 / 谨慎关注 / 暂不关注 / 信息不足”，不写买卖建议。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>马斯克相关资产继续分开看</strong>。事实：Tesla 是上市公司，以 SEC/IR 为准；SpaceX/SPCX 需要发行或交易文件；xAI 以公司公告、融资和诉讼文件为准。可能影响：社媒传闻不写成交易事实。<a href="https://ir.tesla.com/sec-filings">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="us">
+    <h2>美股重点</h2>
+    <p>美股的核心矛盾是指数高位与 AI 硬件链基本面验证。半导体股如果继续获得订单、HBM、云资本开支和毛利率支持，AI 交易还能扩散；如果财报或指引显示供应、定价或客户集中压力，估值会更敏感。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>主题</th><th>最新可核验信息</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>美股指数</td><td class="quote-line">指数维持高位背景，行业表现分化</td><td>高估值成长股对财报和利率更敏感</td><td><a href="https://apnews.com/hub/financial-markets">AP</a></td></tr>
+          <tr><td>AI memory</td><td class="quote-line">Micron / HBM / DRAM 是本周重点</td><td>验证 AI server supply chain 的需求强度</td><td><a href="https://www.marketwatch.com/markets">MarketWatch</a></td></tr>
+          <tr><td>NVIDIA / AI infrastructure</td><td>欧洲 35 台 AI HPC supercomputers 支撑长期算力叙事</td><td>长期有利 AI factory，但短期仍看估值和成交</td><td><a href="https://nvidianews.nvidia.com/news/europe-unveils-a-record-35-new-nvidia-ai-supercomputers">NVIDIA</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>港股今天继续看恒生科技、腾讯、阿里、百度、小米、半导体和 6 月下旬新股承接。香港 IPO 生态仍受 AI/TMT 候选、二级市场流动性和南向资金风险偏好影响；若新股承接偏弱，后续递表和发行窗口会更谨慎。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>项目</th><th>状态</th><th>跟踪理由</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>恒生科技 / TMT</td><td>交易中，个股需用 HKEX / 券商行情复核</td><td>AI/TMT 是香港 IPO 和风险偏好核心线索</td><td><a href="https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities?sc_lang=en">HKEX</a></td></tr>
+          <tr><td>近期新上市证券</td><td>HKEX 新上市表持续更新</td><td>观察首日成交、换手、暗盘与上市后承接</td><td><a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX 新上市表</a></td></tr>
+          <tr><td>AI/TMT 候选 IPO</td><td>未见 OpenAI / Anthropic / xAI 等美股公开 IPO 文件</td><td>无 primary source 时不写成确定上市</td><td><a href="https://www.sec.gov/search-filings">SEC EDGAR</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="recent-ipos">
+    <h2>港股和美股近期 IPO 专栏</h2>
+    <p>本栏区分近期已上市 IPO 与即将 IPO / 已递表 / 已提交注册文件，只给非交易建议式关注等级，不给买入、卖出、目标价或确定收益判断。今日已检查 HKEX 新上市表、Nasdaq IPO Calendar、SEC EDGAR 与 NYSE IPO Center。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>市场 / 公司</th><th>阶段与条款</th><th>业务与财务质量</th><th>风险</th><th>关注等级</th></tr></thead>
+        <tbody>
+          <tr><td>港股近期新上市证券</td><td>近期已上市 / 即将上市；以 HKEX Newly Listed Securities 为准。</td><td>需要逐家公司核对招股书、收入、毛利、亏损、客户集中和发行条款。</td><td>首日流动性、锁定期、基石投资者质量和行业周期差异较大。</td><td><strong>谨慎关注</strong>：先看成交和财务披露，避免只按题材判断。</td></tr>
+          <tr><td>港股 AI/TMT 候选</td><td>即将 IPO / 已递表需以 HKEX New Applicants 或聆讯后资料集确认。</td><td>AI/TMT 业务质量取决于真实收入、毛利率、客户集中、算力成本和监管风险。</td><td>媒体传闻、估值过高、商业化不足、现金消耗和锁定期。</td><td><strong>信息不足</strong>：无 HKEX 文件时只列 watchlist。</td></tr>
+          <tr><td>美股 AI 独角兽</td><td>OpenAI、Anthropic、xAI 等未见可公开核验 S-1/F-1 文件。</td><td>业务影响大，但没有注册文件就无法核对收入、亏损、客户、风险因素和发行条款。</td><td>估值传闻、监管、客户集中、算力资本开支和二级市场流动性。</td><td><strong>暂不关注</strong>：等 SEC / Nasdaq / NYSE primary source。</td></tr>
+          <tr><td>美股常规 IPO 候选</td><td>以 Nasdaq IPO Calendar、NYSE IPO Center 和 SEC EDGAR 为准。</td><td>需要确认发行价区间、募资规模、承销商、收入增长、亏损和锁定期。</td><td>小市值 IPO 流动性、首日波动和估值条款。</td><td><strong>谨慎关注</strong>：只跟踪文件充分、流动性明确的候选。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <ul>
+      <li><strong>OpenAI / Anthropic / xAI</strong>：本窗口未见公开 SEC S-1/F-1、Nasdaq 或 NYSE IPO 文件；估值和上市传闻不写成确定结论。</li>
+      <li><strong>港股 AI/TMT 候选</strong>：若出现 HKEX 新申请、聆讯后资料集或招股书，再进入重点拆解。</li>
+      <li><strong>算力链公司</strong>：NVIDIA 官方算力新闻有长期主题意义，但不替代公司财报和估值分析。</li>
+    </ul>
+  </section>
+
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>本周重点仍是 AI memory 与半导体指引。Micron、NVIDIA 供应链、Broadcom、AMD、TSM、ASML 等方向的关键不是单日涨跌，而是客户订单、HBM 定价、DRAM 供需、资本开支、毛利率和 2027 年供应计划。指数高位环境下，任何指引放缓都可能放大波动。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪</strong>：Micron earnings / guidance、云厂商 AI capex、NVIDIA 供应链订单、油价和利率是否影响高估值成长股。</p>
+    </div>
+  </section>
+
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li>澳门午间生成时，港股仍在交易中；实时价格可能变化，需以收盘和官方行情更新为准。</li>
+      <li>Reuters、Bloomberg、FT、WSJ 部分内容受限，本报告优先使用公开 market wrap、HKEX、SEC、Nasdaq 和公司 IR。</li>
+      <li>IPO 关注等级不是投资建议；没有招股书或注册文件时，不进行确定性财务判断。</li>
+      <li>AI 半导体主题拥挤，指数高位时对财报和利率更敏感。</li>
+    </ul>
+  </section>
+
+  <section id="musk">
+    <h2>与伊隆·马斯克相关的股票专题</h2>
+    <p><strong>核心结论</strong>：Tesla、SpaceX/SPCX 和 xAI 继续分开看。Tesla 是上市公司，用 SEC / IR、交付、利润率、FSD / robotaxi、能源和监管披露判断；SpaceX/SPCX 如涉及公开交易，必须等待正式发行、交易所或公司文件；xAI 只写公司公告、融资、模型、客户、算力和诉讼文件。</p>
+    <ul>
+      <li><strong>TSLA</strong>：本窗口未见 Tesla IR / SEC 新重大经营披露，继续跟踪 <a href="https://ir.tesla.com/sec-filings">Tesla SEC filings</a> 与 <a href="https://www.sec.gov/edgar/browse/?CIK=1318605">SEC EDGAR</a>。</li>
+      <li><strong>SpaceX/SPCX</strong>：社媒传播不能替代发行文件；若出现可交易产品，需核对 SEC、Nasdaq、NYSE 或发行方正式文件。</li>
+      <li><strong>xAI</strong>：只用公司公告、融资文件、模型发布、客户合同、算力采购和诉讼文件作为事实来源。</li>
+    </ul>
+    <div class="warn">本专题不提供买卖建议；马斯克相关资产披露质量、流动性、监管和波动结构差异很大。</div>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>美股指数高位是否继续由 AI 半导体和软件共同支撑，还是出现硬件链获利回吐。</li>
+      <li>Micron / AI memory earnings 和指引是否验证 HBM、DRAM 与 server demand。</li>
+      <li>港股新股成交、换手和首日后承接；恒生科技权重股是否稳定。</li>
+      <li>HKEX New Applicants、Post Hearing Information Packs、SEC EDGAR、Nasdaq IPO Calendar 是否出现新的 AI/TMT IPO 文件。</li>
+      <li>Tesla、SpaceX/SPCX、xAI 是否出现正式 SEC、IR、交易所或公司公告。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：AP financial markets、MarketWatch markets、NVIDIA Newsroom、HKEX Equities、HKEX Newly Listed Securities、SEC EDGAR、Nasdaq IPO Calendar、NYSE IPO Center、Tesla IR。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT、WSJ 部分内容受登录或付费限制；港股实时个股价格在生成时仍会变化；OpenAI、Anthropic、xAI 等 AI 独角兽未见公开 IPO 文件。</p>
+    <p>工作文件：<code>tmp/STOCK/20260623/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>

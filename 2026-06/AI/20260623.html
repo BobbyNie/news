@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-23 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-23 AI 日报</h1>
+    <p class="lead">今天重点是欧洲 AI 算力扩容、OpenAI 企业部署，以及银行 AI 从应用试点走向人才和平台建设。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-23 12:01（澳门时间）｜采集窗口：2026-06-21 12:01 ~ 2026-06-23 12:01（澳门时间 UTC+8）</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-23 12:01（澳门时间）｜采集窗口：2026-06-21 12:01 ~ 2026-06-23 12:01（澳门时间 UTC+8）</p>
+    <p>本窗口没有把股价、IPO 或宏观事件写入 AI 主线。今天可验证重点集中在算力供给、企业部署、安全治理和金融机构 AI 建设。</p>
+  </section>
+
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>欧洲公布 35 台新的 NVIDIA AI HPC supercomputers</strong>：NVIDIA 官方称该批系统面向主权 AI、科研和产业 AI 基础设施，意味着欧洲本地 AI factory 与高性能计算供给继续扩张。<span class="tag">算力供给</span> <a href="https://nvidianews.nvidia.com/news/europe-unveils-a-record-35-new-nvidia-ai-supercomputers">来源</a></li>
+      <li class="news-card"><strong>Samsung Electronics 将 ChatGPT Enterprise 与 Codex 带给员工</strong>：OpenAI 官方披露 Samsung Electronics 部署 ChatGPT Enterprise 和 Codex，覆盖员工知识工作与代码工作流。<span class="tag">企业采用</span> <a href="https://openai.com/index/samsung-electronics-chatgpt-codex-employees/">来源</a></li>
+      <li class="news-card"><strong>OpenAI Daybreak 把 AI 安全防御推到前台</strong>：OpenAI 以 Daybreak 叙事强调 AI 用于防御和机构安全能力建设，焦点从模型能力扩展到高风险部署边界。<span class="tag">安全治理</span> <a href="https://openai.com/index/daybreak-securing-the-world/">来源</a></li>
+      <li class="news-card"><strong>Lloyds 被报将招聘 300 名 AI / technology experts</strong>：The Guardian 报道 Lloyds Banking Group 推动 AI 招聘，说明银行 AI 正在变成人才、数据和平台建设问题。<span class="tag">金融 AI</span> <a href="https://www.theguardian.com/business/2026/jun/20/lloyds-banking-group-ai-recruitment-drive-300-tech-experts">来源</a></li>
+      <li class="news-card"><strong>Microsoft / Nadella 线索继续强调 AI 产业集中度</strong>：主流媒体报道继续把低成本、可访问、多模型和用户可控作为企业 AI 采购焦点。<span class="tag">产业结构</span> <a href="https://www.wsj.com/tech/ai/microsofts-satya-nadella-we-cant-let-ai-giants-eat-the-economy-b9d33b9f">来源</a></li>
+      <li class="news-card"><strong>Anthropic、DeepMind、Meta AI、xAI 官方页未见同等级新旗舰发布</strong>：本窗口继续跟踪模型、Agent、API 与安全治理，但不以传闻或社媒补位。<span class="tag">来源缺口</span> <a href="https://www.anthropic.com/news">来源</a></li>
+    </ol>
+  </section>
+
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>算力供给：欧洲主权 AI 从政策口号变成具体系统</h3>
+    <p>NVIDIA 的 35 台 AI HPC supercomputers 线索是今天最重要的基础设施变化。它意味着欧洲的 AI 竞争不只在监管和模型应用层，也在争取本地训练、推理、科研和产业计算能力。需要继续跟踪这些系统的上线时间、使用主体、网络互联、软件栈，以及是否服务公共部门、大学和企业 AI factory。</p>
+    <h3>企业部署：Samsung 采用 ChatGPT Enterprise + Codex</h3>
+    <p>OpenAI 与 Samsung Electronics 的官方页面说明，大型制造集团正在把通用助手和代码代理同时放入员工工作流。真正要观察的是权限治理、数据边界、员工采用率、开发者效率，以及 Codex 与内部代码库、审查流程、测试系统的集成深度。</p>
+    <h3>安全治理：AI 防御叙事升温</h3>
+    <p>OpenAI Daybreak 线索把 AI 从“生成内容和自动化任务”扩展到安全防御。高风险部署必须关注评测、误报、权限、审计、责任边界和人类复核；报告不把安全能力写成无条件可替代专业团队。</p>
+  </section>
+
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>NVIDIA</td><td>官方称欧洲公布 35 台 NVIDIA AI HPC supercomputers</td><td>P0，算力供给</td><td><a href="https://nvidianews.nvidia.com/news/europe-unveils-a-record-35-new-nvidia-ai-supercomputers">NVIDIA</a></td></tr>
+          <tr><td>OpenAI / Samsung Electronics</td><td>Samsung Electronics 将 ChatGPT Enterprise 与 Codex 带给员工</td><td>P1，企业采用</td><td><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-employees/">OpenAI</a></td></tr>
+          <tr><td>OpenAI</td><td>Daybreak 线索强调用 AI 建设防御和机构安全能力</td><td>P1，安全治理</td><td><a href="https://openai.com/index/daybreak-securing-the-world/">OpenAI</a></td></tr>
+          <tr><td>Lloyds Banking Group</td><td>被报将招聘 300 名 technology experts 推动 AI 与数据转型</td><td>P1，金融 AI</td><td><a href="https://www.theguardian.com/business/2026/jun/20/lloyds-banking-group-ai-recruitment-drive-300-tech-experts">The Guardian</a></td></tr>
+          <tr><td>Anthropic / DeepMind / Meta AI / xAI</td><td>官方页本窗口未见同等级新旗舰模型发布</td><td>继续跟踪</td><td><a href="https://deepmind.google/discover/blog/">DeepMind Blog</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <div class="company-card">
+      <h3>Lloyds：银行 AI 从前台工具转向人才和平台能力</h3>
+      <p>The Guardian 报道 Lloyds Banking Group 将招聘 300 名 technology experts 支持 AI 与数据转型。该线索说明银行不只采购外部模型，也在补内部工程、数据治理、模型落地和运营改造能力。由于当前来源是主流媒体，后续仍需用 Lloyds 官方招聘、新闻稿或投资者材料确认岗位、团队与投入节奏。<a href="https://www.theguardian.com/business/2026/jun/20/lloyds-banking-group-ai-recruitment-drive-300-tech-experts">来源</a></p>
+    </div>
+    <div class="company-card">
+      <h3>HSBC / Google Cloud 仍是近期银行 AI 参照案例</h3>
+      <p>HSBC 近期官方材料显示，其与 Google Cloud 的 AI banking partnership 覆盖财富管理支持、金融犯罪风险管理、客户经理服务和 200+ AI use cases。与 Lloyds 招聘线索合看，银行 AI 正从客服和知识检索扩展到风控、合规、客户经理工具、数据平台和内部工程能力。<a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">HSBC</a></p>
+    </div>
+    <div class="warn">本栏目只写银行、券商、保险、资管、支付和监管科技如何使用或建设 AI；不使用宏观、利率、股价、指数、IPO 定价或金融就业内容填充。</div>
+  </section>
+
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>Lloyds 线索来自主流媒体，具体岗位、预算和项目范围仍需官方来源确认。</li>
+      <li>NVIDIA 新闻稿说明算力项目数量，但各系统上线时间、可用容量和实际使用者需要继续跟踪。</li>
+      <li>Samsung 部署 ChatGPT Enterprise 与 Codex 不等于自动产生效率收益；要看权限、培训、测试和员工采用率。</li>
+      <li>Anthropic、DeepMind、Meta AI、xAI 官方页在本窗口未见同等级新旗舰模型发布，报告不强行凑满 10 条。</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>欧洲 35 台 AI HPC systems 的主权 AI 资金、上线时间和产业使用方。</li>
+      <li>Samsung 是否披露 ChatGPT Enterprise / Codex 的部署范围、开发者采用率和安全控制。</li>
+      <li>OpenAI Daybreak 是否有进一步技术细节、合作机构或安全评测结果。</li>
+      <li>Lloyds 是否发布官方招聘、AI 项目、数据平台或供应商合作细节。</li>
+      <li>Anthropic、Google DeepMind、Meta AI、xAI 是否出现新的模型、Agent 或开发者平台更新。</li>
+    </ul>
+  </section>
+
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI News、NVIDIA Newsroom、Anthropic News、Google DeepMind Blog、Meta AI Blog、xAI News、The Guardian、HSBC、WSJ 摘要，以及 sources manifest 中的金融 AI 和主流 AI 来源。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、FT、WSJ 部分内容受登录或付费限制；X/Facebook 未作为唯一事实来源；Lloyds 招聘细节仍需官方确认。</p>
+    <p>工作文件：<code>tmp/AI/20260623/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）</p>
+  </section>
+
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
