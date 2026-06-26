@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-26 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.18rem; }
+    li { margin: 0.62rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-26 AI 日报</h1>
+    <p class="lead">聚焦 agentic work、推理芯片、生产级 AI 基础设施、行业 agent 与银行 AI 落地。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-26 12:01（澳门时间）</span><span>采集窗口：2026-06-24 12:01 ~ 2026-06-26 12:01（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-26 12:01（澳门时间）｜采集窗口：2026-06-24 12:01 ~ 2026-06-26 12:01（澳门时间 UTC+8）</p>
+    <p>今天的高可信增量集中在三个层次：OpenAI 把 agentic work 和自研推理芯片同时推前台；NVIDIA 将 agent、检索、云 GPU 与行业工具栈包装为生产级基础设施；银行 AI 从概念讨论转向招聘、培训、金融犯罪风控和前线助手。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 与 Broadcom 发布 Jalapeño 推理芯片。</strong>OpenAI 称这是面向 LLM inference 的首个 Intelligence Processor，工程样片已在实验室运行 ML workload，并计划与伙伴从 2026 年开始进行 gigawatt-scale 部署。<span class="tag">算力供给</span> <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 用 Codex 数据重述 agentic work。</strong>官方研究称 agents 把知识工作从短对话推向可委派、长周期任务，并给出 OpenAI 内部跨部门与组织用户使用趋势。<span class="tag">Agent</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA 与 AWS 强化生产级 AI 基础设施。</strong>NVIDIA 称 EC2 G7、cuVS 向量索引和 GB300 Exemplar Cloud status 让低延迟推理、RAG 与训练工作负载更容易标准化部署。<span class="tag">云基础设施</span> <a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA Agent Toolkit 把企业 agent 拆成模型、工具、技能与 secure runtime。</strong>这说明企业 AI 竞争正在从单一模型能力转向可治理、可定制、可嵌入业务系统的 agent 平台。<span class="tag">企业采用</span> <a href="https://blogs.nvidia.com/blog/nvidia-agent-toolkit-open-models-tools-skills-secure-runtime-ai-agents/">来源</a></li>
+      <li class="news-card"><strong>BioNeMo Agent Toolkit 瞄准生命科学 agent。</strong>NVIDIA 称新工具覆盖生物、化学、基因组学和药物发现，并已有多家行业和研究机构采用。<span class="tag">垂直行业</span> <a href="https://nvidianews.nvidia.com/news/nvidia-launches-bionemo-agent-toolkit-giving-ai-agents-the-tools-to-accelerate-scientific-discovery">来源</a></li>
+      <li class="news-card"><strong>电信 agent 展示了受监管行业的自治边界。</strong>NVIDIA 在 DTW Ignite 2026 展示合成数据、NemoClaw、OpenShell 和仿真验证，用于网络诊断、客户服务与变更前验证。<span class="tag">治理</span> <a href="https://blogs.nvidia.com/blog/telecom-ai-agents-dtw-ignite-2026/">来源</a></li>
+      <li class="news-card"><strong>Lloyds 招聘接近 300 个 agentic AI 相关岗位。</strong>银行官方披露 AI Academy 培训、AI 工程学徒和 fraud detection 等实践，显示金融机构开始为 AI 落地补人才和治理能力。<span class="tag">金融 AI</span> <a href="https://www.lloydsbankinggroup.com/media/press-releases/2026/lloyds-banking-group/1000-new-ai-roles.html">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>OpenAI 同时推进产品工作流和基础设施纵向整合</h3>
+    <p>Codex 研究把 agent 定义为能独立运行数十分钟到数小时、调用工具并迭代完成任务的工作形态；Jalapeño 则把瓶颈下探到推理芯片和数据中心部署。两者合在一起，说明 OpenAI 不只在卖模型能力，也在争取控制 agent 工作负载的成本、延迟和可靠性。</p>
+    <h3>NVIDIA 把 agent 从“能力”包装为“系统”</h3>
+    <p>AWS 方向是云上 GPU、向量检索和训练性能；企业方向是 Agent Toolkit 的模型、工具、技能和 runtime；生命科学与电信方向说明行业 agent 必须带 domain tools、仿真验证和审计边界。对企业客户来说，关键问题从“哪个模型最强”转成“哪个系统能接入业务并被治理”。</p>
+    <h3>金融机构 AI 的增量来自内部能力建设</h3>
+    <p>Lloyds 的招聘和培训披露更像一个组织变革信号：银行不只是采购模型，还需要 AI 工程、产品、responsible AI 和 fraud/risk 领域人才。HSBC 与 Google Cloud 的合作则显示银行优先场景仍集中在金融犯罪风险、财富管理和前线员工效率。</p>
+  </section>
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI / Broadcom</td><td>发布 Jalapeño LLM inference chip，计划多代平台和大规模部署</td><td>推理基础设施纵向整合</td><td><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">官方</a></td></tr>
+          <tr><td>OpenAI</td><td>发布 Codex / agentic work 经济研究</td><td>agent 工作流从开发者扩展到非技术部门</td><td><a href="https://openai.com/index/how-agents-are-transforming-work/">官方</a></td></tr>
+          <tr><td>NVIDIA / AWS</td><td>EC2 G7、cuVS/OpenSearch、GB300 Exemplar Cloud</td><td>生产级 AI 云基础设施增强</td><td><a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/">官方</a></td></tr>
+          <tr><td>NVIDIA</td><td>Agent Toolkit、BioNeMo Agent Toolkit、电信 autonomous agents</td><td>行业 agent 平台化</td><td><a href="https://blogs.nvidia.com/blog/nvidia-agent-toolkit-open-models-tools-skills-secure-runtime-ai-agents/">官方</a></td></tr>
+          <tr><td>Lloyds Banking Group</td><td>接近 300 个 agentic AI 相关岗位，AI Academy 培训扩张</td><td>银行内部 AI 能力建设</td><td><a href="https://www.lloydsbankinggroup.com/media/press-releases/2026/lloyds-banking-group/1000-new-ai-roles.html">官方</a></td></tr>
+          <tr><td>HSBC / Google Cloud</td><td>金融犯罪风险、财富管理和前线团队 AI 合作</td><td>银行 AI 应用重点样本</td><td><a href="https://www.hsbc.com/news-and-views/news/media-releases/2026/hsbc-and-google-cloud-announce-transformative-ai-banking-partnership">官方</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>Lloyds：从用例转向岗位与培训。</strong>Lloyds 官方称将招聘接近 300 个 agentic AI 相关岗位，并提供 AI Engineering apprenticeship；同时披露 2026 年以来已有 400,000+ AI Academy 课程被完成，65,000+ 同事完成 responsible AI 培训。银行 AI 的瓶颈开始从“有没有模型”转为“有没有能把模型放进 fraud、客户服务和内部流程的人”。</p>
+    <p><strong>HSBC：金融犯罪风险和财富管理是最可落地路径。</strong>HSBC 与 Google Cloud 的合作明确提到 generative AI 和 agentic AI 将用于更早发现金融犯罪风险，并覆盖每月近十亿笔交易的监测场景；财富管理和前线助手则强调客户服务和内部效率。</p>
+    <div class="warn">本专栏只写银行与金融机构如何建设或使用 AI；不使用宏观、利率、股价、指数、IPO 定价或金融就业数据填充。</div>
+  </section>
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI Jalapeño 仍缺少独立性能报告，早期测试数据需要后续技术披露验证。</li>
+      <li>Agent Toolkit 能否形成真实 ROI，取决于客户能否把模型、工具、权限和审计流程稳定接起来。</li>
+      <li>银行 AI 落地必须同步解决模型风险、隐私、可解释性、员工责任和监管接受度。</li>
+      <li>生命科学和电信 agent 具备高价值，但错误行动成本也高，仿真验证与人工审批边界不能省略。</li>
+    </ul>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否公布 Jalapeño 更具体的性能、成本和部署伙伴。</li>
+      <li>NVIDIA Agent Toolkit 是否披露更多客户部署指标，而不是展示型案例。</li>
+      <li>Lloyds AI 岗位是否对应具体客户服务、风控、合规或内部开发工具。</li>
+      <li>HSBC 与 Google Cloud 合作是否披露地区落地、监管框架和风控 KPI。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方新闻、NVIDIA Newsroom / Blog、Lloyds Banking Group 官方新闻、HSBC 官方 AI 银行合作页面、主要媒体搜索摘要。</p>
+    <p><strong>缺口</strong>：部分媒体全文付费；没有用 X/Facebook 作为唯一事实来源；未找到足够新且高可信的一手 Anthropic 发布作为今日主线。</p>
+    <p>工作文件：<code>tmp/AI/20260626/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
