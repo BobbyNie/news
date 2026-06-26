@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-26 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f0eee6; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-26 股市日报</h1>
+    <p class="lead">美股分化、Micron 业绩催化、Apple 压力、AI 芯片事件和近期 IPO 管线。</p>
+    <div class="market-strip"><span>生成时间：2026-06-26 12:01（澳门时间）</span><span>采集窗口：2026-06-24 12:01 ~ 2026-06-26 12:01（澳门时间 UTC+8）</span><span>市场日历：覆盖 2026-06-25 美股收盘与 2026-06-26 港股新上市公开资料；行情快照时间注明来源。</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-26 12:01（澳门时间）｜采集窗口：2026-06-24 12:01 ~ 2026-06-26 12:01（澳门时间 UTC+8）</p>
+    <p class="warn">本报告只写事实、可能影响和继续跟踪；不提供买卖建议。实时价格来自工具快照或主流媒体收盘报道，均标注时间与来源。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股 6 月 25 日收盘分化。</strong>事实：AP 称 S&amp;P 500 微跌至 <span class="price">7357.49</span>，Dow 涨 <span class="change-up">0.1%</span> 至 <span class="price">51920.62</span>，Nasdaq 跌 <span class="change-down">0.5%</span> 至 <span class="price">25358.60</span>，Russell 2000 涨 <span class="change-up">0.7%</span>。可能影响：市场仍偏向个股催化而非全面科技反弹。继续跟踪：PCE、利率和 AI 权重股是否继续拉扯。 <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-18741e4dabafb7a44b41231159f10599">来源</a></li>
+      <li class="market-card"><strong>Micron 成为半导体最清晰催化。</strong>事实：AP 称 Micron 最新季度利润和收入显著好于分析师预期；金融快照显示 MU 于 2026-06-26 00:15 UTC 报 <span class="price">1213.56 美元</span>。可能影响：AI memory 需求继续支撑局部半导体行情。继续跟踪：涨幅能否扩散到存储链和设备链。 <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-18741e4dabafb7a44b41231159f10599">来源</a></li>
+      <li class="market-card"><strong>Apple 下跌拖累大型科技情绪。</strong>事实：AP 称 Apple 在产品涨价后下跌；金融快照显示 AAPL 于 2026-06-26 00:15 UTC 报 <span class="price">275.15 美元</span>。可能影响：消费电子定价与 AI 投入压力同时影响大型科技估值。继续跟踪：涨价对销量和毛利的实际反馈。 <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-18741e4dabafb7a44b41231159f10599">来源</a></li>
+      <li class="market-card"><strong>OpenAI/Broadcom 芯片事件强化 custom silicon 叙事。</strong>事实：OpenAI 与 Broadcom 发布 Jalapeño LLM inference chip；金融快照显示 AVGO 于 2026-06-26 00:15 UTC 报 <span class="price">378.91 美元</span>。可能影响：Broadcom 的定制 AI ASIC 叙事更清晰，但短线仍需看订单和毛利可见度。继续跟踪：OpenAI 是否公布部署伙伴和技术报告。 <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">来源</a></li>
+      <li class="market-card"><strong>NVIDIA 仍是 AI 基础设施基准，但短线并非单边上行。</strong>事实：NVIDIA/AWS 官方披露 EC2 G7、cuVS/OpenSearch 和 GB300 training status；金融快照显示 NVDA 于 2026-06-26 00:15 UTC 报 <span class="price">195.74 美元</span>。可能影响：市场继续比较 Blackwell 生态、custom ASIC 和云成本。继续跟踪：云客户订单和推理成本曲线。 <a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/">来源</a></li>
+      <li class="market-card"><strong>港股 6 月 26 日新上市名单包含 AI/科技名称。</strong>事实：HKEX Newly Listed Securities 显示 WENGE AI 01956、LINGYI ITECH 01688、SG MICRO 03661 等 2026-06-26 新上市。可能影响：港股科技新股供给增加，但质量判断必须回到招股书。继续跟踪：首日流动性、稳定价格行动和锁定期。 <a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>美股 IPO 日历继续活跃但质量分化。</strong>事实：IPOScoop 列出 6 月 25 日已定价的 Alpex、Cartesian Growth IV、DPC、DSC、Futurewave，后续有 Sinda、Bending Spoons、CopperTech、ITG、Lime。可能影响：新股关注点应转向业务质量、float 和锁定期。继续跟踪：SEC 文件和首日成交。 <a href="https://www.iposcoop.com/ipo-calendar/">来源</a></li>
+    </ol>
+  </section>
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>标的 / 事件</th><th>价格或披露</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>MU</td><td class="price">2026-06-26 00:15 UTC 快照 1213.56 美元</td><td>强业绩支撑 memory / AI infra 局部行情</td><td>Finance snapshot / <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-18741e4dabafb7a44b41231159f10599">AP</a></td></tr>
+          <tr><td>AAPL</td><td class="price">2026-06-26 00:15 UTC 快照 275.15 美元</td><td>产品涨价后的需求与毛利争议拖累大型科技</td><td>Finance snapshot / <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-18741e4dabafb7a44b41231159f10599">AP</a></td></tr>
+          <tr><td>GOOGL</td><td class="price">2026-06-26 00:15 UTC 快照 343.71 美元</td><td>大型科技中性偏弱，需结合 AI 人才与广告数据跟踪</td><td>Finance snapshot</td></tr>
+          <tr><td>AVGO</td><td class="price">2026-06-26 00:15 UTC 快照 378.91 美元</td><td>OpenAI custom inference chip 强化中长期叙事</td><td><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI</a></td></tr>
+          <tr><td>NVDA</td><td class="price">2026-06-26 00:15 UTC 快照 195.74 美元</td><td>云 GPU 和 agent infra 仍强，但需看客户 capex 消化</td><td><a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/">NVIDIA</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>本窗口最清晰的一手港股信息来自 HKEX Newly Listed Securities。2026-06-26 新上市包括 WENGE AI、LINGYI ITECH、KEYTOP PARKING、SG MICRO、MERDEKAGOLD-DRS 与 CFMEE 等。这里只确认上市事实，不把公司名称中的 AI 或科技标签直接转化为投资结论。</p>
+    <div class="focus-box">
+      <p><strong>后续核验重点：</strong>招股书业务质量、收入集中度、毛利率、现金消耗、基石投资者、稳定价格机制、公开发售倍数、锁定期和首日换手。没有完整招股书复核前，仅作观察名单。</p>
+    </div>
+  </section>
+  <section id="recent-ipos">
+    <h2>港股和美股近期 IPO 专栏</h2>
+    <h3>近期已上市 IPO</h3>
+    <ul>
+      <li><strong>DSC Holdings（DSC）：</strong>IPOX 称其为中国二手车行业技术服务公司，定价 3.0 million ADS at 17.00 USD，募资 51 million USD，估值约 905 million USD；2025 年收入约 97 million USD、净亏损约 14 million USD。关注等级：<strong>谨慎关注</strong>。理由：有垂直软件/数据平台叙事，但规模不大且仍亏损，需要复核客户集中度和二手车周期风险。<a href="https://www.ipox.com/upcoming-ipos">来源</a></li>
+      <li><strong>DPC Holdings / Doncasters Group（DPC）：</strong>IPOScoop 显示 2026-06-25 priced，估计募资约 919.4 million USD。关注等级：<strong>信息不足</strong>。理由：交易规模较大，但本次未完成 SEC 招股书细读，暂不评价财务质量和估值。<a href="https://www.iposcoop.com/ipo-calendar/">来源</a></li>
+      <li><strong>Alpex Acquisition / Cartesian Growth IV / Futurewave Acquisition：</strong>IPOScoop 显示均为 2026-06-25 priced 的 SPAC 或 unit 交易。关注等级：<strong>暂不关注</strong>。理由：业务资产尚不清晰，判断重点应等并购目标和赎回结构披露后再看。<a href="https://www.iposcoop.com/ipo-calendar/">来源</a></li>
+    </ul>
+    <h3>即将 IPO / 已递表 / 已提交注册文件</h3>
+    <ul>
+      <li><strong>Bending Spoons（BSP）：</strong>IPOScoop 显示预计 2026-06-29 week of，价格区间 26.00-28.00 USD，估计募资 1565.2 million USD。关注等级：<strong>值得重点关注</strong>。理由：交易规模大、承销阵容强，软件资产整合能力与现金流质量值得继续查招股书。<a href="https://www.iposcoop.com/ipo-calendar/">来源</a></li>
+      <li><strong>Sinda（SIND）：</strong>IPOScoop 显示预计 2026-06-26 Friday，价格区间 11.25-13.25 USD，估计募资 217.4 million USD。关注等级：<strong>信息不足</strong>。理由：未完成招股书核验，需补收入、毛利率、亏损、客户集中和监管风险。<a href="https://www.iposcoop.com/ipo-calendar/">来源</a></li>
+      <li><strong>WENGE AI（01956）等港股新上市：</strong>HKEX 已列入 2026-06-26 新上市。关注等级：<strong>谨慎关注</strong>。理由：AI 标签带来关注度，但必须回到招股书验证收入真实性、行业景气、客户集中和锁定期。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+    </ul>
+    <div class="warn">关注等级不是买入、卖出、目标价或确定收益判断；只用于决定是否继续跟踪招股书、上市表现和交易后披露。</div>
+  </section>
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <p>本窗口没有新的高可信 AI 独角兽 IPO 一手文件。更明确的公开市场信号来自 OpenAI/Broadcom custom silicon 对 AVGO 的事件驱动意义，以及 WENGE AI 等港股新上市名称带来的科技新股供给。对未上市 AI 公司，不用二级市场传闻作估值判断。</p>
+  </section>
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>Micron 是本窗口最重要财报线索。AP 称其最新季度利润和收入远好于分析师预期，成为半导体上涨的直接催化。后续重点看 memory 价格、HBM 供给、数据中心客户订单和同行是否跟随上修。</p>
+  </section>
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>行情分化风险：</strong>同为科技股，Micron 与 Apple 的市场反应不同，说明 AI 交易正在筛选真实 earnings 和现金流。</li>
+      <li><strong>IPO 质量风险：</strong>SPAC units、亏损成长股和大型软件 IPO 的风险维度不同，不能只看募资规模。</li>
+      <li><strong>港股新股流动性风险：</strong>首日波动、稳定价格行动、公开发售倍数和锁定期会显著影响交易体验。</li>
+      <li><strong>数据缺口：</strong>部分实时行情和付费媒体全文不可访问，报告中没有将未核实价格扩展为结论。</li>
+    </ul>
+  </section>
+  <section id="event-focus">
+    <h2>事件驱动股票专题</h2>
+    <div class="focus-box">
+      <p><strong>主题：OpenAI/Broadcom Jalapeño 对 AI 芯片链的影响。</strong>OpenAI 自研推理芯片让 custom silicon 从云厂商和大型互联网公司的内部项目，进一步扩展到模型公司自建全栈。对 AVGO，短期关注订单、交付节奏、毛利率和是否有 Microsoft/数据中心伙伴部署细节；对 NVDA，关键是 Blackwell 生态、通用 GPU 灵活性与 custom ASIC 成本优势之间的平衡。</p>
+      <p><strong>交易纪律：</strong>这是事件驱动观察，不是买卖建议。没有独立技术报告和收入确认前，不把“发布芯片”直接等同于当期 earnings 上修。</p>
+    </div>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Micron 财报后半导体链是否延续，尤其 HBM、存储设备和数据中心订单。</li>
+      <li>Apple 价格调整对消费者需求、毛利和大型科技指数权重的影响。</li>
+      <li>OpenAI/Broadcom 是否公布 Jalapeño 技术报告、部署伙伴和时间表。</li>
+      <li>WENGE AI、LINGYI ITECH、SG MICRO 等港股新股首日成交与公告。</li>
+      <li>Bending Spoons、Sinda、CopperTech、ITG、Lime 的 SEC 文件和定价更新。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：AP News 美股收盘、OpenAI 官方、NVIDIA 官方、HKEX Newly Listed Securities、HKEX AP/PHIP、IPOScoop、IPOX、金融快照。</p>
+    <p><strong>缺口</strong>：部分 Reuters/WSJ/MarketWatch 正文不可完整访问；Nasdaq IPO 页面未在文本视图暴露完整表格；未逐一细读所有 SEC 招股书，因此 IPO 等级偏保守。</p>
+    <p>工作文件：<code>tmp/STOCK/20260626/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
