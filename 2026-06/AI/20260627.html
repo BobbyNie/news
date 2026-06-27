@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-27 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.18rem; }
+    li { margin: 0.62rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-27 AI 日报</h1>
+    <p class="lead">聚焦 GPT-5.6 Sol、agentic work、企业安全边界、金融合规 agent 与行业化工具链。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-27 12:01（澳门时间）</span><span>采集窗口：2026-06-25 12:01 ~ 2026-06-27 12:01（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-27 12:01（澳门时间）｜采集窗口：2026-06-25 12:01 ~ 2026-06-27 12:01（澳门时间 UTC+8）</p>
+    <p>今天 AI 行业的核心不是单点功能，而是三条线同时推进：更强模型开始分阶段开放，agent 从开发者工作流进入企业远程控制和金融合规，行业 agent 继续向带工具、带审计、带人审边界的生产系统靠拢。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI 预览 GPT-5.6 Sol。</strong>官方称 GPT-5.6 系列进入 limited preview，Sol 为旗舰模型，并引入 `max` reasoning effort 与 `ultra` mode；能力描述覆盖 coding、biology 和 cybersecurity。<span class="tag">模型发布</span> <a href="https://openai.com/index/previewing-gpt-5-6-sol/">来源</a></li>
+      <li class="news-card"><strong>GPT-5.6 的发布重心同时放在能力与安全栈。</strong>OpenAI 强调 layered safeguards、自动红队、账户级信号与分阶段访问，说明更强 cyber 能力会绑定更严格治理流程。<span class="tag">安全治理</span> <a href="https://openai.com/index/previewing-gpt-5-6-sol/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 用 Codex 数据重述 agentic work。</strong>官方将 agent 描述为可委派、长周期、可调用工具并迭代的工作流，而不是一次性聊天回复。<span class="tag">Agent 工作流</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">来源</a></li>
+      <li class="news-card"><strong>AWS 披露 Stripe 金融合规 agent 案例。</strong>AWS 称 Stripe 在 Amazon Bedrock 上构建生产级合规 agent，将 review handling time 降低 26%，且保留 human oversight。<span class="tag">金融 AI</span> <a href="https://aws.amazon.com/blogs/machine-learning/production-grade-ai-agents-for-financial-compliance-lessons-from-stripe/">来源</a></li>
+      <li class="news-card"><strong>Anthropic 为 Claude Code Remote Control 增加 Trusted Devices。</strong>Team 和 Enterprise 管理员可要求成员验证设备后再查看或操控本地 Claude Code 会话。<span class="tag">企业安全</span> <a href="https://docs.anthropic.com/en/release-notes/claude-apps">来源</a></li>
+      <li class="news-card"><strong>AWS ML Blog 出现保险经纪 domain-specific AI 案例。</strong>Cara 案例显示保险、经纪和金融中后台仍是 Bedrock agent 的重点落地场景。<span class="tag">行业采用</span> <a href="https://aws.amazon.com/blogs/machine-learning/">来源</a></li>
+      <li class="news-card"><strong>OpenAI / Broadcom 推理芯片仍是本周算力主线。</strong>模型公司向 LLM inference chip 和 custom silicon 延伸，说明推理成本、延迟和供应链会继续影响模型服务价格。<span class="tag">算力供给</span> <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA BioNeMo Agent Toolkit 提供行业 agent 参考。</strong>生命科学 agent 需要 domain-specific tools and skills，不能只靠通用模型回答。<span class="tag">垂直行业</span> <a href="https://nvidianews.nvidia.com/news/nvidia-launches-bionemo-agent-toolkit-giving-ai-agents-the-tools-to-accelerate-scientific-discovery">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>模型发布：GPT-5.6 Sol 是能力升级，也是发布治理升级</h3>
+    <p>OpenAI 将 GPT-5.6 Sol 放在 limited preview，并明确提到政府沟通、trusted partners、system card、安全栈和自动红队。对开发者来说，短期不能只看 benchmark 名称，而要跟踪三件事：一般可用时间、API 价格与限制、以及 cyber/biology 高风险任务的合规边界。</p>
+    <h3>Agent：从“会回答”转向“能被委派、能被控制”</h3>
+    <p>OpenAI 的 agentic work 叙事强调工具调用和长周期任务；Anthropic 的 Trusted Devices 则说明企业部署 coding agent 时，远程控制本地会话必须受设备信任和身份验证约束。两条线合起来看，agent 的真实门槛正在从模型输出质量转向权限、审计、会话控制和失败恢复。</p>
+    <h3>行业应用：金融合规和保险经纪优先验证 ROI</h3>
+    <p>AWS / Stripe 案例披露了可量化的 review handling time 改善，也强调 human oversight。Cara 保险经纪案例则指向高文档密度、高专业术语、高合规要求的 domain-specific AI。金融业 AI 不再适合写成泛泛的客服机器人，而应拆成合规复核、交易监测、文件理解、知识检索和人工复核闭环。</p>
+  </section>
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>GPT-5.6 Sol limited preview，新增 max reasoning effort 与 ultra mode</td><td>旗舰模型与安全发布流程同步升级</td><td><a href="https://openai.com/index/previewing-gpt-5-6-sol/">官方</a></td></tr>
+          <tr><td>OpenAI</td><td>发布 agentic work / Codex 使用研究</td><td>agent 工作流从 coding 延伸到知识工作</td><td><a href="https://openai.com/index/how-agents-are-transforming-work/">官方</a></td></tr>
+          <tr><td>AWS / Stripe</td><td>金融合规 AI agent 案例，review handling time 降低 26%</td><td>金融业生产级 agent 样本</td><td><a href="https://aws.amazon.com/blogs/machine-learning/production-grade-ai-agents-for-financial-compliance-lessons-from-stripe/">官方</a></td></tr>
+          <tr><td>Anthropic</td><td>Claude Code Remote Control 增加 Trusted Devices</td><td>企业 agent 安全控制增强</td><td><a href="https://docs.anthropic.com/en/release-notes/claude-apps">官方</a></td></tr>
+          <tr><td>OpenAI / Broadcom</td><td>LLM inference chip Jalapeño 继续影响本周算力叙事</td><td>推理成本与 custom ASIC 主线</td><td><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">官方</a></td></tr>
+          <tr><td>NVIDIA</td><td>BioNeMo Agent Toolkit 提供生命科学 agent 工具和技能</td><td>行业 agent 工具化</td><td><a href="https://nvidianews.nvidia.com/news/nvidia-launches-bionemo-agent-toolkit-giving-ai-agents-the-tools-to-accelerate-scientific-discovery">官方</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>Stripe / AWS：金融合规 agent 的可量化样本。</strong>AWS 披露 Stripe 使用 Amazon Bedrock 构建生产级 AI agent，目标是处理高频、重复但需要责任边界的合规复核。报告中最值得跟踪的不是单个模型名称，而是 26% review handling time 改善、人审保留、任务拆解、orchestration 和 prompt caching 这类生产系统细节。</p>
+    <p><strong>保险经纪和银行中后台：domain-specific AI 优先落地。</strong>AWS ML Blog 在 6 月 26 日列出 Cara 的 enterprise insurance brokerages 案例，说明金融服务的短期机会更可能来自文件处理、知识检索、合规复核、风控说明和客户经理辅助，而不是无约束聊天。</p>
+    <p><strong>银行视角的判断：</strong>银行、支付和券商如果采用类似 agent，需要先明确数据权限、审批链、日志留存、模型输出复核和客户影响面。没有这些控制，节省处理时间也不能直接转化为可上线系统。</p>
+    <div class="warn">本专栏只写金融机构如何使用或建设 AI；不使用股价、IPO、利率或宏观数据填充。</div>
+  </section>
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>GPT-5.6 Sol 仍处 limited preview，外部开发者尚无法完整复核成本、延迟和广泛可用性。</li>
+      <li>OpenAI 对 cyber 能力的描述需要结合 system card 和第三方评测看，不能只用发布页判断真实风险。</li>
+      <li>金融合规 agent 的 ROI 取决于人审比例、错误成本、审计要求和任务边界，不能简单复制到所有银行流程。</li>
+      <li>远程 coding agent 的设备信任、权限撤销和会话审计仍是企业采用瓶颈。</li>
+    </ul>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI 是否发布 GPT-5.6 更完整 system card、API 价格和 broad availability 时间。</li>
+      <li>AWS / Stripe 案例是否披露更细的 architecture、human-in-the-loop 和合规审计指标。</li>
+      <li>Claude Code Trusted Devices 是否扩展到更多远程 agent 管理策略。</li>
+      <li>OpenAI / Broadcom Jalapeño 是否公布性能、功耗、数据中心伙伴和部署节奏。</li>
+      <li>银行、支付、券商是否公布新的合规、反欺诈或财富管理 AI agent。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方新闻、AWS Machine Learning Blog、Anthropic 官方 release notes、NVIDIA Newsroom、来源清单与重检规则。</p>
+    <p><strong>缺口</strong>：部分主流媒体全文受限；未使用 X/Facebook 作为唯一事实来源；Google Cloud 在本窗口内未找到足够明确的一手 AI 产品更新作为主线。</p>
+    <p>工作文件：<code>tmp/AI/20260627/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
