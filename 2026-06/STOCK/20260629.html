@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-29 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f0eee6; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-06-29 股市日报</h1>
+    <p class="lead">AI 硬件轮动、Micron memory、onsemi/Synaptics 并购、港股和美股 IPO 管线。</p>
+    <div class="market-strip"><span>生成时间：2026-06-29 12:01（澳门时间）</span><span>采集窗口：2026-06-27 12:01 ~ 2026-06-29 12:01（澳门时间 UTC+8）</span><span>市场日历：澳门时间周一中午，美股 6 月 29 日尚未完成正常交易；港股新上市资料以 HKEX 页面为准。</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-29 12:01（澳门时间）｜采集窗口：2026-06-27 12:01 ~ 2026-06-29 12:01（澳门时间 UTC+8）</p>
+    <p class="warn">本报告只写事实、可能影响和继续跟踪；不提供买卖建议。美股 2026-06-29 正常交易尚未完成，避免编造当日收盘价。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>AI 硬件交易从单一龙头扩展到推理成本。</strong>事实：The Guardian 6 月 29 日报道小型 AI、低成本芯片和 NVIDIA 竞争者。可能影响：市场会继续比较 GPU、ASIC、memory、edge AI 和云推理成本。继续跟踪：公司公告、财报和真实订单。 <a href="https://www.theguardian.com/technology/2026/jun/29/small-ai-cheaper-chips-nvidia-competitors">来源</a></li>
+      <li class="market-card"><strong>Micron 强财报仍是 AI memory 主线。</strong>事实：Micron 官方披露 FY2026 Q3 record results。可能影响：HBM、DRAM、NAND 供给和价格继续影响 AI 服务器与终端硬件成本。继续跟踪：客户协议、资本开支和下游涨价压力。 <a href="https://investors.micron.com/news-releases/news-release-details/micron-technology-inc-reports-record-results-third-quarter">来源</a></li>
+      <li class="market-card"><strong>onsemi / Synaptics 并购仍是事件驱动焦点。</strong>事实：onsemi 称全股票交易企业价值约 <span class="price">70 亿美元</span>，目标是 physical AI 和下一代智能系统。可能影响：边缘 AI 并购叙事升温，但审批和协同兑现周期长。继续跟踪：股东批准、监管路径和 closing。 <a href="https://www.onsemi.com/company/news-media/press-announcements/en/onsemi-to-acquire-synaptics-to-enable-the-next-generation-of-intelligent-systems-for-physical-ai">来源</a></li>
+      <li class="market-card"><strong>港股 6 月 29 日新上市资料更新，但需区分普通 IPO 与结构性产品。</strong>事实：HKEX Newly Listed Securities 显示 TESTCO25、GRACE CLW2506、BEIJING PHARMA 等项目。可能影响：不能把所有新上市证券都当作公司 IPO。继续跟踪：招股书、配发结果、首日成交和稳定价格行动。 <a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>WENGE AI 等 6 月 26 日港股新股继续进入观察名单。</strong>事实：HKEX 页面列出 WENGE AI、LINGYI ITECH、SG MICRO、CFMEE 等新上市。可能影响：AI/科技标签带来关注，但质量判断必须回到招股书和交易后流动性。继续跟踪：首日换手、锁定期和客户集中度。 <a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>美股 IPO 继续看 Sinda 和 Bending Spoons。</strong>事实：NYSE recent IPO、Renaissance Calendar 和 IPOScoop 仍提供可核验线索。可能影响：IPO 窗口可反映成长股风险偏好，但不同发行人质量差异很大。继续跟踪：SEC 文件、发行价、首日交易和锁定期。 <a href="https://www.nyse.com/ipo-center/recent-ipo">来源</a></li>
+    </ol>
+  </section>
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>主题 / 标的</th><th>可核验事实</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>AI 硬件链</td><td>6 月 29 日主流媒体继续讨论低成本 AI 芯片和 NVIDIA 竞争者</td><td>资金可能在训练 GPU、推理芯片、ASIC、memory 与 edge AI 之间再定价</td><td><a href="https://www.theguardian.com/technology/2026/jun/29/small-ai-cheaper-chips-nvidia-competitors">The Guardian</a></td></tr>
+          <tr><td>MU</td><td>FY2026 Q3 record results，AI memory 需求仍是核心叙事</td><td>强基本面需与估值、供给扩张和下游成本压力一起看</td><td><a href="https://investors.micron.com/news-releases/news-release-details/micron-technology-inc-reports-record-results-third-quarter">Micron IR</a></td></tr>
+          <tr><td>ON / SYNA</td><td>全股票收购 Synaptics，企业价值约 70 亿美元</td><td>Physical AI 叙事明确，但交易批准和整合不确定性高</td><td><a href="https://www.onsemi.com/company/news-media/press-announcements/en/onsemi-to-acquire-synaptics-to-enable-the-next-generation-of-intelligent-systems-for-physical-ai">onsemi</a></td></tr>
+          <tr><td>NVDA / AVGO / AMD / MRVL</td><td>本窗口无统一新收盘价引用；仅作 AI 硬件链继续跟踪对象</td><td>下一步看推理成本、ASIC 订单、云客户资本开支和毛利率</td><td>公司公告 / 财报续追</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>港股本窗口最清晰的一手资料仍来自 HKEX Newly Listed Securities。6 月 29 日页面中部分项目并非普通公司 IPO，因此正文只确认上市资料更新，不把结构性产品当作经营公司来分析。</p>
+    <div class="focus-box">
+      <p><strong>继续跟踪：</strong>WENGE AI、LINGYI ITECH、SG MICRO、CFMEE 等 6 月 26 日新上市公司更适合进入观察名单，但必须逐一读招股书、客户集中度、毛利率、现金流、基石投资者、锁定期和稳定价格机制。</p>
+    </div>
+  </section>
+  <section id="recent-ipos">
+    <h2>港股和美股近期 IPO 专栏</h2>
+    <h3>近期已上市 IPO</h3>
+    <ul>
+      <li><strong>WENGE AI（01956）：</strong>HKEX 6 月 26 日新上市名单列出该公司。关注等级：<strong>谨慎关注</strong>。理由：AI 决策智能标签有市场关注度，但必须补充招股书财务质量、客户集中度、政府/企业订单稳定性、流动性和锁定期核验。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li><strong>LINGYI ITECH、SG MICRO、CFMEE 等：</strong>HKEX 同页显示 6 月 26 日新上市。关注等级：<strong>信息不足</strong>。理由：今天只完成上市事实复核，尚未逐一读取招股书和配发结果，不能判断估值与业务质量。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">来源</a></li>
+      <li><strong>Sinda（SIND）：</strong>NYSE recent IPO 和 IPOScoop 仍可作为近期 IPO 线索。关注等级：<strong>谨慎关注</strong>。理由：资源类 IPO 受商品价格、项目开发、融资周期和流动性影响较大，首日表现不能替代基本面核验。<a href="https://www.nyse.com/ipo-center/recent-ipo">来源</a></li>
+    </ul>
+    <h3>即将 IPO / 已递表 / 已提交注册文件</h3>
+    <ul>
+      <li><strong>Bending Spoons：</strong>Renaissance Capital IPO Calendar 仍是主要跟踪入口。关注等级：<strong>值得重点关注</strong>。理由：软件资产整合模式和交易规模使其具备观察价值，但需继续核验债务、并购整合、留存率、利润质量和发行条款。<a href="https://www.renaissancecapital.com/IPO-Center/Calendar">来源</a></li>
+      <li><strong>其他美股日历候选：</strong>关注等级：<strong>信息不足</strong>。理由：未完成 SEC S-1/F-1 细读前，不判断业务质量、毛利率、现金消耗或诉讼风险。</li>
+    </ul>
+    <div class="warn">关注等级不是买入、卖出、目标价或确定收益判断；只用于决定是否继续跟踪招股书、上市表现和交易后披露。</div>
+  </section>
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <p>本窗口未发现新的高可信 AI 独角兽 IPO 一手文件。AI 资本市场线索主要来自 AI 硬件成本、推理芯片竞争、WENGE AI 港股新上市后续表现，以及 OpenAI / HP 企业 AI 采用对软件生态的间接支撑。</p>
+  </section>
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>Micron 仍是本窗口最重要的财报延续线索。AI memory 需求支持收入和利润，但后续要同步看 HBM 供给扩张、DRAM/NAND 价格、资本开支、战略客户协议，以及 Apple、PC、服务器和云厂商能否承受更高 memory 成本。</p>
+  </section>
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>行情时点风险：</strong>澳门时间周一中午，美股 6 月 29 日尚未收盘，不能把盘前或旧快照写成当日收盘。</li>
+      <li><strong>AI 硬件拥挤风险：</strong>推理芯片和低成本 AI 叙事升温，但真实订单、毛利和资本开支仍需财报验证。</li>
+      <li><strong>M&amp;A 执行风险：</strong>onsemi / Synaptics 交易需股东和监管批准，预计 2027 年中完成，协同兑现不确定。</li>
+      <li><strong>IPO 质量风险：</strong>AI 标签、科技标签和募资规模不能替代招股书财务质量。</li>
+    </ul>
+  </section>
+  <section id="event-focus">
+    <h2>事件驱动股票专题</h2>
+    <div class="focus-box">
+      <p><strong>主题：AI 硬件链从训练 GPU 扩展到推理和 physical AI。</strong>周末到周一的可核验信息并不支持写“全板块普涨”，更适合写成结构分化：Micron 代表 AI memory 基本面，onsemi / Synaptics 代表 physical AI 并购，The Guardian 报道则提示推理成本和竞争者会影响估值叙事。</p>
+      <p><strong>继续跟踪：</strong>NVIDIA、Broadcom、AMD、Marvell、Micron、onsemi/Synaptics 后续公告和财报；云客户资本开支；推理芯片订单；下游终端是否因 memory 和 AI 硬件成本涨价。</p>
+      <p><strong>交易纪律：</strong>这是事件驱动观察，不是买卖建议。并购、财报和媒体主题都必须回到订单、利润率、现金流和监管进度验证。</p>
+    </div>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>美股 6 月 29 日完整交易后，AI 硬件链是否延续分化。</li>
+      <li>Micron AI memory 强基本面是否继续影响 Apple、PC、服务器和云厂商成本。</li>
+      <li>onsemi / Synaptics 是否有更多交易说明、股东时间表或监管进展。</li>
+      <li>WENGE AI、LINGYI ITECH、SG MICRO、CFMEE 等港股新股的首日/后续成交、公告和稳定价格行动。</li>
+      <li>Bending Spoons、Sinda 及其他美股 IPO 候选的 SEC 文件、发行价和锁定期。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：The Guardian、Micron IR、onsemi 官方公告、HKEX Newly Listed Securities、NYSE Recent IPO、Renaissance Capital、IPOScoop、来源清单与重检规则。</p>
+    <p><strong>缺口</strong>：Reuters、Bloomberg、WSJ 部分正文受限；美股 6 月 29 日尚未有正常收盘；未逐一细读全部 SEC/HKEX 招股书，因此 IPO 等级偏保守。</p>
+    <p>工作文件：<code>tmp/STOCK/20260629/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
