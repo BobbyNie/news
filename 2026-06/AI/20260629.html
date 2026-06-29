@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-29 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.18rem; }
+    li { margin: 0.62rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-29 AI 日报</h1>
+    <p class="lead">聚焦 HP 企业 AI 扩展、GPT-5.6 Sol 延续、推理芯片成本与金融业 AI 应用缺口。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-29 12:01（澳门时间）</span><span>采集窗口：2026-06-27 12:01 ~ 2026-06-29 12:01（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-29 12:01（澳门时间）｜采集窗口：2026-06-27 12:01 ~ 2026-06-29 12:01（澳门时间 UTC+8）</p>
+    <p>今天窗口内高可信 AI 新闻不密集，最重要的一手增量是 OpenAI 发布 HP 企业采用案例。报告把旧消息降为延续跟踪，不把股价、IPO 或宏观消息填入 AI 主线。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI / HP 把企业 AI 从试点推向跨职能复制。</strong>OpenAI 发布 HP 案例，重点是 ChatGPT Enterprise、Frontier 计划、治理和多个业务流程的规模化采用。<span class="tag">企业采用</span> <a href="https://openai.com/index/how-hp-is-scaling-early-ai-wins-across-the-enterprise/">来源</a></li>
+      <li class="news-card"><strong>HP 案例说明企业 AI 竞争点转向组织执行。</strong>对大企业而言，模型能力只是入口，真正难点是数据权限、工作流重构、内部培训、合规审查和可衡量 ROI。<span class="tag">落地方法</span> <a href="https://openai.com/index/how-hp-is-scaling-early-ai-wins-across-the-enterprise/">来源</a></li>
+      <li class="news-card"><strong>GPT-5.6 Sol 仍是本周模型能力与治理主线。</strong>OpenAI 的 limited preview 把更强 coding、biology、cybersecurity 能力与分阶段访问、安全控制和 system card 绑定。<span class="tag">模型治理</span> <a href="https://openai.com/index/previewing-gpt-5-6-sol/">来源</a></li>
+      <li class="news-card"><strong>Agentic work 成为企业采用解释框架。</strong>OpenAI 近期将 agent 描述为可委派、可调用工具、可长周期迭代的工作方式，帮助解释 HP 这类跨流程落地。<span class="tag">Agent 工作流</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">来源</a></li>
+      <li class="news-card"><strong>AI 芯片竞争继续围绕推理成本展开。</strong>The Guardian 6 月 29 日报道小型 AI、低成本芯片和 NVIDIA 竞争者，提示推理成本会影响模型服务定价与部署规模。<span class="tag">算力供给</span> <a href="https://www.theguardian.com/technology/2026/jun/29/small-ai-cheaper-chips-nvidia-competitors">来源</a></li>
+      <li class="news-card"><strong>金融业 AI 本窗口缺少新的银行一手公告。</strong>已检查清单内金融 AI 来源，未见新的银行服务、合规科技或监管 AI 官方稿；专栏保留并列明缺口。<span class="tag">金融 AI</span> <a href="https://aws.amazon.com/blogs/machine-learning/">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>企业采用：HP 案例的重点是复制能力，不是一次性试点</h3>
+    <p>OpenAI 发布的 HP 案例把重点放在跨职能推广：客户支持、供应链、销售和员工效率都可能被纳入同一套企业 AI 计划。对行业的信号是，大企业采购 AI 不再只比较模型名称，而会比较供应商能否帮助客户建立治理、培训、权限、反馈和度量体系。</p>
+    <h3>模型与治理：GPT-5.6 Sol 不能只看能力标签</h3>
+    <p>GPT-5.6 Sol 的官方描述覆盖高风险能力，并强调 phased access、system card 和安全流程。企业采用更强模型时，真正要问的是：哪些任务可自动化、哪些任务需人审、日志如何留存、异常输出如何回滚，以及 API 可用性和价格何时稳定。</p>
+    <h3>算力：推理成本仍是 AI 产品化底层变量</h3>
+    <p>The Guardian 的 AI 芯片报道不是公司一手披露，但它提示了重要方向：如果低成本推理芯片、ASIC 或边缘设备持续进步，AI 应用的毛利、延迟、隐私部署和终端产品形态都会改变。后续需要用 NVIDIA、Broadcom、AMD、云厂商和模型公司披露来验证。</p>
+  </section>
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI / HP</td><td>发布 HP 企业 AI 扩展案例</td><td>企业采用从试点进入跨职能复制</td><td><a href="https://openai.com/index/how-hp-is-scaling-early-ai-wins-across-the-enterprise/">官方</a></td></tr>
+          <tr><td>OpenAI</td><td>GPT-5.6 Sol limited preview 延续影响本周模型治理讨论</td><td>能力与安全边界同步跟踪</td><td><a href="https://openai.com/index/previewing-gpt-5-6-sol/">官方</a></td></tr>
+          <tr><td>OpenAI</td><td>agentic work 框架用于解释企业工作流自动化</td><td>从聊天转向可委派工作</td><td><a href="https://openai.com/index/how-agents-are-transforming-work/">官方</a></td></tr>
+          <tr><td>NVIDIA 及竞争者</td><td>低成本 AI 芯片和推理成本成为主流媒体关注点</td><td>需用公司公告/财报继续验证</td><td><a href="https://www.theguardian.com/technology/2026/jun/29/small-ai-cheaper-chips-nvidia-competitors">媒体</a></td></tr>
+          <tr><td>Anthropic / DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新稿</td><td><span class="tag">续追</span></td><td>官方新闻页复查</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>本窗口未见新的银行一手 AI 应用公告。</strong>已复查 HSBC、Bank of America、DBS、JPMorganChase、BIS、FSB、IOSCO 与 AWS ML Blog 等来源，没有找到 2026-06-27 12:01 至 2026-06-29 12:01 期间可确认的新银行服务、财富管理 AI、风控/反欺诈系统、监管科技或模型治理公告。</p>
+    <p><strong>延续跟踪：</strong>6 月 27 日已覆盖的 AWS / Stripe 金融合规 agent 仍值得跟踪，但它不是今天新增。银行和支付机构若采用类似 agent，应优先明确人审比例、审计日志、数据权限、错误责任和客户影响面。</p>
+    <p><strong>今日结论：</strong>金融业 AI 真实落地继续偏向高文档密度、高合规要求的中后台流程；没有新官方稿时，不用利率、股价、IPO 或宏观消息填充本栏目。</p>
+    <div class="warn">本专栏只写金融机构如何使用或建设 AI；不写交易结论。</div>
+  </section>
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>HP 案例由供应商发布，需继续观察客户是否披露更量化的成本、收入、时效或满意度指标。</li>
+      <li>GPT-5.6 Sol 仍处 limited preview，外部开发者尚不能完整验证价格、延迟和可用性。</li>
+      <li>AI 芯片竞争报道属于市场背景，不能替代公司一手产品参数、订单和财务披露。</li>
+      <li>金融业 AI 本窗口缺少新增官方公告，栏目结论应保持保守。</li>
+    </ul>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>HP / OpenAI 是否披露更多行业化工作流、量化指标和可复制方法。</li>
+      <li>GPT-5.6 Sol 是否公布更完整 system card、API 价格、开放节奏和安全边界。</li>
+      <li>低成本推理芯片报道是否被 NVIDIA、Broadcom、AMD、云厂商或模型公司公告印证。</li>
+      <li>银行、支付、券商是否发布新的合规、反欺诈、财富管理或客户服务 AI agent。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方新闻、The Guardian 科技报道、AWS ML Blog、金融业 AI 来源清单与来源重检规则。</p>
+    <p><strong>缺口</strong>：Anthropic、DeepMind、Meta AI、xAI、Perplexity、Cohere 本窗口未见同等级官方新增；部分媒体全文受限；未使用未验证社媒作为事实来源。</p>
+    <p>工作文件：<code>tmp/AI/20260629/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
