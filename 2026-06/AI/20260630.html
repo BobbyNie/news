@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-30 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.18rem; }
+    li { margin: 0.62rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-06-30 AI 日报</h1>
+    <p class="lead">企业 AI 从试点走向生产治理，OpenAI、Anthropic、Snowflake 与金融 AI 应用继续分化。</p>
+    <div class="meta-grid"><span>生成时间：2026-06-30 12:02（澳门时间）</span><span>采集窗口：2026-06-28 12:02 ~ 2026-06-30 12:02（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-06-30 12:02（澳门时间）｜采集窗口：2026-06-28 12:02 ~ 2026-06-30 12:02（澳门时间 UTC+8）</p>
+    <p>今天窗口内没有足以改写行业排序的新基础模型发布，主线转向企业 AI 生产化：从 HP 案例、RBC 企业支出调查，到 Snowflake / Anthropic 的治理型数据云 agent，核心问题都是能否把 AI 安全放进真实流程。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>OpenAI / HP 案例显示企业 AI 从试点进入跨职能复制。</strong>重点不只是模型能力，而是权限、培训、治理、工作流改造和 ROI 度量。<span class="tag">企业采用</span> <a href="https://openai.com/index/how-hp-is-scaling-early-ai-wins-across-the-enterprise/">来源</a></li>
+      <li class="news-card"><strong>企业 AI 支出调查继续支持生产化叙事。</strong>Business Insider 引述 RBC 调查称企业 AI 预算和生产环境部署继续增长，OpenAI 与 Anthropic 是主要服务商。<span class="tag">需求侧</span> <a href="https://www.businessinsider.com/enterprise-ai-spending-grows-openai-leads-rbc-reveals-2026-6">来源</a></li>
+      <li class="news-card"><strong>Snowflake / Anthropic 把竞争焦点放到“治理数据内的 agent”。</strong>Claude in Cortex AI 强调治理、安全、观测和企业数据内运行，而不是只拼聊天体验。<span class="tag">数据云 AI</span> <a href="https://www.snowflake.com/en/news/press-releases/snowflake-and-anthropic-accelerate-enterprise-ai-adoption-driven-by-rising-demand-for-governed-ai/">来源</a></li>
+      <li class="news-card"><strong>Claude 平台 release notes 本窗口未见重大模型发布。</strong>开发者工具仍有小步更新，但今天不足以盖过企业采用主线。<span class="tag">开发者工具</span> <a href="https://platform.claude.com/docs/en/release-notes/overview">来源</a></li>
+      <li class="news-card"><strong>Agentic work 继续成为企业 AI 的解释框架。</strong>OpenAI 的 agentic work 叙事帮助解释为什么企业从聊天工具转向可委派流程和工具调用。<span class="tag">Agent 工作流</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">来源</a></li>
+      <li class="news-card"><strong>金融 AI 本窗口无新的银行一手公告。</strong>延续跟踪 AWS / Sun Finance 的 ID 提取与欺诈检测案例，但不把股价、IPO 或宏观消息填入金融 AI 专栏。<span class="tag">金融 AI</span> <a href="https://aws.amazon.com/blogs/machine-learning/sun-finance-automates-id-extraction-and-fraud-detection-with-generative-ai-on-aws/">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>企业采用：从“买 AI”转向“组织能不能用起来”</h3>
+    <p>OpenAI 的 HP 案例说明，企业 AI 竞争正在离开单纯模型对比：大客户真正要解决的是权限、审计、培训、跨部门工作流、数据接入和结果度量。供应商若只能提供聊天入口，难以解释大型企业为什么持续扩张预算。</p>
+    <h3>企业需求：预算增长不等于所有软件都受益</h3>
+    <p>Business Insider 引述 RBC 调查显示企业 AI 支出和生产部署继续增长，但这不意味着所有 AI 产品都有定价权。接下来更需要看客户是否愿意为 seat + usage、agent 成果、数据治理和合规责任付费。</p>
+    <h3>开发者与数据云：Claude 生态的重点是可治理部署</h3>
+    <p>Anthropic release notes 没有给出今天的重大模型事件；Snowflake / Anthropic 的合作更能说明企业线索：Claude 被放进 Cortex AI，围绕企业数据、治理、观测和 agent 场景展开。这类集成会直接挑战单独 API 或单独聊天产品。</p>
+  </section>
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI / HP</td><td>HP 企业 AI 扩展案例继续作为窗口内核心线索</td><td>企业采用从试点走向组织复制</td><td><a href="https://openai.com/index/how-hp-is-scaling-early-ai-wins-across-the-enterprise/">官方入口</a></td></tr>
+          <tr><td>Anthropic</td><td>Claude 平台 release notes 可访问，但未确认重大模型发布</td><td>开发者工具与企业生态续追</td><td><a href="https://platform.claude.com/docs/en/release-notes/overview">官方</a></td></tr>
+          <tr><td>Snowflake / Anthropic</td><td>Claude in Cortex AI 强调治理型企业 agent</td><td>生产级企业 AI 平台竞争</td><td><a href="https://www.snowflake.com/en/news/press-releases/snowflake-and-anthropic-accelerate-enterprise-ai-adoption-driven-by-rising-demand-for-governed-ai/">官方</a></td></tr>
+          <tr><td>AWS / Sun Finance</td><td>ID 提取与欺诈检测案例用于金融 AI 延续跟踪</td><td>金融文档、KYC、反欺诈场景明确</td><td><a href="https://aws.amazon.com/blogs/machine-learning/sun-finance-automates-id-extraction-and-fraud-detection-with-generative-ai-on-aws/">官方</a></td></tr>
+          <tr><td>Google DeepMind / Meta AI / xAI / Perplexity</td><td>本窗口未见同等级官方新增</td><td><span class="tag">续追</span></td><td>官方新闻页复查</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>本窗口未见新的银行一手 AI 应用公告。</strong>已复查 HSBC、Bank of America、DBS、JPMorganChase、BIS、FSB、IOSCO、AWS ML Blog 等来源，未确认 2026-06-28 12:02 至 2026-06-30 12:02 期间新的银行服务、财富管理 AI、风控/反欺诈系统、合规科技或模型治理公告。</p>
+    <p><strong>延续跟踪：</strong>AWS / Sun Finance 案例仍说明金融 AI 的高价值路径：ID 文档提取、欺诈检测、低置信度回退、人审队列压缩和标准化 JSON 输出。这类用例更接近银行、消费金融和支付机构的真实生产问题。</p>
+    <p><strong>今日结论：</strong>金融机构 AI 仍应优先看可审计流程、权限边界、错误回滚和人工复核，不用指数、股价、IPO、利率或券商观点填充本栏目。</p>
+    <div class="warn">本专栏只写金融机构如何使用或建设 AI；不写交易结论。</div>
+  </section>
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>OpenAI 官方页本次直接抓取被 Cloudflare challenge 拦截，保留链接但把访问缺口列明。</li>
+      <li>RBC 调查为媒体转述，不能替代企业客户逐项披露的合同、用量和 ROI。</li>
+      <li>Snowflake / Anthropic 合作是供应商叙事，仍需客户生产案例和实际用量验证。</li>
+      <li>金融 AI 本窗口没有新的银行一手公告，结论应保持保守。</li>
+    </ul>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>OpenAI / HP 是否披露更多量化指标、行业模板和跨部门部署方法。</li>
+      <li>Anthropic release notes 是否出现 Claude API、Claude Code 或模型能力重大更新。</li>
+      <li>Snowflake / Anthropic 是否公布更多 Cortex AI 客户案例、用量和治理指标。</li>
+      <li>银行、支付、券商是否发布新的合规、反欺诈、财富管理或客户服务 AI agent。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：OpenAI 官方入口、Claude Platform Docs、Snowflake 官方新闻稿、Business Insider / RBC 调查报道、AWS ML Blog、金融业 AI 来源清单与来源重检规则。</p>
+    <p><strong>缺口</strong>：OpenAI 官方页直接请求返回 403 challenge；Bloomberg、WSJ、FT 部分全文受限；未使用未验证社媒作为事实来源。</p>
+    <p>工作文件：<code>tmp/AI/20260630/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
