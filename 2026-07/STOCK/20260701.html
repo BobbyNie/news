@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-01 股市日报</title>
+  <style>
+    :root { --paper: #f7f6f0; --ink: #111827; --muted: #6b7280; --line: #d8d2c3; --surface: #fffefa; --market: #14532d; --up: #087443; --down: #b42318; --blue: #1d4ed8; --warning-bg: #fff7ed; --warning-line: #ea580c; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 780px; min-height: 100vh; padding: 0 18px 46px; background: linear-gradient(180deg, #efeadf 0, rgba(239,234,223,0) 330px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.66; letter-spacing: 0; }
+    .hero-stock { margin: 0 -18px; padding: 28px 18px 18px; color: #101828; background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29,78,216,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #f0eee6; color: #374151; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card { counter-increment: marketitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 8px 22px rgba(74,63,38,0.06); }
+    .market-card::before { content: counter(marketitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: #dcfce7; color: var(--market); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-07-01 股市日报</h1>
+    <p class="lead">美股 AI 股反弹，港股今日休市，Bending Spoons 与 Lime 检验 7 月 IPO 风险偏好。</p>
+    <div class="market-strip"><span>生成时间：2026-07-01 12:01（澳门时间）</span><span>采集窗口：2026-06-29 12:01 ~ 2026-07-01 12:01（澳门时间 UTC+8）</span><span>市场日历：HKEX 确认香港市场 2026-07-01 休市，7 月 2 日重开；美股引用 2026-06-30 收盘报道。</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-07-01 12:01（澳门时间）｜采集窗口：2026-06-29 12:01 ~ 2026-07-01 12:01（澳门时间 UTC+8）</p>
+    <p class="warn">本报告只写事实、可能影响和继续跟踪；不提供买卖建议。美股指数点位以 AP 2026-06-30 收盘报道为准；港股今日休市，不能引用 7 月 1 日港股即时成交。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="market-card"><strong>美股 6 月 30 日上涨，AI 股反弹。</strong>事实：AP 记录 S&amp;P 500 <span class="change-up">+0.8%</span> 至 <span class="price">7,499.36</span>，Dow <span class="change-up">+0.3%</span> 至 <span class="price">52,319.20</span>，Nasdaq <span class="change-up">+1.5%</span> 至 <span class="price">26,213.72</span>。可能影响：风险偏好修复，但仍需确认 7 月首周能否延续。 <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-dd80324a60e6136d647524ad7eef45bf">来源</a></li>
+      <li class="market-card"><strong>Bending Spoons IPO 定价高于区间。</strong>事实：IPOScoop 称 BSP 以 <span class="price">$29.00</span> 定价、发行 <span class="price">57.97 million</span> shares、募资 <span class="price">$1.68B</span>。可能影响：大型软件资产整合 IPO 的首日表现会影响 7 月科技 IPO 窗口。 <a href="https://www.iposcoop.com/">来源</a></li>
+      <li class="market-card"><strong>HKEX 确认港股 7 月 1 日休市。</strong>事实：HKEX 公告香港市场 7 月 1 日休市、7 月 2 日重开。可能影响：港股部分应以 6 月 30 日收盘和复市观察为主。 <a href="https://www.hkex.com.hk/?sc_lang=en">来源</a></li>
+      <li class="market-card"><strong>港股 6 月 30 日弱势。</strong>事实：Trading Economics 显示 HK50 6 月 30 日收 <span class="price">22,881.02</span>，<span class="change-down">-0.63%</span>，月内 <span class="change-down">-9.91%</span>。可能影响：港股与美股 AI 反弹分化，复市后需看科技互联网和新股承接。 <a href="https://tradingeconomics.com/hong-kong/stock-market">来源</a></li>
+      <li class="market-card"><strong>Lime 预计 7 月 1 日 Nasdaq 上市。</strong>事实：IPOX 显示 Lime 发行区间 <span class="price">$24-$26</span>，拟发行 <span class="price">6,956,522</span> 股，募资约 <span class="price">$174M</span>。可能影响：共享微出行 IPO 检验非 AI 消费科技风险偏好。 <a href="https://www.ipox.com/upcoming-ipos">来源</a></li>
+      <li class="market-card"><strong>Laifual H 股 IPO 提供港股机器人供应链样本。</strong>事实：IPOX 显示 Laifual 预计 6 月 30 日港交所上市，区间 <span class="price">HKD 77.00-85.50</span>，最高募资约 <span class="price">HKD 1.15B</span>。可能影响：需核验财务质量、客户集中和机器人产业景气。 <a href="https://www.ipox.com/upcoming-ipos">来源</a></li>
+    </ol>
+  </section>
+  <section id="us">
+    <h2>美股重点</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>主题 / 标的</th><th>可核验事实</th><th>可能影响</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>指数 / 风险偏好</td><td>S&amp;P 500 +0.8%，Dow +0.3%，Nasdaq +1.5%，Russell 2000 +0.5%，均为 2026-06-30 收盘报道</td><td>AI 股反弹带动成长风格修复，但仍需看持续性</td><td><a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-dd80324a60e6136d647524ad7eef45bf">AP</a></td></tr>
+          <tr><td>BSP</td><td>IPOScoop 称 Bending Spoons 以 $29 定价，高于 $26-$28 区间</td><td>大型科技 IPO 定价强弱影响后续发行窗口</td><td><a href="https://www.iposcoop.com/">IPOScoop</a></td></tr>
+          <tr><td>LIME</td><td>IPOX 显示 Lime 预计 7 月 1 日在 Nasdaq 上市，拟募资约 $174M</td><td>共享微出行业务质量、城市许可和盈利能力待验证</td><td><a href="https://www.ipox.com/upcoming-ipos">IPOX</a></td></tr>
+          <tr><td>AAC.U</td><td>Renaissance Capital 显示 Ares Acquisition III deal size $345M</td><td>SPAC 与经营公司 IPO 风险不同，应等待目标资产</td><td><a href="https://www.renaissancecapital.com/IPO-Center/Calendar">Renaissance</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="hk">
+    <h2>港股重点</h2>
+    <p>HKEX 首页确认香港市场 2026-07-01 休市，7 月 2 日重开；因此今日港股部分不写 7 月 1 日即时成交。6 月 30 日，Trading Economics 显示 HK50 跌至 22,881.02，日跌 0.63%，月内跌 9.91%。腾讯当日 +2.28%，汇丰 +0.20%，建行 -2.06%，中移动 -1.42%，中海油 -3.61%，友邦 -1.04%。</p>
+    <div class="focus-box">
+      <p><strong>复市观察：</strong>7 月 2 日重点看南向资金、科技互联网、能源金融权重、近期新股和机器人 / AI 硬件链承接。由于今天休市，任何“今日港股涨跌”都需等复市后再确认。</p>
+    </div>
+  </section>
+  <section id="recent-ipos">
+    <h2>港股和美股近期 IPO 专栏</h2>
+    <h3>近期已上市 IPO</h3>
+    <ul>
+      <li><strong>Laifual（港股 H 股）：</strong>IPOX 显示预计 2026-06-30 在港交所上市，发行 13.44 million H shares，区间 HKD 77.00-85.50，最高募资约 HKD 1.15B。关注等级：<strong>谨慎关注</strong>。理由：机器人 harmonic reducer 供应链具备产业景气线索，但仍需细读招股书收入质量、毛利、客户集中、现金流、锁定期和上市后流动性。</li>
+      <li><strong>Bending Spoons（BSP）：</strong>IPOScoop 称 2026-06-30 定价，预计 7 月 1 日首日交易。关注等级：<strong>值得重点关注</strong>。理由：募资规模大、资产组合覆盖 AOL、Vimeo、Evernote 等品牌，能检验软件资产整合模式；但需重点核验债务、收购整合、调整后利润口径、用户留存、锁定期和发行后波动。</li>
+    </ul>
+    <h3>即将 IPO / 已递表 / 已提交注册文件</h3>
+    <ul>
+      <li><strong>Lime（LIME）：</strong>IPOX 显示预计 2026-07-01 Nasdaq 上市，发行区间 $24-$26，拟募资约 $174M。关注等级：<strong>谨慎关注</strong>。理由：共享微出行有规模和城市合作壁垒，但监管许可、季节性、车队折旧、单位经济和现金消耗必须细读 S-1 后才能判断。</li>
+      <li><strong>Ares Acquisition III（AAC.U）：</strong>Renaissance Capital 显示 deal size $345M。关注等级：<strong>暂不关注</strong>。理由：SPAC 不是经营公司 IPO，在目标资产、赎回率、并购条款和 sponsor 激励明确前，业务质量无从评估。</li>
+      <li><strong>Nasdaq IPO Calendar：</strong>本轮页面返回数据不可用。关注等级：<strong>信息不足</strong>。理由：需等待 Nasdaq、NYSE、SEC 或公司公告确认最终上市和定价。</li>
+    </ul>
+    <div class="warn">关注等级不是买入、卖出、目标价或确定收益判断；只用于决定是否继续跟踪招股书、上市表现和交易后披露。</div>
+  </section>
+  <section id="unicorns">
+    <h2>AI 独角兽 / IPO</h2>
+    <p>本窗口没有确认新的美国 AI 独角兽 S-1/F-1 文件。港股硬科技与机器人供应链线索集中在 Laifual 一类公司，但不能仅凭机器人或 AI 标签提高评级，仍要回到招股书、财务质量、估值条款、客户集中和上市后流动性。</p>
+  </section>
+  <section id="earnings">
+    <h2>财报与指引</h2>
+    <p>今天主线不是单一财报。美股反弹的解释来自 AP 对 6 月 30 日收盘的概括：AI 行业股票在此前估值担忧和波动后走强。后续若纳入公司财报，应优先使用公司 IR、SEC 文件和明确盘后 / 盘前价格时点。</p>
+  </section>
+  <section id="risks">
+    <h2>监管与风险</h2>
+    <ul>
+      <li><strong>反弹持续性：</strong>AI 股反弹改善 Nasdaq 表现，但不能确认估值担忧已经解除。</li>
+      <li><strong>港股休市：</strong>7 月 1 日没有港股正常现货交易，任何即时行情需等 7 月 2 日复市。</li>
+      <li><strong>IPO 定价风险：</strong>Bending Spoons 高于区间定价强化需求信号，但也提高首日估值和波动检验。</li>
+      <li><strong>业务质量差异：</strong>Lime、Laifual、SPAC、软件资产整合公司的财务结构和风险完全不同，不能用同一估值框架。</li>
+    </ul>
+  </section>
+  <section id="event-focus">
+    <h2>事件驱动股票专题</h2>
+    <div class="focus-box">
+      <p><strong>主题：AI 反弹与 IPO 窗口。</strong>6 月 30 日美股反弹说明 AI 板块在估值担忧后仍有资金承接；Bending Spoons 高于区间定价则提供一级市场风险偏好的同步信号。</p>
+      <p><strong>继续跟踪：</strong>BSP 首日涨跌和成交、Lime 是否顺利挂牌、7 月首周 AI / 半导体是否延续反弹、港股 7 月 2 日复市后科技和新股是否补反应。</p>
+      <p><strong>失败条件：</strong>若 BSP 首日波动剧烈或跌破发行价，或 AI 股反弹无法延续，7 月 IPO 和高估值成长股窗口可能迅速收窄。</p>
+    </div>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Bending Spoons 首日交易、成交额、换手率和是否守住发行价。</li>
+      <li>Lime 是否按计划挂牌，以及首日流动性、估值和业务风险披露。</li>
+      <li>港股 7 月 2 日复市后的 HK50、腾讯、汇丰、内银、能源和近期新股表现。</li>
+      <li>美股 AI / 半导体反弹是否扩散到软件、云和 IPO 新股。</li>
+      <li>SEC / HKEX 是否出现新的 AI、机器人、半导体或软件 IPO 文件。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：AP、HKEX、Trading Economics、SEC F-1、Business Wire、IPOX、IPOScoop、Renaissance Capital、来源重检规则与 stock source manifest。</p>
+    <p><strong>缺口</strong>：Nasdaq IPO Calendar 本轮无数据；Bloomberg、WSJ、FT、Barron's 部分全文受限；未逐页细读 Lime 与 Laifual 招股书，因此 IPO 关注等级保持保守。</p>
+    <p>工作文件：<code>tmp/STOCK/20260701/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
