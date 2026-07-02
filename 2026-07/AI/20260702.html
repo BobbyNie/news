@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-02 AI 日报</title>
+  <style>
+    :root { --paper: #f6f8fb; --ink: #111827; --muted: #667085; --line: #d9e2ef; --surface: #ffffff; --accent: #2563eb; --accent-2: #0891b2; --warning-bg: #fff7ed; --warning-line: #f59e0b; color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0 auto; max-width: 760px; min-height: 100vh; padding: 0 18px 44px; background: linear-gradient(180deg, #eaf1ff 0, rgba(234,241,255,0) 360px), repeating-linear-gradient(90deg, rgba(17,24,39,0.035) 0, rgba(17,24,39,0.035) 1px, transparent 1px, transparent 44px), var(--paper); color: var(--ink); font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif; font-size: 16px; line-height: 1.68; letter-spacing: 0; }
+    .hero-ai { margin: 0 -18px; padding: 28px 18px 18px; background: #0f172a; color: #f8fafc; border-bottom: 4px solid var(--accent-2); }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; letter-spacing: 0; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; letter-spacing: 0; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 20px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    ul { padding-left: 1.18rem; }
+    li { margin: 0.62rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card { counter-increment: topitem; position: relative; margin: 0; padding: 14px 14px 14px 54px; border: 1px solid #d7e3f8; border-radius: 8px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(15,23,42,0.06); }
+    .news-card::before { content: counter(topitem); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .tag { display: inline-flex; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .company-card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px; margin: 10px 0; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    .reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.94); }
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #c7d2fe; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+    .reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+    .reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+    .reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+    .reader-settings { border: 0; padding: 0; background: transparent; }
+    .reader-settings::backdrop { background: rgba(15,23,42,0.38); }
+    .reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15,23,42,0.28); }
+    .reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .reader-settings-grid { display: grid; gap: 10px; }
+    .reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+    .reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+    @media (min-width: 760px) { body { padding: 0 28px 58px; } .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-07-02 AI 日报</h1>
+    <p class="lead">前沿模型可用性、Claude Sonnet 5、GeneBench-Pro 与真实多轮 agent 评估，把 AI 竞争拉向部署治理与可审计执行。</p>
+    <div class="meta-grid"><span>生成时间：2026-07-02 12:34（澳门时间）</span><span>采集窗口：2026-06-30 12:34 ~ 2026-07-02 12:34（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window">
+    <h2>更新时间与数据窗口</h2>
+    <p class="meta">生成时间：2026-07-02 12:34（澳门时间）｜采集窗口：2026-06-30 12:34 ~ 2026-07-02 12:34（澳门时间 UTC+8）</p>
+    <p>今日 AI 主线不是单一模型参数，而是“能力越强，部署越像受监管基础设施”。Anthropic 的高能力模型访问限制事件、Claude Sonnet 5 的 agentic coding 定位、OpenAI 的 GeneBench-Pro 和 SWE-Together 多轮评估，都指向同一件事：企业采购 AI 不只买能力，还要买治理、审计和可复现执行。</p>
+  </section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>美国解除对 Anthropic Fable 5 的限制，Mythos 5 仍受控。</strong>AP 称美国政府结束对 Claude Fable 5 的限制，但更强的 Mythos 5 仍限于经批准的美国组织；前沿模型可用性正式成为网络安全与出口管制问题。<span class="tag">治理 / 安全</span> <a href="https://apnews.com/article/028db5135128fce6b38c873bf9cb5e09">来源</a></li>
+      <li class="news-card"><strong>Anthropic 发布 Claude Sonnet 5。</strong>官方称 Sonnet 5 面向 agentic coding、工具使用和专业工作；Claude Platform 文档显示它支持 1M context、128k max output，并在 8 月 31 日前有 introductory API pricing。<span class="tag">模型发布</span> <a href="https://www.anthropic.com/news/claude-sonnet-5">来源</a></li>
+      <li class="news-card"><strong>OpenAI 发布 GeneBench-Pro。</strong>这个计算生物学 benchmark 测量 AI agent 如何处理模糊数据、研究路径和后果性判断，说明科研 AI 评估正在从答题走向可审计研究流程。<span class="tag">科研评估</span> <a href="https://openai.com/index/introducing-genebench-pro/">来源</a></li>
+      <li class="news-card"><strong>SWE-Together 关注真实多轮 coding agent。</strong>Hugging Face Papers / arXiv 摘要称该 benchmark 从真实用户-agent 编程会话重构任务，评估最终正确性和交互效率。<span class="tag">Agent 评估</span> <a href="https://huggingface.co/papers/2606.29957">来源</a></li>
+      <li class="news-card"><strong>Claude on NVIDIA GB300 in Azure 延续企业部署主题。</strong>NVIDIA 称 Claude on GB300 Blackwell Ultra 已在 Microsoft Foundry 一般可用，企业部署正在绑定云、GPU、模型和合规。<span class="tag">算力 / 云</span> <a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/">来源</a></li>
+      <li class="news-card"><strong>金融业 AI 应用本窗口未见银行一手新增。</strong>已复查 HSBC、BofA、DBS、JPMorganChase、BIS、FSB、IOSCO 等源，未确认新的银行 AI 服务、信贷、反欺诈或模型治理公告。<span class="tag">金融 AI</span> <a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>模型可用性：从发布节奏进入准入治理</h3>
+    <p>Fable 5 / Mythos 5 事件的重点不是单个模型是否“回来了”，而是政府、模型公司和企业客户如何划定高网络能力模型的访问边界。AP 报道显示，Fable 5 可恢复更广泛访问，但 Mythos 5 仍面向经批准组织；这意味着采购方后续要同时问能力、地区可用性、用途审查、日志留存和红队结论。</p>
+    <h3>Sonnet 档位变强：agent 能力下沉到日常开发</h3>
+    <p>Claude Sonnet 5 被定位为更便宜的 agentic workhorse。若官方承诺的长上下文、工具能力和价格成立，开发者会把更多代码检索、重构、测试修复和内部知识工作交给 Sonnet 档位，而不是只在最高端模型上尝试。</p>
+    <h3>评估范式：从静态题到真实研究和多轮协作</h3>
+    <p>GeneBench-Pro 强调“模糊数据 + 科研判断 + 结果解释”，SWE-Together 强调真实多轮会话和交互效率。二者共同削弱了单一 leaderboard 的解释力：真正有价值的 agent 需要知道何时澄清、何时重试、如何记录路径，以及如何把错误控制在可审计范围内。</p>
+  </section>
+  <section id="companies">
+    <h2>公司跟踪表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>公司 / 机构</th><th>窗口内动态</th><th>状态</th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>Anthropic</td><td>Claude Sonnet 5 发布；Fable 5 / Mythos 5 访问限制事件持续发酵</td><td>模型能力、价格和合规准入同步成为竞争变量</td><td><a href="https://www.anthropic.com/news/claude-sonnet-5">官方</a> / <a href="https://apnews.com/article/028db5135128fce6b38c873bf9cb5e09">AP</a></td></tr>
+          <tr><td>OpenAI</td><td>发布 GeneBench-Pro，补充生命科学 research-level agent 评估</td><td>科学 AI 从模型展示转向研究路径评估</td><td><a href="https://openai.com/index/introducing-genebench-pro/">官方</a></td></tr>
+          <tr><td>Hugging Face / arXiv</td><td>SWE-Together 多轮 coding agent benchmark 出现</td><td>真实会话、澄清与交互效率成为评估重点</td><td><a href="https://huggingface.co/papers/2606.29957">论文页</a></td></tr>
+          <tr><td>NVIDIA / Microsoft Azure / Anthropic</td><td>Claude on GB300 in Microsoft Foundry 延续跟踪</td><td>企业 AI 供应链绑定模型、GPU 与云平台</td><td><a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/">NVIDIA</a></td></tr>
+          <tr><td>银行与金融机构</td><td>未见窗口内新的一手 AI 应用公告</td><td>继续跟踪银行客服、财富、风控、信贷和合规 AI</td><td><a href="https://www.jpmorganchase.com/about/technology/news/jpmc-evident-25">JPMorganChase</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="finance-ai-applications">
+    <h2>金融业 AI 应用专栏（银行优先）</h2>
+    <p><strong>本窗口未确认新的银行一手 AI 应用公告。</strong>已复查 HSBC、Bank of America、DBS、JPMorganChase、BIS、FSB、IOSCO、AWS Machine Learning Blog 等来源，未见 2026-06-30 12:34 至 2026-07-02 12:34 期间新的银行客户服务、财富管理、风控/反欺诈、信贷审批、合规科技或模型治理公告。</p>
+    <div class="company-card">
+      <p><strong>保留跟踪方向：</strong>银行和金融机构的 AI 价值仍主要落在可审计流程、内部员工工具、客户服务、财富顾问知识检索、交易监控、反欺诈和模型风险治理。今日无新一手公告，因此不使用股价、利率、指数、IPO 定价、就业或券商观点填充本栏目。</p>
+      <p><a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC AI 来源</a>｜<a href="https://info.bankofamerica.com/en/digital-banking/erica">Bank of America Erica</a>｜<a href="https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/ethical-and-responsible-ai-in-banking.html">DBS AI banking</a></p>
+    </div>
+  </section>
+  <section id="risks">
+    <h2>风险与不确定性</h2>
+    <ul>
+      <li>Fable 5 / Mythos 5 的访问边界仍可能随美国政策和安全评估调整，企业不能只看模型名称。</li>
+      <li>Claude Sonnet 5 的实际 agent 稳定性、长上下文成本和工具调用可靠性需要第三方复测。</li>
+      <li>GeneBench-Pro 是 OpenAI 发布的 benchmark，适合方向判断，但仍需外部实验室复现。</li>
+      <li>SWE-Together 是新评估框架，需观察是否被主流模型公司和工具厂商采用。</li>
+    </ul>
+  </section>
+  <section id="next">
+    <h2>明日继续跟踪</h2>
+    <ul>
+      <li>Anthropic 是否发布更详细的 Fable 5 / Mythos 5 可用地区、客户审核和安全说明。</li>
+      <li>Claude Sonnet 5 在 Claude Code、API 与企业客户中的真实价格、速率限制和失败模式。</li>
+      <li>GeneBench-Pro 是否出现第三方复现、公开子集扩展或竞争模型测试。</li>
+      <li>SWE-Together 是否进入 coding agent leaderboard 或被开发工具集成。</li>
+      <li>银行、支付、券商或监管科技是否发布新的 AI agent、合规、风控或客户服务案例。</li>
+    </ul>
+  </section>
+  <section id="coverage">
+    <h2>来源覆盖与缺口</h2>
+    <p><strong>已覆盖</strong>：Anthropic、Claude Platform Docs、OpenAI、NVIDIA、Hugging Face Papers / arXiv、AP、The Guardian、Business Insider、银行与监管 AI 来源清单。</p>
+    <p><strong>缺口</strong>：Bloomberg、WSJ、FT 部分全文受限；Meta AI cloud 暂未找到官方公告；社媒未作为唯一事实来源；银行 AI 一手公告本窗口未见新增。</p>
+    <p>工作文件：<code>tmp/AI/20260702/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p>
+  </section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
