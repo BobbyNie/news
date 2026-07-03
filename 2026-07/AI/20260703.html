@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-03 AI 日报</title>
+  <style>
+    :root { --paper:#f6f8fb; --ink:#111827; --muted:#667085; --line:#d9e2ef; --surface:#fff; --accent:#2563eb; --accent2:#0891b2; --warn:#fff7ed; --warnline:#f59e0b; }
+    * { box-sizing:border-box; } html { -webkit-text-size-adjust:100%; }
+    body { margin:0 auto; max-width: 760px; min-height:100vh; padding:0 18px 44px; background:linear-gradient(180deg,#eaf1ff 0,rgba(234,241,255,0) 360px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.68; }
+    .hero-ai { margin:0 -18px; padding:28px 18px 18px; background:#0f172a; color:#f8fafc; border-bottom:4px solid var(--accent2); }
+    .eyebrow { margin:0 0 12px; color:#93c5fd; font-size:.74rem; font-weight:800; letter-spacing:.12em; }
+    h1 { margin:0; font-size:clamp(1.78rem,8vw,2.4rem); line-height:1.12; } h2 { margin:0 0 14px; font-size:1.25rem; line-height:1.24; } h2::after { content:""; display:block; width:44px; height:3px; margin-top:8px; background:var(--accent); border-radius:999px; } h3 { margin:18px 0 6px; font-size:1.02rem; }
+    .lead { margin:12px 0 0; color:#dbeafe; } .meta-grid { display:grid; gap:6px; margin-top:16px; color:#dbeafe; font-size:.93rem; } .meta,.reader-status,.reader-settings-note { color:var(--muted); font-size:.9rem; }
+    section { padding:26px 0 0; border-top:1px solid var(--line); } a { color:#1d4ed8; font-weight:650; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.28); }
+    .top-list { list-style:none; padding:0; margin:0; counter-reset:topitem; display:grid; gap:12px; } .news-card { counter-increment:topitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid #d7e3f8; border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 10px 26px rgba(15,23,42,.06); }
+    .news-card::before { content:counter(topitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:7px; background:#dbeafe; color:#1d4ed8; font-weight:850; } .tag { display:inline-flex; margin-left:4px; padding:.1rem .48rem; border-radius:999px; background:#e0f2fe; color:#075985; font-size:.75rem; font-weight:750; }
+    .table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; } table { width:100%; min-width:560px; border-collapse:collapse; font-size:.9rem; } th,td { border:1px solid var(--line); padding:.66rem .72rem; text-align:left; vertical-align:top; background:var(--surface); } th { background:#eef4ff; color:#1e3a8a; }
+    .company-card,.reader-controls { margin:14px 0 0; padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); } .warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warnline); border-radius:0 8px 8px 0; background:var(--warn); color:#7c2d12; }
+    .reader-actions,.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; } .reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; max-width:100%; border:1px solid #c7d2fe; border-radius:7px; background:#fff; color:#1f2937; font:inherit; } .reader-controls button { padding:0 .72rem; font-weight:750; } .reader-settings-toggle { width:40px; padding:0!important; } .reader-settings { border:0; padding:0; background:transparent; } .reader-settings::backdrop { background:rgba(15,23,42,.38); } .reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); } .reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; } .reader-settings-grid { display:grid; gap:10px; margin:10px 0; }
+    @media (min-width:760px) { body { padding:0 28px 58px; } .hero-ai { margin-inline:-28px; padding:42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-07-03 AI 日报</h1>
+    <p class="lead">算力供给开始绑定资本结构，前沿模型治理进入政府权益与准入讨论。</p>
+    <div class="meta-grid"><span>生成时间：2026-07-03 12:00（澳门时间）</span><span>采集窗口：2026-07-01 12:00 ~ 2026-07-03 12:00（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel">
+      <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+      <div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option></select></label></div>
+      <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+      <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+    </div></dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window"><h2>更新时间与数据窗口</h2><p class="meta">生成时间：2026-07-03 12:00（澳门时间）｜采集窗口：2026-07-01 12:00 ~ 2026-07-03 12:00（澳门时间 UTC+8）</p><p class="warn">政策持股构想来自媒体报道，并非已签署协议；公司前瞻数字也不等同已交付产能。</p></section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>NVIDIA 把 AI 算力扩张与融资结构绑定。</strong>官方公布与 AI clouds 采用 revenue-sharing、credit-support 的多租户 AI factory 模式，试图降低新模型公司取得大规模 GPU 的资本门槛。<span class="tag">算力供给</span> <a href="https://blogs.nvidia.com/blog/nvidia-unlocks-ai-compute-at-scale-capital-partners-to-power-ai-infrastructure-buildout/">来源</a></li>
+      <li class="news-card"><strong>NVIDIA 扩大美国 AI 基础设施供应链。</strong>官方列出 TSMC、Foxconn、Wistron、Corning、Lumentum、Coherent、Amkor 等伙伴，AI 竞争进一步覆盖晶圆、封装、光通信、系统与能源。<span class="tag">基础设施</span> <a href="https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 与美国政府持股构想进入公共讨论。</strong>Reuters 转述 FT 称 OpenAI 讨论提供 5% 权益；目前没有官方协议，重点是潜在模型准入和治理利益冲突，不是确定交易。<span class="tag">治理</span> <a href="https://www.investing.com/news/stock-market-news/openai-proposes-handing-trump-administration-5-stake-ft-reports-4772283">来源</a></li>
+      <li class="news-card"><strong>Anthropic 更新 Fable 5 / Mythos 5 恢复状态。</strong>官方页面称两款模型访问已恢复，并逐步恢复云渠道；企业采购仍需核对地区、平台和用途限制。<span class="tag">模型准入</span> <a href="https://www.anthropic.com/news/redeploying-fable-5">来源</a></li>
+      <li class="news-card"><strong>GeneBench-Pro 延续科研 agent 可审计评估主线。</strong>OpenAI 的 benchmark 关注模糊资料、研究路径和后果性判断，说明生命科学 agent 不能只看最终答案。<span class="tag">科研评估</span> <a href="https://openai.com/index/introducing-genebench-pro/">来源</a></li>
+      <li class="news-card"><strong>金融业 AI 应用本窗口未见新一手公告。</strong>已复查银行、监管科技和模型治理来源，未用行情或宏观内容补位。<span class="tag">金融 AI</span> <a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>算力不再只是采购合同</h3><p>NVIDIA 新模式将基础设施融资、客户信用、利用率和 token 收入放到同一安排中。它可能加快供给上线，但也让 GPU 厂商、云商、资本伙伴和模型客户之间的风险更加耦合。</p>
+    <h3>治理讨论开始触及所有权</h3><p>OpenAI 政府权益构想若推进，公共利益、模型发布限制和公司治理将难以分开；现阶段只有媒体报道，不能推断最终比例、估值或发布政策。</p>
+    <h3>评估从能力分数走向完整工作流</h3><p>GeneBench-Pro 与模型恢复事件共同提醒采购方：能力、可用性、审计、地区限制和错误处理都属于真实产品质量。</p>
+  </section>
+  <section id="companies"><h2>公司跟踪表</h2><div class="table-wrap"><table><thead><tr><th>公司</th><th>窗口内动态</th><th>继续核验</th><th>来源</th></tr></thead><tbody>
+    <tr><td>NVIDIA</td><td>多租户 AI factory 融资模式与美国供应链扩张</td><td>实际部署、利用率、信用支持条款</td><td><a href="https://blogs.nvidia.com/blog/nvidia-unlocks-ai-compute-at-scale-capital-partners-to-power-ai-infrastructure-buildout/">官方</a></td></tr>
+    <tr><td>OpenAI</td><td>据报讨论政府权益构想；GeneBench-Pro 延续科研评估</td><td>官方条款与治理边界</td><td><a href="https://openai.com/index/introducing-genebench-pro/">官方评测</a></td></tr>
+    <tr><td>Anthropic</td><td>Fable 5 / Mythos 5 恢复</td><td>云渠道、地区与用途限制</td><td><a href="https://www.anthropic.com/news/redeploying-fable-5">官方</a></td></tr>
+    <tr><td>银行与金融机构</td><td>未见窗口内新一手 AI 应用公告</td><td>客服、财富、风控、信贷和模型治理</td><td><a href="https://www.jpmorganchase.com/about/technology/news/jpmc-evident-25">JPMorganChase</a></td></tr>
+  </tbody></table></div></section>
+  <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2><div class="company-card"><strong>本窗口结论：没有可验证的新银行 AI 服务或建设公告。</strong><p>已检查 HSBC、Bank of America Erica、DBS、JPMorganChase、BIS、FSB 与 IOSCO。未发现窗口内新的客户服务、财富管理、反欺诈、信贷审批、内部开发工具或模型治理发布。</p><p><a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC</a>｜<a href="https://info.bankofamerica.com/en/digital-banking/erica">BofA Erica</a>｜<a href="https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/ethical-and-responsible-ai-in-banking.html">DBS</a></p></div></section>
+  <section id="risks"><h2>风险与不确定性</h2><ul><li>NVIDIA 公告包含前瞻性产能和经济影响陈述，需等待实际部署。</li><li>OpenAI 5% 权益构想未经公司或政府正式确认。</li><li>模型“恢复”不代表所有云、地区和用途限制同步消失。</li></ul></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>NVIDIA AI cloud 合作伙伴、GPU 数量、上线节奏与融资条款。</li><li>OpenAI 或美国政府是否发布正式回应。</li><li>Anthropic 云渠道与企业合规文档是否更新。</li><li>银行是否出现新的可核验 AI 服务与模型治理公告。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p>覆盖 NVIDIA、OpenAI、Anthropic 官方页面及 Reuters 可访问转载；复查银行和金融监管来源。FT 原文与部分 Reuters 页面受订阅限制，政策构想因此以“据报讨论中”表达；未使用未验证社媒作为事实依据。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
