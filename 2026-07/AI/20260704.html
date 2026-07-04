@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-04 AI 日报</title>
+  <style>
+    :root { --paper:#f6f8fb; --ink:#111827; --muted:#667085; --line:#d9e2ef; --surface:#fff; --accent:#2563eb; --accent2:#0891b2; --warn:#fff7ed; --warnline:#f59e0b; }
+    * { box-sizing:border-box; } html { -webkit-text-size-adjust:100%; }
+    body { margin:0 auto; max-width: 760px; min-height:100vh; padding:0 18px 44px; background:linear-gradient(180deg,#eaf1ff 0,rgba(234,241,255,0) 360px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.68; }
+    .hero-ai { margin:0 -18px; padding:28px 18px 18px; background:#0f172a; color:#f8fafc; border-bottom:4px solid var(--accent2); }
+    .eyebrow { margin:0 0 12px; color:#93c5fd; font-size:.74rem; font-weight:800; letter-spacing:.12em; }
+    h1 { margin:0; font-size:clamp(1.78rem,8vw,2.4rem); line-height:1.12; } h2 { margin:0 0 14px; font-size:1.25rem; line-height:1.24; } h2::after { content:""; display:block; width:44px; height:3px; margin-top:8px; background:var(--accent); border-radius:999px; } h3 { margin:18px 0 6px; font-size:1.02rem; }
+    .lead { margin:12px 0 0; color:#dbeafe; } .meta-grid { display:grid; gap:6px; margin-top:16px; color:#dbeafe; font-size:.93rem; } .meta,.reader-status,.reader-settings-note { color:var(--muted); font-size:.9rem; }
+    section { padding:26px 0 0; border-top:1px solid var(--line); } a { color:#1d4ed8; font-weight:650; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.28); }
+    .top-list { list-style:none; padding:0; margin:0; counter-reset:topitem; display:grid; gap:12px; } .news-card { counter-increment:topitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid #d7e3f8; border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 10px 26px rgba(15,23,42,.06); }
+    .news-card::before { content:counter(topitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:7px; background:#dbeafe; color:#1d4ed8; font-weight:850; } .tag { display:inline-flex; margin-left:4px; padding:.1rem .48rem; border-radius:999px; background:#e0f2fe; color:#075985; font-size:.75rem; font-weight:750; }
+    .table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; } table { width:100%; min-width:560px; border-collapse:collapse; font-size:.9rem; } th,td { border:1px solid var(--line); padding:.66rem .72rem; text-align:left; vertical-align:top; background:var(--surface); } th { background:#eef4ff; color:#1e3a8a; }
+    .company-card,.reader-controls { margin:14px 0 0; padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); } .warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warnline); border-radius:0 8px 8px 0; background:var(--warn); color:#7c2d12; }
+    .reader-actions,.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; } .reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; max-width:100%; border:1px solid #c7d2fe; border-radius:7px; background:#fff; color:#1f2937; font:inherit; } .reader-controls button { padding:0 .72rem; font-weight:750; } .reader-settings-toggle { width:40px; padding:0!important; } .reader-settings { border:0; padding:0; background:transparent; } .reader-settings::backdrop { background:rgba(15,23,42,.38); } .reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); } .reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; } .reader-settings-grid { display:grid; gap:10px; margin:10px 0; }
+    @media (min-width:760px) { body { padding:0 28px 58px; } .hero-ai { margin-inline:-28px; padding:42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-07-04 AI 日报</h1>
+    <p class="lead">企业 AI 竞争转向客户侧工程、治理与可量化结果，前沿模型准入仍缺透明框架。</p>
+    <div class="meta-grid"><span>生成时间：2026-07-04 12:06（澳门时间）</span><span>采集窗口：2026-07-02 12:06 ~ 2026-07-04 12:06（澳门时间 UTC+8）</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel">
+      <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+      <div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option></select></label></div>
+      <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+      <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+    </div></dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window"><h2>更新时间与数据窗口</h2><p class="meta">生成时间：2026-07-04 12:06（澳门时间）｜采集窗口：2026-07-02 12:06 ~ 2026-07-04 12:06（澳门时间 UTC+8）</p><p class="warn">媒体披露的芯片、组织进展和政府权益讨论均未形成正式条款；联合国报告是科学评估，不是监管规则。</p></section>
+  <section id="top">
+    <h2>今日最重要的 5-10 条</h2>
+    <ol class="top-list">
+      <li class="news-card"><strong>Microsoft 投入 25 亿美元组建客户侧 AI 工程组织。</strong>Frontier Company 将配置 6,000 名行业与工程专家，把重点放在共建、部署、持续改进、知识产权保护与可量化 ROI。<span class="tag">企业采用</span> <a href="https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/">官方来源</a></li>
+      <li class="news-card"><strong>Anthropic 模型恢复暴露发布准入流程缺口。</strong>Axios 报道多机构参与技术整改；未来模型审批仍缺透明标准、明确时限及盟友地区规则。<span class="tag">模型治理</span> <a href="https://www.axios.com/2026/07/03/anthropic-ai-models-revived-behind-the-scenes">来源</a></li>
+      <li class="news-card"><strong>联合国 AI 科学小组建立七领域证据基线。</strong>初步报告覆盖能力、行业应用、经济、安全、环境、人权与治理，将服务 7 月 6-7 日全球 AI 治理对话。<span class="tag">全球治理</span> <a href="https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report">官方来源</a></li>
+      <li class="news-card"><strong>Meta agent 进展据报慢于管理层预期。</strong>报道显示大额基础设施投入与组织重构尚未自动转化为 agent 生产率，未来三至六个月的产品指标更关键。<span class="tag">Agent</span> <a href="https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/">来源</a></li>
+      <li class="news-card"><strong>Anthropic 据报探索 Samsung 定制芯片。</strong>公司没有确认用途、规格或时间表，只重申多元硬件栈的重要性；现阶段是供应链方向信号。<span class="tag">算力</span> <a href="https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/">来源</a></li>
+      <li class="news-card"><strong>OpenAI 政府权益构想仍属讨论。</strong>据报 5% 权益设想可能牵动公共利益与模型准入，但没有正式协议，不能视为完成交易。<span class="tag">公司治理</span> <a href="https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/">来源</a></li>
+    </ol>
+  </section>
+  <section id="details">
+    <h2>分主题详情</h2>
+    <h3>企业 AI 从模型采购走向交付体系</h3><p>Microsoft 的新组织把模型选择、客户数据、行业流程、治理和 FinOps 放在同一交付闭环中。投入规模清晰，但客户 ROI、准确率和部署周期仍需逐案核验。</p>
+    <h3>前沿模型发布与政府评估耦合</h3><p>Anthropic 恢复事件说明安全整改可以直接改变模型可用性。真正缺口不是是否评估，而是测试标准、申诉机制、审批期限及跨地区一致性。</p>
+    <h3>Agent 与芯片路线都需等待硬指标</h3><p>Meta 的组织反馈和 Anthropic 的芯片接触都不足以证明产品成败；应继续跟踪正式产品能力、利用率、成本和交付时间。</p>
+  </section>
+  <section id="companies"><h2>公司跟踪表</h2><div class="table-wrap"><table><thead><tr><th>主体</th><th>窗口内动态</th><th>继续核验</th><th>来源</th></tr></thead><tbody>
+    <tr><td>Microsoft</td><td>25 亿美元、6,000 人 Frontier Company</td><td>客户 ROI、部署范围、知识产权执行</td><td><a href="https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/">官方</a></td></tr>
+    <tr><td>Anthropic</td><td>恢复流程细节；据报探索定制芯片</td><td>准入标准、云地区、芯片用途与规格</td><td><a href="https://www.axios.com/2026/07/03/anthropic-ai-models-revived-behind-the-scenes">Axios</a></td></tr>
+    <tr><td>Meta</td><td>agent 进展据报慢于预期</td><td>产品指标、组织调整与基础设施利用率</td><td><a href="https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/">报道</a></td></tr>
+    <tr><td>UN AI Panel</td><td>发布初步科学评估</td><td>7 月 6-7 日治理对话成果</td><td><a href="https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report">官方</a></td></tr>
+  </tbody></table></div></section>
+  <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2><div class="company-card"><strong>LSEG Workspace：金融信息工作流进入客户侧持续迭代。</strong><p>Microsoft 官方称，其团队与 London Stock Exchange Group 合作，把 AI 嵌入 LSEG Workspace，让金融专业人员跨结构化与非结构化内容提出复杂问题，并用客户反馈与实时测试迭代模型。</p><p>这是可核验的金融行业 AI 部署方向，但官方没有披露准确率、客户覆盖、节省工时或财务回报；因此只记录能力与交付模式，不推断规模化成功。 <a href="https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/">Microsoft 官方来源</a></p></div></section>
+  <section id="risks"><h2>风险与不确定性</h2><ul><li>Microsoft 投资与人员规模是投入承诺，不等于客户结果已实现。</li><li>Anthropic 恢复细节缺少正式统一审批文件。</li><li>Meta、芯片与 OpenAI 权益信息主要来自媒体，需等待一手确认。</li><li>联合国报告会快速迭代，不能当作固定监管结论。</li></ul></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>Microsoft 是否披露更多 Frontier Company 客户指标。</li><li>Anthropic 与美国机构是否公布模型评估标准和地区规则。</li><li>7 月 6-7 日联合国全球 AI 治理对话议程与成果。</li><li>Meta agent 与 Anthropic 芯片是否出现正式产品或技术文件。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p>覆盖 Microsoft 与联合国官方页面、Axios、TechCrunch，并复查主要模型公司与银行/金融 AI 来源。部分 Reuters、FT 及 The Information 原文受访问限制；二手信息已降级表述，未用未验证社媒作为事实依据。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
