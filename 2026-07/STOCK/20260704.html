@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-04 股市日报</title>
+  <style>
+    :root { --paper:#f7f6f0; --ink:#111827; --muted:#6b7280; --line:#d8d2c3; --surface:#fffefa; --market:#14532d; --up:#087443; --down:#b42318; --blue:#1d4ed8; --warn:#fff7ed; --warnline:#ea580c; }
+    * { box-sizing:border-box; } html { -webkit-text-size-adjust:100%; } body { margin:0 auto; max-width: 780px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#efeadf 0,rgba(239,234,223,0) 330px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+    .hero-stock { margin:0 -18px; padding:28px 18px 18px; color:#101828; background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.62)),#efe8d8; border-bottom:1px solid var(--line); } .eyebrow { margin:0 0 12px; color:var(--market); font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+    h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; } h2 { margin:0 0 14px; color:#172554; font-size:1.22rem; line-height:1.25; } h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--market); border-radius:999px; } h3 { margin:18px 0 6px; font-size:1.02rem; }
+    .lead { margin:12px 0 0; color:#374151; } .market-strip { display:grid; gap:6px; margin-top:16px; color:var(--muted); font-size:.93rem; } .meta,.reader-status,.reader-settings-note { color:var(--muted); font-size:.9rem; } section { padding:26px 0 0; border-top:1px solid var(--line); } a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.28); }
+    .top-list { list-style:none; padding:0; margin:0; counter-reset:marketitem; display:grid; gap:12px; } .market-card { counter-increment:marketitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(74,63,38,.06); } .market-card::before { content:counter(marketitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#dcfce7; color:var(--market); font-weight:850; }
+    .quote-line,.price,.change-up,.change-down,td:nth-child(2),td:nth-child(3) { font-variant-numeric:tabular-nums; } .change-up { color:var(--up); font-weight:850; } .change-down { color:var(--down); font-weight:850; } .table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; } table { width:100%; min-width:620px; border-collapse:collapse; font-size:.9rem; } th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); } th { background:#eee7d7; color:#374151; }
+    .focus-box,.reader-controls { margin:14px 0 0; padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); } .warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warnline); border-radius:0 8px 8px 0; background:var(--warn); color:#7c2d12; }
+    .reader-actions,.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; } .reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; max-width:100%; border:1px solid #cbbf9f; border-radius:7px; background:#fff; color:#1f2937; font:inherit; } .reader-controls button { padding:0 .72rem; font-weight:750; } .reader-settings-toggle { width:40px; padding:0!important; } .reader-settings { border:0; padding:0; background:transparent; } .reader-settings::backdrop { background:rgba(15,23,42,.38); } .reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); } .reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; } .reader-settings-grid { display:grid; gap:10px; margin:10px 0; }
+    @media (min-width:760px) { body { padding:0 28px 58px; } .hero-stock { margin-inline:-28px; padding:42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-07-04 股市日报</h1>
+    <p class="lead">Dow 创纪录与芯片抛售并存；港股修复，Tesla 与新股显示事件兑现风险。</p>
+    <div class="market-strip"><span>生成时间：2026-07-04 12:06（澳门时间）</span><span>采集窗口：2026-07-02 12:06 ~ 2026-07-04 12:06（澳门时间 UTC+8）</span><span>市场日历：美股 7 月 3 日休市，采用 7 月 2 日收盘；港股采用 7 月 3 日收盘。</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel">
+      <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+      <div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option></select></label></div>
+      <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+      <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+    </div></dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window"><h2>更新时间与数据窗口</h2><p class="meta">生成时间：2026-07-04 12:06（澳门时间）｜采集窗口：2026-07-02 12:06 ~ 2026-07-04 12:06（澳门时间 UTC+8）</p><p class="warn">报告区分事实、可能影响和待核验信息，不提供买卖建议。休市日没有新的美股正式收盘，IPO 递表不等于发行完成。</p></section>
+  <section id="top"><h2>今日最重要的 5-10 条</h2><ol class="top-list">
+    <li class="market-card"><strong>美股指数与 AI / 芯片股继续背离。</strong>7 月 2 日 Dow <span class="change-up">+1.14%</span> 至 <span class="price">52,900.07</span>，S&amp;P 500 近乎持平至 <span class="price">7,483.24</span>，Nasdaq <span class="change-down">-0.80%</span> 至 <span class="price">25,832.67</span>。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">Reuters</a></li>
+    <li class="market-card"><strong>芯片指数单日下跌 5.4%。</strong>NVIDIA <span class="change-down">-1.4%</span>、SanDisk <span class="change-down">-14.1%</span>；事实指向高估值板块继续获利了结，不足以单独证明长期 AI 需求逆转。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">来源</a></li>
+    <li class="market-card"><strong>美国就业放缓降低短期加息压力。</strong>6 月非农新增 <span class="price">57,000</span>，低于预期 <span class="price">110,000</span>；失业率 4.2%。增长与通胀风险仍需分开判断。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">来源</a></li>
+    <li class="market-card"><strong>港股 7 月 3 日延续修复。</strong>Reuters 报道恒生指数 <span class="change-up">+1.3%</span>；下个交易日需用科技股广度、成交量与南向资金确认。 <a href="https://economia.uol.com.br/noticias/reuters/2026/07/03/acoes-chinesas-se-recuperam-apos-onda-de-vendas-hong-kong-amplia-ganhos.htm">来源</a></li>
+    <li class="market-card"><strong>Apple 上涨 4.8%，但产品触发因素尚非官方公告。</strong>Reuters 转述 Nikkei Asia 称公司计划推出五款新 iPhone；需要公司正式信息验证路线与时间。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">来源</a></li>
+    <li class="market-card"><strong>Tesla 强交付后仍跌 7.5%。</strong>交付数量、利润率、现金流与市场预期不是同一指标，焦点转向 7 月 22 日完整财务披露。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">来源</a></li>
+    <li class="market-card"><strong>Bending Spoons 次日跌 11.3%。</strong>上市首日涨 40% 后快速回吐，显示自由流通、锁定期和价格发现仍是新股核心风险。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">来源</a></li>
+  </ol></section>
+  <section id="us"><h2>美股重点</h2><div class="table-wrap"><table><thead><tr><th>主题</th><th>正式数据</th><th>可能影响</th><th>继续跟踪</th></tr></thead><tbody>
+    <tr><td>指数</td><td>Dow +1.14%；S&amp;P 500 持平；Nasdaq -0.80%</td><td>非科技板块支撑指数，科技风险偏好偏弱</td><td>假期后市场广度</td></tr>
+    <tr><td>半导体</td><td>行业指数 -5.4%；SanDisk -14.1%</td><td>高估值与获利盘继续调整</td><td>订单、指引与成交量</td></tr>
+    <tr><td>Apple</td><td>+4.8%</td><td>权重股支撑指数</td><td>正式产品公告</td></tr>
+    <tr><td>Tesla</td><td>-7.5%</td><td>交付利好已不足以解释估值</td><td>7 月 22 日利润率与现金流</td></tr>
+  </tbody></table></div></section>
+  <section id="hk"><h2>港股重点</h2><p>7 月 3 日恒生指数上涨 1.3%。Reuters 将走势与美国就业数据降低加息压力、前一日芯片抛售后的修复联系起来。报告不把指数上涨自动解释为科技风险已解除。</p><div class="focus-box"><strong>下一证据：</strong>科技互联网、EV、半导体、新股成交与南向资金能否同步改善。</div></section>
+  <section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2>
+    <h3>近期已上市 IPO</h3><ul>
+      <li><strong>Bending Spoons（BSP）：值得重点关注。</strong>上市首日涨 40%，次日跌 11.3%；业务规模和市场承接值得研究，但高频并购、债务、估值、自由流通与锁定期是核心风险。 <a href="https://www.marketscreener.com/news/dow-jumps-to-record-closing-high-after-soft-us-jobs-data-nasdaq-down-with-chip-shares-ce7f5fd3df89f020">Reuters</a></li>
+      <li><strong>ITG：谨慎关注。</strong>低于原区间定价显示估值约束；需核查客户集中、债务用途、AI 收入质量、流动性与锁定期。</li>
+      <li><strong>Lime：谨慎关注。</strong>城市许可、车队折旧、季节性、债务和锁定期比首日表现更重要。</li>
+    </ul>
+    <h3>即将 IPO / 已递表 / 已提交注册文件</h3><ul>
+      <li><strong>Jersey Mike's（拟 NYSE: JMKE）：谨慎关注。</strong>品牌与门店经济有研究价值，但股数、区间、估值、战略投资者、流动性和锁定期尚未公布。 <a href="https://www.prnewswire.com/news-releases/jersey-mikes-publicly-files-registration-statement-for-initial-public-offering-of-class-a-common-stock-302817025.html">公司公告</a></li>
+      <li><strong>Scribe Therapeutics：信息不足。</strong>临床阶段 CRISPR 平台具有高现金消耗、试验和监管风险；等待正式发行条款与完整财务数据。 <a href="https://www.investing.com/news/stock-market-news/scribe-therapeutics-files-for-proposed-nasdaq-ipo-432SI-4774245">申报报道</a></li>
+      <li><strong>港股候选：信息不足。</strong>已检查 HKEX 新申请、招股书和配发结果路径；动态页面访问不稳定，本窗口没有足够一手条款支持新增高关注候选。</li>
+    </ul>
+  </section>
+  <section id="unicorns"><h2>AI 独角兽 / IPO</h2><p>本窗口没有新的前沿 AI 实验室正式 S-1/F-1 生效。OpenAI 政府权益构想属于治理讨论，不等于 IPO 申报、定价或时间表。</p></section>
+  <section id="earnings"><h2>财报与指引</h2><p>Tesla 的生产、交付和储能数据不能单独代表利润。7 月 22 日需核对汽车毛利率、促销成本、监管积分、自由现金流、资本开支与全年指引。</p></section>
+  <section id="risks"><h2>监管与风险</h2><ul><li>美股 7 月 3 日休市，假期后可能出现价格跳空与成交集中。</li><li>就业放缓同时包含利率支持和增长压力，不能只取单一方向。</li><li>Apple 产品路线缺少公司正式公告。</li><li>Nasdaq IPO Calendar 当前数据不可用；空页面不等于没有申报。</li></ul></section>
+  <section id="event-focus"><h2>事件驱动股票专题：交付利好为何没有阻止 Tesla 下跌</h2><div class="focus-box"><p><strong>触发：</strong>Tesla 公布强于预期的 Q2 交付后，7 月 2 日仍下跌 7.5%。</p><p><strong>事实与推论分开：</strong>交付衡量数量；售价、车型组合、促销、成本、监管积分与资本开支决定财务结果。价格下跌也可能包含此前上涨后的预期兑现，不能仅凭单日走势判定基本面。</p><p><strong>下一证据：</strong>7 月 22 日 shareholder update、10-Q 与管理层问答。</p></div></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>假期后 Nasdaq、芯片指数与 Dow 的背离是否延续。</li><li>Apple 是否正式确认产品路线。</li><li>Tesla 财报前利润率与现金流预期修订。</li><li>近期 IPO 的自由流通、锁定期与 S-1 修订。</li><li>HKEX 正式招股书、基石投资者和配发结果。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p>覆盖 Reuters 可访问转载、AP、Nasdaq IPO Calendar、公司 IPO 公告与既有 SEC/HKEX 路径。Nasdaq 页面当前数据不可用，部分 SEC/HKEX 动态页面检索不稳定；未确认条款均标作“信息不足”，未用社媒作为唯一事实来源。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
