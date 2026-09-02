@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-09-02 股市日报</title>
+  <style>
+    :root { --paper:#f7f6f0; --ink:#111827; --muted:#6b7280; --line:#d8d2c3; --surface:#fffefa; --market:#14532d; --up:#087443; --down:#b42318; --blue:#1d4ed8; --warning-bg:#fff7ed; --warning-line:#ea580c; color-scheme:light; }
+    * { box-sizing:border-box; }
+    html { -webkit-text-size-adjust:100%; }
+    body { margin:0 auto; max-width: 780px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#efeadf 0,rgba(239,234,223,0) 330px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+    .hero-stock { margin:0 -18px; padding:28px 18px 18px; color:#101828; background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.62)),#efe8d8; border-bottom:1px solid var(--line); }
+    .eyebrow { margin:0 0 12px; color:var(--market); font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+    h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; }
+    .lead { margin:12px 0 0; color:#374151; }
+    .market-strip { display:grid; gap:6px; margin-top:16px; color:var(--muted); font-size:.93rem; }
+    section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+    h2 { margin:0 0 14px; color:#172554; font-size:1.22rem; line-height:1.25; }
+    h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--market); border-radius:999px; }
+    h3 { margin:20px 0 8px; font-size:1rem; }
+    p { margin:.65rem 0; }
+    ul { padding-left:1.15rem; }
+    li { margin:.62rem 0; }
+    a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.28); }
+    .top-list { list-style:none; padding:0; margin:0; counter-reset:marketitem; display:grid; gap:12px; }
+    .market-card { counter-increment:marketitem; position:relative; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(74,63,38,.06); }
+    .market-card::before { content:counter(marketitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#dcfce7; color:var(--market); font-weight:850; font-variant-numeric:tabular-nums; }
+    .quote-line,.price,.change-up,.change-down,td:nth-child(2),td:nth-child(3) { font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
+    .change-up { color:var(--up); font-weight:850; }
+    .change-down { color:var(--down); font-weight:850; }
+    .table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    table { width:100%; min-width:620px; border-collapse:collapse; font-size:.9rem; }
+    th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+    th { background:#eee7d7; color:#374151; font-weight:850; }
+    .focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; }
+    .warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warning-line); border-radius:0 8px 8px 0; background:var(--warning-bg); color:#7c2d12; }
+    .reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+    .reader-actions,.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; max-width:100%; padding:0 .5rem; border:1px solid #cbbf9f; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+    .reader-controls button { padding:0 .72rem; font-weight:750; }
+    .reader-settings-toggle { width:40px; padding:0 !important; display:grid; place-items:center; font-size:1rem; }
+    .reader-settings { border:0; padding:0; background:transparent; }
+    .reader-settings::backdrop { background:rgba(15,23,42,.38); }
+    .reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+    .reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+    .reader-settings-grid { display:grid; gap:10px; }
+    .reader-settings-note,.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+    @media (min-width:760px) { body { padding:0 28px 58px; } .hero-stock { margin-inline:-28px; padding:42px 28px 24px; } }
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-09-02 股市日报</h1>
+    <p class="lead">美股、港股、IPO、数据中心互连、汽车交付与市场风险。</p>
+    <div class="market-strip"><span>生成时间：2026-09-02 12:32（澳门时间）</span><span>采集窗口：2026-08-31 12:32 ~ 2026-09-02 12:32（澳门时间 UTC+8）</span><span>市场日历：美股与港股最新完整交易日均为 2026-09-01。</span></div>
+  </header>
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 localStorage，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+  <section id="window"><h2>更新时间与数据窗口</h2><p>价格、指数和事件均标注来源与市场日；本报告仅陈述事实、可能影响和继续跟踪事项，不构成买卖建议。</p></section>
+  <section id="top"><h2>今日最重要的 5 条</h2><ol class="top-list">
+    <li class="market-card"><strong>美股 9 月 1 日回落。</strong>标普 500 收 <span class="price">7,631.47</span>、跌 <span class="change-down">-0.7%</span>；纳指收 <span class="price">26,099.77</span>、跌 <span class="change-down">-1.0%</span>。事实是油价和长端收益率上行施压风险资产；继续跟踪通胀预期与能源价格。<a href="https://apnews.com/article/61f03262bb5dfa1c414c4fb7be40772e">AP</a></li>
+    <li class="market-card"><strong>大型科技是拖累之一。</strong>AP 报道 Nvidia、Amazon 等大盘科技股承压；布伦特原油涨 4.6%，美国 10 年期收益率报 4.79%。可能影响是高久期科技资产对折现率和能源冲击仍敏感。<a href="https://apnews.com/article/775d7cf741349c7c8e689c0beb57f074">AP 市场报道</a></li>
+    <li class="market-card"><strong>Credo 披露 FY2027 Q1 高增长。</strong>收入 <span class="price">4.79 亿美元</span>，同比 <span class="change-up">+114.7%</span>、环比 <span class="change-up">+9.6%</span>；数据中心互连需求是后续业绩核对重点。<a href="https://investors.credosemi.com/news-events/news/news-details/2026/Credo-Technology-Group-Holding-Ltd-Reports-First-Quarter-of-Fiscal-Year-2027-Financial-Results/default.aspx">Credo IR</a></li>
+    <li class="market-card"><strong>蔚来同步更新 Q2 业绩与 8 月交付。</strong>Q2 交付 107,658 辆、总收入人民币 321.369 亿元；8 月交付 35,836 辆，同比 <span class="change-up">+14.5%</span>。可能影响取决于毛利、费用、车型结构与指引，而非单一交付数字。<a href="https://ir.nio.com/news-releases/news-release-details/nio-inc-reports-unaudited-second-quarter-2026-financial-results/">NIO IR</a></li>
+    <li class="market-card"><strong>SHEIN 在港上市完成价格发现第一步。</strong>IPO 发行价 <span class="price">48.56 港元</span>、募资约 17 亿美元；AP 报道首日收于 <span class="price">48.50 港元</span>，盘中曾跌逾 <span class="change-down">10%</span>。继续跟踪增长、关税与监管风险。<a href="https://apnews.com/article/126f7d325f24f37d5bc067b19e98901a">AP</a></li>
+  </ol></section>
+  <section id="us"><h2>美股重点</h2><div class="table-wrap"><table><thead><tr><th>事件 / 标的</th><th>披露数据</th><th>时间 / 市场</th><th>来源</th></tr></thead><tbody><tr><td>标普 500</td><td class="change-down">7,631.47，-0.7%</td><td>2026-09-01 美股收盘</td><td><a href="https://apnews.com/article/61f03262bb5dfa1c414c4fb7be40772e">AP</a></td></tr><tr><td>纳斯达克综合指数</td><td class="change-down">26,099.77，-1.0%</td><td>2026-09-01 美股收盘</td><td><a href="https://apnews.com/article/61f03262bb5dfa1c414c4fb7be40772e">AP</a></td></tr><tr><td>Credo (CRDO)</td><td>FY2027 Q1 收入 4.79 亿美元；同比 +114.7%</td><td>2026-09-01 披露</td><td><a href="https://www.sec.gov/Archives/edgar/data/1807794/000162828026059795/crdo-20260901.htm">SEC 8-K</a></td></tr></tbody></table></div><p>市场层面，油价与收益率上行压制估值；公司层面，Credo 的收入和毛利披露提供了数据中心互连景气的单点验证，但不能据此推断整个产业链或股价方向。</p></section>
+  <section id="hk"><h2>港股重点</h2><div class="table-wrap"><table><thead><tr><th>事件 / 标的</th><th>披露数据</th><th>时间 / 市场</th><th>来源</th></tr></thead><tbody><tr><td>SHEIN (625)</td><td>IPO 48.56 港元；首日收 48.50 港元</td><td>2026-09-01 HKEX</td><td><a href="https://apnews.com/article/126f7d325f24f37d5bc067b19e98901a">AP</a></td></tr><tr><td>蔚来 (9866)</td><td>Q2 交付 107,658 辆；8 月交付 35,836 辆</td><td>2026-09-01 公司披露</td><td><a href="https://www.nio.com/news/20260901001">NIO 官方</a></td></tr><tr><td>HKEX</td><td>为 SHEIN 上市同步安排期权、衍生权证及卖空资格</td><td>2026-09-01 生效</td><td><a href="https://www.hkex.com.hk/News/News-Release/2026/260828news?sc_lang=en">HKEX</a></td></tr></tbody></table></div></section>
+  <section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2><h3>近期已上市 IPO：SHEIN（625.HK）</h3><div class="focus-box"><p><strong>事实：</strong>9 月 1 日于 HKEX 上市，发行价 48.56 港元，募集约 17 亿美元；AP 报道首日收 48.50 港元，盘中曾跌逾 10%。HKEX 已安排相关期权、权证和卖空资格。</p><p><strong>关注等级：谨慎关注。</strong>业务拥有全球化超快时尚规模，但首日价格发现偏弱；美国与欧洲的低价值包裹关税调整、增长质量及监管审查均是应持续核对的风险。当前报道只足以描述发行与首日表现，不能据此形成收益判断。<a href="https://apnews.com/article/126f7d325f24f37d5bc067b19e98901a">AP</a> · <a href="https://www.hkex.com.hk/News/News-Release/2026/260828news?sc_lang=en">HKEX</a></p></div><h3>即将 IPO / 已递表 / 已提交注册文件</h3><p><strong>信息不足。</strong>已检查 SEC EDGAR 与 HKEX 公开入口；本窗口没有找到满足“未来 30-60 日、可由招股书或交易所文件核验”的重点候选，故不以二手传闻填充。后续需核对发行条款、财务质量、基石投资者、流动性、锁定期及监管/诉讼风险。</p></section>
+  <section id="unicorns"><h2>AI 独角兽 / IPO</h2><p>本窗口未找到可由 SEC S-1/F-1、HKEX 新申请/聆讯资料或公司公告核验的重点 AI 独角兽新 IPO 文件。保持栏目与来源缺口，而不把一般融资传闻或旧估值写成当日催化。</p></section>
+  <section id="earnings"><h2>财报与指引</h2><ul><li><strong>Credo：</strong>FY2027 Q1 收入 4.79 亿美元，GAAP 毛利率 64.5%，GAAP 净利润 1.294 亿美元；继续核对客户集中度、订单持续性及管理层指引。<a href="https://investors.credosemi.com/news-events/news/news-details/2026/Credo-Technology-Group-Holding-Ltd-Reports-First-Quarter-of-Fiscal-Year-2027-Financial-Results/default.aspx">官方</a></li><li><strong>蔚来：</strong>Q2 交付同比增长及 8 月交付增长已披露；应结合毛利、现金流、费用和后续车型节奏审阅。<a href="https://ir.nio.com/news-releases/news-release-details/nio-inc-reports-unaudited-second-quarter-2026-financial-results/">官方</a></li></ul></section>
+  <section id="risks"><h2>监管与风险</h2><div class="focus-box"><p><strong>宏观：</strong>油价与国债收益率上行可能提高风险资产波动，指数表现不等同于单个公司的基本面。</p><p><strong>公司：</strong>Credo 的高增长需经后续季度验证；蔚来需持续观察汽车需求与盈利质量；SHEIN 面临跨境关税、增长、流动性与监管风险。</p><p><strong>信息：</strong>本页引用的是窗口内可验证披露和主流报道，无法用单一日的市场价格得出确定性结论。</p></div><div class="warn">本报告不构成投资建议。IPO 关注等级是资料完整度与风险的描述，不是买入、卖出或目标价判断。</div></section>
+  <section id="event-focus"><h2>事件驱动股票专题：数据中心互连业绩验证</h2><p>Credo 的季度收入同比增长 114.7%、GAAP 毛利率 64.5%，是本窗口中由公司 IR 与 SEC 同时支持的事件。其可能影响是为高速互连需求提供一项经营数据点；需要继续跟踪客户集中度、供应链、订单可见度与下一季指引，避免把一家公司业绩泛化为整个 AI 基建链的确定性结论。</p></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>油价与长端收益率是否继续主导科技股估值。</li><li>Credo 电话会和后续披露对客户、订单和指引的补充。</li><li>蔚来对毛利、费用、现金流和车型节奏的管理层说明。</li><li>SHEIN 上市后成交、锁定期、监管与跨境关税相关公告。</li><li>SEC / HKEX 是否出现可验证的重点未来 IPO 文件。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p><strong>已覆盖：</strong>AP 市场与 IPO 报道、Credo IR / SEC、蔚来 IR / 公司新闻、HKEX 新闻稿。</p><p><strong>缺口：</strong>未来 30-60 日 IPO 候选不足；港股整体行情未使用未核验汇总数据；所有实时价格应以交易所或权威行情终端复核。</p><p>工作文件：<code>tmp/STOCK/20260902/</code>（00 来源重检 · 01 原始发现 · 02 排序 · 03 草稿）。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
