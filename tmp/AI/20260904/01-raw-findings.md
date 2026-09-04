@@ -1,0 +1,7 @@
+# AI raw findings — 20260904
+
+1. **Safety overview: GPT-6 Astra** — September 3, 2026 — OpenAI — official. OpenAI says Astra is broadly deployed to a limited rollout and is its first model at the Critical cybersecurity-capability level; it describes stronger isolation, encryption, trajectory/CoT monitoring, and a blocking alignment evaluation. https://openai.com/index/safety-overview-gpt-6-astra/
+2. **ChatGPT release note: GPT-6 Astra** — September 3, 2026 — OpenAI Help Center — official. The note describes improvements in coding, research, computer use, and multi-step work; access begins with a limited set of organizations and is not yet generally available. https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+3. **GPT-6 Astra model documentation** — found September 4, 2026 — OpenAI Developers — official. The model page positions Astra for hard end-to-end work. https://developers.openai.com/api/docs/models/gpt-6-astra
+4. **Broadcom FY2026 Q3 results** — September 3, 2026 — Broadcom IR — official. The release states Q3 AI semiconductor revenue was US$16.7bn, up 221% year over year and 54% quarter over quarter. https://investors.broadcom.com/node/64671/pdf
+5. **Legora financial-statement workflow** — September 3, 2026 — OpenAI — official customer story. Legora reports its own benchmark improved by nearly 40% and final judgment remains with legal professionals. https://openai.com/index/legora-financial-statement-review-with-astra/
