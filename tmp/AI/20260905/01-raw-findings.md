@@ -1,0 +1,7 @@
+# AI raw findings — 20260905
+
+1. **Daybreak for Frontline Defenders** — September 3, 2026 — OpenAI — official. OpenAI presents the program as a defensive-security initiative; the publication is a security announcement, not a general-availability product claim. https://openai.com/news/security/
+2. **GPT-6 Astra System Card / security summary** — September 3, 2026 — OpenAI — official. The newsroom indexes both items on the date; implementation teams should treat the system card and product terms as the source of deployment restrictions. https://openai.com/news/security/
+3. **Claude Fable 5.1 and Claude Mythos 5.1** — September 1, 2026 — Anthropic — official. Anthropic describes the releases as advanced models for coding and knowledge work, with research capabilities; its public model pages say they were evaluated with production safeguards enabled. https://www.anthropic.com/news
+4. **Enterprise Frontier Safeguards** — September 1, 2026 — Anthropic — official. Anthropic says EFS combines zero-data-retention transition support with safeguards, stores data in customer-controlled cloud infrastructure, and will roll out in phases. https://www.anthropic.com/news/enterprise-frontier-safeguards
+5. **Zscaler Q4/FY2026 results** — September 3, 2026 — Zscaler IR / SEC exhibit — official. The company reported 25% year-over-year growth in Q4 and FY revenue and ARR, and described security for AI and agentic security operations as product areas. https://zscaler.gcs-web.com/news-releases/news-release-details/zscaler-announces-strong-fourth-quarter-and-fiscal-2026
