@@ -1,0 +1,7 @@
+# 原始发现｜股市日报 20260910
+
+1. 标题：How major US stock indexes fared Wednesday 9/9/2026；发布时间：2026-09-09；来源：AP；可信度：major_media；链接：https://apnews.com/article/31c966aef214740b8fec71e399a051b8 。中文摘要：标普 500 收 7,636.36、跌 0.5%；道指收 52,380.66、跌 0.8%；纳指收 26,253.34、跌 0.6%。报道称 Brent 原油涨 3.4% 并重回每桶 100 美元上方。
+2. 标题：Qualcomm Announces Multi-Generational Product Collaboration with Amazon；发布时间：2026-09-08；来源：Qualcomm；可信度：official；链接：https://www.qualcomm.com/news/releases/2026/09/qualcomm-announces-multi-generational-product-collaboration-with 。中文摘要：合作涵盖面向 AWS 的定制 AI 数据中心硅、推理与光互联；官方未披露足以作盈利预测的完整订单或交付节奏。
+3. 标题：Qualcomm strikes AI chip deal with Amazon；发布时间：2026-09-08；来源：Reuters（Investing.com 转载）；可信度：major_media；链接：https://www.investing.com/news/stock-market-news/qualcomm-amazon-to-develop-custom-chips-for-ai-data-centers-4891798 。中文摘要：Reuters 报道双方将合作开发 AI 推理芯片，并称 Amazon 有购买 Qualcomm 股票的权利；具体财务影响仍取决于履约。
+4. 标题：Cognition AI raises $2 billion at $48 billion valuation；发布时间：2026-09-08；来源：Reuters（MarketScreener 转载）；可信度：major_media；链接：https://www.marketscreener.com/news/cognition-ai-raises-2-billion-at-48-billion-valuation-ce785bd9d981fe25/ 。中文摘要：私营 AI 编程 Agent 公司 Cognition 宣布 20 亿美元 Series E、估值 480 亿美元；非上市公司融资不构成可交易证券观点。
+5. 标题：China hits back at US claims of malicious AI distillation；发布时间：2026-09-09；来源：AP；可信度：major_media；链接：https://apnews.com/article/0f6ca61301630134607551b1dab0d632 。中文摘要：美国机构公开指控及中方否认增加跨境 AI 合规与供应链不确定性；报道未能独立裁定技术归因。
