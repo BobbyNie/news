@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026-10-14 股市日报</title><style>
+:root { --paper:#f7f6f0; --ink:#111827; --muted:#6b7280; --line:#d8d2c3; --surface:#fffefa; --market:#14532d; --up:#087443; --down:#b42318; --blue:#1d4ed8; --warning-bg:#fff7ed; --warning-line:#ea580c; color-scheme:light; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0 auto; max-width: 780px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#efeadf 0,rgba(239,234,223,0) 330px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+.hero-stock { margin:0 -18px; padding:28px 18px 18px; color:#101828; background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.62)),#efe8d8; border-bottom:1px solid var(--line); }
+.eyebrow { margin:0 0 12px; color:var(--market); font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; }
+.lead { margin:12px 0 0; color:#374151; }
+.market-strip { display:grid; gap:6px; margin-top:16px; color:var(--muted); font-size:.93rem; }
+section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+h2 { margin:0 0 14px; color:#172554; font-size:1.22rem; line-height:1.25; }
+h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--market); border-radius:999px; }
+h3 { margin:20px 0 8px; color:#1f2937; font-size:1rem; line-height:1.34; }
+p { margin:.65rem 0; }
+ul { padding-left:1.15rem; }
+li { margin:.62rem 0; }
+a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.28); }
+.meta { color:var(--muted); font-size:.93rem; }
+.top-list { list-style:none; padding:0; margin:0; counter-reset:marketitem; display:grid; gap:12px; }
+.market-card { counter-increment:marketitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(74,63,38,.06); }
+.market-card::before { content:counter(marketitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#dcfce7; color:var(--market); font-weight:850; }
+.change-up { color:var(--up); font-weight:850; }
+.change-down { color:var(--down); font-weight:850; }
+.table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; min-width:620px; font-size:.9rem; margin:14px 0 8px; }
+th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+th { background:#eee7d7; color:#374151; font-weight:850; }
+.focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; }
+.warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warning-line); border-radius:0 8px 8px 0; background:var(--warning-bg); color:#7c2d12; }
+.reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.reader-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; border:1px solid #cbbf9f; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+.reader-controls button { padding:0 .72rem; font-weight:750; }
+.reader-controls select,.reader-controls input { padding:0 .5rem; max-width:100%; }
+.reader-settings-toggle { width:40px; padding:0; display:grid; place-items:center; font-size:1rem; }
+.reader-settings { border:0; padding:0; background:transparent; }
+.reader-settings::backdrop { background:rgba(15,23,42,.38); }
+.reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+.reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.reader-settings-grid { display:grid; gap:10px; }
+.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.reader-settings-note { margin:8px 0 0; color:var(--muted); font-size:.88rem; }
+.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+@media (min-width:760px) { body { padding:0 28px 58px; } .hero-stock { margin-inline:-28px; padding:42px 28px 24px; } }
+</style></head><body class="report report-stock"><header class="hero hero-stock"><p class="eyebrow">MARKET DAILY BRIEF</p><h1>2026-10-14 股市日报</h1><p class="lead">美股、港股、近期 IPO、财报与监管风险。</p><div class="market-strip"><div>生成时间：2026-10-14 12:02（澳门时间）</div><div>采集窗口：2026-10-12 12:02 ~ 2026-10-14 12:02（澳门时间 UTC+8）</div><div>本报告不提供买卖建议。</div></div></header><div class="reader-controls" data-reader-controls>
+<div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+<dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog><p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p></div>
+<section id="window"><h2>更新时间与数据窗口</h2><p>本报告使用澳门时间。窗口为 2026-10-12 12:02 ~ 2026-10-14 12:02（澳门时间 UTC+8）。未经时间戳确认的盘中价格不写入本报告。</p></section>
+<section id="top"><h2>今日最重要的 5 条</h2><ol class="top-list">
+<li class="market-card"><strong>美国大型银行进入财报窗口。</strong>JPMorganChase、Goldman Sachs 和 Wells Fargo 的第三季度披露是本窗口的核心事件。重点看净息差、投行收入、信用成本和资本计划。<a href="https://www.jpmorganchase.com/ir/quarterly-earnings/2026/q3">JPMorgan</a> <a href="https://www.goldmansachs.com/pressroom/press-releases/2026/third-quarter-earnings-results">Goldman Sachs</a></li>
+<li class="market-card"><strong>医疗保健板块继续受财报和监管预期影响。</strong>Johnson &amp; Johnson 的第三季度结果需要与药品管线、诉讼和全年指引一起看。单日反应不能替代现金流与产品组合核验。<a href="https://www.jnj.com/media-center/press-releases/johnson-johnson-announces-third-quarter-2026-results">公司来源</a></li>
+<li class="market-card"><strong>AI Agent 主题继续影响半导体和平台股叙事。</strong>Arm 与 Perplexity 的 CPU 平台合作提供了产业链事件线索，但收入影响尚未披露。该事项应放在产品路线和客户采用框架下观察。<a href="https://www.arm.com/company/news/2026/10/arm-partners-with-perplexity-to-accelerate-ai-agent-adoption-on-cpu-based-platforms">Arm</a></li>
+<li class="market-card"><strong>近期 IPO 仍以申报文件和发行条款为主。</strong>本窗口没有确认新的港美大额 IPO 定价。Iambic Therapeutics、TRexBio 和港股新申请人仍需回到 SEC/HKEX 原始文件。<a href="https://www.sec.gov/edgar/search/">SEC</a> <a href="https://www1.hkexnews.hk/app/appindex.html">HKEX</a></li>
+<li class="market-card"><strong>事件驱动交易需要等待披露确认。</strong>本报告不把社交媒体传闻、未确认的盘前波动或无原始文件的 IPO 日历条目列为重点。</li>
+</ol></section>
+<section id="us"><h2>美股重点</h2><div class="table-wrap"><table><thead><tr><th>标的/主题</th><th>窗口内证据</th><th>可能影响</th><th>来源</th></tr></thead><tbody><tr><td>JPM / GS / WFC</td><td>第三季度银行财报窗口</td><td><span class="change-up">盈利与资本回报预期可能重估</span>；需区分一次性项目</td><td><a href="https://www.jpmorganchase.com/ir/quarterly-earnings/2026/q3">JPM</a></td></tr><tr><td>JNJ</td><td>第三季度业绩与全年指引</td><td>关注药品增长、诉讼成本和现金流</td><td><a href="https://www.jnj.com/media-center/press-releases/johnson-johnson-announces-third-quarter-2026-results">JNJ</a></td></tr><tr><td>ARM / AI 基础设施</td><td>CPU Agent 合作消息</td><td>平台采用预期可能变化；收入时间仍不确定</td><td><a href="https://www.arm.com/company/news/2026/10/arm-partners-with-perplexity-to-accelerate-ai-agent-adoption-on-cpu-based-platforms">Arm</a></td></tr></tbody></table></div><p class="meta">本窗口未列入没有官方披露、SEC 文件或主流媒体交叉验证的个股传闻。</p></section>
+<section id="hk"><h2>港股重点</h2><p>本窗口重点检查 HKEXnews 新申请人、聆讯后资料集、招股书及配发结果。没有足够可靠的新公司披露可以支持高优先级个股判断。港股科技主题仍需结合成交、解禁、客户集中度和招股书财务质量。</p><div class="focus-box"><p><strong>继续跟踪：</strong>HKEX 新申请人名单和聆讯后资料集。若出现正式招股书、发行区间或配发结果，再更新估值、流动性和锁定期分析。</p></div></section>
+<section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2><h3>近期已上市 IPO</h3><ul><li><strong>本窗口未确认新的港美大额经营公司 IPO。</strong>已检查 Nasdaq IPO Calendar、NYSE IPO Center、SEC filings 和 HKEX 新上市/申请人页面。关注等级：<strong>信息不足</strong>。理由：未完成单一发行人的招股书、财务质量、估值条款、基石/战略投资者、流动性、锁定期及监管诉讼风险核验。</li></ul><h3>即将 IPO / 已递表 / 已提交注册文件</h3><ul><li><strong>Iambic Therapeutics、TRexBio：</strong>SEC 搜索页显示近期 S-1/A 线索。关注等级：<strong>谨慎关注</strong>。理由：生物科技发行人的核心风险是临床阶段、现金消耗、稀释、试验结果和监管路径；需逐份阅读最新注册文件。<a href="https://www.sec.gov/edgar/search/">SEC 搜索</a></li><li><strong>港股新申请人：</strong>HKEX New Applicants 页面在窗口前后仍是主要一手来源。关注等级：<strong>信息不足</strong>。理由：没有已核验发行价、募资额和配售结构时，不评估上市后估值。<a href="https://www1.hkexnews.hk/app/appindex.html">HKEX 新申请人</a></li><li><strong>Nasdaq / NYSE 未来发行：</strong>发行日历可用于发现线索，但必须回到 SEC S-1/F-1 和交易所文件。关注等级：<strong>暂不关注</strong>，直到发行条款和原始文件完整。<a href="https://www.nasdaq.com/market-activity/ipos">Nasdaq IPO Calendar</a></li></ul><div class="warn">关注等级不是买入、卖出、目标价或确定收益判断。它只表示是否继续核对公开文件。</div></section>
+<section id="unicorns"><h2>AI 独角兽 / IPO</h2><p>本窗口没有确认新的美国 AI 独角兽正式 S-1/F-1 文件。Arm 与 Perplexity 的合作是产业采用事件，不等同于 IPO 或融资事件。继续检查 SEC、公司 IR 和可信交易媒体。</p></section>
+<section id="earnings"><h2>财报与指引</h2><div class="table-wrap"><table><thead><tr><th>公司</th><th>需要看什么</th><th>风险提示</th><th>来源</th></tr></thead><tbody><tr><td>JPMorganChase</td><td>净息差、投行、信用成本、资本回报</td><td>一次性收益和宏观假设可能扭曲同比</td><td><a href="https://www.jpmorganchase.com/ir/quarterly-earnings/2026/q3">IR</a></td></tr><tr><td>Goldman Sachs</td><td>交易、投行、资管与财富管理</td><td>市场成交和费用确认具有周期性</td><td><a href="https://www.goldmansachs.com/pressroom/press-releases/2026/third-quarter-earnings-results">IR</a></td></tr><tr><td>Wells Fargo</td><td>净利息收入、信用损失、监管限制</td><td>监管事项可能影响资本配置</td><td><a href="https://newsroom.wf.com/news-releases/news-details/2026/Wells-Fargo-Reports-Third-Quarter-2026-Financial-Results/default.aspx">IR</a></td></tr></tbody></table></div></section>
+<section id="risks"><h2>监管与风险</h2><ul><li>财报数字必须与正式公司公告和监管文件核对。</li><li>IPO 日历不是发行完成证明。发行价、募资额和锁定期必须使用原始文件。</li><li>AI 主题可能影响估值预期，但不能直接推导短期股价。</li><li>未上市公司只描述融资、产品和监管事实，不做估值建议。</li></ul></section>
+<section id="event-focus"><h2>事件驱动股票专题</h2><h3>主题：银行财报与资本回报</h3><p>驱动因素是第三季度财报、净息差、信用成本和资本回报。下一个确认点是正式财报数字、管理层指引和监管资本计划。该专题不等同于买卖建议。</p><h3>主题：CPU 平台 Agent 采用</h3><p>Arm 与 Perplexity 合作提供产业链催化线索。需要确认客户、软件适配和收入确认时间。当前证据只支持继续跟踪。</p></section>
+<section id="next"><h2>明日继续跟踪</h2><ul><li>补读银行财报原文、电话会记录和资本计划。</li><li>核对 SEC S-1/A 和 HKEX 新申请人文件是否有新版本。</li><li>检查 IPO 定价、配售和首日流动性。</li><li>只在有正式披露时更新个股事件。</li></ul></section>
+<section id="coverage"><h2>来源覆盖与缺口</h2><p>已检查 SEC EDGAR、HKEXnews、Nasdaq IPO Calendar、NYSE IPO Center、公司 IR 和主流财经媒体索引。未使用未验证社交媒体作为唯一来源。</p><div class="warn">部分 SEC、HKEX 和公司 IR 页面可能受访问频率或地区限制。报告不写入无法核验的价格、涨跌、市值和传闻。</div></section><script src="../../assets/report-reader.js" defer></script></body></html>
