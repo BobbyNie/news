@@ -1,0 +1,61 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026-10-15 AI 日报</title><style>
+:root { --bg:#f5f7ff; --surface:#fff; --ink:#111827; --muted:#667085; --line:#d9e0f2; --ai:#312e81; --blue:#2563eb; --warn:#b45309; color-scheme:light; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0 auto; max-width: 760px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#e6eaff 0,rgba(230,234,255,0) 360px),var(--bg); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+.hero-ai { margin:0 -18px; padding:28px 18px 20px; color:#eef2ff; background:linear-gradient(145deg,#111827,#312e81 68%,#4338ca); }
+.eyebrow { margin:0 0 12px; color:#c7d2fe; font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; }
+.lead { margin:12px 0 0; color:#dbeafe; }
+.meta-grid { display:grid; gap:6px; margin-top:16px; color:#c7d2fe; font-size:.93rem; }
+section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+h2 { margin:0 0 14px; color:#1e1b4b; font-size:1.22rem; line-height:1.25; }
+h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--ai); border-radius:999px; }
+h3 { margin:20px 0 8px; color:#1f2937; font-size:1rem; line-height:1.34; }
+p { margin:.65rem 0; }
+ul { padding-left:1.15rem; }
+li { margin:.62rem 0; }
+a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.28); }
+.meta { color:var(--muted); font-size:.93rem; }
+.top-list { list-style:none; padding:0; margin:0; counter-reset:aiitem; display:grid; gap:12px; }
+.news-card { counter-increment:aiitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(49,46,129,.06); }
+.news-card::before { content:counter(aiitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#e0e7ff; color:var(--ai); font-weight:850; }
+.table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; min-width:620px; font-size:.9rem; margin:14px 0 8px; }
+th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+th { background:#eef2ff; color:#374151; font-weight:850; }
+.focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; }
+.warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; background:#fffbeb; color:#7c2d12; }
+.reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.reader-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; border:1px solid #c7d2fe; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+.reader-controls button { padding:0 .72rem; font-weight:750; }
+.reader-controls select,.reader-controls input { padding:0 .5rem; max-width:100%; }
+.reader-settings-toggle { width:40px; padding:0; display:grid; place-items:center; font-size:1rem; }
+.reader-settings { border:0; padding:0; background:transparent; }
+.reader-settings::backdrop { background:rgba(15,23,42,.38); }
+.reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+.reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.reader-settings-grid { display:grid; gap:10px; }
+.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.reader-settings-note { margin:8px 0 0; color:var(--muted); font-size:.88rem; }
+.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+@media (min-width:760px) { body { padding:0 28px 58px; } .hero-ai { margin-inline:-28px; padding:42px 28px 24px; } }
+</style></head><body class="report report-ai"><header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p><h1>2026-10-15 AI 日报</h1><p class="lead">聚焦 Agent 产品化、端侧安全、开发者工具、算力供给与企业采用。</p><div class="meta-grid"><div>生成时间：2026-10-15 12:03（澳门时间）</div><div>采集窗口：2026-10-13 12:03 ~ 2026-10-15 12:03（澳门时间 UTC+8）</div></div></header><div class="reader-controls" data-reader-controls>
+<div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+<dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog><p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p></div>
+<section id="window"><h2>更新时间与数据窗口</h2><p>本报告使用澳门时间。数据窗口覆盖生成时刻前 48 小时。官方产品页优先，主流媒体只作补充。</p></section>
+<section id="top"><h2>今日最重要的 6 条</h2><ol class="top-list">
+<li class="news-card"><strong>Google DeepMind 与新加坡 GovTech 发布端侧反诈骗模型。</strong>双方把轻量 Gemma 模型用于本地诈骗对话识别。模型在设备端分析风险模式，官方强调用户同意和分阶段部署。<a href="https://deepmind.google/blog/on-device-ai-scam-detection-mddi/">官方来源</a></li>
+<li class="news-card"><strong>Gemini 4 Argon 进入 Gemini 应用任务工作流。</strong>Google AI Pro 和 Ultra 用户可使用 Argon。产品连接超过 40 个应用，并整合 macOS Antigravity agentic coding interface。<a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/">官方来源</a></li>
+<li class="news-card"><strong>Google 公布 Gemini 4 Argon 安全与治理控制。</strong>说明覆盖高风险网络安全和生物领域的分层防护、实时监控、提示注入测试和误用拦截。<a href="https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/">官方来源</a></li>
+<li class="news-card"><strong>Ollama 与 Fly.io 支持受控 Agent 沙箱。</strong>Fly.io Sprites 提供持久化 Linux 沙箱。连接器默认阻断访问，并通过网关注入 API key。<a href="https://ollama.com/blog/fly-io-sprites">产品来源</a></li>
+<li class="news-card"><strong>Android 扩大 AI 驱动的诈骗防护。</strong>Google 将检测范围扩展到电话、短信和聊天应用。端侧模型的误报、功耗和用户控制仍需继续观察。<a href="https://blog.google/security/new-android-scam-protections/">官方来源</a></li>
+<li class="news-card"><strong>金融 AI 新发布不足。</strong>本窗口没有确认新的银行专属信贷、财富管理或客户服务模型。反诈骗基础设施是最接近金融应用的可核验主线。</li>
+</ol></section>
+<section id="details"><h2>分主题详情</h2><h3>模型与 Agent</h3><p>Gemini 4 Argon 的重点是把模型能力接入任务流程。应用连接和代码界面扩大 Agent 入口。需要第三方数据验证执行成功率、工具权限和成本。</p><h3>端侧 AI 与安全</h3><p>Google DeepMind 和 Android 的更新都把诈骗检测放到设备或系统层。端侧部署可以减少数据外传，但会增加模型大小、功耗和误报约束。</p><h3>开发者工具与部署</h3><p>Ollama 与 Fly.io 的方案把权限隔离放在 Agent 运行环境。沙箱可以降低试验风险，但不能替代密钥轮换、网络审计和人工审批。</p></section>
+<section id="companies"><h2>公司跟踪表</h2><div class="table-wrap"><table><thead><tr><th>公司或机构</th><th>窗口内变化</th><th>继续核验</th><th>来源</th></tr></thead><tbody><tr><td>Google DeepMind / 新加坡 GovTech</td><td>端侧 Gemma 反诈骗模型</td><td>误报率、部署范围、用户同意</td><td><a href="https://deepmind.google/blog/on-device-ai-scam-detection-mddi/">官方</a></td></tr><tr><td>Google</td><td>Argon 进入 Gemini 应用和 macOS 工作流</td><td>地区、权限、执行成功率</td><td><a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/">官方</a></td></tr><tr><td>Ollama / Fly.io</td><td>持久化沙箱运行 Agent</td><td>企业支持、成本、权限审计</td><td><a href="https://ollama.com/blog/fly-io-sprites">官方</a></td></tr></tbody></table></div></section>
+<section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2><p>本窗口检查 JPMorganChase、DBS、Bank of America Erica、HSBC Wealth Intelligence、BIS Innovation Hub 和 FSB AI in finance 来源。未确认新的银行客户服务、信贷审批或财富管理产品发布。</p><p>可核验的金融相关方向是反诈骗 AI。新加坡 GovTech 的端侧方案与银行反欺诈存在应用关联，但它不是银行产品公告。后续继续核对银行官方新闻稿、模型治理文件和监管披露。</p></section>
+<section id="risks"><h2>风险与不确定性</h2><ul><li>官方产品说明不等于独立性能证明。</li><li>端侧诈骗模型需要公开误报、漏报、耗电和人工复核指标。</li><li>Agent 沙箱仍需验证网络、文件、密钥和提示注入边界。</li><li>金融应用不能用一般消费者 AI 更新替代银行正式披露。</li></ul></section>
+<section id="next"><h2>明日继续跟踪</h2><ul><li>寻找 Gemini 4 Argon 的第三方评测和实际可用地区。</li><li>跟踪新加坡反诈骗试点的测试指标和隐私安排。</li><li>核对 Fly.io Sprites 的企业权限审计和商业支持。</li><li>继续检查银行官方 AI 应用更新，不用金融行情补位。</li></ul></section>
+<section id="coverage"><h2>来源覆盖与缺口</h2><p>已检查官方 AI 公司博客、开发者平台、金融 AI 来源、官方安全博客和主流媒体索引。X、Facebook、论坛和聚合页未作为唯一证据。</p><div class="warn">部分公司新闻页和研究页面可能受地区、登录或抓取限制影响。未核验的性能、融资和市场传闻不纳入报告。</div></section><script src="../../assets/report-reader.js" defer></script></body></html>

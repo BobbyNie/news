@@ -1,0 +1,59 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026-10-15 股市日报</title><style>
+:root { --paper:#f7f6f0; --ink:#111827; --muted:#6b7280; --line:#d8d2c3; --surface:#fffefa; --market:#14532d; --up:#087443; --down:#b42318; --blue:#1d4ed8; --warning-bg:#fff7ed; --warning-line:#ea580c; color-scheme:light; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0 auto; max-width: 780px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#efeadf 0,rgba(239,234,223,0) 330px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+.hero-stock { margin:0 -18px; padding:28px 18px 18px; color:#101828; background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.62)),#efe8d8; border-bottom:1px solid var(--line); }
+.eyebrow { margin:0 0 12px; color:var(--market); font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; }
+.lead { margin:12px 0 0; color:#374151; }
+.market-strip { display:grid; gap:6px; margin-top:16px; color:var(--muted); font-size:.93rem; }
+section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+h2 { margin:0 0 14px; color:#172554; font-size:1.22rem; line-height:1.25; }
+h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--market); border-radius:999px; }
+h3 { margin:20px 0 8px; color:#1f2937; font-size:1rem; line-height:1.34; }
+p { margin:.65rem 0; }
+ul { padding-left:1.15rem; }
+li { margin:.62rem 0; }
+a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.28); }
+.meta { color:var(--muted); font-size:.93rem; }
+.top-list { list-style:none; padding:0; margin:0; counter-reset:marketitem; display:grid; gap:12px; }
+.market-card { counter-increment:marketitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(74,63,38,.06); }
+.market-card::before { content:counter(marketitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#dcfce7; color:var(--market); font-weight:850; }
+.change-up { color:var(--up); font-weight:850; }
+.change-down { color:var(--down); font-weight:850; }
+.table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; min-width:620px; font-size:.9rem; margin:14px 0 8px; }
+th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+th { background:#eee7d7; color:#374151; font-weight:850; }
+.focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; }
+.warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warning-line); border-radius:0 8px 8px 0; background:var(--warning-bg); color:#7c2d12; }
+.reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.reader-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; border:1px solid #cbbf9f; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+.reader-controls button { padding:0 .72rem; font-weight:750; }
+.reader-controls select,.reader-controls input { padding:0 .5rem; max-width:100%; }
+.reader-settings-toggle { width:40px; padding:0; display:grid; place-items:center; font-size:1rem; }
+.reader-settings { border:0; padding:0; background:transparent; }
+.reader-settings::backdrop { background:rgba(15,23,42,.38); }
+.reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+.reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.reader-settings-grid { display:grid; gap:10px; }
+.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.reader-settings-note { margin:8px 0 0; color:var(--muted); font-size:.88rem; }
+.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+@media (min-width:760px) { body { padding:0 28px 58px; } .hero-stock { margin-inline:-28px; padding:42px 28px 24px; } }
+</style></head><body class="report report-stock"><header class="hero hero-stock"><p class="eyebrow">MARKET DAILY BRIEF</p><h1>2026-10-15 股市日报</h1><p class="lead">美股、港股、近期 IPO、财报、监管风险与事件驱动主题。</p><div class="market-strip"><div>生成时间：2026-10-15 12:03（澳门时间）</div><div>采集窗口：2026-10-13 12:03 ~ 2026-10-15 12:03（澳门时间 UTC+8）</div><div>市场日历：美国 10 月 14 日收市；香港 10 月 15 日盘中</div></div></header><div class="reader-controls" data-reader-controls>
+<div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+<dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog><p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p></div>
+<section id="window"><h2>更新时间与数据窗口</h2><p>本报告使用澳门时间。美国市场数据对应 2026 年 10 月 14 日收市。香港 IPO 数据包含 2026 年 10 月 15 日上市和盘中信息。</p></section>
+<section id="top"><h2>今日最重要的 5 条</h2><ol class="top-list"><li class="market-card"><strong>美国股市走弱。</strong>AP 报道 10 月 14 日道指约跌 0.1%，纳指跌约 1.9%。市场同时面对通胀和科技股估值压力。<a href="https://apnews.com/article/224008b0bae0921d1e2867a4b1ecf511">AP 来源</a></li><li class="market-card"><strong>9 月美国通胀同比升至 3.7%。</strong>收益率上升会压缩高估值成长股的估值弹性。报告不把通胀读数直接转换成个股结论。<a href="https://apnews.com/article/224008b0bae0921d1e2867a4b1ecf511">AP 来源</a></li><li class="market-card"><strong>BlackRock 提交 10 月 14 日 8-K。</strong>财报季观察点包括资产管理规模、净流入、费用和资本配置。<a href="https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/0001193125-26-420979-index.html">SEC 来源</a></li><li class="market-card"><strong>TRANSSION（02636）在港交所上市。</strong>HKEX 页面标注 10 月 15 日为暂定上市日。发行价为每股 35.30 港元，早段报价线索低于发行价。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX 来源</a></li><li class="market-card"><strong>港股近期新上市名单继续扩展。</strong>PANDO SOL（02831）和 ESWIN COMPUTING（01256）已出现在 HKEX 新上市页面。需要逐份招股书核验财务和锁定期。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX 来源</a></li></ol></section>
+<section id="us"><h2>美股重点</h2><h3>宏观与科技股压力</h3><p>10 月 14 日市场下跌与通胀、收益率和科技股估值重估同时出现。该关系只说明市场压力来源，不代表任何单一公司的确定方向。</p><h3>BlackRock 财报文件</h3><p>SEC EDGAR 确认 BlackRock 提交 8-K。后续应阅读附件中的净流入、费用、资产管理规模、并购整合和风险披露。<a href="https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/0001193125-26-420979-index.html">查看原始文件</a></p></section>
+<section id="hk"><h2>港股重点</h2><p>TRANSSION 进入上市事件窗口。需要同时看发行价、首日成交、公众持股、主要客户、海外收入和供应链周期。早段报价不是收市表现，也不代表长期价值。</p><p>PANDO SOL 与 ESWIN COMPUTING 的正式资料需要回到 HKEX 招股书和公告。没有完整原始文件时，只做信息记录。</p></section>
+<section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2><h3>近期已上市 IPO</h3><div class="table-wrap"><table><thead><tr><th>公司</th><th>上市与条款</th><th>业务与风险</th><th>关注等级</th></tr></thead><tbody><tr><td>TRANSSION（02636）</td><td>HKEX 暂定上市日 2026-10-15；发行价 35.30 港元；每手 100 股。<a href="https://www.hkex.com.hk/Services/Trading/Securities/Trading-News/Newly-Listed-Securities?sc_lang=en">HKEX</a></td><td>消费电子和海外市场暴露。需要核对首日成交、流通量、锁定期、客户集中和汇率风险。</td><td><strong>值得重点关注</strong></td></tr><tr><td>PANDO SOL（02831）</td><td>HKEX 新上市页面列出 2026-10-13 上市。发行条款需回到招股书。</td><td>财务质量、估值、基石投资者、锁定期和诉讼风险信息不足。</td><td><strong>信息不足</strong></td></tr><tr><td>ESWIN COMPUTING（01256）</td><td>HKEX 新上市页面列出 2026-10-09 上市。发行条款需回到招股书。</td><td>半导体周期、客户集中、资本开支和监管风险需要继续核验。</td><td><strong>信息不足</strong></td></tr></tbody></table></div><h3>即将 IPO / 已递表 / 已提交注册文件</h3><ul><li><strong>美国：</strong>本窗口未确认新的大型 AI 公司完整 S-1/F-1。SEC 搜索页继续作为主来源。关注等级：<strong>暂不关注</strong>。<a href="https://www.sec.gov/search-filings">SEC 搜索</a></li><li><strong>港股：</strong>瘦西湖文旅（06157）等二手市场线索未完成完整 HKEX 原始文件核验。关注等级：<strong>信息不足</strong>。<a href="https://www1.hkexnews.hk/app/appindex.html">HKEX 新申请人</a></li></ul><div class="warn">关注等级不是买入、卖出、目标价或确定收益判断。它只表示是否继续核对公开文件。</div></section>
+<section id="unicorns"><h2>AI 独角兽 / IPO</h2><p>本窗口没有确认新的美国 AI 独角兽正式 S-1/F-1 文件。Google、Ollama 和 Fly.io 的 AI 产品更新属于产业采用线索，不等同于 IPO 或融资事件。</p></section>
+<section id="earnings"><h2>财报与指引</h2><div class="table-wrap"><table><thead><tr><th>公司</th><th>窗口内文件</th><th>需要看什么</th><th>来源</th></tr></thead><tbody><tr><td>BlackRock</td><td>2026-10-14 8-K</td><td>净流入、费用、资产管理规模、资本配置和风险披露</td><td><a href="https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/0001193125-26-420979-index.html">SEC</a></td></tr><tr><td>其他美国财报</td><td>本窗口未完成原始文件核验</td><td>不使用未核验数字替代公司公告</td><td><a href="https://www.sec.gov/search-filings">SEC</a></td></tr></tbody></table></div></section>
+<section id="risks"><h2>监管与风险</h2><ul><li>通胀和收益率是市场背景，不是个股收益预测。</li><li>IPO 日历不是发行完成证明。发行价、募资额和锁定期必须使用 SEC 或 HKEX 原始文件。</li><li>早段报价不等于收市价。价格和成交必须标明时间、市场和来源。</li><li>未上市公司只描述融资、产品和监管事实，不做估值建议。</li></ul></section>
+<section id="event-focus"><h2>事件驱动股票专题</h2><h3>专题一：TRANSSION 上市日</h3><p>驱动因素是港交所上市、发行价和首日流动性。需要观察公众持股、成交、供应链周期和海外市场收入。当前证据只支持继续跟踪。</p><h3>专题二：通胀与 AI 估值</h3><p>驱动因素是 9 月 CPI、收益率和科技股回撤。需要观察后续利率预期、企业资本开支和 AI 订单，而不是只看单日跌幅。</p></section>
+<section id="next"><h2>明日继续跟踪</h2><ul><li>补读 BlackRock 8-K 附件和公司说明。</li><li>核对 TRANSSION 首日收市价、成交额、公众持股和锁定期。</li><li>检查 SEC S-1/F-1 与 HKEX 新申请人页面是否有新文件。</li><li>继续检查 PANDO SOL 和 ESWIN COMPUTING 的招股书财务质量。</li></ul></section>
+<section id="coverage"><h2>来源覆盖与缺口</h2><p>已检查 SEC EDGAR、HKEX 新上市和新申请人页面、公司 IR、IPO 日历和主流市场媒体。未使用未验证社交媒体作为唯一证据。</p><div class="warn">部分 SEC、HKEX 和公司 IR 页面可能受访问频率或地区限制。没有完整原始文件的 IPO 线索标为信息不足。</div></section><script src="../../assets/report-reader.js" defer></script></body></html>
