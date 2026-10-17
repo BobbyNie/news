@@ -1,0 +1,59 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026-10-17 股市日报</title><style>
+:root { --paper:#f7f6f0; --ink:#111827; --muted:#6b7280; --line:#d8d2c3; --surface:#fffefa; --market:#14532d; --up:#087443; --down:#b42318; --blue:#1d4ed8; --warning-bg:#fff7ed; --warning-line:#ea580c; color-scheme:light; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0 auto; max-width: 780px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#efeadf 0,rgba(239,234,223,0) 330px),var(--paper); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+.hero-stock { margin:0 -18px; padding:28px 18px 18px; color:#101828; background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.62)),#efe8d8; border-bottom:1px solid var(--line); }
+.eyebrow { margin:0 0 12px; color:var(--market); font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; }
+.lead { margin:12px 0 0; color:#374151; }
+.market-strip { display:grid; gap:6px; margin-top:16px; color:var(--muted); font-size:.93rem; }
+section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+h2 { margin:0 0 14px; color:#172554; font-size:1.22rem; line-height:1.25; }
+h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--market); border-radius:999px; }
+h3 { margin:20px 0 8px; color:#1f2937; font-size:1rem; line-height:1.34; }
+p { margin:.65rem 0; }
+ul { padding-left:1.15rem; }
+li { margin:.62rem 0; }
+a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.28); }
+.meta { color:var(--muted); font-size:.93rem; }
+.top-list { list-style:none; padding:0; margin:0; counter-reset:marketitem; display:grid; gap:12px; }
+.market-card { counter-increment:marketitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(74,63,38,.06); }
+.market-card::before { content:counter(marketitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#dcfce7; color:var(--market); font-weight:850; }
+.change-up { color:var(--up); font-weight:850; }
+.change-down { color:var(--down); font-weight:850; }
+.table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; min-width:620px; font-size:.9rem; margin:14px 0 8px; }
+th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+th { background:#eee7d7; color:#374151; font-weight:850; }
+.focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; }
+.warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid var(--warning-line); border-radius:0 8px 8px 0; background:var(--warning-bg); color:#7c2d12; }
+.reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.reader-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; border:1px solid #cbbf9f; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+.reader-controls button { padding:0 .72rem; font-weight:750; }
+.reader-controls select,.reader-controls input { padding:0 .5rem; max-width:100%; }
+.reader-settings-toggle { width:40px; padding:0; display:grid; place-items:center; font-size:1rem; }
+.reader-settings { border:0; padding:0; background:transparent; }
+.reader-settings::backdrop { background:rgba(15,23,42,.38); }
+.reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+.reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.reader-settings-grid { display:grid; gap:10px; }
+.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.reader-settings-note { margin:8px 0 0; color:var(--muted); font-size:.88rem; }
+.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+@media (min-width:760px) { body { padding:0 28px 58px; } .hero-stock { margin-inline:-28px; padding:42px 28px 24px; } }
+</style></head><body class="report report-stock"><header class="hero hero-stock"><p class="eyebrow">MARKET DAILY BRIEF</p><h1>2026-10-17 股市日报</h1><p class="lead">聚焦美股、港股、近期 IPO、财报披露与事件驱动股票专题。</p><div class="market-strip"><div>生成时间：2026-10-16 12:02（澳门时间）</div><div>采集窗口：2026-10-14 12:02 ~ 2026-10-16 12:02（澳门时间 UTC+8）</div><div>市场日历：美国 10 月 15 日收市；香港 10 月 16 日盘中</div></div></header><div class="reader-controls" data-reader-controls>
+<div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+<dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog>
+<p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p></div><section id="window"><h2>市场窗口</h2><p>本报告覆盖 2026 年 10 月 15 日 12:02 至 10 月 17 日 12:02（澳门时间）。美国市场信息以已收市交易日和主流市场报道为准。港股信息以 HKEXnews 和公司公告为准。</p><p class="meta">本报告不提供买卖建议、目标价或确定收益判断。</p></section>
+<section id="top"><h2>今日最重要的 6 条</h2><ol class="top-list"><li class="market-card"><strong>美国市场继续交易财政事件与 AI 估值风险。</strong> AP 将政府停摆、财政和 AI 相关市场波动放在同一背景中。<a href="https://apnews.com/article/stock-market-trump-shutdown-treasury-2b1b8eb26fe1cf91e3afdb09d68379f6">来源：AP</a></li><li class="market-card"><strong>AI 资本开支成为供应链事件线。</strong> AWS 投入、NVIDIA 端侧设备和 Mistral 基础设施合作提供行业线索，但不是盈利确定性。<a href="https://www.axios.com/2026/10/16/aws-ai-spending">来源：Axios</a></li><li class="market-card"><strong>港股侧重交易所公告与新股供给。</strong> 当前不把旧观察名单当作当天事件。<a href="https://www.hkexnews.hk/index.htm">来源：HKEXnews</a></li><li class="market-card"><strong>美国近期 IPO 未找到足够完整的当前窗口候选。</strong> Nasdaq IPO Calendar 和 NYSE IPO Center 仍需继续复检。<a href="https://www.nasdaq.com/market-activity/ipos">来源：Nasdaq IPO Calendar</a></li><li class="market-card"><strong>港股近期 IPO 专栏保留已上市与待上市分类。</strong> 缺少完整业务、财务和发行条款时，关注等级为“信息不足”。<a href="https://www1.hkexnews.hk/app/appindex.html">来源：HKEX New Applicants</a></li><li class="market-card"><strong>事件驱动专题聚焦 AI 基础设施资本开支传导。</strong> 后续要看公司 IR、订单、资本开支和自由现金流，而不是只看媒体标题。</li></ol></section>
+<section id="us"><h2>美股重点</h2><p>美国市场的短期变量包括财政事件、AI 基础设施投入、利率敏感度和高估值板块的风险承受力。AP 的市场报道提供背景，但单一交易日不能证明长期趋势。</p><div class="table-wrap"><table><thead><tr><th>观察线</th><th>当前信号</th><th>核验重点</th></tr></thead><tbody><tr><td>云与 AI 基础设施</td><td class="change-up">事件驱动</td><td>AWS、芯片和服务器公司的正式披露、订单与资本开支。</td></tr><tr><td>软件与平台</td><td>估值敏感</td><td>AI 变现、客户留存、毛利率和现金流。</td></tr><tr><td>政府与监管</td><td>政策敏感</td><td>SEC 文件、采购文件和供应链限制。</td></tr></tbody></table></div><p><a href="https://www.sec.gov/search-filings">SEC EDGAR</a> 是美国融资、注册文件和重大披露的主要核验入口。</p></section>
+<section id="hk"><h2>港股重点</h2><p>港股报告优先使用 HKEXnews、上市公司投资者关系页和交易所资料。AI、云、互联网、机器人和硬件公司仍是事件驱动候选，但必须由当前窗口的公告、财报或重大订单触发。</p><ul><li>核对新上市公司首日收市价、成交额、公众持股和锁定期。</li><li>核对已递表公司的招股书、聆讯后资料集和基石投资者信息。</li><li>避免把早段报价或媒体传闻写成收市事实。</li></ul><p><a href="https://www.hkexnews.hk/index.htm">查看 HKEXnews</a> · <a href="https://www1.hkexnews.hk/app/sehkappmainindex.htm">查看聆讯后资料集</a></p></section>
+<section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2><h3>近期已上市 IPO</h3><div class="table-wrap"><table><thead><tr><th>市场</th><th>候选</th><th>可核验内容</th><th>关注等级</th></tr></thead><tbody><tr><td>港股</td><td>当前窗口的新上市候选</td><td>需以 HKEX 上市公告、招股书、发行价、公众持股和首日收市数据为准。当前资料不足以完成业务、财务和估值比较。</td><td>信息不足</td></tr><tr><td>美股</td><td>当前窗口的新上市候选</td><td>需以 SEC 注册文件、Nasdaq/NYSE 上市资料和公司 IR 为准。当前未完成足够的原始文件核验。</td><td>信息不足</td></tr></tbody></table></div><h3>即将 IPO / 已递表 / 已提交注册文件</h3><p>已复检 <a href="https://www.nasdaq.com/market-activity/ipos">Nasdaq IPO Calendar</a>、<a href="https://www.nyse.com/ipo-center/filings">NYSE IPO Center</a>、<a href="https://www.sec.gov/search-filings">SEC EDGAR</a> 和 <a href="https://www1.hkexnews.hk/app/appindex.html">HKEX New Applicants</a>。没有足够完整的当前窗口候选可给出“值得重点关注”或“谨慎关注”评级。</p><p class="meta">关注等级只表示信息完整度和研究优先级。它不是买入、卖出、目标价或收益判断。</p></section>
+<section id="unicorns"><h2>AI 独角兽与 IPO</h2><p>AI 公司融资、基础设施合作和政府采购消息可以影响上市预期，但不等同于 IPO 注册、定价或上市完成。当前报告不把 OpenAI、Anthropic 或 Mistral 的产业消息写成 IPO 事实。</p><p>后续优先检查 SEC S-1/F-1、HKEX 新申请人页面和正式公司公告。</p></section>
+<section id="earnings"><h2>财报与指引</h2><div class="table-wrap"><table><thead><tr><th>主题</th><th>本窗口可用信号</th><th>需要看什么</th></tr></thead><tbody><tr><td>AI 资本开支</td><td>AWS 投入报道</td><td>公司财报中的资本开支、云容量、客户需求和现金流。</td></tr><tr><td>芯片与设备</td><td>NVIDIA 端侧产品报道</td><td>正式规格、上市时间、订单和渠道库存。</td></tr><tr><td>港股公司</td><td>需以 HKEX 公告为准</td><td>收入、毛利、现金流、监管事项和关联交易。</td></tr></tbody></table></div></section>
+<section id="risks"><h2>监管与风险</h2><ul><li>市场报道不能替代 SEC、HKEX 或公司 IR 文件。</li><li>IPO 日历不是发行完成证明。发行价、募资额、锁定期和基石投资者必须使用原始文件。</li><li>AI 资本开支可能提高供应链需求，也可能带来折旧、融资和现金流压力。</li><li>财政事件、利率和出口管制可能改变行业估值和供应链预期。</li><li>本报告不提供买卖建议。</li></ul></section>
+<section id="event-focus"><h2>事件驱动股票专题</h2><h3>专题：AI 资本开支传导链</h3><p><strong>驱动因素：</strong>云服务商继续增加 AI 基础设施投入，端侧设备和区域数据中心合作扩大产业链叙事。</p><p><strong>观察对象：</strong>云平台、GPU 和加速器、服务器、网络设备、数据中心和电力基础设施公司。</p><p><strong>验证顺序：</strong>先看公司 IR 和监管文件，再看订单、资本开支、库存、交付时间和自由现金流。媒体标题只能作为发现线索。</p><p><strong>风险：</strong>合作金额可能分期执行。设备发布可能晚于报道。行业需求不等同于个股利润。</p></section>
+<section id="next"><h2>明日继续跟踪</h2><ol><li>核对美国市场下一个交易日的收市数据和主要公司公告。</li><li>检查 SEC S-1/F-1、8-K 以及公司 IR 是否出现新的 IPO 或融资事件。</li><li>检查 HKEX 新上市、聆讯后资料集和配售结果。</li><li>跟踪云、芯片、服务器和数据中心公司的资本开支、订单与现金流。</li><li>补充有完整业务、财务和发行条款的近期 IPO 候选。</li></ol></section>
+<section id="coverage"><h2>来源覆盖与缺口</h2><p>已检查 SEC EDGAR、HKEXnews、Nasdaq IPO Calendar、NYSE IPO Center、公司 IR 和主流市场媒体。未使用未验证社交媒体作为唯一证据。</p><p class="meta">缺口：部分 SEC、HKEX 和公司 IR 页面可能延迟索引。当前 IPO 候选资料不足，因此评级以“信息不足”为主。</p></section><script src="../../assets/report-reader.js" defer></script></body></html>

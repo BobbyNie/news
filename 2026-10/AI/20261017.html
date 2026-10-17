@@ -1,0 +1,72 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026-10-17 AI 日报</title><style>
+:root { --bg:#f5f7ff; --surface:#fff; --ink:#111827; --muted:#667085; --line:#d9e0f2; --ai:#312e81; --blue:#2563eb; --warn:#b45309; color-scheme:light; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0 auto; max-width: 760px; min-height:100vh; padding:0 18px 46px; background:linear-gradient(180deg,#e6eaff 0,rgba(230,234,255,0) 360px),var(--bg); color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+.hero-ai { margin:0 -18px; padding:28px 18px 20px; color:#eef2ff; background:linear-gradient(145deg,#111827,#312e81 68%,#4338ca); }
+.eyebrow { margin:0 0 12px; color:#c7d2fe; font-size:.74rem; font-weight:850; letter-spacing:.12em; }
+h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; }
+.lead { margin:12px 0 0; color:#dbeafe; }
+.meta-grid { display:grid; gap:6px; margin-top:16px; color:#c7d2fe; font-size:.93rem; }
+section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+h2 { margin:0 0 14px; color:#1e1b4b; font-size:1.22rem; line-height:1.25; }
+h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; background:var(--ai); border-radius:999px; }
+h3 { margin:20px 0 8px; color:#1f2937; font-size:1rem; line-height:1.34; }
+p { margin:.65rem 0; }
+ul { padding-left:1.15rem; }
+li { margin:.62rem 0; }
+a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.28); }
+.meta { color:var(--muted); font-size:.93rem; }
+.top-list { list-style:none; padding:0; margin:0; counter-reset:aiitem; display:grid; gap:12px; }
+.news-card { counter-increment:aiitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(49,46,129,.06); }
+.news-card::before { content:counter(aiitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#e0e7ff; color:var(--ai); font-weight:850; }
+.table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; min-width:620px; font-size:.9rem; margin:14px 0 8px; }
+th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+th { background:#eef2ff; color:#374151; font-weight:850; }
+.focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; }
+.warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; background:#fffbeb; color:#7c2d12; }
+.reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.reader-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; border:1px solid #c7d2fe; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+.reader-controls button { padding:0 .72rem; font-weight:750; }
+.reader-controls select,.reader-controls input { padding:0 .5rem; max-width:100%; }
+.reader-settings-toggle { width:40px; padding:0; display:grid; place-items:center; font-size:1rem; }
+.reader-settings { border:0; padding:0; background:transparent; }
+.reader-settings::backdrop { background:rgba(15,23,42,.38); }
+.reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+.reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.reader-settings-grid { display:grid; gap:10px; }
+.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.reader-settings-note { margin:8px 0 0; color:var(--muted); font-size:.88rem; }
+.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+@media (min-width:760px) { body { padding:0 28px 58px; } .hero-ai { margin-inline:-28px; padding:42px 28px 24px; } }
+</style></head><body class="report report-ai"><header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p><h1>2026-10-17 AI 日报</h1><p class="lead">聚焦 AI 安全评估、端侧推理、算力供给、企业采用与金融业 AI 应用。</p><div class="meta-grid"><div>生成时间：2026-10-17 12:02（澳门时间）</div><div>采集窗口：2026-10-15 12:02 ~ 2026-10-17 12:02（澳门时间 UTC+8）</div></div><div>采集窗口：2026-10-14 12:02 ~ 2026-10-16 12:02（澳门时间 UTC+8）</div></div></header><div class="reader-controls" data-reader-controls>
+<div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+<dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog>
+<p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p></div><section id="window"><h2>报告窗口</h2><p>本报告覆盖 2026 年 10 月 15 日 12:02 至 10 月 17 日 12:02（澳门时间）。官方来源优先。媒体来源只用于交叉核验。</p><p class="meta">本报告不提供投资建议。AI 日报只写直接改变模型、产品、开发者工具、算力供给、企业采用或治理的事件。</p></section>
+<section id="top"><h2>今日最重要的 7 条</h2><ol class="top-list">
+<li class="news-card"><strong>OpenAI 发布 AI misalignment 研究报告。</strong> 该主题直接关系到模型评估、失配风险和部署前安全工程。<a href="https://www.techradar.com/ai-platforms-assistants/openai-chatgpt/openai-is-releasing-a-new-report-about-ai-misalignment-and-how-to-prevent-it">来源：TechRadar</a></li>
+<li class="news-card"><strong>NVIDIA 推出 RTX Spark 与 Muse Spark 端侧 AI 设备线索。</strong> 本地推理、隐私和开发者设备成为更清晰的产品路线。<a href="https://www.theverge.com/news/810488/nvidia-rtx-spark-muse-spark-ai-computer">来源：The Verge</a></li>
+<li class="news-card"><strong>AWS 扩大 AI 基础设施投入。</strong> 云端训练和推理供给继续成为模型商业化的关键约束。投入报道不等于已实现收入。<a href="https://www.axios.com/2026/10/16/aws-ai-spending">来源：Axios</a></li>
+<li class="news-card"><strong>Mistral AI 与沙特方面推进 AI 基础设施合作。</strong> 这说明模型公司正在进入区域算力和主权 AI 基础设施建设。合同执行范围仍需核验。<a href="https://the-decoder.com/mistral-ai-signs-1-3-billion-deal-with-saudi-arabia-to-build-ai-infrastructure/">来源：The Decoder</a></li>
+<li class="news-card"><strong>Anthropic 面临美国政府采购和供应链争议。</strong> 该事件显示模型供应商进入公共部门时，采购合规和供应链定位同样重要。<a href="https://www.theguardian.com/us-news/2026/oct/16/anthropic-claude-us-government-supply-chain">来源：The Guardian</a></li>
+<li class="news-card"><strong>中国拟扩大 AI 与机器人技术出口管制范围。</strong> 若实施细节落地，可能影响模型、芯片和机器人供应链。当前仍需等待官方文本。<a href="https://the-decoder.com/china-outlines-broad-export-controls-on-ai-and-robotics-technologies/">来源：The Decoder</a></li>
+<li class="news-card"><strong>银行 AI 应用继续以客户服务、财富管理和治理为主。</strong> Erica、HSBC Wealth Intelligence 与 DBS 页面提供可核验的落地背景。<a href="https://info.bankofamerica.com/en/digital-banking/erica">来源：Bank of America</a></li>
+</ol></section>
+<section id="details"><h2>主题详情</h2>
+<h3>安全与治理</h3><p>OpenAI misalignment 报告的核心价值是把“模型是否按照人类意图运行”转化为研究、评估和预防任务。读者应区分研究报告、产品安全承诺和独立复现结果。<a href="https://www.techradar.com/ai-platforms-assistants/openai-chatgpt/openai-is-releasing-a-new-report-about-ai-misalignment-and-how-to-prevent-it">查看报道</a></p>
+<h3>端侧产品与开发者设备</h3><p>NVIDIA 的 RTX Spark 和 Muse Spark 相关报道把本地推理、设备形态和隐私敏感工作流放在同一条产品线上。后续核验重点是规格、开发工具、供货时间和实际模型兼容性。<a href="https://www.theverge.com/news/810488/nvidia-rtx-spark-muse-spark-ai-computer">查看报道</a></p>
+<h3>算力供给与企业采用</h3><p>AWS AI 投入和 Mistral 的区域基础设施合作都指向同一个约束：模型能力必须匹配稳定的训练、推理和数据中心供给。报道中的投入额或合作金额不能直接等同于收入、利润或交付完成。<a href="https://www.axios.com/2026/10/16/aws-ai-spending">AWS</a> · <a href="https://the-decoder.com/mistral-ai-signs-1-3-billion-deal-with-saudi-arabia-to-build-ai-infrastructure/">Mistral</a></p>
+<h3>公共采购与供应链</h3><p>Anthropic 相关争议和中国 AI、机器人出口管制报道，都说明 AI 公司的产品路线受到采购政策、合规限制和跨境供应链影响。当前不把媒体报道写成已生效的法律结论。<a href="https://www.theguardian.com/us-news/2026/oct/16/anthropic-claude-us-government-supply-chain">采购报道</a> · <a href="https://the-decoder.com/china-outlines-broad-export-controls-on-ai-and-robotics-technologies/">出口管制报道</a></p></section>
+<section id="companies"><h2>公司与平台跟踪</h2><div class="table-wrap"><table><thead><tr><th>主体</th><th>窗口内信号</th><th>下一步核验</th></tr></thead><tbody>
+<tr><td>OpenAI</td><td>AI misalignment 研究与安全评估议题。</td><td>原始报告、评估方法、复现实验和产品影响。</td></tr>
+<tr><td>NVIDIA</td><td>端侧 AI 设备产品线和本地推理路线。</td><td>规格、供货、开发工具和模型兼容性。</td></tr>
+<tr><td>AWS</td><td>AI 基础设施投入扩大。</td><td>公司公告、资本开支、云容量和客户需求。</td></tr>
+<tr><td>Mistral AI</td><td>与沙特方面建设区域 AI 基础设施的报道。</td><td>正式合同、交付范围和算力来源。</td></tr>
+<tr><td>Anthropic</td><td>政府采购与供应链定位争议。</td><td>官方采购文件、合规条件和合同状态。</td></tr>
+</tbody></table></div></section>
+<section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2><p>本窗口未发现来源清单中大型银行发布同等强度的新产品公告。以下项目是可核验的应用背景，不代表 2026-10-17 新发布。</p><div class="focus-box"><h3>客户服务与账户管理</h3><p><a href="https://info.bankofamerica.com/en/digital-banking/erica">Bank of America Erica</a>覆盖金融助手、账户检索、提醒和客户服务场景。核验重点是可执行操作、人工转接、隐私和错误处理。</p><h3>财富管理工作流</h3><p><a href="https://www.privatebanking.hsbc.com/media-releases-and-news/hsbc-deploys-wealth-intelligence/">HSBC Wealth Intelligence</a>展示面向客户经理和投资顾问的生成式 AI 知识检索。核验重点是内部数据权限、引用质量和审计记录。</p><h3>治理与负责任 AI</h3><p><a href="https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/ethical-and-responsible-ai-in-banking.html">DBS 负责任 AI 页面</a>提供银行 AI 治理背景。核验重点是模型风险管理、第三方依赖、偏差测试和人工监督。</p></div></section>
+<section id="risks"><h2>风险与不确定性</h2><ul><li>媒体报道的合作金额、投入金额和设备计划不等于已签约交付。</li><li>安全研究报告不等于模型已经通过独立安全评估。</li><li>出口管制和政府采购条件可能改变。官方文本和生效日期仍需复核。</li><li>端侧 AI 的真实价值取决于价格、供货、功耗、模型兼容性和开发者工具。</li><li>金融机构 AI 应用必须同时满足权限控制、隐私、审计和人工复核要求。</li></ul></section>
+<section id="next"><h2>明日继续跟踪</h2><ol><li>核对 OpenAI 原始 misalignment 报告及后续研究材料。</li><li>核对 NVIDIA 端侧产品的正式规格、发售时间和 SDK。</li><li>检查 AWS 和 Mistral 的公司公告、合同范围与交付节点。</li><li>检查 Anthropic 政府采购文件和中国 AI 出口管制官方文本。</li><li>复检银行、支付机构和监管科技来源是否出现新 AI 服务公告。</li></ol></section>
+<section id="coverage"><h2>来源覆盖与缺口</h2><p>已复检 AI 公司官方来源、开发者文档、算力与云平台媒体、金融机构 AI 页面和主流媒体索引。X、Facebook、Reddit 未作为唯一事实来源。</p><p class="meta">缺口：部分公司公告和监管页面存在地区访问限制。合作金额、政策文本、设备规格和合同执行仍需要原始文件确认。</p></section><script src="../../assets/report-reader.js" defer></script></body></html>
