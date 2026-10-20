@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2026-10-20 AI 日报</title><style>
+:root { --bg:#f5f7ff; --surface:#fff; --ink:#111827; --muted:#667085; --line:#d9e0f2; --blue:#2563eb; --warn:#b45309; color-scheme:light; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0 auto; min-height:100vh; padding:0 18px 46px; color:var(--ink); font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif; font-size:16px; line-height:1.66; }
+a { color:var(--blue); font-weight:650; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.28); }
+section { margin:0; padding:26px 0 0; border-top:1px solid var(--line); }
+h2 { margin:0 0 14px; font-size:1.22rem; line-height:1.25; }
+h2::after { content:""; display:block; width:48px; height:3px; margin-top:8px; border-radius:999px; }
+h3 { margin:20px 0 8px; font-size:1rem; line-height:1.34; }
+p { margin:.65rem 0; } ul,ol { padding-left:1.15rem; } li { margin:.62rem 0; }
+.meta { color:var(--muted); font-size:.93rem; }
+.table-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; min-width:620px; font-size:.9rem; margin:14px 0 8px; }
+th,td { border:1px solid var(--line); padding:.64rem .72rem; text-align:left; vertical-align:top; background:var(--surface); }
+th { font-weight:850; }
+.reader-controls { margin:16px 0 0; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.reader-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.reader-controls button,.reader-controls select,.reader-controls input { min-height:40px; border:1px solid #c7d2fe; border-radius:7px; background:#fff; color:#1f2937; font:inherit; }
+.reader-controls button { padding:0 .72rem; font-weight:750; }
+.reader-controls select,.reader-controls input { padding:0 .5rem; max-width:100%; }
+.reader-settings-toggle { width:40px; padding:0; display:grid; place-items:center; font-size:1rem; }
+.reader-settings { border:0; padding:0; background:transparent; }
+.reader-settings::backdrop { background:rgba(15,23,42,.38); }
+.reader-settings-panel { width:min(360px,calc(100vw - 24px)); padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:0 22px 60px rgba(15,23,42,.28); }
+.reader-settings-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.reader-settings-grid { display:grid; gap:10px; }
+.reader-settings-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.reader-settings-note,.reader-status { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+@media (min-width:760px) { body { padding:0 28px 58px; } }
+
+body { max-width: 760px; background:linear-gradient(180deg,#e6eaff 0,rgba(230,234,255,0) 360px),var(--bg); }
+.hero-ai { margin:0 -18px; padding:28px 18px 20px; color:#eef2ff; background:linear-gradient(145deg,#111827,#312e81 68%,#4338ca); }
+.eyebrow { margin:0 0 12px; color:#c7d2fe; font-size:.74rem; font-weight:850; letter-spacing:.12em; } h1 { margin:0; font-size:clamp(1.75rem,8vw,2.32rem); line-height:1.12; } .lead { margin:12px 0 0; color:#dbeafe; } .meta-grid { display:grid; gap:6px; margin-top:16px; color:#c7d2fe; font-size:.93rem; }
+h2 { color:#1e1b4b; } h2::after { background:#312e81; }
+.top-list { list-style:none; padding:0; margin:0; counter-reset:aiitem; display:grid; gap:12px; } .news-card { counter-increment:aiitem; position:relative; margin:0; padding:14px 14px 14px 54px; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:0 8px 22px rgba(49,46,129,.06); } .news-card::before { content:counter(aiitem); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:6px; background:#e0e7ff; color:#312e81; font-weight:850; }
+.focus-box { margin:14px 0 0; padding:16px; border:1px solid #c7d2fe; border-radius:8px; background:#f8fbff; } .warn { margin:14px 0 0; padding:.85rem 1rem; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; background:#fffbeb; color:#7c2d12; }
+</style></head><body class="report report-ai"><header class="hero hero-ai"><p class="eyebrow">AI DAILY BRIEF</p><h1>2026-10-20 AI 日报</h1><p class="lead">聚焦模型、Agent、开发者工具、算力、安全治理与金融业 AI 应用。</p><div class="meta-grid"><div>生成时间：2026-10-20 11:56（澳门时间）</div><div>采集窗口：2026-10-18 11:56 ~ 2026-10-20 11:56（澳门时间 UTC+8）</div></div></header><div class="reader-controls" data-reader-controls>
+<div class="reader-actions"><button type="button" data-reader-start>朗读</button><button type="button" data-reader-pause>暂停</button><button type="button" data-reader-resume>继续</button><button type="button" data-reader-stop>停止</button><label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label><button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button></div>
+<dialog class="reader-settings" data-reader-settings aria-label="朗读设置"><div class="reader-settings-panel"><div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div><div class="reader-settings-grid"><label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label><label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label></div><div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div><p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p></div></dialog><p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p></div><section id="window"><h2>窗口摘要</h2><p>过去 48 小时没有确认到新的大型公开模型发布。重点转向公共利益治理、代理安全、低资源编程研究和自研推理基础设施。</p><p class="meta">本报告不提供投资建议。研究结果和公司计划必须继续独立核验。</p></section>
+<section id="top"><h2>今日最重要的 7 条</h2><ol class="top-list">
+<li class="news-card"><strong>Anthropic 设立 Public Benefit Fund。</strong><p>Anthropic 表示拟将 5% 股份投入公共利益基金，并保留按估值里程碑增加的机制。该安排须经股东批准。它可能影响安全研究、公共利益项目和公司治理。<a href="https://www.anthropic.com/news/public-benefit-fund">阅读官方说明</a></p></li>
+<li class="news-card"><strong>OpenAI 继续推进低资源编程语言研究。</strong><p>OpenAI 研究页在 10 月 19 日列出低资源编程语言和软件工程方向。页面细节仍有限。报告不把研究条目写成已验证的生产性能。<a href="https://openai.com/news/research/">查看研究页</a></p></li>
+<li class="news-card"><strong>Microsoft 把 Maia 推理芯片路线推进到多吉瓦部署。</strong><p>Microsoft 表示 Maia 200 已服务生产工作负载，Maia 300 计划在 2027 年开始生产部署。关键观察点是每瓦性能、HBM 供给和 Azure 客户采用。<a href="https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/">阅读官方博客</a></p></li>
+<li class="news-card"><strong>代理式 AI 的安全控制成为企业采用门槛。</strong><p>Microsoft 讨论代理身份、权限和内部风险。企业需要把模型调用纳入身份管理、审计和最小权限流程。<a href="https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/">阅读安全文章</a></p></li>
+<li class="news-card"><strong>OpenAI 扩大数学研究支持。</strong><p>OpenAI 表示将向 Simons Foundation 相关倡议提供 500 万美元，并提供模型和计算资源。数学结果仍需独立验证。<a href="https://openai.com/index/sharing-ai-progress-in-mathematics/">查看原文</a></p></li>
+<li class="news-card"><strong>低延迟模型继续面向高量场景下沉。</strong><p>Anthropic 将 Haiku 5.5 定位于低延迟、高量和成本敏感任务。后续应检查价格、工具调用、延迟和真实客户采用。<a href="https://www.anthropic.com/claude/haiku">查看产品页</a></p></li>
+<li class="news-card"><strong>银行 AI 应用集中在流程层。</strong><p>HSBC 公开说明 AI 中心、个性化建议和金融犯罪风险方向。Bank of America 说明 EricaAssist 可帮助客服总结客户来电和整理下一步。<a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC AI</a> · <a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/07/bank-of-america-enhances-ericaassist-with-generative-ai-to-help-.html">EricaAssist</a></p></li>
+</ol></section>
+<section id="details"><h2>主题详情</h2><h3>治理与安全</h3><p>Anthropic 的基金安排把公共利益支出放入股权结构。Microsoft 的代理安全文章把重点放在身份、权限和审计。两条消息共同说明，AI 规模化不只取决于模型能力。</p><h3>模型、Agent 与开发者工具</h3><p>OpenAI 的低资源编程研究和 Haiku 5.5 的低延迟定位，都直接面向软件工程与高量调用。当前不能从公开摘要推断完整基准成绩。</p><h3>算力供给</h3><p>Maia 300 的时间表属于公司计划。报告将它作为 Azure 供应路线信号，不把计划写成已完成的部署或订单。</p></section>
+<section id="companies"><h2>公司跟踪表</h2><div class="table-wrap"><table><thead><tr><th>公司</th><th>当前信号</th><th>下次核验</th></tr></thead><tbody><tr><td>Anthropic</td><td>公共利益基金、Haiku 5.5、安全评估</td><td>股东批准、基金治理、模型价格和采用</td></tr><tr><td>OpenAI</td><td>低资源编程研究、数学研究支持</td><td>论文细节、外部复现、开发者产品化</td></tr><tr><td>Microsoft</td><td>Maia 200/300、代理安全</td><td>部署范围、Azure 供给、权限产品落地</td></tr></tbody></table></div></section>
+<section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2><div class="focus-box"><h3>银行客户服务与内部流程</h3><p>HSBC 的公开材料覆盖 AI 中心、个性化建议和金融犯罪风险管理。Bank of America 的 EricaAssist 覆盖客服来电总结、信息整理和下一步建议。</p><p><strong>观察重点：</strong>客户同意、数据隔离、人工复核、误报率、模型审计和是否降低处理时间。公开材料没有提供足够数据来证明收益规模。</p><p><a href="https://www.hsbc.com/who-we-are/hsbc-and-digital/hsbc-and-ai">HSBC 官方页面</a> · <a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/07/bank-of-america-enhances-ericaassist-with-generative-ai-to-help-.html">Bank of America 官方页面</a></p></div></section>
+<section id="risks"><h2>风险与不确定性</h2><ul><li>公司计划不等于完成部署。</li><li>研究摘要不等于独立验证的技术结果。</li><li>模型能力不等于客户价值。</li><li>金融机构的 AI 应用必须继续观察隐私、偏差、误报和人工复核。</li><li>本报告不提供投资建议。</li></ul></section>
+<section id="next"><h2>明日继续跟踪</h2><ol><li>核对 Anthropic 基金的股东批准和治理细节。</li><li>补充 OpenAI 低资源编程研究的论文和外部复现。</li><li>检查 Maia 计划的生产部署、客户和供应链进展。</li><li>跟踪银行 AI 应用的正式产品范围和风险控制指标。</li></ol></section>
+<section id="coverage"><h2>来源覆盖与缺口</h2><p>已检查 Anthropic、OpenAI、Microsoft、HSBC、Bank of America 的官方页面，并用主流媒体作补充。未使用未验证社交媒体作为唯一事实来源。</p><p class="meta">缺口：部分公司页面按地区或登录状态显示不同内容。部分研究条目缺少完整论文内容。后续报告将补充原始文件。</p></section><script src="../../assets/report-reader.js" defer></script></body></html>
