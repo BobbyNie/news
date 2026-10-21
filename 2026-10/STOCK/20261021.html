@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-10-21 股市日报</title>
+  <style>
+
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+    }
+    .hero-stock {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      color: #101828;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card {
+      counter-increment: marketitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+    }
+    .market-card::before {
+      content: counter(marketitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #dcfce7;
+      color: var(--market);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  
+
+.reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+.reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+.reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+.reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+.reader-settings { border: 0; padding: 0; background: transparent; }
+.reader-settings::backdrop { background: rgba(15, 23, 42, 0.38); }
+.reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15, 23, 42, 0.28); }
+.reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.reader-settings-grid { display: grid; gap: 10px; }
+.reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+.reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+  </style>
+</head>
+
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-10-21 股市日报</h1>
+    <p class="lead">美股财报分化、港股早段偏强、近期 IPO 文件与事件驱动风险。</p>
+    <div class="market-strip"><span>生成时间：2026-10-21 12:01（澳门时间）｜采集窗口：2026-10-19 12:01 ~ 2026-10-21 12:01（澳门时间 UTC+8）｜市场日历：美股最新完整交易日为 2026-10-20；港股报告时段为 2026-10-21 早段</span></div>
+  </header>
+
+  <div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  <section id="window"><h2>更新时间与数据窗口</h2><p class="meta">生成时间：2026-10-21 12:01（澳门时间）｜采集窗口：2026-10-19 12:01 ~ 2026-10-21 12:01（澳门时间 UTC+8）</p><p><strong>市场日历：</strong>美股使用 2026-10-20 交易信息。港股使用 2026-10-21 早段公开报道。港股和 IPO 数据不使用未验证的实时终端价格。</p></section>
+  <section id="top"><h2>今日最重要的 5 条</h2><ol class="top-list">
+    <li class="market-card"><h3>美股指数分化，纳指弱于道指 <span class="tag">P0｜风险偏好</span></h3><p>标普 500 约下跌 0.3%，纳斯达克综合指数约下跌 0.8%，道指约上涨 0.5%。贸易不确定性和财报分化继续影响市场。<a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">来源：Associated Press</a></p></li>
+    <li class="market-card"><h3>工业、汽车和数据服务财报出现轮动 <span class="tag">P1｜财报</span></h3><p>通用汽车、3M、RTX 等财报表现较强。Equifax 和 Hasbro 的股价反应也较明显。单日反应不能替代长期盈利判断。<a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">来源：Associated Press</a></p></li>
+    <li class="market-card"><h3>港股早段偏强但科技股分化 <span class="tag">P1｜港股</span></h3><p>恒生指数和恒生科技指数早段上升，但个股表现不一致。市场仍等待盈利和政策确认。<a href="https://www.rthk.hk/tch/news/finance/2026/10/21/">来源：RTHK</a></p></li>
+    <li class="market-card"><h3>近期 IPO 缺少完整可比候选 <span class="tag">P2｜信息不足</span></h3><p>已检查 HKEX、Nasdaq IPO Calendar 和 SEC EDGAR。当前没有足够完整的招股书、发行条款、估值和锁定期信息支持高等级关注。<a href="https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=1256&sc_lang=en">HKEX</a> · <a href="https://www.nasdaq.com/market-activity/ipos">Nasdaq</a></p></li>
+    <li class="market-card"><h3>事件驱动重点是贸易消息与盈利验证 <span class="tag">P2｜事件驱动</span></h3><p>贸易不确定性可以快速改变指数方向。公司指引、订单质量和现金流仍是更重要的验证项。<a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">来源：Associated Press</a></p></li>
+  </ol></section>
+  <section id="us"><h2>美股重点</h2><div class="table-wrap"><table><thead><tr><th>方向</th><th>数据或事件</th><th>解释</th><th>来源</th></tr></thead><tbody>
+    <tr><td>标普 500</td><td>约 -0.3%</td><td>大盘风险偏好略降</td><td><a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">AP</a></td></tr>
+    <tr><td>纳斯达克综合指数</td><td class="change-down">约 -0.8%</td><td>大型科技和 AI 主题承压</td><td><a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">AP</a></td></tr>
+    <tr><td>道琼斯工业指数</td><td class="change-up">约 +0.5%</td><td>工业和防御性财报提供支撑</td><td><a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">AP</a></td></tr>
+    <tr><td>财报轮动</td><td>GM、3M、RTX 等</td><td>关注指引、订单和现金流</td><td><a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">AP</a></td></tr>
+  </tbody></table></div></section>
+  <section id="hk"><h2>港股重点</h2><div class="table-wrap"><table><thead><tr><th>方向</th><th>公开信息</th><th>状态</th><th>来源</th></tr></thead><tbody>
+    <tr><td>恒生指数</td><td class="change-up">早段约 +0.8%</td><td>指数偏强</td><td><a href="https://www.rthk.hk/tch/news/finance/2026/10/21/">RTHK</a></td></tr>
+    <tr><td>恒生科技指数</td><td class="change-up">早段约 +0.7%</td><td>科技股分化</td><td><a href="https://www.rthk.hk/tch/news/finance/2026/10/21/">RTHK</a></td></tr>
+    <tr><td>科技个股</td><td>部分个股下跌</td><td>不宜用指数替代个股判断</td><td><a href="https://www.rthk.hk/tch/news/finance/2026/10/21/">RTHK</a></td></tr>
+  </tbody></table></div><p class="meta">港股数据为报告时段公开报道。收市数据需要在交易结束后再次核验。</p></section>
+  <section id="recent-ipos"><h2>港股和美股近期 IPO 专栏</h2>
+    <h3>近期已上市 IPO</h3><p>已检查 HKEX 新上市页面和公开市场数据。当前没有足够完整的候选资料同时覆盖业务质量、财务质量、估值、发行条款、基石投资者、流动性、锁定期和监管风险。</p>
+    <h3>即将 IPO / 已递表 / 已提交注册文件</h3><p>已检查 <a href="https://www1.hkexnews.hk/app/appindex.html">HKEX 新申请人</a>、<a href="https://www1.hkexnews.hk/app/sehkappmainindex.htm">HKEX 聆讯后资料集</a>、<a href="https://www.sec.gov/search-filings">SEC EDGAR</a> 和 <a href="https://www.nasdaq.com/market-activity/ipos">Nasdaq IPO Calendar</a>。日历中的预期事件未完成逐份文件核验。</p>
+    <div class="focus-box"><p><strong>关注等级：信息不足。</strong>本窗口不把未完成招股书和发行条款核验的候选写成值得重点关注、谨慎关注或暂不关注。</p></div>
+  </section>
+  <section id="unicorns"><h2>AI 独角兽 / IPO</h2><p>本窗口没有新增且已完成一手文件核验的 AI 独角兽 IPO 候选。继续观察私募公司是否递交 S-1/F-1、是否披露融资条款，以及公开市场对 AI 基建和软件公司的承接能力。</p></section>
+  <section id="earnings"><h2>财报与指引</h2><ul><li><strong>汽车和工业：</strong>GM、3M、RTX 等财报表现提供轮动信号。重点是指引和订单，不是单日价格。</li><li><strong>数据服务与消费：</strong>Equifax、Hasbro 的市场反应较明显。需要区分一次性项目和持续盈利。</li><li><strong>下一步：</strong>继续检查公司 IR 和 SEC 文件，确认收入、毛利、现金流和资本开支。</li></ul></section>
+  <section id="risks"><h2>监管与风险</h2><div class="focus-box"><p><strong>贸易风险：</strong>贸易消息会快速改变指数方向。</p><p><strong>估值风险：</strong>纳指弱于道指说明大型科技估值更敏感。</p><p><strong>数据风险：</strong>港股为早段数据，IPO 资料存在不完整情况。</p></div><div class="warn">本报告不提供买卖建议。报告不使用未验证的实时价格或传闻。</div></section>
+  <section id="event-focus"><h2>事件驱动股票专题</h2><h3>主题：财报验证能否抵消贸易不确定性</h3><p>市场出现指数分化。工业、汽车和数据服务财报提供支撑，但贸易消息仍可能改变风险偏好。继续观察财报指引、订单、现金流和盘后价格反应。相关股票只因公开披露触发观察，不构成交易建议。<a href="https://apnews.com/article/7f4398326b49e0b344b49c313ea38f2f">证据：Associated Press</a></p></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>美股大型科技和 AI 基建是否恢复相对强势。</li><li>GM、3M、RTX 的指引和订单是否继续支持工业轮动。</li><li>港股早段上涨能否转化为收市成交和盈利确认。</li><li>HKEX 和 SEC 是否出现可完整核验的 IPO 文件。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p><strong>已覆盖：</strong>SEC、HKEX、Nasdaq、AP、RTHK，以及 IPO 官方入口。</p><p><strong>缺口：</strong>港股实时行情与部分 IPO 文件在本执行环境中未形成统一数据表。未完成文件核验的项目保持“信息不足”。</p><p>工作文件：<code>tmp/STOCK/20261021/</code>（来源重检、原始发现、排序、中文草稿）。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
