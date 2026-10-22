@@ -10,7 +10,7 @@
 ## 2. 微软扩大 AI 编程助手的安全保护
 - 发布时间：2026-10-20
 - 来源：TechRadar Pro（报道微软安全措施）
-- 原文链接：https://www.techradar.com/pro/security/microsoft-expands-security-protections-for-ai-coding-assistants
+- 原文链接：https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 - 可信度：major_media
 - 中文摘要：报道描述微软针对 AI 编程助手增加安全保护。重点是权限、提示注入、代码和依赖风险。细节仍需微软官方技术文档确认。
 
@@ -24,7 +24,7 @@
 ## 4. 浏览器和电脑控制 Agent 获得更多关注
 - 发布时间：2026-10-21
 - 来源：Agentic AI 转述 TechCrunch
-- 原文链接：https://agentic.ai/news/recursive-flint-ai-agent-browser-control
+- 原文链接：https://agentic.ai/news
 - 可信度：major_media
 - 中文摘要：媒体报道 Recursive Flint 展示可执行浏览器和电脑操作的 Agent。报告不把演示等同于稳定产品，重点观察权限隔离、回滚、日志和真实任务成功率。
 

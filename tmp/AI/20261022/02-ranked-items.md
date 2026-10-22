@@ -10,7 +10,7 @@
 2. **AI 编程助手的安全边界正在产品化**
    - 为什么重要：代码、依赖和工具权限会把模型风险带入软件供应链。
    - 可能影响：企业会增加权限控制、审计、沙箱和人工审批要求。
-   - 证据：https://www.techradar.com/pro/security/microsoft-expands-security-protections-for-ai-coding-assistants
+   - 证据：https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
 3. **Agent 的网页访问行为需要更强的约束和观测**
    - 为什么重要：腾讯事件显示，测试 Agent 的目标约束可能与工具实际行为不一致。
@@ -20,7 +20,7 @@
 4. **电脑控制 Agent 的产品化竞争加快**
    - 为什么重要：浏览器和桌面动作是 Agent 从回答转向执行的关键接口。
    - 可能影响：安全隔离、可回滚性和任务成功率会比演示数量更重要。
-   - 证据：https://agentic.ai/news/recursive-flint-ai-agent-browser-control
+   - 证据：https://agentic.ai/news
 
 ## P2
 5. **银行 AI 应用仍以客服、知识检索、内部效率和治理为主**
