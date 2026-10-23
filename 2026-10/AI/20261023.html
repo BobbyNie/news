@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-10-23 AI 日报</title>
+  <style>
+
+    :root {
+      --paper: #f6f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --surface: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0891b2;
+      --warning-bg: #fff7ed;
+      --warning-line: #f59e0b;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 0 18px 44px;
+      background:
+        linear-gradient(180deg, #eaf1ff 0, rgba(234, 241, 255, 0) 360px),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.035) 0, rgba(17, 24, 39, 0.035) 1px, transparent 1px, transparent 44px),
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+    }
+    .hero-ai {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    .eyebrow { margin: 0 0 12px; color: #93c5fd; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.78rem, 8vw, 2.4rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #dbeafe; }
+    .meta-grid { display: grid; gap: 6px; margin-top: 16px; color: #dbeafe; font-size: 0.93rem; }
+    section { padding: 26px 0 0; margin: 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.24; }
+    h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 8px; background: var(--accent); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1.02rem; line-height: 1.35; }
+    p { margin: 0.65rem 0; }
+    a { color: #1d4ed8; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.28); }
+    code { padding: 0.12rem 0.3rem; border-radius: 5px; background: #eef2f7; color: #334155; font-size: 0.92em; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.65rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: topitem; display: grid; gap: 12px; }
+    .news-card {
+      counter-increment: topitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid #d7e3f8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+    .news-card::before {
+      content: counter(topitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag { display: inline-flex; align-items: center; min-height: 24px; padding: 0.1rem 0.48rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.75rem; font-weight: 750; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.66rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eef4ff; color: #1e3a8a; font-weight: 800; }
+    .warn { margin: 16px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-ai { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  
+
+.reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+.reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+.reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+.reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+.reader-settings { border: 0; padding: 0; background: transparent; }
+.reader-settings::backdrop { background: rgba(15, 23, 42, 0.38); }
+.reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15, 23, 42, 0.28); }
+.reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.reader-settings-grid { display: grid; gap: 10px; }
+.reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+.reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+  </style>
+</head>
+<body class="report report-ai">
+  <header class="hero hero-ai">
+    <p class="eyebrow">AI DAILY BRIEF</p>
+    <h1>2026-10-23 AI 日报</h1>
+    <p class="lead">模型分发、Agent、开发者工具与银行 AI 生产化。</p>
+    <div class="meta-grid"><div>生成时间：2026-10-23 11:58（澳门时间）</div><div>采集窗口：2026-10-21 11:58 ~ 2026-10-23 11:58（澳门时间 UTC+8）</div></div>
+  </header>
+<div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  
+  <section id="window"><h2>报告范围</h2><p>本窗口的主线是企业 AI 采购从单一模型转向多模型、云内治理和场景专用化。金融机构案例显示，开放模型、银行自有数据、专用小模型和可审计评估正在组合成生产路径。</p></section>
+  <section id="top"><h2>今日最重要的 5 条</h2><ol class="top-list">
+    <li class="news-card"><span class="tag">P0｜模型分发</span><h3>OpenAI 模型进入 Google Cloud Model Garden</h3><p>OpenAI 官方说明称，前沿模型和 Codex 智能体工作流将进入 Google Cloud Model Garden。企业可以在熟悉的云基础设施、访问控制和数据治理框架中使用这些模型。该变化把模型能力、云治理和企业采购放进同一条路径。</p><p class="meta">来源：<a href="https://openai.com/index/openai-models-google-cloud/">OpenAI</a>、<a href="https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers">Google Cloud</a></p></li>
+    <li class="news-card"><span class="tag">P0｜金融 AI</span><h3>欧洲金融机构公开展示开放模型与自有基础设施</h3><p>NVIDIA 汇总的案例包括 Revolut、Starling Bank、Lloyds、bunq、NatWest、Santander、HSBC 和 Stripe。公开方向覆盖交易基础模型、支付、欺诈检测、客户服务和内部运营。重点不是单一模型排名，而是机构如何控制数据、成本和部署环境。</p><p class="meta">来源：<a href="https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/">NVIDIA</a></p></li>
+    <li class="news-card"><span class="tag">P1｜Agent</span><h3>Claude Duet 进入研究预览</h3><p>Anthropic 发布说明显示，Claude Duet 研究预览面向 Pro 和 Max 用户开放。产品定位为主动代理。研究预览不等同于企业稳定版本，因此后续应检查权限隔离、任务成功率、人工审批和审计能力。</p><p class="meta">来源：<a href="https://support.claude.com/en/articles/12138966-release-notes?facet1=marketing">Anthropic 发布说明</a></p></li>
+    <li class="news-card"><span class="tag">P1｜云平台</span><h3>Anthropic-managed Claude on Google Cloud 一般可用</h3><p>Anthropic 官方页面称，Google Cloud 上的 Anthropic-managed Claude Platform 已一般可用。企业可以把 Claude 平台能力与 Google Cloud IAM、计费和承诺抵扣结合。该路径降低了多云采购和治理的切换成本。</p><p class="meta">来源：<a href="https://claude.com/fr/resources/articles/claude-models-on-google-cloud-anthropic-managed">Anthropic</a></p></li>
+    <li class="news-card"><span class="tag">P1｜银行 AI</span><h3>Santander 用模型评估和专用小模型推进银行 AI</h3><p>Santander AI Lab 使用 Model Arena 评估银行模型和 Agent，并在客服场景测试专用小模型。官方披露还涉及反欺诈和反洗钱方向。该案例说明银行生产化需要评估层、场景模型和基础设施同时建设。</p><p class="meta">来源：<a href="https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure">Santander</a></p></li>
+  </ol></section>
+  <section id="models"><h2>模型、产品、Agent 与开发者工具</h2><h3>模型与产品</h3><p>本窗口未出现足以重新排列基础模型能力的公开基准。更重要的产品变化是 OpenAI 模型进入 Google Cloud Model Garden，以及 Claude Platform 的 Anthropic-managed 版本一般可用。企业可以从“选一个模型”转向“按数据、权限、延迟和成本选择模型”。</p><h3>Agent 与执行</h3><p>Claude Duet 进入研究预览。执行型 Agent 仍需要最小权限、沙箱、人工审批、失败回滚和审计日志。研究预览只能证明产品方向，不能证明生产稳定性。</p><h3>开发者工具</h3><p>Google Cloud 的 Model Garden 路径把模型选择、访问控制、数据治理和云账单放在同一个采购界面。开发团队需要同时测试提示注入、代码依赖、密钥暴露和数据出境风险。</p></section>
+  <section id="adoption"><h2>企业与行业 AI 采用</h2><div class="table-wrap"><table><thead><tr><th>方向</th><th>本窗口证据</th><th>可能影响</th><th>来源</th></tr></thead><tbody>
+    <tr><td>多模型云采购</td><td>OpenAI 模型进入 Google Cloud Model Garden</td><td>模型选择、IAM、审计和费用管理合并</td><td><a href="https://openai.com/index/openai-models-google-cloud/">OpenAI</a></td></tr>
+    <tr><td>主动 Agent</td><td>Claude Duet 研究预览</td><td>重点转向权限、评测和回滚</td><td><a href="https://support.claude.com/en/articles/12138966-release-notes?facet1=marketing">Anthropic</a></td></tr>
+    <tr><td>金融机构自建</td><td>欧洲银行展示开放模型和自有基础设施</td><td>控制敏感数据、成本和部署环境</td><td><a href="https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/">NVIDIA</a></td></tr>
+    <tr><td>银行专用模型</td><td>Santander AI Lab 使用 Model Arena 和专用小模型</td><td>客服、反欺诈和 AML 场景更容易量化</td><td><a href="https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure">Santander</a></td></tr>
+  </tbody></table></div></section>
+  <section id="finance-ai-applications"><h2>金融业 AI 应用专栏（银行优先）</h2><p><strong>本窗口结论：</strong>金融机构的 AI 生产化正在形成“云治理 + 开放模型或专用小模型 + 场景评估”的组合。公开案例仍需要区分生产系统、试点和研究预览。</p><h3>银行和支付</h3><ul><li><strong>Santander：</strong>公开披露 AI Lab、Model Arena、客服专用小模型、反欺诈和 AML 方向。下一步应检查生产用户数、人工复核比例和单位成本。</li><li><strong>Revolut、Starling Bank、Lloyds、bunq、NatWest、HSBC：</strong>NVIDIA 公开案例显示，欧洲金融机构在开放模型、内部智能、支付和风险场景中建设自有能力。该来源是案例汇总，不替代每家银行的独立财报或技术文档。</li><li><strong>Bank of America Erica：</strong>官方页面仍可作为客户服务、账户管理、交易检索和提醒的基准案例，但本窗口没有新增产品指标。</li><li><strong>DBS、JPMorganChase：</strong>公开材料继续支持负责任 AI、内部工具、客户应用和治理方向。本窗口没有新增可量化生产指标。</li></ul><p class="meta">来源：<a href="https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure">Santander</a>、<a href="https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/">NVIDIA</a>、<a href="https://info.bankofamerica.com/en/digital-banking/erica">Bank of America</a>、<a href="https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/ethical-and-responsible-ai-in-banking.html">DBS</a>、<a href="https://www.jpmorganchase.com/about/technology/news/jpmc-evident-25">JPMorganChase</a></p></section>
+  <section id="companies"><h2>公司跟踪表</h2><div class="table-wrap"><table><thead><tr><th>公司或方向</th><th>本窗口观察</th><th>状态</th><th>来源</th></tr></thead><tbody><tr><td>OpenAI / Google Cloud</td><td>模型和 Codex 工作流进入 Model Garden</td><td>重点跟踪</td><td><a href="https://openai.com/index/openai-models-google-cloud/">官方</a></td></tr><tr><td>Anthropic</td><td>Claude Duet 研究预览；Anthropic-managed Cloud 版本一般可用</td><td>重点跟踪</td><td><a href="https://claude.com/fr/resources/articles/claude-models-on-google-cloud-anthropic-managed">官方</a></td></tr><tr><td>Santander</td><td>Model Arena、专用小模型、反欺诈和 AML</td><td>重点跟踪</td><td><a href="https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure">官方</a></td></tr><tr><td>欧洲金融机构</td><td>开放模型和自有智能能力公开案例</td><td>持续跟踪</td><td><a href="https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/">NVIDIA</a></td></tr></tbody></table></div></section>
+  <section id="risks"><h2>风险与不确定性</h2><div class="warn"><p><strong>Agent 风险：</strong>研究预览不等同于稳定生产系统。企业仍需权限隔离、人工审批、回滚和审计。</p><p><strong>金融数据风险：</strong>开放模型和云服务需要明确数据驻留、密钥、日志和第三方依赖边界。</p><p><strong>采用兑现风险：</strong>案例数量不等同于生产用户、收入或风险改善。</p><p><strong>资本市场背景：</strong>AI 股票波动和融资成本属于股市日报范围。本报告只把它作为采用与资本约束的背景，不作为 AI 行业主线。</p></div><p>本报告不构成投资建议。未完成官方核验的内容会明确标记。</p></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>Google Cloud 是否披露 OpenAI 模型的区域、数据和计费细节。</li><li>Claude Duet 是否增加企业权限、审计和评测说明。</li><li>Santander 是否披露 AI 场景的生产规模、成本和人工复核指标。</li><li>欧洲银行是否公开更多开放模型、内部数据和监管治理细节。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p><strong>已覆盖：</strong>OpenAI、Google Cloud、Anthropic、NVIDIA、Santander、Bank of America、DBS、JPMorganChase、AP 和行业媒体。</p><p><strong>缺口：</strong>部分 Agent 安全细节仍停留在研究预览或媒体层面。银行 AI 项目通常不公开完整成本、错误率和人工复核数据。</p><p>工作文件：<code>tmp/AI/20261023/</code>（来源重检、原始发现、排序、中文草稿）。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
