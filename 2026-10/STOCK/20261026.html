@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-10-26 股市日报</title>
+  <style>
+
+    :root {
+      --paper: #f7f6f0;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #d8d2c3;
+      --surface: #fffefa;
+      --market: #14532d;
+      --up: #087443;
+      --down: #b42318;
+      --blue: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #ea580c;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0 auto;
+      max-width: 780px;
+      min-height: 100vh;
+      padding: 0 18px 46px;
+      background: linear-gradient(180deg, #efeadf 0, rgba(239, 234, 223, 0) 330px), var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.66;
+    }
+    .hero-stock {
+      margin: 0 -18px;
+      padding: 28px 18px 18px;
+      color: #101828;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62)), #efe8d8;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--market); font-size: 0.74rem; font-weight: 850; letter-spacing: 0.12em; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 8vw, 2.32rem); line-height: 1.12; }
+    .lead { margin: 12px 0 0; color: #374151; }
+    .market-strip { display: grid; gap: 6px; margin-top: 16px; color: var(--muted); font-size: 0.93rem; }
+    section { margin: 0; padding: 26px 0 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; color: #172554; font-size: 1.22rem; line-height: 1.25; }
+    h2::after { content: ""; display: block; width: 48px; height: 3px; margin-top: 8px; background: var(--market); border-radius: 999px; }
+    h3 { margin: 22px 0 8px; color: #1f2937; font-size: 1rem; line-height: 1.34; }
+    p { margin: 0.65rem 0; }
+    a { color: var(--blue); font-weight: 650; text-decoration: none; border-bottom: 1px solid rgba(29, 78, 216, 0.28); }
+    .meta { color: var(--muted); font-size: 0.93rem; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 0.62rem 0; }
+    .top-list { list-style: none; padding: 0; margin: 0; counter-reset: marketitem; display: grid; gap: 12px; }
+    .market-card {
+      counter-increment: marketitem;
+      position: relative;
+      margin: 0;
+      padding: 14px 14px 14px 54px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 22px rgba(74, 63, 38, 0.06);
+    }
+    .market-card::before {
+      content: counter(marketitem);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #dcfce7;
+      color: var(--market);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    .quote-line, .price, .change-up, .change-down, td:nth-child(2), td:nth-child(3) {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+    .change-up { color: var(--up); font-weight: 850; }
+    .change-down { color: var(--down); font-weight: 850; }
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.9rem; margin: 14px 0 8px; }
+    th, td { border: 1px solid var(--line); padding: 0.64rem 0.72rem; text-align: left; vertical-align: top; background: var(--surface); }
+    th { background: #eee7d7; color: #374151; font-weight: 850; }
+    .focus-box { margin: 14px 0 0; padding: 16px; border: 1px solid #c7d2fe; border-radius: 8px; background: #f8fbff; }
+    .warn { margin: 14px 0 0; padding: 0.85rem 1rem; border-left: 4px solid var(--warning-line); border-radius: 0 8px 8px 0; background: var(--warning-bg); color: #7c2d12; }
+    @media (min-width: 760px) {
+      body { padding: 0 28px 58px; }
+      .hero-stock { margin-inline: -28px; padding: 42px 28px 24px; }
+    }
+  
+
+.reader-controls { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.reader-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reader-controls button, .reader-controls select, .reader-controls input { min-height: 40px; border: 1px solid #cbbf9f; border-radius: 7px; background: #ffffff; color: #1f2937; font: inherit; }
+.reader-controls button { padding: 0 0.72rem; font-weight: 750; }
+.reader-controls select, .reader-controls input { padding: 0 0.5rem; max-width: 100%; }
+.reader-settings-toggle { width: 40px; padding: 0; display: grid; place-items: center; font-size: 1rem; }
+.reader-settings { border: 0; padding: 0; background: transparent; }
+.reader-settings::backdrop { background: rgba(15, 23, 42, 0.38); }
+.reader-settings-panel { width: min(360px, calc(100vw - 24px)); padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 22px 60px rgba(15, 23, 42, 0.28); }
+.reader-settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.reader-settings-grid { display: grid; gap: 10px; }
+.reader-settings-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.reader-settings-note { margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; }
+.reader-status { margin: 8px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+  </style>
+</head>
+<body class="report report-stock">
+  <header class="hero hero-stock">
+    <p class="eyebrow">MARKET DAILY BRIEF</p>
+    <h1>2026-10-26 股市日报</h1>
+    <p class="lead">聚焦港股、美股、IPO、财报、监管和事件驱动风险。</p>
+    <div class="meta-grid"><span>生成时间：2026-10-26 12:02（澳门时间）</span><span>采集窗口：2026-10-24 12:02 ~ 2026-10-26 12:02（澳门时间 UTC+8）</span><span>发布路径：2026-10/STOCK/20261026.html</span></div>
+  </header>
+<div class="reader-controls" data-reader-controls>
+    <div class="reader-actions">
+      <button type="button" data-reader-start>朗读</button>
+      <button type="button" data-reader-pause>暂停</button>
+      <button type="button" data-reader-resume>继续</button>
+      <button type="button" data-reader-stop>停止</button>
+      <label>语速 <select data-reader-rate><option value="0.8">0.8x</option><option value="1" selected>1.0x</option><option value="1.2">1.2x</option></select></label>
+      <button type="button" class="reader-settings-toggle" data-reader-settings-open aria-label="设置" title="设置">⚙</button>
+    </div>
+    <dialog class="reader-settings" data-reader-settings aria-label="朗读设置">
+      <div class="reader-settings-panel">
+        <div class="reader-settings-head"><strong>朗读设置</strong><button type="button" data-reader-settings-close aria-label="关闭">×</button></div>
+        <div class="reader-settings-grid">
+          <label>Google TTS Key <input type="password" data-google-tts-key autocomplete="off" placeholder="可选，本机保存"></label>
+          <label>Google 音色 <select data-google-tts-voice><option value="cmn-CN-Wavenet-A" selected>cmn-CN-Wavenet-A</option><option value="cmn-CN-Wavenet-B">cmn-CN-Wavenet-B</option><option value="cmn-CN-Wavenet-C">cmn-CN-Wavenet-C</option><option value="cmn-CN-Wavenet-D">cmn-CN-Wavenet-D</option></select></label>
+        </div>
+        <div class="reader-settings-actions"><button type="button" data-google-tts-save>保存 Key</button><button type="button" data-google-tts-clear>清除 Key</button></div>
+        <p class="reader-settings-note">API key 只保存在本机 <code>localStorage</code>，请在 Google Cloud 限制 Text-to-Speech API 与 HTTP referrer。</p>
+      </div>
+    </dialog>
+    <p class="reader-status" data-reader-status>可使用浏览器语音朗读本文；若保存 Google TTS key，会优先使用 Google 云端普通话朗读。</p>
+  </div>
+
+  
+
+  <section id="window"><h2>报告范围</h2><p>本文使用 2026 年 10 月 24 日 12:02 至 10 月 26 日 12:02 的澳门时间窗口。10 月 24 日和 25 日为周末。报告优先记录交易所、监管机构和公司披露，并把无法复核的市场传闻排除。</p></section>
+  <section id="top"><h2>今日最重要的 6 条</h2><ol class="top-list">
+    <li class="market-card"><span class="tag">P0｜港股 IPO</span><h3>HKEX 新申请人页面在 10 月 25 日更新</h3><p>HKEX 新上市页面显示更新日期为 10 月 25 日。最新公开申请文件为 10 月 22 日的 CSG Smart Science &amp; Technology Co., Ltd. application proof 与委任公告。</p><p class="meta">来源：<a href="https://www1.hkexnews.hk/app/appindex.html">HKEX New Listings</a></p></li>
+    <li class="market-card"><span class="tag">P1｜港股 IPO</span><h3>CSG Smart Science 仍处申请文件阶段</h3><p>页面显示该申请人有第一份 application proof。当前没有公开定价、发行股数、募资额、基石投资者或锁定期数据。不能把申请文件写成确定上市。</p><p class="meta">来源：<a href="https://www1.hkexnews.hk/app/appindex.html">HKEX Application Proof</a></p></li>
+    <li class="market-card"><span class="tag">P1｜港股 IPO</span><h3>DataCanvas 与 Voyager Intelligent Systems 仍在申请人清单</h3><p>HKEX 页面列出 DataCanvas 和 Voyager Intelligent Systems 的近期申请文件。两者仍需要招股书、财务、发行条款、基石、流动性、锁定期和诉讼风险核验。</p><p class="meta">来源：<a href="https://www1.hkexnews.hk/app/appindex.html">HKEX New Listings</a></p></li>
+    <li class="market-card"><span class="tag">P1｜美股 IPO</span><h3>本窗口没有可完整核验的新增美国 IPO 注册文件</h3><p>SEC EDGAR、Nasdaq IPO Calendar 和 NYSE IPO Center 是本次复检入口。SEC 页面触发访问保护，Nasdaq 页面无法稳定加载，因此不把媒体线索写成已递交 S-1 或 F-1。</p><p class="meta">来源：<a href="https://www.sec.gov/search-filings">SEC EDGAR</a>、<a href="https://www.nasdaq.com/market-activity/ipos">Nasdaq IPO Calendar</a>、<a href="https://www.nyse.com/ipo-center/filings">NYSE IPO Center</a></p></li>
+    <li class="market-card"><span class="tag">P1｜美股</span><h3>周末没有新的美国现金市场收市数据</h3><p>本窗口内没有新的美国交易日收市数据。上一个可用收市数据应与 10 月 23 日的公开报道一起查看，不能把周末新闻页面当作 10 月 26 日盘中价格。</p><p class="meta">参考入口：<a href="https://apnews.com/article/stocks-wall-street-nasdaq-dow-1970e79d013cbddcae89c53b4b98f384">Associated Press Markets</a></p></li>
+    <li class="market-card"><span class="tag">P1｜风险</span><h3>IPO 文件完整度是当前主要事件驱动因素</h3><p>港股申请人页面提供了文件状态，但没有完整发行条款。当前适合继续核验，不适合从申请文件推导估值、上市时间或收益判断。</p><p class="meta">来源：<a href="https://www1.hkexnews.hk/app/sehkappmainindex.htm">HKEX PHIP</a>、<a href="https://www.sec.gov/search-filings">SEC EDGAR</a></p></li>
+  </ol></section>
+  <section id="us"><h2>美股重点</h2><h3>数据时点</h3><p>10 月 24 日和 25 日为周末。报告不新增指数点位。10 月 23 日收市数据只作为上一交易日背景，不能替代 10 月 26 日实时行情。</p><h3>事件线索</h3><p>本窗口没有完成 SEC、Nasdaq 和 NYSE 页面上的美国 IPO 新文件核验。下一步应检查 S-1、F-1、424B4、公司 IR 和交易所正式公告。</p></section>
+  <section id="hk"><h2>港股重点</h2><h3>申请文件可见度较高</h3><p>HKEX 新申请人页面明确显示 10 月 25 日更新，并列出 CSG Smart Science、DataCanvas 和 Voyager Intelligent Systems 等申请人。申请状态不等于上市批准。</p><h3>继续核验</h3><ul><li>检查申请人的完整 application proof、PHIP 和正式招股书。</li><li>区分委任公告、申请文件、聆讯后资料集和上市公告。</li><li>核对收入、现金流、客户集中度、基石投资者、锁定期和诉讼风险。</li></ul></section>
+  <section id="recent-ipos"><h2>港股和美股近期 IPO</h2><h3>近期已上市 IPO</h3><p>本窗口已检查 HKEX 新上市入口、SEC EDGAR、Nasdaq IPO Calendar 和 NYSE IPO Center。没有一组近期已上市候选能在本窗口完成业务质量、财务质量、发行条款、基石或战略投资者、流动性、锁定期、监管与诉讼风险的完整核验。因此不把首日表现写成交易结论。</p><h3>即将 IPO / 已递表 / 已提交注册文件</h3><div class="table-wrap"><table><thead><tr><th>候选</th><th>文件状态</th><th>核验重点</th><th>关注等级</th></tr></thead><tbody><tr><td>CSG Smart Science &amp; Technology</td><td>HKEX 10 月 22 日 application proof 与委任公告</td><td>收入、利润、现金流、发行条款、基石、锁定期、监管与诉讼风险</td><td><span class="tag">信息不足</span></td></tr><tr><td>DataCanvas</td><td>HKEX 10 月 12 日 application proof 记录</td><td>AI 软件业务质量、客户集中度、毛利、估值与上市进度</td><td><span class="tag">谨慎关注</span></td></tr><tr><td>Voyager Intelligent Systems</td><td>HKEX 10 月 12 日申请文件记录</td><td>机器人或智能系统业务、现金跑道、发行条款和流动性</td><td><span class="tag">信息不足</span></td></tr><tr><td>美国 IPO 候选</td><td>SEC、Nasdaq 和 NYSE 入口复检未完成新增文件确认</td><td>等待公开 S-1/F-1、424B4、发行价和锁定期</td><td><span class="tag">暂不关注</span></td></tr></tbody></table></div><p>来源入口：<a href="https://www1.hkexnews.hk/app/appindex.html">HKEX 新申请人</a>、<a href="https://www1.hkexnews.hk/app/sehkappmainindex.htm">HKEX 聆讯后资料集</a>、<a href="https://www.sec.gov/search-filings">SEC EDGAR</a>、<a href="https://www.nasdaq.com/market-activity/ipos">Nasdaq IPO Calendar</a>、<a href="https://www.nyse.com/ipo-center/filings">NYSE IPO Center</a>。关注等级只表示继续研究优先级，不表示买入、卖出、目标价或确定收益。</p></section>
+  <section id="unicorns"><h2>AI 独角兽 / IPO</h2><p>本窗口没有公开文件支持新的 AI 独角兽估值结论。DataCanvas 和 Voyager Intelligent Systems 是 HKEX 申请文件线索，不应在没有招股书财务和发行条款时写成估值判断。</p></section>
+  <section id="earnings"><h2>财报与指引</h2><ul><li><strong>AI 软件：</strong>核对收入增长、客户集中度、毛利、续约率和现金流。</li><li><strong>智能系统：</strong>核对订单、存货、研发投入、现金跑道和供应链。</li><li><strong>美股 IPO：</strong>等待 SEC 注册文件、审计财务、发行区间和锁定期。</li><li><strong>港股 IPO：</strong>用 HKEX 原始文件替代媒体标题。</li></ul></section>
+  <section id="risks"><h2>监管与风险</h2><div class="warn"><p><strong>文件风险：</strong>application proof 不等于聆讯通过、上市批准或确定上市时间。</p><p><strong>流动性风险：</strong>新股发行规模、基石锁定期和公众持股比例会影响上市后交易。</p><p><strong>数据时点风险：</strong>周末没有新的美国现金市场收市数据。旧收市点位不代表实时价格。</p><p><strong>访问风险：</strong>SEC 和 Nasdaq 页面在本次复检中受访问或加载限制。缺口已标注。</p></div><p>本报告不提供买卖建议。关注等级只表示资料完整度和继续核验优先级。</p></section>
+  <section id="event-focus"><h2>事件驱动股票专题</h2><h3>主题：港股申请文件进入下一阶段核验</h3><p>当前可验证事件链是 HKEX 页面在 10 月 25 日更新，并列出 10 月 22 日的 CSG Smart Science application proof。后续事件包括 PHIP、聆讯结果、招股书、定价、配售和上市公告。只有出现正式文件，才更新业务、估值、流动性和风险判断。</p><p>相关公司只因交易所文件触发观察，不构成交易建议。</p></section>
+  <section id="next"><h2>明日继续跟踪</h2><ul><li>CSG Smart Science 是否出现新的 HKEX 文件或 PHIP。</li><li>DataCanvas 和 Voyager Intelligent Systems 的申请状态与招股书更新。</li><li>SEC 是否恢复可访问并出现新的 S-1、F-1 或 424B4。</li><li>美国市场恢复交易后的指数、成交量和公司正式公告。</li></ul></section>
+  <section id="coverage"><h2>来源覆盖与缺口</h2><p><strong>已覆盖：</strong>HKEX 新申请人、HKEX 聆讯后资料集、SEC EDGAR、Nasdaq IPO Calendar、NYSE IPO Center 和 Associated Press 市场入口。</p><p><strong>缺口：</strong>SEC 页面触发访问保护，Nasdaq 页面无法稳定加载。周末没有新的美国现金市场收市数据。没有未经文件核验的 IPO 估值结论。</p><p>工作文件：<code>tmp/STOCK/20261026/</code>（来源重检、原始发现、排序、中文草稿）。</p></section>
+  <script src="../../assets/report-reader.js" defer></script>
+</body>
+</html>
